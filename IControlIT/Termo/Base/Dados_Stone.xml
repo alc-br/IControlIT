@@ -1,0 +1,227 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<xml>
+  
+  <!-- Termo para devolucao (CELUALR)****************************************************************************** -->
+  <Devolucao_Telefonia_Movel>
+    <Titulo>TERMO DE DEVOLUÇÃO DE EQUIPAMENTO DE TI </Titulo>
+    <Texto1>declaro haver devolvido, o equipamento e acessórios abaixo descritos, o qual se destinou exclusivamente para uso a serviço da </Texto1>
+	<Texto2> e que ficou sob minha responsabilidade.</Texto2>
+    <Linha>Linha: </Linha>
+    <AtivoTipo>Tipo: </AtivoTipo>
+    <Operadora>Operadora: </Operadora>
+	<Filial>Localidade: </Filial>
+    <DadosUsuario>IDENTIFICAÇÃO DO PORTADOR</DadosUsuario>
+    <Nome>Usuário: </Nome>
+    <Login>Login: </Login>
+    <CentroCusto>CDC: </CentroCusto>
+    <Matricula>CPF: </Matricula>
+    <Departamento>Departamento: </Departamento>
+    <Ciente>IDENTIFICAÇÃO DO EQUIPAMENTO</Ciente>
+    <DadosAparelho>Dados do(s) aparelho(s):</DadosAparelho>
+    <MarcaModelo>Modelo: </MarcaModelo>
+    <ImeiAparelho>IMEI: </ImeiAparelho>
+    <ChipAparelho>Chip: </ChipAparelho>
+    <Acessorio>Acessórios: </Acessorio>
+    <Acessorios>Acessório(s): </Acessorios>
+	<Data_1>Data da Devolução </Data_1>
+	<Data_Texto_1>__________________________________________________</Data_Texto_1>
+	<Obs> </Obs>
+    
+    <Linha_Assinatura_1>______________________________</Linha_Assinatura_1>
+    <Linha_Assinatura_2>______________________________</Linha_Assinatura_2>
+    <Linha_Assinatura_3></Linha_Assinatura_3>
+    
+    <Assinatura_1>[assinatura] Colaborador:</Assinatura_1>
+    <Assinatura_2>[nome/assinatura] Analista TI / SOS:</Assinatura_2>
+    <Assinatura_3></Assinatura_3>
+  </Devolucao_Telefonia_Movel>
+
+  <!-- Termo para devolucao (DESKTOP)****************************************************************************** -->
+  <Devolucao_Desktop>
+    <Titulo>TERMO DE DEVOLUÇÃO DE EQUIPAMENTO </Titulo>
+    <Texto1>declaro haver devolvido, o equipamento e acessórios abaixo descritos, o qual se destinou exclusivamente para uso a serviço da </Texto1>
+	<Texto2> e que ficou sob minha responsabilidade.</Texto2>
+	<Equipamento>Equipamento: </Equipamento>
+    <NS>Número de Série: </NS>
+    <Modelo>Modelo: </Modelo>
+    <Codigo>Código de TI:</Codigo>
+    <Acessorio>Acessório: </Acessorio>
+    <DadosUsuario>Dados do usuário(a):</DadosUsuario>
+    <Login>Login: </Login>
+    <CentroCusto>CDC: </CentroCusto>
+    <Matricula>Matricula: </Matricula>
+    <Departamento>Departamento: </Departamento>
+    <Ciente>Informo ciência do(s) seguinte(s)aparelho(s): </Ciente>
+    <DadosAparelho>Dados do(s) aparelho(s):</DadosAparelho>
+    <Obs>Recebido por:</Obs>
+    <Assinatura_1>Nome/RG</Assinatura_1>
+    <Assinatura_2>1)Testemunha/RG</Assinatura_2>
+    <Assinatura_3>2)Testemunha/RG</Assinatura_3>
+  </Devolucao_Desktop>
+  
+  <!-- Termo de entrega (Celular)****************************************************************************** -->
+  <Telefonia_Movel>
+    <titulo>TERMO DE RESPONSABILIDADE PELA GUARDA DE USO </titulo>
+    <subtitulo>EQUIPAMENTO/ITEM DE TI</subtitulo>
+
+    <DadosUsuario>IDENTIFICAÇÃO DO PORTADOR</DadosUsuario>
+    <Ciente>IDENTIFICAÇÃO DO EQUIPAMENTO</Ciente>
+    <DadosAparelho></DadosAparelho>
+
+    <linha>Linha: </linha>
+	<Operadora>Operadora: </Operadora>	  
+    <Login>Login: </Login>
+    <Filial>Localidade: </Filial>
+    <Matricula>CPF: </Matricula>
+    <CentroCusto>CDC: </CentroCusto>
+    <Departamento>Departamento: </Departamento>
+	<Data_1></Data_1>
+	<Data_2></Data_2>
+	<Data_Texto_1></Data_Texto_1>
+	<Data_Texto_2></Data_Texto_2>
+	  
+    <texto1>Eu,</texto1>
+
+    <texto2>, declaro haver recebido o equipamento acima descrito, o qual se destina exclusivamente para uso da Companhia e que ficará sob minha responsabilidade. </texto2>
+
+    <texto3>A STONE PAGAMENTOS S.A., sociedade por ações, com sede na Cidade de São Paulo, Estado de São Paulo, na Rua Fidêncio Ramos, nº308, bloco A, 10º andar, Vila Olímpia, CEP 04551-010, inscrita no CNPJ/MF sob o nº 16.501.555/0001-57 (“Stone CO”), formaliza a entrega do Equipamento/Item de TI/Item de TI especificado neste TERMO DE RESPONSABILIDADE, base as seguintes condições:</texto3>
+    
+    <texto3_1>1.	O Equipamento/Item de TI é de propriedade da Stone CO e deverá ser utilizado única e exclusivamente para fins das atividades e funções desempenhadas a serviço da Stone CO. </texto3_1>
+
+    <texto3_2>2.	Para garantir a segurança do Equipamento/Item de TI e a integridade das informações neles contidas o Usuário é responsável pela guarda, armazenamento, segurança, uso e conservação do Equipamento/Item de TI. Não podendo emprestar, alugar ou, de qualquer forma, ceder a terceiros, sem a prévia e formal autorização da Stone CO e sua área de TI. </texto3_2>
+
+    <texto3_3>3.	Em caso de danos, avarias ou prejuízo do Equipamento/Item de TI em razão de mau uso, negligência, imprudência ou extravio por parte do Portador, este será responsável perante a Stone por eventuais valores despendidos para o conserto ou substituição do Equipamento/Item de TI. Autorizando o desconto em Folha de Pagamento ou em meu Centro de Custos (quando o desconto em Folha de pagamento não for autorizado) o valor constante na nota fiscal do aparelho no ato da compra. </texto3_3>
+
+    <texto3_4>4.	Ao término do Contrato de Trabalho do Portador, o Equipamento/Item de TI deverá ser devolvido imediatamente em perfeitas condições, salvo seu desgaste natural, no dia da comunicação de seu desligamento. A não devolução implicará no desconto do valor pago na rescisão ou no Centro de Custos da área quando o desconto em folha não for possível. </texto3_4>
+
+    <texto3_5>5.	Em caso de desligamento e/ou quando a empresa decidir encerrar a utilização dos serviços, a devolução do Equipamento/Item de TI e/ou SIM CARD (chip) deverá ocorrer nas mesmas condições do recebimento, para baixa deste termo de responsabilidade.  </texto3_5>
+
+    <texto3_6>6.	Em caso de furto ou roubo, registrar Boletim de Ocorrência e entregá-lo a área TI – Telefonia Móvel, que deverá adotar as providências legais cabíveis. </texto3_6>
+
+    <texto3_7>7.	Não retirar o chip e incluir em outro aparelho pessoal </texto3_7>
+    
+    <texto3_8>Autorizo desconto em Folha de Pagamento não sendo possível em meu Centro de Custos por eventuais danos, avarias ou prejuízo causados ao Equipamento/Item de TI em razão de mau uso, negligência, imprudência ou extravio valores despendidos para o conserto ou substituição do Equipamento/Item de TI o valor constante na nota fiscal do aparelho no ato da compra.</texto3_8>
+    
+    <texto3_9>A partir da assinatura do presente Termo, fica eleito o foro de São Paulo para dirimir quaisquer dúvidas provenientes deste instrumento.</texto3_9>
+
+    <texto3_10>O presente Termo constitui título executivo extrajudicial, nos termos do artigo 585, inciso II, da Lei nº 5.869, de 11 de janeiro de 1973 e do art. 784, inciso II, da Lei nº 13.105, de 16 de março de 2015 (“Códigos de Processo Civil”), de acordo com a vigência de cada legislação.</texto3_10>
+    
+    <texto9></texto9>
+    
+    <texto10></texto10>
+    <texto11></texto11>
+    <texto12></texto12>
+    <texto13></texto13>
+    <texto14></texto14>
+    <texto15></texto15>
+    <texto16></texto16>
+    <texto17></texto17>
+    <texto18></texto18>
+    <texto19></texto19>
+
+    <texto20>Dados para uso de TI Comunicações:</texto20>
+    <MarcaModeloAparelho>Marca/Modelo:</MarcaModeloAparelho>
+    <TipoAtivo>Tipo/Ativo:</TipoAtivo>
+    <ImeiAparelho>IMEI: </ImeiAparelho>
+    <ChipAparelho>Chip: </ChipAparelho>
+    <Acessorio>Acessórios: </Acessorio>
+    <NotaFiscal>Nota Fiscal: </NotaFiscal>
+
+    <texto22></texto22>
+    <texto23></texto23>
+    <texto24></texto24>
+
+	<Assinatura_1>Data Recebimento:</Assinatura_1>
+    <Assinatura_2>Data Envio:</Assinatura_2>
+    <Assinatura_3></Assinatura_3>
+	<Assinatura_4></Assinatura_4>
+	<Assinatura_5>[assinatura] Colaborador:</Assinatura_5>
+	<Assinatura_6>[nome/assinatura] Analista TI / SOS:</Assinatura_6>
+
+	<Linha_Assinatura_1>______________________________</Linha_Assinatura_1>
+	<Linha_Assinatura_2>______________________________</Linha_Assinatura_2>
+	<Linha_Assinatura_3></Linha_Assinatura_3>
+	<Linha_Assinatura_4></Linha_Assinatura_4>
+	<Linha_Assinatura_5>______________________________</Linha_Assinatura_5>
+	<Linha_Assinatura_6>______________________________</Linha_Assinatura_6>	  
+	  
+  </Telefonia_Movel>
+
+  <!-- Termo de entrega (Desktop)****************************************************************************** -->
+  <Desktop>
+    <titulo>TERMO DE RESPONSABILIDADE </titulo>
+    <subtitulo>Equipamento</subtitulo>
+
+    <DadosUsuario>Dados do usuário(a):</DadosUsuario>
+    <Ciente>Informo ciência do(s) seguinte(s)aparelho(s) e ou acessório(s)</Ciente>
+    <DadosAparelho></DadosAparelho>
+
+    <linha>Linha: </linha>
+    <Login>Login: </Login>
+    <Filial>Unidade: </Filial>
+    <Matricula>Matricula: </Matricula>
+    <CentroCusto>CDC: </CentroCusto>
+    <Departamento>Departamento: </Departamento>
+    <Data>Data: </Data>
+    <texto1>Eu,</texto1>
+
+    <texto2>, declaro haver recebido o equipamento acima descrito, o qual se destina exclusivamente para uso da Companhia e que ficará sob minha responsabilidade. </texto2>
+
+    <texto3>Declaro estar ciente que:</texto3>
+
+    <texto3_1>1) Devo zelar pela integridade do EQUIPAMENTO que me foi confiado estritamente como instrumento de trabalho, obrigando-me, desde já e a qualquer tempo, mediante solicitação da Empresa, a restituí-lo temporária ou definitivamente ou por ocasião de meu desligamento da Empresa, independentemente do motivo.</texto3_1>
+
+    <texto3_2>2) Deverei arcar com os custos de danos causados ao EQUIPAMENTO, na forma do artigo 462 da CLT.</texto3_2>
+
+    <texto3_3>3) Deverei comunicar imediatamente a Empresa a perda, extravio, dano, furto ou roubo do EQUIPAMENTO que me foi confiado, devidamente documentado em Boletim de Ocorrência.</texto3_3>
+
+    <texto3_4>4) É vedado o uso do EQUIPAMENTO para fins particulares.</texto3_4>
+
+    <texto3_5>5) Devo seguir as recomendações abaixo:</texto3_5>
+
+    <texto3_6>5.1. Manter o EQUIPAMENTO em local seguro e em condições de uso normal, ou seja, não submeter o EQUIPAMENTO à umidade, exposição ao sol, chuva, oscilação de energia, etc;</texto3_6>
+
+    <texto3_7>5.2. Em hipótese alguma, deixar o EQUIPAMENTO no interior de veículos, em função do risco de furto;</texto3_7>
+
+    <texto3_8>5.3. Não permitir que terceiros utilizem o EQUIPAMENTO, com a finalidade de proteger as informações confidenciais que são de propriedade da Empresa;</texto3_8>
+
+    <texto3_9>5.4. Seguir as orientações contidas no Manual do Usuário e do Certificado de Garantia do EQUIPAMENTO; </texto3_9>
+
+    <texto3_10>6) Autorizo, desde já, que seja descontado de meu salário a importância equivalente ao valor do EQUIPAMENTO caso não o restitua à Empresa, quando solicitado, e ainda na hipótese de culpa ou dolo devidamente comprovado.</texto3_10>
+
+    <texto9> Este documento deve ser emitido em duas vias sendo que a primeira deve ser arquivada no prontuário do funcionário.</texto9>
+
+    <texto10></texto10>
+
+    <texto11></texto11>
+
+    <texto12></texto12>
+
+    <texto13></texto13>
+    <texto14></texto14>
+    <texto15></texto15>
+    <texto16></texto16>
+    <texto17></texto17>
+    <texto18></texto18>
+    <texto19></texto19>
+
+    <texto20>Dados para uso de TI Comunicações:</texto20>
+
+    <Equipamento>Equipamento: </Equipamento>
+    <Codigo_TI>Código TI:</Codigo_TI>
+    <Numero_Serie>Número Série:</Numero_Serie>
+    <Modelo>Modelo: </Modelo>
+    <Patrimonio>Patrimonio: </Patrimonio>
+    <Acessorio>Acessórios: </Acessorio>
+    
+    <texto21></texto21>
+    <texto22></texto22>
+    <texto23></texto23>
+    <texto24></texto24>
+
+    <Assinatura_1>Nome/RG</Assinatura_1>
+    <Assinatura_2>1)Testemunha/RG</Assinatura_2>
+    <Assinatura_3>2)Testemunha/RG</Assinatura_3>
+
+  </Desktop>
+</xml>

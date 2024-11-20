@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="Contrato">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Contrato" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNr_Contrato" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pDescricao" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Contrato_Status" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Servico" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pDt_Inicio_Vigencia" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="pDt_Fim_Vigencia" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="pId_Filial" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pId_Empresa_Contratada" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pObjeto" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario_Permissao" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRetorno" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ContratoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ContratoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Contrato_SLA_Operacao">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Contrato_SLA_Operacao" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Contrato" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pDescricao" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pPrazo_Dias" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pVr_SLA_Operacao" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario_Permissao" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRetorno" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Contrato_SLA_OperacaoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Contrato_SLA_OperacaoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Contrato_SLA_Servico">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Contrato_SLA_Servico" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Contrato" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pDescricao" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pTipo_Servico" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pVr_SLA_Servico" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario_Permissao" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRetorno" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Contrato_SLA_ServicoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Contrato_SLA_ServicoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Contrato_Aditivo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Contrato_Aditivo" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Contrato" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pDt_Vigencia" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="pDescricao" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario_Permissao" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRetorno" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Contrato_AditivoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Contrato_AditivoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ContratoSoapIn">
+    <wsdl:part name="parameters" element="tns:Contrato" />
+  </wsdl:message>
+  <wsdl:message name="ContratoSoapOut">
+    <wsdl:part name="parameters" element="tns:ContratoResponse" />
+  </wsdl:message>
+  <wsdl:message name="Contrato_SLA_OperacaoSoapIn">
+    <wsdl:part name="parameters" element="tns:Contrato_SLA_Operacao" />
+  </wsdl:message>
+  <wsdl:message name="Contrato_SLA_OperacaoSoapOut">
+    <wsdl:part name="parameters" element="tns:Contrato_SLA_OperacaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="Contrato_SLA_ServicoSoapIn">
+    <wsdl:part name="parameters" element="tns:Contrato_SLA_Servico" />
+  </wsdl:message>
+  <wsdl:message name="Contrato_SLA_ServicoSoapOut">
+    <wsdl:part name="parameters" element="tns:Contrato_SLA_ServicoResponse" />
+  </wsdl:message>
+  <wsdl:message name="Contrato_AditivoSoapIn">
+    <wsdl:part name="parameters" element="tns:Contrato_Aditivo" />
+  </wsdl:message>
+  <wsdl:message name="Contrato_AditivoSoapOut">
+    <wsdl:part name="parameters" element="tns:Contrato_AditivoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WSContratoSoap">
+    <wsdl:operation name="Contrato">
+      <wsdl:input message="tns:ContratoSoapIn" />
+      <wsdl:output message="tns:ContratoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Contrato_SLA_Operacao">
+      <wsdl:input message="tns:Contrato_SLA_OperacaoSoapIn" />
+      <wsdl:output message="tns:Contrato_SLA_OperacaoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Contrato_SLA_Servico">
+      <wsdl:input message="tns:Contrato_SLA_ServicoSoapIn" />
+      <wsdl:output message="tns:Contrato_SLA_ServicoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Contrato_Aditivo">
+      <wsdl:input message="tns:Contrato_AditivoSoapIn" />
+      <wsdl:output message="tns:Contrato_AditivoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSContratoSoap" type="tns:WSContratoSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Contrato">
+      <soap:operation soapAction="http://tempuri.org/Contrato" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Contrato_SLA_Operacao">
+      <soap:operation soapAction="http://tempuri.org/Contrato_SLA_Operacao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Contrato_SLA_Servico">
+      <soap:operation soapAction="http://tempuri.org/Contrato_SLA_Servico" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Contrato_Aditivo">
+      <soap:operation soapAction="http://tempuri.org/Contrato_Aditivo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WSContratoSoap12" type="tns:WSContratoSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Contrato">
+      <soap12:operation soapAction="http://tempuri.org/Contrato" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Contrato_SLA_Operacao">
+      <soap12:operation soapAction="http://tempuri.org/Contrato_SLA_Operacao" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Contrato_SLA_Servico">
+      <soap12:operation soapAction="http://tempuri.org/Contrato_SLA_Servico" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Contrato_Aditivo">
+      <soap12:operation soapAction="http://tempuri.org/Contrato_Aditivo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WSContrato">
+    <wsdl:port name="WSContratoSoap" binding="tns:WSContratoSoap">
+      <soap:address location="https://localhost:44382/WSContrato.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WSContratoSoap12" binding="tns:WSContratoSoap12">
+      <soap12:address location="https://localhost:44382/WSContrato.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

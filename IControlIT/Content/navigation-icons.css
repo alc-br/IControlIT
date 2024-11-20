@@ -1,0 +1,85 @@
+.menu-navigation-icons {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    font-size:0;
+}
+
+    .menu-navigation-icons a {
+        display: inline-block;
+        color: #656361;
+        font-size: 36px;
+        font-weight: bold;
+        text-transform: uppercase;
+        text-decoration: none;
+        white-space: nowrap;
+        width: 80px;
+    }
+
+.menu-navigation-icons a:hover{
+    opacity:0.88;
+}
+
+.menu-navigation-icons a i {
+    display: block;
+    line-height: 2;
+}
+
+.menu-navigation-icons a span {
+    display: block;
+    font-size: 10px;
+    font-weight: bold;
+    line-height: 0;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+/* Menu colors */
+.menu-navigation-icons a.menu-magenta	{ background-color: #dc68bf; }
+.menu-navigation-icons a.menu-magenta i { color: #9d518a; }
+
+.menu-navigation-icons a.menu-blue		{ background-color: #57b2d8; }
+.menu-navigation-icons a.menu-blue i	{ color: #3e8fb1; }
+
+.menu-navigation-icons a.menu-green		{ background-color: #8ccc7a; }
+.menu-navigation-icons a.menu-green i	{ color: #6fad5e; }
+
+.menu-navigation-icons a.menu-yellow	{ background-color: #dadf50; }
+.menu-navigation-icons a.menu-yellow i	{ color: #babe4a; }
+
+.menu-navigation-icons a.menu-red 		{ background-color: #f26262; }
+.menu-navigation-icons a.menu-red i		{ color: #d34646; }
+
+/* Make this page responsive */
+
+/*.slicknav_menu {
+    display:none;
+}*/
+
+@media (max-width: 800px) {
+    /*.menu-navigation-icons{
+        display:none;
+    }
+
+    .slicknav_nav a i {
+        display: none;
+    }
+
+    .slicknav_menu {
+        display:block;
+    }*/
+
+    .menu-navigation-icons {
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
+        font-size: 0;
+    }
+        .menu-navigation-icons a {
+            display: inline-block;
+            color: #656361;
+            font-size: 36px;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-decoration: none;
+            white-space: nowrap;
+            width: 50px;
+        }
+}

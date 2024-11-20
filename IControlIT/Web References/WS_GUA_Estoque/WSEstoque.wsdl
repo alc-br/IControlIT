@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="Aparelho">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Aparelho" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNr_Aparelho" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNr_Aparelho_2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNr_Linha_Solicitacao" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNr_Chamado" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pDt_Chamado" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNr_Pedido" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pDt_Pedido" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Estoque_Nota_Fiscal" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Conglomerado" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Aparelho_Tipo" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Ativo_Tipo" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Ativo_Modelo" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Estoque_Aparelho_Status" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pObservacao" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pJustificativa_Desativacao" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Estoque_Endereco_Entrega" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Consumidor" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pCk_Carregador" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="pCk_Cabousb" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="pCk_Fone" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="pCk_Pelicula" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="pCk_Capaprotecao" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario_Permissao" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRetorno" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AparelhoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AparelhoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Nota_Fiscal">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Estoque_Nota_Fiscal" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNr_Nota_Fiscal" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pDt_Nota_Fiscal" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Ativo_Fr_Aquisicao" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pVr_Fr_Aquisicao" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="pDt_Inicio_Fr_Aquisicao" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="pQtd_Mes_Residuo_Fr_Aquisicao" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pObservacao" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario_Permissao" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRetorno" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Nota_FiscalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Nota_FiscalResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Estoque_Endereco_Entrega">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Estoque_Endereco_Entrega" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNm_Estoque_Endereco_Entrega" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario_Permissao" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRetorno" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Estoque_Endereco_EntregaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Estoque_Endereco_EntregaResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Estoque_Consumidor">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pId_Consumidor" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario_Permissao" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRetorno" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Estoque_ConsumidorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Estoque_ConsumidorResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Estoque">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pId_Consumidor" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNr_Ativo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNr_Pedido" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNr_Nota_Fiscal" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Aparelho" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Ativo" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pObservacao" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario_Permissao" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRetorno" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EstoqueResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EstoqueResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AparelhoSoapIn">
+    <wsdl:part name="parameters" element="tns:Aparelho" />
+  </wsdl:message>
+  <wsdl:message name="AparelhoSoapOut">
+    <wsdl:part name="parameters" element="tns:AparelhoResponse" />
+  </wsdl:message>
+  <wsdl:message name="Nota_FiscalSoapIn">
+    <wsdl:part name="parameters" element="tns:Nota_Fiscal" />
+  </wsdl:message>
+  <wsdl:message name="Nota_FiscalSoapOut">
+    <wsdl:part name="parameters" element="tns:Nota_FiscalResponse" />
+  </wsdl:message>
+  <wsdl:message name="Estoque_Endereco_EntregaSoapIn">
+    <wsdl:part name="parameters" element="tns:Estoque_Endereco_Entrega" />
+  </wsdl:message>
+  <wsdl:message name="Estoque_Endereco_EntregaSoapOut">
+    <wsdl:part name="parameters" element="tns:Estoque_Endereco_EntregaResponse" />
+  </wsdl:message>
+  <wsdl:message name="Estoque_ConsumidorSoapIn">
+    <wsdl:part name="parameters" element="tns:Estoque_Consumidor" />
+  </wsdl:message>
+  <wsdl:message name="Estoque_ConsumidorSoapOut">
+    <wsdl:part name="parameters" element="tns:Estoque_ConsumidorResponse" />
+  </wsdl:message>
+  <wsdl:message name="EstoqueSoapIn">
+    <wsdl:part name="parameters" element="tns:Estoque" />
+  </wsdl:message>
+  <wsdl:message name="EstoqueSoapOut">
+    <wsdl:part name="parameters" element="tns:EstoqueResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WSEstoqueSoap">
+    <wsdl:operation name="Aparelho">
+      <wsdl:input message="tns:AparelhoSoapIn" />
+      <wsdl:output message="tns:AparelhoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Nota_Fiscal">
+      <wsdl:input message="tns:Nota_FiscalSoapIn" />
+      <wsdl:output message="tns:Nota_FiscalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Estoque_Endereco_Entrega">
+      <wsdl:input message="tns:Estoque_Endereco_EntregaSoapIn" />
+      <wsdl:output message="tns:Estoque_Endereco_EntregaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Estoque_Consumidor">
+      <wsdl:input message="tns:Estoque_ConsumidorSoapIn" />
+      <wsdl:output message="tns:Estoque_ConsumidorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Estoque">
+      <wsdl:input message="tns:EstoqueSoapIn" />
+      <wsdl:output message="tns:EstoqueSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSEstoqueSoap" type="tns:WSEstoqueSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Aparelho">
+      <soap:operation soapAction="http://tempuri.org/Aparelho" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Nota_Fiscal">
+      <soap:operation soapAction="http://tempuri.org/Nota_Fiscal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Estoque_Endereco_Entrega">
+      <soap:operation soapAction="http://tempuri.org/Estoque_Endereco_Entrega" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Estoque_Consumidor">
+      <soap:operation soapAction="http://tempuri.org/Estoque_Consumidor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Estoque">
+      <soap:operation soapAction="http://tempuri.org/Estoque" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WSEstoqueSoap12" type="tns:WSEstoqueSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Aparelho">
+      <soap12:operation soapAction="http://tempuri.org/Aparelho" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Nota_Fiscal">
+      <soap12:operation soapAction="http://tempuri.org/Nota_Fiscal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Estoque_Endereco_Entrega">
+      <soap12:operation soapAction="http://tempuri.org/Estoque_Endereco_Entrega" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Estoque_Consumidor">
+      <soap12:operation soapAction="http://tempuri.org/Estoque_Consumidor" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Estoque">
+      <soap12:operation soapAction="http://tempuri.org/Estoque" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WSEstoque">
+    <wsdl:port name="WSEstoqueSoap" binding="tns:WSEstoqueSoap">
+      <soap:address location="http://localhost:8080/WSEstoque.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WSEstoqueSoap12" binding="tns:WSEstoqueSoap12">
+      <soap12:address location="http://localhost:8080/WSEstoque.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
