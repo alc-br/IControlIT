@@ -113,7 +113,7 @@ Public Class Estatistica_Solicitacao
     End Sub
 
     Protected Sub dtgSolicitacao_SelectedIndexChanged(sender As Object, e As System.EventArgs) Handles dtgSolicitacao.SelectedIndexChanged
-        ScriptManager.RegisterStartupScript(Me, Me.GetType(), "key", "window.open('../Solicitacao/Solicitacao.aspx" & "?ID=" & dtgSolicitacao.SelectedItem.Cells(0).Text & "','','resizable=yes, menubar=yes, scrollbars=no, height=768px, width=1024px, top=10, left=10');", True)
+        ScriptManager.RegisterStartupScript(Me, Me.GetType(), "key", "window.open('../Chamado/Solicitacao.aspx" & "?ID=" & dtgSolicitacao.SelectedItem.Cells(0).Text & "','','resizable=yes, menubar=yes, scrollbars=no, height=768px, width=1024px, top=10, left=10');", True)
     End Sub
 
     Protected Sub btExecutar_Click(sender As Object, e As EventArgs) Handles btExecutar.Click
