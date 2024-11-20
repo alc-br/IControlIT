@@ -103,28 +103,28 @@ Public Class Principal
             End If
 
             '-----verifica permissao para abertura de chamado
-            Dim vDataSet As System.Data.DataSet
-            Dim i As System.Int16
-            vDataSet = WS_Modulo.Solicitacao(Session("Conn_Banco"),
-                                            Nothing, Nothing, Session("Id_Usuario"), Nothing, Nothing, Nothing, Nothing, Nothing,
-                                            Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, "sp_Consulta_Permissao_Abertura", True)
+            'Dim vDataSet As System.Data.DataSet
+            'Dim i As System.Int16
+            'vDataSet = WS_Modulo.Solicitacao(Session("Conn_Banco"),
+            '                                Nothing, Nothing, Session("Id_Usuario"), Nothing, Nothing, Nothing, Nothing, Nothing,
+            '                                Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, "sp_Consulta_Permissao_Abertura", True)
 
-            For i = 0 To vDataSet.Tables(0).Rows.Count - 1
-                '-----usuario
-                If vDataSet.Tables(0).Rows(i).Item("Id_Solicitacao_Permissao") = 1 Then
-                    Call ValidaBotaoSuporte("1")
-                End If
+            'For i = 0 To vDataSet.Tables(0).Rows.Count - 1
+            '    '-----usuario
+            '    If vDataSet.Tables(0).Rows(i).Item("Id_Solicitacao_Permissao") = 1 Then
+            '        Call ValidaBotaoSuporte("1")
+            '    End If
 
-                '-----unidade
-                If vDataSet.Tables(0).Rows(i).Item("Id_Solicitacao_Permissao") = 2 Then
-                    Call ValidaBotaoSuporte("2")
-                End If
+            '    '-----unidade
+            '    If vDataSet.Tables(0).Rows(i).Item("Id_Solicitacao_Permissao") = 2 Then
+            '        Call ValidaBotaoSuporte("2")
+            '    End If
 
-                '-----roaming
-                If vDataSet.Tables(0).Rows(i).Item("Id_Solicitacao_Permissao") = 3 Then
-                    Call ValidaBotaoSuporte("3")
-                End If
-            Next
+            '    '-----roaming
+            '    If vDataSet.Tables(0).Rows(i).Item("Id_Solicitacao_Permissao") = 3 Then
+            '        Call ValidaBotaoSuporte("3")
+            '    End If
+            'Next
 
             '-----valida sidebar para o tipo de usuario
             If Session("Id_Usuario_Perfil_Acesso") <> Nothing Then

@@ -93,6 +93,10 @@
     <Import Include="System.Web.UI.HtmlControls" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Connect\ServiceNow\Handlers\Handler.asmx" />
+    <Content Include="Connect\ServiceNow\Models\MobileActionsRequestModel.vb" />
+    <Content Include="Connect\ServiceNow\Models\ProfileActionsRequestModel.vb" />
+    <Content Include="Connect\ServiceNow\Processors\ServiceProcessor.vb" />
     <Content Include="Default.aspx" />
     <Content Include="Web.config" />
     <Content Include="WSAuditoria.asmx" />
@@ -101,12 +105,20 @@
     <Content Include="WSContrato.asmx" />
     <Content Include="WSEstoque.asmx" />
     <Content Include="WSManutencao.asmx" />
+    <Content Include="WSChamado.asmx" />
     <Content Include="WSModulo.asmx" />
     <Content Include="WSPolitica.asmx" />
     <Content Include="WSRateio.asmx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Code\cls_Banco.vb" />
+    <Compile Include="Connect\ServiceNow\Handlers\Handler.asmx.vb">
+      <DependentUpon>Handler.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Connect\ServiceNow\Models\ProfileActionsRequestModel.vb" />
+    <Compile Include="Connect\ServiceNow\Models\MobileActionsRequestModel.vb" />
+    <Compile Include="Connect\ServiceNow\Processors\ServiceProcessor.vb" />
     <Compile Include="Default.aspx.designer.vb">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
@@ -155,6 +167,10 @@
     </Compile>
     <Compile Include="WSManutencao.asmx.vb">
       <DependentUpon>WSManutencao.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WSChamado.asmx.vb">
+      <DependentUpon>WSChamado.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="WSModulo.asmx.vb">

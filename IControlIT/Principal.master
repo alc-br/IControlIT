@@ -656,14 +656,14 @@
                                     </a>
                                 </li>
                                 <%--<li id="navSuporte" runat="server" class="nav-item">
-                                    <a id="btIncidente" runat="server" class="nav-link" href="~/Solicitacao/Consulta_Solicitacao.aspx?Pagina=suporte">
+                                    <a id="btIncidente" runat="server" class="nav-link" href="~/Chamado/Consulta_Chamado.aspx?Pagina=suporte">
                                         <i class="fas fa-life-ring"></i>
                                         <p>Suporte</p>
                                     </a>
                                 </li>--%>
                                 <li id="navChamadoAdm" runat="server" class="nav-item">
                                     <div class="dropdown">
-                                        <a id="btChamadoAdm" runat="server" class="nav-link btnSuporte" href="~/Solicitacao/Consulta_Solicitacao.aspx">
+                                        <a id="btChamadoAdm" runat="server" class="nav-link btnSuporte" href="~/Chamado/Consulta_Chamado.aspx">
                                             <i class="far fa-life-ring"></i>
                                             <p>Suporte</p>
                                         </a>
@@ -732,33 +732,33 @@
                                     </a>
                                 </li>
                                 <%--<li id="navChamado" runat="server" class="nav-item">
-                                    <a id="btChamado" runat="server" class="nav-link btnSuporte" href="~/Solicitacao/Consulta_Solicitacao.aspx">
+                                    <a id="btChamado" runat="server" class="nav-link btnSuporte" href="~/Chamado/Consulta_Chamado.aspx">
                                         <i class="far fa-life-ring"></i>
                                         <p>Suporte</p>
                                     </a>
                                 </li>--%>
                                 <li id="navChamado" runat="server" class="nav-item">
                                     <div class="dropdown">
-                                        <a id="btChamado" runat="server" class="nav-link btnSuporte" href="~/Solicitacao/Consulta_Solicitacao.aspx">
+                                        <a id="btChamado" runat="server" class="nav-link btnSuporte" href="~/Chamado/Consulta_Chamado.aspx">
                                             <i class="far fa-life-ring"></i>
                                             <p>Suporte</p>
                                         </a>
                                         <div id="divDropCadastro" class="dropdown-content" style="display: block;">
                                             <ul style="list-style: none">
                                                 <li class="nav-item">
-                                                    <a id="btRequisicaoUnidade" runat="server" class="nav-link" visible="false" href="~/Solicitacao/Solicitacao_Unidade.aspx">
+                                                    <a id="btRequisicaoUnidade" runat="server" class="nav-link" visible="false" href="~/Chamado/Solicitacao_Unidade.aspx">
                                                         <i class="fas fa-house-damage"></i>
                                                         <p>Unidade</p>
                                                     </a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a id="btRequisicaoUsuario" runat="server" class="nav-link" visible="false" href="~/Solicitacao/Solicitacao.aspx">
+                                                    <a id="btRequisicaoUsuario" runat="server" class="nav-link" visible="false" href="~/Chamado/Solicitacao.aspx">
                                                         <i class="fas fa-user"></i>
                                                         <p>Usuário</p>
                                                     </a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a id="btSolicitacao" runat="server" class="nav-link" visible="false" href="~/Solicitacao/Solicitacao_Roaming.aspx">
+                                                    <a id="btSolicitacao" runat="server" class="nav-link" visible="false" href="~/Chamado/Solicitacao_Roaming.aspx">
                                                         <i class="fas fa-plane-departure"></i>
                                                         <p>Viagem/Roaming</p>
                                                     </a>
