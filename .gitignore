@@ -1,8 +1,50 @@
+## Pasta de configuração do Visual Studio
 .vs/
 *.user
 *.suo
-*.dbmdl
-*.vsidx
-*.log
+
+## Diretórios de build
 bin/
 obj/
+out/
+
+## Arquivos de log e caches
+*.log
+*.vsidx
+*.dbmdl
+*.cache
+*.pdb
+*.db
+
+## Arquivos temporários
+*.tmp
+*.temp
+*.bak
+*.old
+
+## Configurações de IDEs e Ferramentas
+.idea/
+*.ncrunch*
+_ReSharper*/
+*.resharper
+*.DotSettings.user
+.vscode/
+
+## Arquivos de publicação
+publish/
+
+## Configurações locais e senhas
+secrets.json
+*.config.user
+
+## Banco de dados local
+*.mdf
+*.ldf
+
+## Arquivos de pacotes
+packages/
+*.nupkg
+
+## Outros
+TestResults/
+node_modules/
