@@ -1,0 +1,1031 @@
+<%@ Master Language="VB" CodeBehind="Principal.master.vb" Inherits="IControlIT.Principal" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+<%@ Register Assembly="System.Web.Extensions, Version=1.0.61025.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" Namespace="System.Web.UI" TagPrefix="asp" %>
+<%@ Register Src="Localizar.ascx" TagName="Localizar" TagPrefix="uc1" %>
+<%@ Register Src="Contrato/Contrato_Tabela.ascx" TagName="Contrato_Tabela" TagPrefix="uc2" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head id="Head1" runat="server">
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+
+    <title>K2A - IControlIT</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" />
+
+    <%-- 1. JQUERY DEVE VIR PRIMEIRO --%>
+    <script type="text/javascript" src="../Scripts/jquery-3.5.1.min.js"></script>
+
+    <script type="text/javascript" src='../JScript.js'></script>
+
+    <link rel="Stylesheet" href="CSSConfigObj.css" />
+    <link rel="Stylesheet" href="CSSEstruturalMaster.css" />
+    <link rel="Stylesheet" href="Content/bootstrap.min.css" />
+    <link rel="stylesheet" href="Content/material-dashboard.css" />
+    <link rel="stylesheet" href="Content/fontawesome.min.css" type="text/css" />
+    <link rel="stylesheet" href="Content/fontawesome-all.min.css" />
+    <link rel="stylesheet" href="Content/navigation-icons.css" />
+
+    <link rel="Shortcut Icon" href="Img_Sistema/logo.ico" />
+
+    <!-- checkbox -->
+    <script src="../Scripts/icheck.min.js" type="text/javascript"></script>
+    <link href="Content/skins/flat/blue.css" rel="stylesheet" />
+
+    <!-- fonts and icons -->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+
+    <!-- This link will always fetch the latest version of Balloon.css -->
+    <link rel="stylesheet" href="https://unpkg.com/balloon-css/balloon.min.css" />
+
+    <!-- trava o zoom quando visualizado no mobile e almenta a scala dos objetos na tela deixando responsivo -->
+    <meta name="viewport" content="width=device-width, initial-scale=0.8, maximum-scale=0.8, user-scalable=no" />
+
+    <script type="text/javascript">
+
+        // hack do Marcio para manter a sessão vida
+        setInterval("keepSessionAlive()", 5 * 60 * 1000);
+        function keepSessionAlive() {
+            var img = new Image(1, 1);
+            img.src = "/KeepSessionAlive.aspx";
+        }
+
+        //controle do modal
+        var idModal;
+        function Modal(idModal) { $(idModal).modal(); }
+        function ModalClose(idModal) { $(idModal).modal("hide"); }
+
+        //monta tamanho da tela
+        window.onload = maxWindow;
+        function maxWindow() {
+            window.moveTo(0, 0);
+
+            if (document.all) { top.window.resizeTo((screen.availWidth - 1), screen.availHeight); }
+
+            else if (document.layers || document.getElementById) {
+                if (top.window.outerHeight < screen.availHeight || top.window.outerWidth < screen.availWidth) {
+                    top.window.outerHeight = screen.availHeight;
+                    top.window.outerWidth = (screen.availWidth - 1);
+                }
+            }
+        }
+
+        function TabEstoque(pSelecao) {
+            var pHidden = document.getElementById('ContentPlaceHolder1_hdfTab');
+            pHidden.value = pSelecao;
+        }
+
+    </script>
+
+    <style type="text/css">
+        .ajax__tab_xp .ajax__tab_body {
+            font-family: Arial;
+            font-size: 10pt;
+            border-top: 0;
+            border: 1px solid #999999;
+            padding: 8px;
+            background-color: transparent;
+        }
+
+        .modalBackground {
+            background-color: Aqua;
+            top: 0px !important;
+            left: 0px !important;
+            position: absolute !important;
+            z-index: 1 !important;
+        }
+
+        .modalPopup {
+            background-color: #FFFFFF;
+            padding: 3px;
+            z-index: 10001;
+        }
+
+        footer {
+            margin-left: 15px;
+        }
+
+        .dropdown {
+            position: relative;
+            color: #FFFFFF;
+            /*display: inline-block;*/
+        }
+
+        .dropdown-content {
+            display: none;
+            /*position: absolute;*/
+            /*background-color: #f9f9f9;*/
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+            .dropdown-content a {
+                color: white;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+            }
+
+                .dropdown-content a:hover {
+                    background-color: #4E4D4B;
+                }
+
+        /*.dropdown:hover .dropdown-content {
+                        display: block;
+                    }*/
+
+        .dropdown:hover .dropbtn {
+            background-color: #3e8e41;
+        }
+
+        .dropdown-toggle-open {
+            white-space: nowrap;
+        }
+
+            .dropdown-toggle-open::after {
+                display: inline-block;
+                margin-left: 0.255em;
+                vertical-align: 0.255em;
+                content: "";
+                border-top: 0;
+                border-right: 0.3em solid transparent;
+                border-bottom: 0.3em solid;
+                border-left: 0.3em solid transparent;
+            }
+
+            .dropdown-toggle-open:empty::after {
+                margin-left: 0;
+            }
+
+        .dropdown-toggle {
+            white-space: nowrap;
+        }
+
+            .dropdown-toggle::after {
+                display: inline-block;
+                margin-left: 0.255em;
+                vertical-align: 0.255em;
+                content: "";
+                border-top: 0.3em solid;
+                border-right: 0.3em solid transparent;
+                border-bottom: 0;
+                border-left: 0.3em solid transparent;
+            }
+
+            .dropdown-toggle:empty::after {
+                margin-left: 0;
+            }
+
+        .btn-menu {
+            display: inline-block;
+            vertical-align: middle;
+            -webkit-transform: perspective(1px) translateZ(0);
+            transform: perspective(1px) translateZ(0);
+            box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+            -webkit-transition-duration: 0.3s;
+            transition-duration: 0.3s;
+            -webkit-transition-property: transform;
+            transition-property: transform;
+            -webkit-transition-timing-function: ease-out;
+            transition-timing-function: ease-out;
+        }
+
+            .btn-menu:hover, .btn-menu:focus, .btn-menu:active {
+                -webkit-transform: translateY(-8px);
+                transform: translateY(-8px);
+            }
+
+                .btn-menu:hover .speech-bubble {
+                    visibility: visible;
+                }
+
+        /*tooltip dos botões do menu*/
+        .speech-bubble {
+            position: absolute;
+            top: -35px;
+            background: #323232;
+            border-radius: 4px;
+            padding: 7px 15px 7px 15px;
+            visibility: hidden;
+        }
+
+            .speech-bubble:after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                width: 0;
+                height: 0;
+                border: 8px solid transparent;
+                border-top-color: #323232;
+                border-bottom: 0;
+                margin-left: -8px;
+                margin-bottom: -8px;
+            }
+
+        .btn-solicitacao {
+            display: inline-block;
+            vertical-align: middle;
+            -webkit-transform: perspective(1px) translateZ(0);
+            transform: perspective(1px) translateZ(0);
+            box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+            -webkit-transition-duration: 0.3s;
+            transition-duration: 0.3s;
+            -webkit-transition-property: transform;
+            transition-property: transform;
+            -webkit-transition-timing-function: ease-out;
+            transition-timing-function: ease-out;
+        }
+
+            .btn-solicitacao:hover, .btn-menu:focus, .btn-menu:active {
+                -webkit-transform: translateY(-8px);
+                transform: translateY(-8px);
+            }
+
+        *:focus {
+            outline: none;
+        }
+
+        .expandable {
+            position: fixed;
+            top: 77px;
+            width: 100%;
+            background: #0072B3;
+            overflow: hidden;
+            line-height: 50px;
+            padding-left: 15px;
+            padding-right: 15px;
+            z-index: 1;
+            transition: all .5s ease-in-out;
+            height: 0;
+        }
+
+            .expandable:target {
+                height: 50px;
+            }
+
+        .bgModal {
+            position: fixed;
+            z-index: 120;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0,0,0,0.9);
+        }
+
+        .modalPopup {
+            position: absolute;
+            z-index: 120;
+            background: #FFFFFF;
+            float: left;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            border-radius: 6px;
+            box-shadow: rgba(0,0,0,0.4) 0px 4px 8px 2px;
+            width: 500px;
+        }
+
+        .modalPopup2 {
+            position: absolute;
+            z-index: 120;
+            background: #FFFFFF;
+            float: left;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            border-radius: 6px;
+            box-shadow: rgba(0,0,0,0.4) 0px 4px 8px 2px;
+            width: 800px;
+        }
+
+        .divMenu {
+            text-align: unset;
+        }
+
+        .menu1 {
+            list-style-type: none;
+            display: inline-block;
+            padding: 0;
+            margin: 0;
+        }
+
+        .menu2 {
+            list-style-type: none;
+            display: inline-block;
+            padding: 0;
+            margin: 0;
+            float: right;
+        }
+
+        .btnToolbar {
+            white-space: normal;
+            width: 60px;
+        }
+
+        .navButtonMenu {
+            display: inline-block;
+        }
+
+        .divNavMenu {
+            width: 100%;
+            height: 60px;
+            overflow: hidden;
+        }
+
+        .navbar-toggler-1 .navbar-toggler-icon-1 {
+            width: 22px;
+            height: 2px;
+            vertical-align: middle;
+            outline: 0;
+            display: block;
+            border-radius: 1px;
+        }
+
+            .navbar-toggler-1 .navbar-toggler-icon-1 + .navbar-toggler-icon-1 {
+                margin-top: 4px;
+            }
+
+        .placeholder {
+            padding-left: 15px;
+            height: 100%;
+            /*max-width: unset;*/
+            /*overflow: unset;*/
+        }
+
+        .placeholder-pesquisa {
+            padding-left: 15px;
+            max-width: unset;
+            overflow: unset;
+        }
+
+        .divLocalizar {
+            position: fixed;
+            top: 20px;
+            right: 0px;
+            z-index: 1;
+        }
+
+        .btn-menu-toolbar {
+            display: inline-block;
+            padding: 5px;
+            text-align: center;
+        }
+
+            .btn-menu-toolbar i {
+                font-size: 16pt;
+            }
+
+            .btn-menu-toolbar span {
+                font-size: 10pt;
+                line-height: 20px;
+            }
+
+        .scrollmenu {
+            overflow: auto;
+            position: relative;
+            transform: translateY(25%);
+            white-space: nowrap;
+            text-align: center;
+            margin-right: 45px;
+            text-align: left;
+        }
+
+        .divEspaco {
+            width: 260px;
+        }
+
+        .imgLoading {
+            width: 300px;
+        }
+
+        /*/ Responsivo para tela mobile /*/
+        @media (min-width: 320px) and (max-width: 1024px) {
+
+            .bgModal {
+                position: fixed;
+                z-index: 120;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100vh;
+                background: rgba(0,0,0,0.9);
+            }
+
+            .modalPopup {
+                position: absolute;
+                z-index: 120;
+                background: #FFFFFF;
+                float: left;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                padding: 35px;
+                border-radius: 0px;
+                box-shadow: rgba(0,0,0,0.4) 0px 4px 8px 2px;
+                width: 100%;
+            }
+
+            .modalPopup2 {
+                position: absolute;
+                z-index: 120;
+                background: #FFFFFF;
+                float: left;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                padding: 20px;
+                border-radius: 0px;
+                box-shadow: rgba(0,0,0,0.4) 0px 4px 8px 2px;
+                width: 100%;
+            }
+
+            .divMenu {
+                text-align: center !important;
+            }
+
+            .menu1 {
+                list-style-type: none;
+                display: inline-block;
+                padding: 0;
+                margin: 0;
+                text-align: center;
+            }
+
+            .menu2 {
+                list-style-type: none;
+                display: inline-block;
+                padding: 0;
+                margin: 15px 0 0 0;
+                float: none;
+                align-content: center;
+            }
+
+            .navButtonMenu {
+                display: inline-block;
+            }
+
+            .divNavMenu {
+                height: 60px;
+                max-width: 250px;
+                overflow: auto;
+            }
+
+            .placeholder {
+                padding-left: 15px;
+                padding-right: 15px;
+                height: 100%;
+                text-align: left;
+            }
+
+            .placeholder-pesquisa {
+                padding-left: 15px;
+                padding-right: 60px;
+                height: 100%;
+                text-align: left;
+            }
+
+            .divLocalizar {
+                position: fixed;
+                top: 20px;
+                right: 43px;
+            }
+
+            .divEspaco {
+                width: 0px;
+            }
+
+            .imgLoading {
+                width: 100%;
+            }
+        }
+    </style>
+
+</head>
+
+<body id="PageBody" runat="server">
+    <form id="form1" runat="server">
+        <cc1:ToolkitScriptManager ID="ToolkitScriptManager" runat="server" AsyncPostBackTimeout="9000" CombineScripts="True"></cc1:ToolkitScriptManager>
+
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+            <ContentTemplate>
+
+                <!--Temporizador-->
+                <asp:UpdateProgress ID="upgTemp" runat="server">
+                    <ProgressTemplate>
+                        <asp:Panel ID="pnlDetalhe" runat="server" Style="top: 0px; left: 0px; position: fixed; height: 100%; width: 100%; z-index: 999999; background-color: rgba(255,255,255,10);">
+                            <table style="width: 100%; height: 100%">
+                                <tr>
+                                    <td align="center" style="text-align: center;">
+                                        <span id="MsgTemp" style="font-size: 10pt; font-family: Arial;">
+                                            <asp:Image ID="imgTemp" runat="server" CssClass="imgLoading" ImageUrl="~/Img_Sistema/Menu/Temp.gif" />
+                                        </span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </asp:Panel>
+                    </ProgressTemplate>
+                </asp:UpdateProgress>
+
+                <!--tela de fundo localizar-->
+                <asp:Panel ID="pnlFundoLocalizar" runat="server" Style="z-index: 10; position: fixed; top: 45px; left: 0px; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5);" Visible="False"></asp:Panel>
+
+                <!--Barra de pesquisa-->
+                <div id="divPesquisa" class="expandable">
+                    <table style="width: 100%;">
+                        <tr>
+                            <td>
+                                <div class="divEspacoSidebar"></div>
+                            </td>
+                            <td style="width: 100%">
+                                <div style="border: 1px solid #FFF; background-color: #FFF; padding-left: 15px; padding-right: 15px; border-radius: 30px">
+                                    <asp:TextBox ID="txtPesquisa" placeholder="Pesquisar" runat="server" CssClass="form-control" MaxLength="50"></asp:TextBox>
+                                </div>
+                            </td>
+                            <td>
+                                <asp:LinkButton ID="btPesquisar" runat="server" CssClass="btn btn-primary btn-round btn-just-icon" CausesValidation="false" OnClick="btPesquisar_Click"><i class="material-icons">search</i></asp:LinkButton>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!--Registro Salvo-->
+                <div>
+                    <div class="modal fade" id="myModalRegistroSalvo" role="dialog">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button id="bt_close_popup" runat="server" type="button" class="close" data-dismiss="modal" causesvalidation="False">&times;</button>
+                                    <%--<h4 class="modal-title">IControlIT</h4>--%>
+                                </div>
+                                <div class="modal-body">
+                                    <table width="100%">
+                                        <tr>
+                                            <td align="center">
+                                                <asp:Label CssClass="configlabel" ID="lbl_Msg" runat="server" ForeColor="#000000" Style="float: none" Text="Registro salvo com sucesso !" Font-Size="12pt"></asp:Label>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal" causesvalidation="False">Fechar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wrapper">
+
+                    <!-- Sidebar -->
+                    <div id="sidebar" class="sidebar" style="background-image: url('/Img_Sistema/bgMenu2.jpg'); background-size: cover; background-position: -130px, 0px" data-color="bluek2a" data-background-color="black">
+                        <div class="logo text-center" style="height: 80px">
+                            <asp:Image ID="imgLogoCliente" runat="server" Style="position: absolute; max-width: 250px; max-height: 50px; top: 50%; left: 50%; transform: translate(-50%, -50%)" ImageUrl="~/Img_Sistema/Default/logo_k2a.png" />
+                            <%--<a class="simple-text logo-normal">SENSOR ATV</a>--%>
+                        </div>
+                        <!-- your sidebar here -->
+                        <div class="sidebar-wrapper">
+
+                            <!-- sidebar do usuário -->
+                            <ul id="sidebarAdm" runat="server" class="nav">
+                                <li id="navHomeMenu" runat="server" class="nav-item active">
+                                    <a id="btHome" runat="server" class="nav-link" href="Home.aspx">
+                                        <i class="fas fa-home"></i>
+                                        <p>Home</p>
+                                    </a>
+                                </li>
+                                <li id="navRelatorio" runat="server" class="nav-item">
+                                    <a id="btRelatorio" runat="server" class="nav-link" href="~/Home.aspx?Pagina=relatorio">
+                                        <i class="fas fa-chart-bar"></i>
+                                        <p>Relatório</p>
+                                    </a>
+                                </li>
+                                <li id="navMarcacao" runat="server" class="nav-item">
+                                    <a id="btMarcacao" runat="server" class="nav-link" href="~/Marcacao/Lote.aspx?Pagina=contaUsuario">
+                                        <i class="fas fa-id-card"></i>
+                                        <p>Conta Usuário</p>
+                                    </a>
+                                </li>
+                                <li id="navConfig" runat="server" class="nav-item">
+                                    <a id="btConfiguracao" runat="server" class="nav-link" href="~/Home.aspx?Pagina=config">
+                                        <i class="fas fa-cogs"></i>
+                                        <p>Cadastro</p>
+                                    </a>
+                                </li>
+                                <li id="navEstoque" runat="server" class="nav-item">
+                                    <a id="btEstoque" runat="server" class="nav-link" href="~/Estoque/Estoque.aspx?Pagina=estoque">
+                                        <i class="fas fa-box-open"></i>
+                                        <p>Estoque</p>
+                                    </a>
+                                </li>
+                                <li id="navConta" runat="server" class="nav-item">
+                                    <a id="btCadastro" runat="server" class="nav-link" href="~/Recepcao_Fatura/Consulta_Conta.aspx?Pagina=cadastro">
+                                        <i class="fas fa-file-invoice-dollar"></i>
+                                        <p>Conta</p>
+                                    </a>
+                                </li>
+                                <li id="navFatura" runat="server" class="nav-item">
+                                    <a id="btFatura" runat="server" class="nav-link" href="~/Recepcao_Fatura/Conferencia_Fatura.aspx?Pagina=fatura">
+                                        <i class="fas fa-calculator"></i>
+                                        <p>Fatura</p>
+                                    </a>
+                                </li>
+                                <li id="navRateio" runat="server" class="nav-item">
+                                    <a id="btContabil" runat="server" class="nav-link" href="~/Recepcao_Fatura/Rateio.aspx?Pagina=rateio">
+                                        <i class="fas fa-chart-pie"></i>
+                                        <p>Rateio</p>
+                                    </a>
+                                </li>
+                                <li id="navAuditoria" runat="server" class="nav-item">
+                                    <a id="btAuditoria" runat="server" class="nav-link" href="~/Recepcao_Fatura/Auditoria_Contestacao.aspx?Pagina=auditoria_Contestacao">
+                                        <i class="fas fa-chart-area"></i>
+                                        <p>Auditoria</p>
+                                    </a>
+                                </li>
+                                <li id="navContestacao" runat="server" class="nav-item">
+                                    <a id="btContestacao" runat="server" class="nav-link" href="~/Auditoria/Auditoria_Consulta.aspx?Pagina=contestacao">
+                                        <i class="fas fa-search-dollar"></i>
+                                        <p>Contestação</p>
+                                    </a>
+                                </li>
+                                <li id="navContrato" runat="server" class="nav-item">
+                                    <a id="btContrato" runat="server" class="nav-link" href="~/Contrato/Consulta_Contrato.aspx?Pagina=contrato">
+                                        <i class="fas fa-file-contract"></i>
+                                        <p>Contrato</p>
+                                    </a>
+                                </li>
+                                <%--<li id="navSuporte" runat="server" class="nav-item">
+                                    <a id="btIncidente" runat="server" class="nav-link" href="~/Chamado/Consulta_Chamado.aspx?Pagina=suporte">
+                                        <i class="fas fa-life-ring"></i>
+                                        <p>Suporte</p>
+                                    </a>
+                                </li>--%>
+                                <li id="navChamadoAdm" runat="server" class="nav-item">
+                                    <div class="dropdown">
+                                        <a id="btChamadoAdm" runat="server" class="nav-link btnSuporte" href="~/Chamado/Consulta_Chamado.aspx">
+                                            <i class="far fa-life-ring"></i>
+                                            <p>Suporte</p>
+                                        </a>
+                                        <div id="divDropCadastroAdm" class="dropdown-content">
+                                            <ul style="list-style: none">
+                                                <li class="nav-item">
+                                                    <a id="A5" runat="server" class="nav-link" style="opacity: 0.3">
+                                                        <i class="fas fa-house-damage"></i>
+                                                        <p>Unidade</p>
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a id="A6" runat="server" class="nav-link" style="opacity: 0.3">
+                                                        <i class="fas fa-user"></i>
+                                                        <p>Usuário</p>
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a id="A7" runat="server" class="nav-link" style="opacity: 0.3">
+                                                        <i class="fas fa-plane-departure"></i>
+                                                        <p>Viagem/Roaming</p>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li id="navOrcamento" runat="server" class="nav-item">
+                                    <a id="btOrcamento" runat="server" class="nav-link" href="~/Politica/Politica_Consumidor.aspx?Pagina=orcamento">
+                                        <i class="fas fa-file-signature"></i>
+                                        <p>Orçamento</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a id="A2" runat="server" class="nav-link" href="~/PDF/View_PDF.aspx?Manual=1">
+                                        <i class="fas fa-file-pdf"></i>
+                                        <p>Guia do Usuário</p>
+                                    </a>
+                                </li>
+                                <li id="Li2" runat="server" class="nav-item">
+                                    <a id="A3" runat="server" class="nav-link" href="Default.aspx">
+                                        <i class="fas fa-sign-out-alt"></i>
+                                        <p>Sair</p>
+                                    </a>
+                                </li>
+                            </ul>
+
+                            <!-- sidebar do administrador -->
+                            <ul id="sidebarUsuario" runat="server" visible="false" class="nav">
+                                <li id="navHome" runat="server" class="nav-item active">
+                                    <asp:LinkButton ID="btnDash" runat="server" class="nav-link" OnClick="btnDash_Click" CausesValidation="false">
+                                        <i class="fas fa-home" style="font-size: 20pt"></i>
+                                        <p>Home</p>
+                                    </asp:LinkButton>
+                                </li>
+                                <li id="navMeusAtivos" runat="server" class="nav-item">
+                                    <a id="btMeusAtivos" runat="server" class="nav-link" href="~/CockPit_Menu.aspx?Pagina=conta">
+                                        <i class="fas fa-file-invoice-dollar"></i>
+                                        <p>Contas</p>
+                                    </a>
+                                </li>
+                                <li id="navMinhasAreas" runat="server" class="nav-item">
+                                    <a id="btMinhaAreas" runat="server" class="nav-link" href="~/CockPit_Menu.aspx?Pagina=indicadores">
+                                        <i class="fas fa-chart-pie"></i>
+                                        <p>KPIs por Torre</p>
+                                    </a>
+                                </li>
+                                <%--<li id="navChamado" runat="server" class="nav-item">
+                                    <a id="btChamado" runat="server" class="nav-link btnSuporte" href="~/Chamado/Consulta_Chamado.aspx">
+                                        <i class="far fa-life-ring"></i>
+                                        <p>Suporte</p>
+                                    </a>
+                                </li>--%>
+                                <li id="navChamado" runat="server" class="nav-item">
+                                    <div class="dropdown">
+                                        <a id="btChamado" runat="server" class="nav-link btnSuporte" href="~/Chamado/Consulta_Chamado.aspx">
+                                            <i class="far fa-life-ring"></i>
+                                            <p>Suporte</p>
+                                        </a>
+                                        <div id="divDropCadastro" class="dropdown-content" style="display: block;">
+                                            <ul style="list-style: none">
+                                                <li class="nav-item">
+                                                    <a id="btRequisicaoUnidade" runat="server" class="nav-link" visible="false" href="~/Chamado/Solicitacao_Unidade.aspx">
+                                                        <i class="fas fa-house-damage"></i>
+                                                        <p>Unidade</p>
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a id="btRequisicaoUsuario" runat="server" class="nav-link" visible="false" href="~/Chamado/Solicitacao.aspx">
+                                                        <i class="fas fa-user"></i>
+                                                        <p>Usuário</p>
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a id="btSolicitacao" runat="server" class="nav-link" visible="false" href="~/Chamado/Solicitacao_Roaming.aspx">
+                                                        <i class="fas fa-plane-departure"></i>
+                                                        <p>Viagem/Roaming</p>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                                <%--<li id="navFerramenta" runat="server" class="nav-item">
+                                    <a id="btFerramenta" runat="server" class="nav-link" href="~/CockPit_Menu.aspx?Pagina=facilidades">
+                                        <i class="fas fa-tools"></i>
+                                        <p>Facilidades</p>
+                                    </a>
+                                </li>--%>
+                                <li id="navFerramenta" runat="server" class="nav-item">
+                                    <div class="dropdown">
+                                        <asp:LinkButton ID="btFerramenta" runat="server" class="nav-link" ClientIDMode="Static" OnClick="btFerramenta_Click">
+                                            <i class="fas fa-tools"></i></i>
+                                            <p id="toggle" class="dropdown-toggle">Facilidades</p>
+                                        </asp:LinkButton>
+                                        <div id="divDropFerramentas" class="dropdown-content" style="display: block;">
+                                            <ul style="list-style: none">
+                                                <li id="liRelatorio" runat="server" class="nav-item">
+                                                    <asp:LinkButton ID="btRelatorioFacilidades" runat="server" CssClass="nav-link" href="/CockPit_Menu.aspx?Pagina=Relatorio">
+                                                        <i class="far fa-chart-bar"></i>
+                                                        <p>Relatórios</p>
+                                                    </asp:LinkButton>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <asp:LinkButton ID="btContaAntiga" runat="server" CssClass="nav-link">
+                                                        <i class="fas fa-file-invoice"></i>
+                                                        <p>Contas Antigas</p>
+                                                    </asp:LinkButton>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <asp:LinkButton ID="btAgenda" runat="server" CssClass="nav-link">
+                                                        <i class="far fa-address-book"></i>
+                                                        <p>Contatos</p>
+                                                    </asp:LinkButton>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <asp:LinkButton ID="btCaixa_Entrada" runat="server" CssClass="nav-link">
+                                                        <i class="fas fa-inbox"></i>
+                                                        <p>Mensagens</p>
+                                                    </asp:LinkButton>
+                                                </li>
+                                                <li id="liImgAtivos" runat="server" class="nav-item">
+                                                    <asp:LinkButton ID="imgAtivos" runat="server" CssClass="nav-link" href="/CockPit_Menu.aspx?Pagina=MeusAtivos">
+                                                        <i class="fas fa-grip-horizontal"></i>
+                                                        <p>Meus Ativos</p>
+                                                    </asp:LinkButton>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a id="A1" runat="server" class="nav-link" href="~/PDF/View_PDF.aspx?Manual=1">
+                                        <i class="fas fa-file-pdf"></i>
+                                        <p>Guia do Usuário</p>
+                                    </a>
+                                </li>
+                                <li id="navSair" runat="server" class="nav-item">
+                                    <a id="btSair" runat="server" class="nav-link" href="Default.aspx">
+                                        <i class="fas fa-sign-out-alt"></i>
+                                        <p>Sair</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                    <div class="main-panel">
+
+                        <!-- NavBar -->
+
+                        <!-- Toolbar Novo -->
+                        <div style="width: 100%; height: 80px; background-color: #ffffff; box-shadow: rgba(0,0,0,0.2) 0px 4px 16px 2px; position: fixed; top: 0px; left: 0px; z-index: 1">
+                            <div id="divPlaceholder" runat="server" class="placeholder">
+                                <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server"></asp:ContentPlaceHolder>
+                            </div>
+                            <div id="divLocalizar" runat="server" class="divLocalizar">
+                                <a id="btLocalizar" class="nav-link text-center" style="font-size: 16pt; display: inline-block; color: #818181" href="#divPesquisa">
+                                    <i class="fas fa-search"></i>
+                                </a>
+                            </div>
+                            <div style="position: fixed; top: 25px; right: 0px;">
+                                <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="navbar-toggler-icon icon-bar" style="margin-top: 4px; margin-right: 4px"></span>
+                                    <span class="navbar-toggler-icon icon-bar" style="margin-top: 4px; margin-right: 4px"></span>
+                                    <span class="navbar-toggler-icon icon-bar" style="margin-top: 4px; margin-right: 4px"></span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="content">
+                            <div class="container-fluid">
+                                <div id="divTituloSub" runat="server" visible="false" class="row">
+                                    <div class="col-md-12 text-center">
+                                        <div class="card" style="background-color: #757575">
+                                            <div class="card-body">
+                                                <asp:Label ID="lblTituloSub" runat="server" Font-Names="Arial" Font-Bold="true" Font-Size="16pt" ForeColor="#FFFFFF"></asp:Label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <!--localizar -->
+                                        <div id="pnlLocalizar" runat="server" style="position: relative; width: 100%;" visible="false">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <div id="divCloseLocalizar" runat="server" class="row">
+                                                        <div class="col-md-12 text-right">
+                                                            <asp:LinkButton ID="btnClose" runat="server" OnClick="btnClose_Click">
+                                                                <i class="fas fa-times" style="font-size: 20pt"></i>
+                                                            </asp:LinkButton>
+                                                        </div>
+                                                    </div>
+                                                    <uc1:Localizar ID="Localizar1" runat="server" />
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!--Contrato_Tabela -->
+                                        <div id="pnlContrato_Tabela" runat="server" style="position: relative; width: 100%;" visible="false">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <div id="divCloseContrato_Tabela" runat="server" class="row">
+                                                        <div class="col-md-12 text-right">
+                                                            <asp:LinkButton ID="LinkButton1" runat="server" OnClick="btnClose_Click">
+                                                                <i class="fas fa-times" style="font-size: 20pt"></i>
+                                                            </asp:LinkButton>
+                                                        </div>
+                                                    </div>
+                                                    <uc2:Contrato_Tabela ID="Contrato_Tabela1" runat="server" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="divTitulo" runat="server" visible="true" class="row">
+                                    <div class="col-md-12 text-center">
+                                        <div class="card" style="background-color: #757575">
+                                            <div class="card-body">
+                                                <asp:Label ID="lblTitulo" runat="server" Font-Names="Arial" Font-Bold="true" Font-Size="16pt" ForeColor="#FFFFFF"></asp:Label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+                                        <asp:HiddenField ID="hdfVoltarOnClick" runat="server" />
+                                        <asp:HiddenField ID="hdfVoltar" runat="server" />
+                                        <asp:HiddenField ID="hdfHome" runat="server" />
+                                        <asp:HiddenField ID="hdfPakage" runat="server" />
+                                        <asp:HiddenField ID="hdfPagina" runat="server" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Footer -->
+                        <footer class="footer">
+                            <div class="container-fluid">
+                                <nav class="float-left" style="list-style: none; padding-top: 15px">
+                                    <ul>
+                                        <li>
+                                            <asp:Label ID="lblNome" runat="server" Font-Names="Calibri" Font-Size="10pt" ForeColor="#333333" Style="float: left"></asp:Label>
+                                        </li>
+                                    </ul>
+                                </nav>
+                                <div class="copyright float-right" style="font-size: 14px">
+                                    K2A IControlIT &copy; 2022, todos os direitos reservados (v22.06.06.2242)
+                                </div>
+                            </div>
+                        </footer>
+
+                    </div>
+                </div>
+
+            </ContentTemplate>
+        </asp:UpdatePanel>
+
+        <script type="text/javascript" src="../Scripts/bootstrap.min.js"></script>
+        <script type="text/javascript" src="../Scripts/perfect-scrollbar.jquery.min.js"></script>
+        <script type="text/javascript" src="../Scripts/utils.js"></script>
+        <script type="text/javascript" src="../Scripts/material-dashboard.js"></script>
+
+        <script type="text/javascript">
+
+            var btnFerramenta, style, toggle;
+            var isOpen = new Boolean(true);
+
+            function TamanhoTela() {
+                var larguraTela = screen.width;
+                document.getElementById("Hdf_LarguraTela").value = larguraTela;
+
+                // cria um elemento style para mudar o css
+                style = document.createElement('style');
+                isOpen = false;
+
+                //btnFerramenta = document.getElementById('btFerramenta');
+                //btnFerramenta.addEventListener("click", openDropCadastro, false);
+
+            }
+            window.onload = TamanhoTela;
+
+            function openDropCadastro() {
+
+                if (isOpen) {
+
+                    document.getElementById("toggle").className = "dropdown-toggle";
+                    style.innerHTML = '#divDropFerramentas { display: none; }';
+                    document.head.appendChild(style);
+                }
+                else {
+
+                    document.getElementById("toggle").className = "dropdown-toggle-open";
+                    style.innerHTML = '#divDropFerramentas { display: block; }';
+                    document.head.appendChild(style);
+                }
+
+                isOpen = !isOpen;
+            }
+
+            function openNav() {
+                document.getElementById("mySidenav").style.width = "260px";
+            }
+
+            function closeNav() {
+                document.getElementById("mySidenav").style.width = "0px";
+            }
+
+            //function closeSidebar() {
+            //    $("#wrapper").toggleClass("toggled");
+            //}
+
+            $("#btnMenu").click(function (e) {
+                e.preventDefault();
+                $("#wrapper").toggleClass("toggled");
+            });
+
+            $("#btnCloseMenu").click(function (e) {
+                e.preventDefault();
+                $("#wrapper").toggleClass("toggled");
+            });
+
+            function disableScrolling() {
+                var x = window.scrollX;
+                var y = window.scrollY;
+                window.onscroll = function () { window.scrollTo(x, y); };
+            }
+
+            function enableScrolling() {
+                window.onscroll = function () { };
+            }
+
+        </script>
+
+    </form>
+</body>
+</html>

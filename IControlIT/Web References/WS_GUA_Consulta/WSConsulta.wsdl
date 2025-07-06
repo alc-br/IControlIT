@@ -1,0 +1,618 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="Pesquisar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pDescricao" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PesquisarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PesquisarResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Ativo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pDescricao" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AtivoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AtivoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Consumidor">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pDescricao" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsumidorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsumidorResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Lote">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage_Filtro" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pId_Filtro_1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pId_Filtro_Filial" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Filtro_Usuario" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="p_Id_Filtro_Centro_Custo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="p_Id_Filtro_Departamento" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="p_Id_Filtro_Setor" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pDt_LoteDe" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pDt_LoteAte" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pAtivo_Tipo_Grupo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoteResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Bilhete">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Lote" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Bilhete_Tipo" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario_Marcacao" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BilheteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BilheteResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Template">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pProcedure" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage_Filtro" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pId_Filtro_1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pId_Filtro_Filial" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Filtro_Usuario" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="p_Id_Filtro_Centro_Custo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="p_Id_Filtro_Departamento" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="p_Id_Filtro_Setor" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pDt_LoteDe" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pDt_LoteAte" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pAtivo_Tipo_Grupo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TemplateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TemplateResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Rateio_Lista">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pId_Rateio" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pDt_Lote" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Rateio_ListaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Rateio_ListaResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Volumetria_Custo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pAtivo_Tipo_Grupo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Conglomerado" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pDt_LoteDe" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pDt_LoteAte" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Volumetria_CustoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Volumetria_CustoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Volumetria_Consumo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pAtivo_Tipo_Grupo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Conglomerado" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pDt_LoteDe" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pDt_LoteAte" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Volumetria_ConsumoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Volumetria_ConsumoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Aproveitamento_Pacote">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pAtivo_Tipo_Grupo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pDt_LoteDe" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Aproveitamento_PacoteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Aproveitamento_PacoteResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Detalhamento_Bilhete">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pAtivo_Tipo_Grupo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Conglomerado" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pDt_LoteDe" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pDt_LoteAte" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Detalhamento_BilheteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Detalhamento_BilheteResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="PesquisarSoapIn">
+    <wsdl:part name="parameters" element="tns:Pesquisar" />
+  </wsdl:message>
+  <wsdl:message name="PesquisarSoapOut">
+    <wsdl:part name="parameters" element="tns:PesquisarResponse" />
+  </wsdl:message>
+  <wsdl:message name="AtivoSoapIn">
+    <wsdl:part name="parameters" element="tns:Ativo" />
+  </wsdl:message>
+  <wsdl:message name="AtivoSoapOut">
+    <wsdl:part name="parameters" element="tns:AtivoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsumidorSoapIn">
+    <wsdl:part name="parameters" element="tns:Consumidor" />
+  </wsdl:message>
+  <wsdl:message name="ConsumidorSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsumidorResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoteSoapIn">
+    <wsdl:part name="parameters" element="tns:Lote" />
+  </wsdl:message>
+  <wsdl:message name="LoteSoapOut">
+    <wsdl:part name="parameters" element="tns:LoteResponse" />
+  </wsdl:message>
+  <wsdl:message name="BilheteSoapIn">
+    <wsdl:part name="parameters" element="tns:Bilhete" />
+  </wsdl:message>
+  <wsdl:message name="BilheteSoapOut">
+    <wsdl:part name="parameters" element="tns:BilheteResponse" />
+  </wsdl:message>
+  <wsdl:message name="TemplateSoapIn">
+    <wsdl:part name="parameters" element="tns:Template" />
+  </wsdl:message>
+  <wsdl:message name="TemplateSoapOut">
+    <wsdl:part name="parameters" element="tns:TemplateResponse" />
+  </wsdl:message>
+  <wsdl:message name="Rateio_ListaSoapIn">
+    <wsdl:part name="parameters" element="tns:Rateio_Lista" />
+  </wsdl:message>
+  <wsdl:message name="Rateio_ListaSoapOut">
+    <wsdl:part name="parameters" element="tns:Rateio_ListaResponse" />
+  </wsdl:message>
+  <wsdl:message name="Volumetria_CustoSoapIn">
+    <wsdl:part name="parameters" element="tns:Volumetria_Custo" />
+  </wsdl:message>
+  <wsdl:message name="Volumetria_CustoSoapOut">
+    <wsdl:part name="parameters" element="tns:Volumetria_CustoResponse" />
+  </wsdl:message>
+  <wsdl:message name="Volumetria_ConsumoSoapIn">
+    <wsdl:part name="parameters" element="tns:Volumetria_Consumo" />
+  </wsdl:message>
+  <wsdl:message name="Volumetria_ConsumoSoapOut">
+    <wsdl:part name="parameters" element="tns:Volumetria_ConsumoResponse" />
+  </wsdl:message>
+  <wsdl:message name="Aproveitamento_PacoteSoapIn">
+    <wsdl:part name="parameters" element="tns:Aproveitamento_Pacote" />
+  </wsdl:message>
+  <wsdl:message name="Aproveitamento_PacoteSoapOut">
+    <wsdl:part name="parameters" element="tns:Aproveitamento_PacoteResponse" />
+  </wsdl:message>
+  <wsdl:message name="Detalhamento_BilheteSoapIn">
+    <wsdl:part name="parameters" element="tns:Detalhamento_Bilhete" />
+  </wsdl:message>
+  <wsdl:message name="Detalhamento_BilheteSoapOut">
+    <wsdl:part name="parameters" element="tns:Detalhamento_BilheteResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WSConsultaSoap">
+    <wsdl:operation name="Pesquisar">
+      <wsdl:input message="tns:PesquisarSoapIn" />
+      <wsdl:output message="tns:PesquisarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Ativo">
+      <wsdl:input message="tns:AtivoSoapIn" />
+      <wsdl:output message="tns:AtivoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Consumidor">
+      <wsdl:input message="tns:ConsumidorSoapIn" />
+      <wsdl:output message="tns:ConsumidorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Lote">
+      <wsdl:input message="tns:LoteSoapIn" />
+      <wsdl:output message="tns:LoteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Bilhete">
+      <wsdl:input message="tns:BilheteSoapIn" />
+      <wsdl:output message="tns:BilheteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Template">
+      <wsdl:input message="tns:TemplateSoapIn" />
+      <wsdl:output message="tns:TemplateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Rateio_Lista">
+      <wsdl:input message="tns:Rateio_ListaSoapIn" />
+      <wsdl:output message="tns:Rateio_ListaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Volumetria_Custo">
+      <wsdl:input message="tns:Volumetria_CustoSoapIn" />
+      <wsdl:output message="tns:Volumetria_CustoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Volumetria_Consumo">
+      <wsdl:input message="tns:Volumetria_ConsumoSoapIn" />
+      <wsdl:output message="tns:Volumetria_ConsumoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Aproveitamento_Pacote">
+      <wsdl:input message="tns:Aproveitamento_PacoteSoapIn" />
+      <wsdl:output message="tns:Aproveitamento_PacoteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Detalhamento_Bilhete">
+      <wsdl:input message="tns:Detalhamento_BilheteSoapIn" />
+      <wsdl:output message="tns:Detalhamento_BilheteSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSConsultaSoap" type="tns:WSConsultaSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Pesquisar">
+      <soap:operation soapAction="http://tempuri.org/Pesquisar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ativo">
+      <soap:operation soapAction="http://tempuri.org/Ativo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Consumidor">
+      <soap:operation soapAction="http://tempuri.org/Consumidor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Lote">
+      <soap:operation soapAction="http://tempuri.org/Lote" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Bilhete">
+      <soap:operation soapAction="http://tempuri.org/Bilhete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Template">
+      <soap:operation soapAction="http://tempuri.org/Template" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Rateio_Lista">
+      <soap:operation soapAction="http://tempuri.org/Rateio_Lista" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Volumetria_Custo">
+      <soap:operation soapAction="http://tempuri.org/Volumetria_Custo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Volumetria_Consumo">
+      <soap:operation soapAction="http://tempuri.org/Volumetria_Consumo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Aproveitamento_Pacote">
+      <soap:operation soapAction="http://tempuri.org/Aproveitamento_Pacote" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Detalhamento_Bilhete">
+      <soap:operation soapAction="http://tempuri.org/Detalhamento_Bilhete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WSConsultaSoap12" type="tns:WSConsultaSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Pesquisar">
+      <soap12:operation soapAction="http://tempuri.org/Pesquisar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ativo">
+      <soap12:operation soapAction="http://tempuri.org/Ativo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Consumidor">
+      <soap12:operation soapAction="http://tempuri.org/Consumidor" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Lote">
+      <soap12:operation soapAction="http://tempuri.org/Lote" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Bilhete">
+      <soap12:operation soapAction="http://tempuri.org/Bilhete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Template">
+      <soap12:operation soapAction="http://tempuri.org/Template" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Rateio_Lista">
+      <soap12:operation soapAction="http://tempuri.org/Rateio_Lista" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Volumetria_Custo">
+      <soap12:operation soapAction="http://tempuri.org/Volumetria_Custo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Volumetria_Consumo">
+      <soap12:operation soapAction="http://tempuri.org/Volumetria_Consumo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Aproveitamento_Pacote">
+      <soap12:operation soapAction="http://tempuri.org/Aproveitamento_Pacote" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Detalhamento_Bilhete">
+      <soap12:operation soapAction="http://tempuri.org/Detalhamento_Bilhete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WSConsulta">
+    <wsdl:port name="WSConsultaSoap" binding="tns:WSConsultaSoap">
+      <soap:address location="https://localhost:44382/WSConsulta.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WSConsultaSoap12" binding="tns:WSConsultaSoap12">
+      <soap12:address location="https://localhost:44382/WSConsulta.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

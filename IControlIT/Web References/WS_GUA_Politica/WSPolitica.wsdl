@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="Politica_Consumidor">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Consumidor" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Ativo_Tipo" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNm_Consumidor" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pValor_Politica" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="pMarca_Ligacao" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Lote" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario_Permissao" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRetorno" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Politica_ConsumidorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Politica_ConsumidorResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Troca_Hierarquia">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Filial" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Centro_Custo" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Departamento" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Setor" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Secao" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario_Permissao" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Troca_HierarquiaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Troca_HierarquiaResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="Politica_ConsumidorSoapIn">
+    <wsdl:part name="parameters" element="tns:Politica_Consumidor" />
+  </wsdl:message>
+  <wsdl:message name="Politica_ConsumidorSoapOut">
+    <wsdl:part name="parameters" element="tns:Politica_ConsumidorResponse" />
+  </wsdl:message>
+  <wsdl:message name="Troca_HierarquiaSoapIn">
+    <wsdl:part name="parameters" element="tns:Troca_Hierarquia" />
+  </wsdl:message>
+  <wsdl:message name="Troca_HierarquiaSoapOut">
+    <wsdl:part name="parameters" element="tns:Troca_HierarquiaResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WSPoliticaSoap">
+    <wsdl:operation name="Politica_Consumidor">
+      <wsdl:input message="tns:Politica_ConsumidorSoapIn" />
+      <wsdl:output message="tns:Politica_ConsumidorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Troca_Hierarquia">
+      <wsdl:input message="tns:Troca_HierarquiaSoapIn" />
+      <wsdl:output message="tns:Troca_HierarquiaSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSPoliticaSoap" type="tns:WSPoliticaSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Politica_Consumidor">
+      <soap:operation soapAction="http://tempuri.org/Politica_Consumidor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Troca_Hierarquia">
+      <soap:operation soapAction="http://tempuri.org/Troca_Hierarquia" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WSPoliticaSoap12" type="tns:WSPoliticaSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Politica_Consumidor">
+      <soap12:operation soapAction="http://tempuri.org/Politica_Consumidor" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Troca_Hierarquia">
+      <soap12:operation soapAction="http://tempuri.org/Troca_Hierarquia" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WSPolitica">
+    <wsdl:port name="WSPoliticaSoap" binding="tns:WSPoliticaSoap">
+      <soap:address location="https://localhost:44382/WSPolitica.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WSPoliticaSoap12" binding="tns:WSPoliticaSoap12">
+      <soap12:address location="https://localhost:44382/WSPolitica.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

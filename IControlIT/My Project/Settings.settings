@@ -1,0 +1,60 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="My" GeneratedClassName="MySettings" UseMySettingsClassName="true">
+  <Profiles />
+  <Settings>
+    <Setting Name="IControlIT_WS_GUA_Auditoria_WSAuditoria" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:8080/WSAuditoria.asmx</Value>
+    </Setting>
+    <Setting Name="IControlIT_WS_GUA_Cadastro_WSCadastro" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:8080/WSCadastro.asmx</Value>
+    </Setting>
+    <Setting Name="IControlIT_WS_GUA_Consulta_WSConsulta" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:8080/WSConsulta.asmx</Value>
+    </Setting>
+    <Setting Name="IControlIT_WS_GUA_Contrato_WSContrato" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:8080/WSContrato.asmx</Value>
+    </Setting>
+    <Setting Name="IControlIT_WS_GUA_Estoque_WSEstoque" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:8080/WSEstoque.asmx</Value>
+    </Setting>
+    <Setting Name="IControlIT_WS_GUA_Manutencao_WSManutencao" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:8080/WSManutencao.asmx</Value>
+    </Setting>
+    <Setting Name="IControlIT_WS_GUA_Modulo_WSModulo" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:8080/WSModulo.asmx</Value>
+    </Setting>
+    <Setting Name="IControlIT_WS_GUA_Politica_WSPolitica" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:8080/WSPolitica.asmx</Value>
+    </Setting>
+    <Setting Name="IControlIT_WS_GUA_Rateio_WSRateio" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:8080/WSRateio.asmx</Value>
+    </Setting>
+    <Setting Name="Ativvus_WS_GUA_Cadastro_WSCadastro" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:8080/WSCadastro.asmx</Value>
+    </Setting>
+    <Setting Name="Ativvus_WS_GUA_Modulo_WSModulo" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:8080/WSModulo.asmx</Value>
+    </Setting>
+    <Setting Name="Ativvus_WS_GUA_Estoque_WSEstoque" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:8080/WSEstoque.asmx</Value>
+    </Setting>
+    <Setting Name="Ativvus_WS_GUA_Rateio_WSRateio" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:8080/WSRateio.asmx</Value>
+    </Setting>
+    <Setting Name="IControlIT_WS_GUA_Chamado_WSChamado" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://localhost:8080/WSChamado.asmx</Value>
+    </Setting>
+    <Setting Name="Ativvus_WS_GUA_Chamado_WSChamado" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://localhost:8080/WSChamado.asmx</Value>
+    </Setting>
+    <Setting Name="Ativvus_WS_GUA_Auditoria_WSAuditoria" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:8080/WSAuditoria.asmx</Value>
+    </Setting>
+    <Setting Name="IControlIT_localhost_WSChamado" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:8080/WSChamado.asmx</Value>
+    </Setting>
+    <Setting Name="IControlIT_localhost2_WSChamado" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:8080/WSChamado.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://tempuri.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="Auditoria_Acompanhamento">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Auditoria_Acompanhamento" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Auditoria_Lote" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Auditoria_Conta" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Auditoria_Status" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pDescricao" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pData_Prevista" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="pValor_Previsto" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario_Permissao" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRetorno" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Auditoria_AcompanhamentoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Auditoria_AcompanhamentoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Auditoria">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Auditoria_Lote" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Auditoria_Conta" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pDt_Lote" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Conglomerado" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario_Permissao" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRetorno" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AuditoriaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuditoriaResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Auditoria_Contestacao">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Fatura" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Auditoria_Contestacao" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pDescricao" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pDt_Lote" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Fatura_Parametro" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRetorno" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Auditoria_ContestacaoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Auditoria_ContestacaoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="Auditoria_AcompanhamentoSoapIn">
+    <wsdl:part name="parameters" element="tns:Auditoria_Acompanhamento" />
+  </wsdl:message>
+  <wsdl:message name="Auditoria_AcompanhamentoSoapOut">
+    <wsdl:part name="parameters" element="tns:Auditoria_AcompanhamentoResponse" />
+  </wsdl:message>
+  <wsdl:message name="AuditoriaSoapIn">
+    <wsdl:part name="parameters" element="tns:Auditoria" />
+  </wsdl:message>
+  <wsdl:message name="AuditoriaSoapOut">
+    <wsdl:part name="parameters" element="tns:AuditoriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="Auditoria_ContestacaoSoapIn">
+    <wsdl:part name="parameters" element="tns:Auditoria_Contestacao" />
+  </wsdl:message>
+  <wsdl:message name="Auditoria_ContestacaoSoapOut">
+    <wsdl:part name="parameters" element="tns:Auditoria_ContestacaoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WSAuditoriaSoap">
+    <wsdl:operation name="Auditoria_Acompanhamento">
+      <wsdl:input message="tns:Auditoria_AcompanhamentoSoapIn" />
+      <wsdl:output message="tns:Auditoria_AcompanhamentoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Auditoria">
+      <wsdl:input message="tns:AuditoriaSoapIn" />
+      <wsdl:output message="tns:AuditoriaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Auditoria_Contestacao">
+      <wsdl:input message="tns:Auditoria_ContestacaoSoapIn" />
+      <wsdl:output message="tns:Auditoria_ContestacaoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSAuditoriaSoap" type="tns:WSAuditoriaSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Auditoria_Acompanhamento">
+      <soap:operation soapAction="http://tempuri.org/Auditoria_Acompanhamento" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Auditoria">
+      <soap:operation soapAction="http://tempuri.org/Auditoria" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Auditoria_Contestacao">
+      <soap:operation soapAction="http://tempuri.org/Auditoria_Contestacao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WSAuditoriaSoap12" type="tns:WSAuditoriaSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Auditoria_Acompanhamento">
+      <soap12:operation soapAction="http://tempuri.org/Auditoria_Acompanhamento" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Auditoria">
+      <soap12:operation soapAction="http://tempuri.org/Auditoria" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Auditoria_Contestacao">
+      <soap12:operation soapAction="http://tempuri.org/Auditoria_Contestacao" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WSAuditoria">
+    <wsdl:port name="WSAuditoriaSoap" binding="tns:WSAuditoriaSoap">
+      <soap:address location="http://localhost:8080/WSAuditoria.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WSAuditoriaSoap12" binding="tns:WSAuditoriaSoap12">
+      <soap12:address location="http://localhost:8080/WSAuditoria.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="Lote">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNm_Usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pDt_Lote" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Lote_Marcacao" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="pDt_Visita" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pDt_Fechamento" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pDt_Exportacao" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario_Permissao" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRetorno" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoteResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Script_Exportacao">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pScript" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pDt_Expotacao" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario_Permissao" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRetorno" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Script_ExportacaoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Script_ExportacaoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ArquivoPDF">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Arquivo_PDF" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNm_Arquivo_PDF" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pTabela_Registro" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Registro_Tabela" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pTamanho" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="pArquivo" type="s:base64Binary" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario_Permissao" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRetorno" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ArquivoPDFResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ArquivoPDFResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="caixa_entrada">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pTexto" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Mail_Caixa_Siada" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRetorno" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="caixa_entradaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="caixa_entradaResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="LoteSoapIn">
+    <wsdl:part name="parameters" element="tns:Lote" />
+  </wsdl:message>
+  <wsdl:message name="LoteSoapOut">
+    <wsdl:part name="parameters" element="tns:LoteResponse" />
+  </wsdl:message>
+  <wsdl:message name="Script_ExportacaoSoapIn">
+    <wsdl:part name="parameters" element="tns:Script_Exportacao" />
+  </wsdl:message>
+  <wsdl:message name="Script_ExportacaoSoapOut">
+    <wsdl:part name="parameters" element="tns:Script_ExportacaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ArquivoPDFSoapIn">
+    <wsdl:part name="parameters" element="tns:ArquivoPDF" />
+  </wsdl:message>
+  <wsdl:message name="ArquivoPDFSoapOut">
+    <wsdl:part name="parameters" element="tns:ArquivoPDFResponse" />
+  </wsdl:message>
+  <wsdl:message name="caixa_entradaSoapIn">
+    <wsdl:part name="parameters" element="tns:caixa_entrada" />
+  </wsdl:message>
+  <wsdl:message name="caixa_entradaSoapOut">
+    <wsdl:part name="parameters" element="tns:caixa_entradaResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WSManutencaoSoap">
+    <wsdl:operation name="Lote">
+      <wsdl:input message="tns:LoteSoapIn" />
+      <wsdl:output message="tns:LoteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Script_Exportacao">
+      <wsdl:input message="tns:Script_ExportacaoSoapIn" />
+      <wsdl:output message="tns:Script_ExportacaoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ArquivoPDF">
+      <wsdl:input message="tns:ArquivoPDFSoapIn" />
+      <wsdl:output message="tns:ArquivoPDFSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="caixa_entrada">
+      <wsdl:input message="tns:caixa_entradaSoapIn" />
+      <wsdl:output message="tns:caixa_entradaSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSManutencaoSoap" type="tns:WSManutencaoSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Lote">
+      <soap:operation soapAction="http://tempuri.org/Lote" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Script_Exportacao">
+      <soap:operation soapAction="http://tempuri.org/Script_Exportacao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ArquivoPDF">
+      <soap:operation soapAction="http://tempuri.org/ArquivoPDF" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="caixa_entrada">
+      <soap:operation soapAction="http://tempuri.org/caixa_entrada" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WSManutencaoSoap12" type="tns:WSManutencaoSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Lote">
+      <soap12:operation soapAction="http://tempuri.org/Lote" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Script_Exportacao">
+      <soap12:operation soapAction="http://tempuri.org/Script_Exportacao" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ArquivoPDF">
+      <soap12:operation soapAction="http://tempuri.org/ArquivoPDF" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="caixa_entrada">
+      <soap12:operation soapAction="http://tempuri.org/caixa_entrada" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WSManutencao">
+    <wsdl:port name="WSManutencaoSoap" binding="tns:WSManutencaoSoap">
+      <soap:address location="https://localhost:44382/WSManutencao.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WSManutencaoSoap12" binding="tns:WSManutencaoSoap12">
+      <soap12:address location="https://localhost:44382/WSManutencao.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

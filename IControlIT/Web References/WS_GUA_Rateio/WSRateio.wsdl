@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://tempuri.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="Fatura">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Fatura" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Fatura_Parametro" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNr_Fatura" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNm_Fatura" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pDt_Lote" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pDt_Emissao" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="pDt_Vencimento" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="pVr_Fatura" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNm_Campo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Conglomerado" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario_Permissao" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRetorno" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNota_Fiscal" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPedido" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pRef" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pReq" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pProvisao" type="s:short" />
+            <s:element minOccurs="0" maxOccurs="1" name="pObservacao" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FaturaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FaturaResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Rateio">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNm_Rateio" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Fatura_Parametro" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pId_Array" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pData_Lote" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pId_Fatura_Tipo_Rateio" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pId_Fatura" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pGrava_Rateio" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Rateio" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pObservacao" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRetorno" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RateioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RateioResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Plano_Conta">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Fatura_Plano_Conta" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNr_Plano_Conta" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Conglomerado" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Empresa" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Contrato" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pDia_Vencimento" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pLote_Cancelamento" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="pDescricao" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pDt_Lote" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario_Permissao" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Ativo_Tipo_Grupo" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRetorno" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Plano_ContaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Plano_ContaResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Rateio_Custo_Fixo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pDt_Lote" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Fatura_Parametro" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRetorno" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Rateio_Custo_FixoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Rateio_Custo_FixoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="FaturaSoapIn">
+    <wsdl:part name="parameters" element="tns:Fatura" />
+  </wsdl:message>
+  <wsdl:message name="FaturaSoapOut">
+    <wsdl:part name="parameters" element="tns:FaturaResponse" />
+  </wsdl:message>
+  <wsdl:message name="RateioSoapIn">
+    <wsdl:part name="parameters" element="tns:Rateio" />
+  </wsdl:message>
+  <wsdl:message name="RateioSoapOut">
+    <wsdl:part name="parameters" element="tns:RateioResponse" />
+  </wsdl:message>
+  <wsdl:message name="Plano_ContaSoapIn">
+    <wsdl:part name="parameters" element="tns:Plano_Conta" />
+  </wsdl:message>
+  <wsdl:message name="Plano_ContaSoapOut">
+    <wsdl:part name="parameters" element="tns:Plano_ContaResponse" />
+  </wsdl:message>
+  <wsdl:message name="Rateio_Custo_FixoSoapIn">
+    <wsdl:part name="parameters" element="tns:Rateio_Custo_Fixo" />
+  </wsdl:message>
+  <wsdl:message name="Rateio_Custo_FixoSoapOut">
+    <wsdl:part name="parameters" element="tns:Rateio_Custo_FixoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WSRateioSoap">
+    <wsdl:operation name="Fatura">
+      <wsdl:input message="tns:FaturaSoapIn" />
+      <wsdl:output message="tns:FaturaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Rateio">
+      <wsdl:input message="tns:RateioSoapIn" />
+      <wsdl:output message="tns:RateioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Plano_Conta">
+      <wsdl:input message="tns:Plano_ContaSoapIn" />
+      <wsdl:output message="tns:Plano_ContaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Rateio_Custo_Fixo">
+      <wsdl:input message="tns:Rateio_Custo_FixoSoapIn" />
+      <wsdl:output message="tns:Rateio_Custo_FixoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSRateioSoap" type="tns:WSRateioSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Fatura">
+      <soap:operation soapAction="http://tempuri.org/Fatura" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Rateio">
+      <soap:operation soapAction="http://tempuri.org/Rateio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Plano_Conta">
+      <soap:operation soapAction="http://tempuri.org/Plano_Conta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Rateio_Custo_Fixo">
+      <soap:operation soapAction="http://tempuri.org/Rateio_Custo_Fixo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WSRateioSoap12" type="tns:WSRateioSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Fatura">
+      <soap12:operation soapAction="http://tempuri.org/Fatura" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Rateio">
+      <soap12:operation soapAction="http://tempuri.org/Rateio" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Plano_Conta">
+      <soap12:operation soapAction="http://tempuri.org/Plano_Conta" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Rateio_Custo_Fixo">
+      <soap12:operation soapAction="http://tempuri.org/Rateio_Custo_Fixo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WSRateio">
+    <wsdl:port name="WSRateioSoap" binding="tns:WSRateioSoap">
+      <soap:address location="http://localhost:8080/WSRateio.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WSRateioSoap12" binding="tns:WSRateioSoap12">
+      <soap12:address location="http://localhost:8080/WSRateio.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

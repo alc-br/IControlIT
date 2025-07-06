@@ -1,0 +1,3464 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://tempuri.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="Lixeira">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario_Permissao" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LixeiraResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LixeiraResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Hierarquia">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pChave" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pId_Usuario" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HierarquiaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HierarquiaResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DropList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pDescricao" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DropListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DropListResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DropList_Filtro">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pFiltro_1" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pFiltro_2" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DropList_FiltroResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DropList_FiltroResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Relacionamento">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pChave" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pRelacao" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RelacionamentoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RelacionamentoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Centro_Custo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Centro_Custo" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pCd_Centro_Custo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNm_Centro_Custo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario_Permissao" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRetorno" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Centro_CustoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Centro_CustoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Departamento">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Departamento" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNm_Departamento" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario_Permissao" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRetorno" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DepartamentoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DepartamentoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Setor">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Setor" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNm_Setor" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario_Permissao" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRetorno" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SetorResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Secao">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Secao" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNm_Secao" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario_Permissao" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRetorno" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SecaoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SecaoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Cargo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Cargo" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNm_Cargo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario_Permissao" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRetorno" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CargoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CargoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Ativo_Tipo_Sub_Grupo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Ativo_Tipo_Sub_Grupo" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNm_Ativo_Tipo_Sub_Grupo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario_Permissao" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRetorno" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Ativo_Tipo_Sub_GrupoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Ativo_Tipo_Sub_GrupoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Ativo_Tipo_Grupo_Tipo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Ativo_Tipo_Grupo_Tipo" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNm_Ativo_Tipo_Grupo_Tipo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario_Permissao" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRetorno" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Ativo_Tipo_Grupo_TipoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Ativo_Tipo_Grupo_TipoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Ativo_Fabricante">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Ativo_Fabricante" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNm_Ativo_Fabricante" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario_Permissao" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRetorno" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Ativo_FabricanteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Ativo_FabricanteResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Bilhete_Tipo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Bilhete_Tipo" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Conglomerado" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNm_Bilhete_Tipo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNm_Bilhete_Descricao" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pUnidade" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pTipo_Descricao" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario_Permissao" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRetorno" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Bilhete_TipoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Bilhete_TipoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Ativo_Tipo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Ativo_Tipo" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNm_Ativo_Tipo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pId_Ativo_Tipo_Grupo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pEstoque_Regulador" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pImagem" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPhoto" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Ativo_Tipo_Sub_Grupo" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Ativo_Tipo_Grupo_Tipo" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Conglomerado" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario_Permissao" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRetorno" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Ativo_TipoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Ativo_TipoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Auditoria_Status">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Auditoria_Status" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNm_Auditoria_Status" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario_Permissao" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRetorno" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Auditoria_StatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Auditoria_StatusResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Holding">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Holding" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNm_Holding" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pLogo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario_Permissao" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRetorno" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HoldingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HoldingResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Ativo_Modelo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Ativo_Modelo" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNm_Ativo_Modelo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Ativo_Tipo" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Ativo_Fabricante" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario_Permissao" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRetorno" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Ativo_ModeloResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Ativo_ModeloResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Empresa">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Empresa" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNm_Empresa" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Holding" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pCNPJ" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario_Permissao" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRetorno" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EmpresaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EmpresaResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Empresa_Contratada">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Empresa_Contratada" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNm_Empresa_Contratada" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pCNPJ" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pContato" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pTelefone" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario_Permissao" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRetorno" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Empresa_ContratadaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Empresa_ContratadaResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Conglomerado">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Conglomerado" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNm_Conglomerado" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pContato" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pTelefone" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pCodigo_Operadora" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario_Permissao" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRetorno" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConglomeradoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConglomeradoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Filial">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Filial" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNm_Filial" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pCNPJ" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pEndereco" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Empresa" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pHi_Departamento" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pHi_Setor" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pHi_Secao" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario_Permissao" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRetorno" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FilialResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FilialResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Ativo_Fr_Aquisicao">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Ativo_Fr_Aquisicao" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNm_Ativo_Fr_Aquisicao" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario_Permissao" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRetorno" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Ativo_Fr_AquisicaoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Ativo_Fr_AquisicaoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Ativo_Complemento">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Ativo_Complemento" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNm_Ativo_Complemento" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Ativo_Tipo" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario_Permissao" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRetorno" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Ativo_ComplementoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Ativo_ComplementoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Servico">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Servico" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNm_Servico" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario_Permissao" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRetorno" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ServicoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ServicoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Ativo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Ativo" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNr_Ativo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pFinalidade" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Ativo_Tipo" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Conglomerado" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Ativo_Modelo" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pLocalidade" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pDt_Ativacao" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="pObservacao" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pAtivo_Complemento" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Ativo_Status" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pArray_Consumidor" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario_Permissao" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRetorno" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="pEndereco" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNumero_Sim_Card" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pValor_Contrato" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPlano_Contrato" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pVelocidade" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AtivoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AtivoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Ativo_Parametro">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Ativo" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pDt_Termino_Garantia" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Ativo_Fr_Aquisicao" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pDt_Ini_Fr_Aquisicao" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="pVr_Fr_Aquisicao" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="pQtd_Mes_Residuo_Fr_Aquisicao" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRateio_Conglomerado" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Tronco_Grupo" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Conglomerado" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Contrato" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario_Permissao" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRetorno" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Ativo_ParametroResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Ativo_ParametroResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Ativo_Porcentagem_Rateio">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Ativo" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Centro_Custo" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pPorcentagem" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario_Permissao" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRetorno" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Ativo_Porcentagem_RateioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Ativo_Porcentagem_RateioResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InventarioLote">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Consumidor" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNm_Consumidor" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Consumidor_Tipo" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pMatricula" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pEMail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pEMail_Copia" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pFl_Nao_Envia_EMail" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Empresa_Contratada" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Cargo" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Filial" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Centro_Custo" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Departamento" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Setor" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Secao" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Consumidor_Status" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pMatricula_Chefia" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario_Permissao" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNm_Usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pSenha" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Idioma" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario_Grupo" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario_Perfil" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario_Perfil_Acesso" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pIncluir" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pAlterar" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pExcluir" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pDetalhamento_Conta" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pDetalhamento_Contato" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pFl_Desativado" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRetorno" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InventarioLoteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InventarioLoteResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Consumidor">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Consumidor" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNm_Consumidor" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Consumidor_Tipo" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pMatricula" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pEMail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pEMail_Copia" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pFl_Nao_Envia_EMail" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pObservacao" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Empresa_Contratada" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Cargo" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Filial" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Centro_Custo" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Departamento" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Setor" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Secao" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Consumidor_Status" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pMatricula_Chefia" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario_Permissao" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRetorno" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsumidorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsumidorResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Consumidor_Tipo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Consumidor_Tipo" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNm_Consumidor_Tipo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario_Permissao" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRetorno" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Consumidor_TipoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Consumidor_TipoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Consumidor_Unidade">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Consumidor_Unidade" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Consumidor" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNm_Unidade" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pCNPJ" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pIE" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pData_Ativacao" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="pObservacao" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pEntrega_Contato" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pEntrega_Endereco" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pEntrega_Telefone" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pFaturamento_Contato" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pFaturamento_Endereco" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pFaturamento_CNPJ" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pFaturamento_IE" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pFaturamento_Email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pFaturamento_Telefone" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pMatricula" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Conglomerado" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pArray" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario_Permissao" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRetorno" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Consumidor_UnidadeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Consumidor_UnidadeResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Usuario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNm_Usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pSenha" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Consumidor" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Idioma" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario_Grupo" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario_Perfil" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario_Perfil_Acesso" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pIncluir" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pAlterar" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pExcluir" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pDetalhamento_Conta" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pDetalhamento_Contato" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pFl_Desativado" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario_Permissao" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRetorno" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UsuarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UsuarioResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Usuario_Perfil">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Consumidor" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pDescricao" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pRelacao" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Ativo" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pDt_Ativacao" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="pDt_Desativacao" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario_Permissao" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRetorno" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Usuario_PerfilResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Usuario_PerfilResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Usuario_Grupo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario_Grupo" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNm_Usuario_Grupo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario_Permissao" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRetorno" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Usuario_GrupoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Usuario_GrupoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Marcacao">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Lote" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="pDB_Destino" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Bilhete" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="pDt_Lote" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pId_Bilhete_Split" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRetorno" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MarcacaoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MarcacaoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Bilhete_Historico_Resumo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Lote" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pTotal_Ligacao" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="pValor_Politica" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="pValor_Marcado" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="pValor_Particular" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Bilhete_Historico_ResumoResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="Tronco_Grupo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Tronco_Grupo" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNm_Tronco_Grupo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario_Permissao" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRetorno" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Tronco_GrupoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Tronco_GrupoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Tronco">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Tronco" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNm_Tronco" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Conglomerado" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Tronco_Grupo" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario_Permissao" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRetorno" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TroncoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TroncoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Ativo_Replace">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Ativo_Tipo" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Ativo_Complemento" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario_Permissao" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRetorno" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Ativo_ReplaceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Ativo_ReplaceResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Fatura_Parametro_Campo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Fatura_Parametro_Campo" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNm_Fatura_Parametro_Campo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Fatura_Parametro" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pObservacao" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pSinal" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario_Permissao" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRetorno" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Fatura_Parametro_CampoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Fatura_Parametro_CampoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Fatura_Parametro">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Fatura_Parametro" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNm_Fatura_Parametro" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Contrato" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pConta_Contabil" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Ativo" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pCd_Centro_Custo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pId_Fatura_Tipo_Rateio" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRateia_Ativo_Padrao" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRateio_Nota" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario_Permissao" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRetorno" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Fatura_ParametroResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Fatura_ParametroResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Consumidor_Status">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Consumidor_Status" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNm_Consumidor_Status" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario_Permissao" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRetorno" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Consumidor_StatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Consumidor_StatusResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Ativo_Status">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Ativo_Status" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNm_Ativo_Status" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario_Permissao" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRetorno" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Ativo_StatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Ativo_StatusResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Agenda_Marcacao_Particular">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNr_Destino" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNm_Destino" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pTipo" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRetorno" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Agenda_Marcacao_ParticularResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Agenda_Marcacao_ParticularResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Contrato_Status">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Contrato_Status" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNm_Contrato_Status" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario_Permissao" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRetorno" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Contrato_StatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Contrato_StatusResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Custo_Fixo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Custo_Fixo" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNm_Custo_Fixo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario_Permissao" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRetorno" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Custo_FixoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Custo_FixoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Custo_Fixo_Item">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Custo_Fixo_Item" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Custo_Fixo" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Ativo_Tipo" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Conglomerado" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pValor" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Lote" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario_Permissao" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRetorno" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Custo_Fixo_ItemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Custo_Fixo_ItemResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Ativo_Vago">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Ativo" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Consumidor" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNr_Ativo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pDescricao" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario_Permissao" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRetorno" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Ativo_VagoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Ativo_VagoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Envia_Log">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pId_Usuario" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pData_Hora" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="pAcao_Executada" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRetorno" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Envia_LogResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Envia_LogResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Excedente_Politica">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Lote" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pJustificativa" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRetorno" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Excedente_PoliticaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Excedente_PoliticaResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Estoque_Aparelho_Status">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Estoque_Aparelho_Status" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNm_Estoque_Aparelho_Status" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario_Permissao" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRetorno" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Estoque_Aparelho_StatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Estoque_Aparelho_StatusResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Solicitacao_SLA">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Solicitacao_SLA" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNm_Solicitacao_SLA" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pQTDHoras" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pEMail" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario_Permissao" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRetorno" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Solicitacao_SLAResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Solicitacao_SLAResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Solicitacao_Tipo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Solicitacao_Tipo" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNm_Solicitacao_Tipo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Ativo_Tipo" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Solicitacao_SLA" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Solicitcao_Fila_Atendimento" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Solicitacao_Permissao" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pFl_Config_Caixa_Texto" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario_Permissao" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRetorno" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Solicitacao_TipoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Solicitacao_TipoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Solicitacao_Solucao">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Solicitacao_Solucao" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNm_Solicitacao_Solucao" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Ativo_Tipo" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario_Permissao" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRetorno" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Solicitacao_SolucaoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Solicitacao_SolucaoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Solicitacao_Data_Parada">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Data_Parada" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pData" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="pDescricao" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario_Permissao" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRetorno" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Solicitacao_Data_ParadaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Solicitacao_Data_ParadaResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Solicitacao_Fila_Atendimento">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Solicitacao_Fila_Atendimento" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNm_Solicitacao_Fila_Atendimento" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario_Permissao" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRetorno" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Solicitacao_Fila_AtendimentoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Solicitacao_Fila_AtendimentoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Contrato_Indice">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Contrato_Indice" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNm_Contrato_Indice" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pObs_Contrato_Indice" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario_Permissao" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRetorno" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Contrato_IndiceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Contrato_IndiceResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Fatura_Nota_Fiscal">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Fatura" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Centro_Custo" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNr_Nota_Fiscal" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pVr_Nota_Fiscal" type="s:float" />
+            <s:element minOccurs="1" maxOccurs="1" name="pPct_Nota_Fiscal" type="s:float" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Usuario_Permissao" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRetorno" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Fatura_Nota_FiscalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Fatura_Nota_FiscalResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Termo_Aceite_AgendarComEmail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pAcao" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Consumidor" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Ativo" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pHash_Acesso" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pEmail_EnviadoPara" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pAssuntoEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pTextoAdicional" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNmUsuarioAtual" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Termo_Aceite_AgendarComEmailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Termo_Aceite_AgendarComEmailResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Termo_Aceite_Validar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pAcao" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Consumidor" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Ativo" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pHash_Acesso" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pEmail_EnviadoPara" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Termo_Aceite_ValidarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Termo_Aceite_ValidarResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="LixeiraSoapIn">
+    <wsdl:part name="parameters" element="tns:Lixeira" />
+  </wsdl:message>
+  <wsdl:message name="LixeiraSoapOut">
+    <wsdl:part name="parameters" element="tns:LixeiraResponse" />
+  </wsdl:message>
+  <wsdl:message name="HierarquiaSoapIn">
+    <wsdl:part name="parameters" element="tns:Hierarquia" />
+  </wsdl:message>
+  <wsdl:message name="HierarquiaSoapOut">
+    <wsdl:part name="parameters" element="tns:HierarquiaResponse" />
+  </wsdl:message>
+  <wsdl:message name="DropListSoapIn">
+    <wsdl:part name="parameters" element="tns:DropList" />
+  </wsdl:message>
+  <wsdl:message name="DropListSoapOut">
+    <wsdl:part name="parameters" element="tns:DropListResponse" />
+  </wsdl:message>
+  <wsdl:message name="DropList_FiltroSoapIn">
+    <wsdl:part name="parameters" element="tns:DropList_Filtro" />
+  </wsdl:message>
+  <wsdl:message name="DropList_FiltroSoapOut">
+    <wsdl:part name="parameters" element="tns:DropList_FiltroResponse" />
+  </wsdl:message>
+  <wsdl:message name="RelacionamentoSoapIn">
+    <wsdl:part name="parameters" element="tns:Relacionamento" />
+  </wsdl:message>
+  <wsdl:message name="RelacionamentoSoapOut">
+    <wsdl:part name="parameters" element="tns:RelacionamentoResponse" />
+  </wsdl:message>
+  <wsdl:message name="Centro_CustoSoapIn">
+    <wsdl:part name="parameters" element="tns:Centro_Custo" />
+  </wsdl:message>
+  <wsdl:message name="Centro_CustoSoapOut">
+    <wsdl:part name="parameters" element="tns:Centro_CustoResponse" />
+  </wsdl:message>
+  <wsdl:message name="DepartamentoSoapIn">
+    <wsdl:part name="parameters" element="tns:Departamento" />
+  </wsdl:message>
+  <wsdl:message name="DepartamentoSoapOut">
+    <wsdl:part name="parameters" element="tns:DepartamentoResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetorSoapIn">
+    <wsdl:part name="parameters" element="tns:Setor" />
+  </wsdl:message>
+  <wsdl:message name="SetorSoapOut">
+    <wsdl:part name="parameters" element="tns:SetorResponse" />
+  </wsdl:message>
+  <wsdl:message name="SecaoSoapIn">
+    <wsdl:part name="parameters" element="tns:Secao" />
+  </wsdl:message>
+  <wsdl:message name="SecaoSoapOut">
+    <wsdl:part name="parameters" element="tns:SecaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="CargoSoapIn">
+    <wsdl:part name="parameters" element="tns:Cargo" />
+  </wsdl:message>
+  <wsdl:message name="CargoSoapOut">
+    <wsdl:part name="parameters" element="tns:CargoResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ativo_Tipo_Sub_GrupoSoapIn">
+    <wsdl:part name="parameters" element="tns:Ativo_Tipo_Sub_Grupo" />
+  </wsdl:message>
+  <wsdl:message name="Ativo_Tipo_Sub_GrupoSoapOut">
+    <wsdl:part name="parameters" element="tns:Ativo_Tipo_Sub_GrupoResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ativo_Tipo_Grupo_TipoSoapIn">
+    <wsdl:part name="parameters" element="tns:Ativo_Tipo_Grupo_Tipo" />
+  </wsdl:message>
+  <wsdl:message name="Ativo_Tipo_Grupo_TipoSoapOut">
+    <wsdl:part name="parameters" element="tns:Ativo_Tipo_Grupo_TipoResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ativo_FabricanteSoapIn">
+    <wsdl:part name="parameters" element="tns:Ativo_Fabricante" />
+  </wsdl:message>
+  <wsdl:message name="Ativo_FabricanteSoapOut">
+    <wsdl:part name="parameters" element="tns:Ativo_FabricanteResponse" />
+  </wsdl:message>
+  <wsdl:message name="Bilhete_TipoSoapIn">
+    <wsdl:part name="parameters" element="tns:Bilhete_Tipo" />
+  </wsdl:message>
+  <wsdl:message name="Bilhete_TipoSoapOut">
+    <wsdl:part name="parameters" element="tns:Bilhete_TipoResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ativo_TipoSoapIn">
+    <wsdl:part name="parameters" element="tns:Ativo_Tipo" />
+  </wsdl:message>
+  <wsdl:message name="Ativo_TipoSoapOut">
+    <wsdl:part name="parameters" element="tns:Ativo_TipoResponse" />
+  </wsdl:message>
+  <wsdl:message name="Auditoria_StatusSoapIn">
+    <wsdl:part name="parameters" element="tns:Auditoria_Status" />
+  </wsdl:message>
+  <wsdl:message name="Auditoria_StatusSoapOut">
+    <wsdl:part name="parameters" element="tns:Auditoria_StatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="HoldingSoapIn">
+    <wsdl:part name="parameters" element="tns:Holding" />
+  </wsdl:message>
+  <wsdl:message name="HoldingSoapOut">
+    <wsdl:part name="parameters" element="tns:HoldingResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ativo_ModeloSoapIn">
+    <wsdl:part name="parameters" element="tns:Ativo_Modelo" />
+  </wsdl:message>
+  <wsdl:message name="Ativo_ModeloSoapOut">
+    <wsdl:part name="parameters" element="tns:Ativo_ModeloResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmpresaSoapIn">
+    <wsdl:part name="parameters" element="tns:Empresa" />
+  </wsdl:message>
+  <wsdl:message name="EmpresaSoapOut">
+    <wsdl:part name="parameters" element="tns:EmpresaResponse" />
+  </wsdl:message>
+  <wsdl:message name="Empresa_ContratadaSoapIn">
+    <wsdl:part name="parameters" element="tns:Empresa_Contratada" />
+  </wsdl:message>
+  <wsdl:message name="Empresa_ContratadaSoapOut">
+    <wsdl:part name="parameters" element="tns:Empresa_ContratadaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConglomeradoSoapIn">
+    <wsdl:part name="parameters" element="tns:Conglomerado" />
+  </wsdl:message>
+  <wsdl:message name="ConglomeradoSoapOut">
+    <wsdl:part name="parameters" element="tns:ConglomeradoResponse" />
+  </wsdl:message>
+  <wsdl:message name="FilialSoapIn">
+    <wsdl:part name="parameters" element="tns:Filial" />
+  </wsdl:message>
+  <wsdl:message name="FilialSoapOut">
+    <wsdl:part name="parameters" element="tns:FilialResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ativo_Fr_AquisicaoSoapIn">
+    <wsdl:part name="parameters" element="tns:Ativo_Fr_Aquisicao" />
+  </wsdl:message>
+  <wsdl:message name="Ativo_Fr_AquisicaoSoapOut">
+    <wsdl:part name="parameters" element="tns:Ativo_Fr_AquisicaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ativo_ComplementoSoapIn">
+    <wsdl:part name="parameters" element="tns:Ativo_Complemento" />
+  </wsdl:message>
+  <wsdl:message name="Ativo_ComplementoSoapOut">
+    <wsdl:part name="parameters" element="tns:Ativo_ComplementoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicoSoapIn">
+    <wsdl:part name="parameters" element="tns:Servico" />
+  </wsdl:message>
+  <wsdl:message name="ServicoSoapOut">
+    <wsdl:part name="parameters" element="tns:ServicoResponse" />
+  </wsdl:message>
+  <wsdl:message name="AtivoSoapIn">
+    <wsdl:part name="parameters" element="tns:Ativo" />
+  </wsdl:message>
+  <wsdl:message name="AtivoSoapOut">
+    <wsdl:part name="parameters" element="tns:AtivoResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ativo_ParametroSoapIn">
+    <wsdl:part name="parameters" element="tns:Ativo_Parametro" />
+  </wsdl:message>
+  <wsdl:message name="Ativo_ParametroSoapOut">
+    <wsdl:part name="parameters" element="tns:Ativo_ParametroResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ativo_Porcentagem_RateioSoapIn">
+    <wsdl:part name="parameters" element="tns:Ativo_Porcentagem_Rateio" />
+  </wsdl:message>
+  <wsdl:message name="Ativo_Porcentagem_RateioSoapOut">
+    <wsdl:part name="parameters" element="tns:Ativo_Porcentagem_RateioResponse" />
+  </wsdl:message>
+  <wsdl:message name="InventarioLoteSoapIn">
+    <wsdl:part name="parameters" element="tns:InventarioLote" />
+  </wsdl:message>
+  <wsdl:message name="InventarioLoteSoapOut">
+    <wsdl:part name="parameters" element="tns:InventarioLoteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsumidorSoapIn">
+    <wsdl:part name="parameters" element="tns:Consumidor" />
+  </wsdl:message>
+  <wsdl:message name="ConsumidorSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsumidorResponse" />
+  </wsdl:message>
+  <wsdl:message name="Consumidor_TipoSoapIn">
+    <wsdl:part name="parameters" element="tns:Consumidor_Tipo" />
+  </wsdl:message>
+  <wsdl:message name="Consumidor_TipoSoapOut">
+    <wsdl:part name="parameters" element="tns:Consumidor_TipoResponse" />
+  </wsdl:message>
+  <wsdl:message name="Consumidor_UnidadeSoapIn">
+    <wsdl:part name="parameters" element="tns:Consumidor_Unidade" />
+  </wsdl:message>
+  <wsdl:message name="Consumidor_UnidadeSoapOut">
+    <wsdl:part name="parameters" element="tns:Consumidor_UnidadeResponse" />
+  </wsdl:message>
+  <wsdl:message name="UsuarioSoapIn">
+    <wsdl:part name="parameters" element="tns:Usuario" />
+  </wsdl:message>
+  <wsdl:message name="UsuarioSoapOut">
+    <wsdl:part name="parameters" element="tns:UsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="Usuario_PerfilSoapIn">
+    <wsdl:part name="parameters" element="tns:Usuario_Perfil" />
+  </wsdl:message>
+  <wsdl:message name="Usuario_PerfilSoapOut">
+    <wsdl:part name="parameters" element="tns:Usuario_PerfilResponse" />
+  </wsdl:message>
+  <wsdl:message name="Usuario_GrupoSoapIn">
+    <wsdl:part name="parameters" element="tns:Usuario_Grupo" />
+  </wsdl:message>
+  <wsdl:message name="Usuario_GrupoSoapOut">
+    <wsdl:part name="parameters" element="tns:Usuario_GrupoResponse" />
+  </wsdl:message>
+  <wsdl:message name="MarcacaoSoapIn">
+    <wsdl:part name="parameters" element="tns:Marcacao" />
+  </wsdl:message>
+  <wsdl:message name="MarcacaoSoapOut">
+    <wsdl:part name="parameters" element="tns:MarcacaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="Bilhete_Historico_ResumoSoapIn">
+    <wsdl:part name="parameters" element="tns:Bilhete_Historico_Resumo" />
+  </wsdl:message>
+  <wsdl:message name="Bilhete_Historico_ResumoSoapOut">
+    <wsdl:part name="parameters" element="tns:Bilhete_Historico_ResumoResponse" />
+  </wsdl:message>
+  <wsdl:message name="Tronco_GrupoSoapIn">
+    <wsdl:part name="parameters" element="tns:Tronco_Grupo" />
+  </wsdl:message>
+  <wsdl:message name="Tronco_GrupoSoapOut">
+    <wsdl:part name="parameters" element="tns:Tronco_GrupoResponse" />
+  </wsdl:message>
+  <wsdl:message name="TroncoSoapIn">
+    <wsdl:part name="parameters" element="tns:Tronco" />
+  </wsdl:message>
+  <wsdl:message name="TroncoSoapOut">
+    <wsdl:part name="parameters" element="tns:TroncoResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ativo_ReplaceSoapIn">
+    <wsdl:part name="parameters" element="tns:Ativo_Replace" />
+  </wsdl:message>
+  <wsdl:message name="Ativo_ReplaceSoapOut">
+    <wsdl:part name="parameters" element="tns:Ativo_ReplaceResponse" />
+  </wsdl:message>
+  <wsdl:message name="Fatura_Parametro_CampoSoapIn">
+    <wsdl:part name="parameters" element="tns:Fatura_Parametro_Campo" />
+  </wsdl:message>
+  <wsdl:message name="Fatura_Parametro_CampoSoapOut">
+    <wsdl:part name="parameters" element="tns:Fatura_Parametro_CampoResponse" />
+  </wsdl:message>
+  <wsdl:message name="Fatura_ParametroSoapIn">
+    <wsdl:part name="parameters" element="tns:Fatura_Parametro" />
+  </wsdl:message>
+  <wsdl:message name="Fatura_ParametroSoapOut">
+    <wsdl:part name="parameters" element="tns:Fatura_ParametroResponse" />
+  </wsdl:message>
+  <wsdl:message name="Consumidor_StatusSoapIn">
+    <wsdl:part name="parameters" element="tns:Consumidor_Status" />
+  </wsdl:message>
+  <wsdl:message name="Consumidor_StatusSoapOut">
+    <wsdl:part name="parameters" element="tns:Consumidor_StatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ativo_StatusSoapIn">
+    <wsdl:part name="parameters" element="tns:Ativo_Status" />
+  </wsdl:message>
+  <wsdl:message name="Ativo_StatusSoapOut">
+    <wsdl:part name="parameters" element="tns:Ativo_StatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="Agenda_Marcacao_ParticularSoapIn">
+    <wsdl:part name="parameters" element="tns:Agenda_Marcacao_Particular" />
+  </wsdl:message>
+  <wsdl:message name="Agenda_Marcacao_ParticularSoapOut">
+    <wsdl:part name="parameters" element="tns:Agenda_Marcacao_ParticularResponse" />
+  </wsdl:message>
+  <wsdl:message name="Contrato_StatusSoapIn">
+    <wsdl:part name="parameters" element="tns:Contrato_Status" />
+  </wsdl:message>
+  <wsdl:message name="Contrato_StatusSoapOut">
+    <wsdl:part name="parameters" element="tns:Contrato_StatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="Custo_FixoSoapIn">
+    <wsdl:part name="parameters" element="tns:Custo_Fixo" />
+  </wsdl:message>
+  <wsdl:message name="Custo_FixoSoapOut">
+    <wsdl:part name="parameters" element="tns:Custo_FixoResponse" />
+  </wsdl:message>
+  <wsdl:message name="Custo_Fixo_ItemSoapIn">
+    <wsdl:part name="parameters" element="tns:Custo_Fixo_Item" />
+  </wsdl:message>
+  <wsdl:message name="Custo_Fixo_ItemSoapOut">
+    <wsdl:part name="parameters" element="tns:Custo_Fixo_ItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ativo_VagoSoapIn">
+    <wsdl:part name="parameters" element="tns:Ativo_Vago" />
+  </wsdl:message>
+  <wsdl:message name="Ativo_VagoSoapOut">
+    <wsdl:part name="parameters" element="tns:Ativo_VagoResponse" />
+  </wsdl:message>
+  <wsdl:message name="Envia_LogSoapIn">
+    <wsdl:part name="parameters" element="tns:Envia_Log" />
+  </wsdl:message>
+  <wsdl:message name="Envia_LogSoapOut">
+    <wsdl:part name="parameters" element="tns:Envia_LogResponse" />
+  </wsdl:message>
+  <wsdl:message name="Excedente_PoliticaSoapIn">
+    <wsdl:part name="parameters" element="tns:Excedente_Politica" />
+  </wsdl:message>
+  <wsdl:message name="Excedente_PoliticaSoapOut">
+    <wsdl:part name="parameters" element="tns:Excedente_PoliticaResponse" />
+  </wsdl:message>
+  <wsdl:message name="Estoque_Aparelho_StatusSoapIn">
+    <wsdl:part name="parameters" element="tns:Estoque_Aparelho_Status" />
+  </wsdl:message>
+  <wsdl:message name="Estoque_Aparelho_StatusSoapOut">
+    <wsdl:part name="parameters" element="tns:Estoque_Aparelho_StatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="Solicitacao_SLASoapIn">
+    <wsdl:part name="parameters" element="tns:Solicitacao_SLA" />
+  </wsdl:message>
+  <wsdl:message name="Solicitacao_SLASoapOut">
+    <wsdl:part name="parameters" element="tns:Solicitacao_SLAResponse" />
+  </wsdl:message>
+  <wsdl:message name="Solicitacao_TipoSoapIn">
+    <wsdl:part name="parameters" element="tns:Solicitacao_Tipo" />
+  </wsdl:message>
+  <wsdl:message name="Solicitacao_TipoSoapOut">
+    <wsdl:part name="parameters" element="tns:Solicitacao_TipoResponse" />
+  </wsdl:message>
+  <wsdl:message name="Solicitacao_SolucaoSoapIn">
+    <wsdl:part name="parameters" element="tns:Solicitacao_Solucao" />
+  </wsdl:message>
+  <wsdl:message name="Solicitacao_SolucaoSoapOut">
+    <wsdl:part name="parameters" element="tns:Solicitacao_SolucaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="Solicitacao_Data_ParadaSoapIn">
+    <wsdl:part name="parameters" element="tns:Solicitacao_Data_Parada" />
+  </wsdl:message>
+  <wsdl:message name="Solicitacao_Data_ParadaSoapOut">
+    <wsdl:part name="parameters" element="tns:Solicitacao_Data_ParadaResponse" />
+  </wsdl:message>
+  <wsdl:message name="Solicitacao_Fila_AtendimentoSoapIn">
+    <wsdl:part name="parameters" element="tns:Solicitacao_Fila_Atendimento" />
+  </wsdl:message>
+  <wsdl:message name="Solicitacao_Fila_AtendimentoSoapOut">
+    <wsdl:part name="parameters" element="tns:Solicitacao_Fila_AtendimentoResponse" />
+  </wsdl:message>
+  <wsdl:message name="Contrato_IndiceSoapIn">
+    <wsdl:part name="parameters" element="tns:Contrato_Indice" />
+  </wsdl:message>
+  <wsdl:message name="Contrato_IndiceSoapOut">
+    <wsdl:part name="parameters" element="tns:Contrato_IndiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="Fatura_Nota_FiscalSoapIn">
+    <wsdl:part name="parameters" element="tns:Fatura_Nota_Fiscal" />
+  </wsdl:message>
+  <wsdl:message name="Fatura_Nota_FiscalSoapOut">
+    <wsdl:part name="parameters" element="tns:Fatura_Nota_FiscalResponse" />
+  </wsdl:message>
+  <wsdl:message name="Termo_Aceite_AgendarComEmailSoapIn">
+    <wsdl:part name="parameters" element="tns:Termo_Aceite_AgendarComEmail" />
+  </wsdl:message>
+  <wsdl:message name="Termo_Aceite_AgendarComEmailSoapOut">
+    <wsdl:part name="parameters" element="tns:Termo_Aceite_AgendarComEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="Termo_Aceite_ValidarSoapIn">
+    <wsdl:part name="parameters" element="tns:Termo_Aceite_Validar" />
+  </wsdl:message>
+  <wsdl:message name="Termo_Aceite_ValidarSoapOut">
+    <wsdl:part name="parameters" element="tns:Termo_Aceite_ValidarResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WSCadastroSoap">
+    <wsdl:operation name="Lixeira">
+      <wsdl:input message="tns:LixeiraSoapIn" />
+      <wsdl:output message="tns:LixeiraSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Hierarquia">
+      <wsdl:input message="tns:HierarquiaSoapIn" />
+      <wsdl:output message="tns:HierarquiaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DropList">
+      <wsdl:input message="tns:DropListSoapIn" />
+      <wsdl:output message="tns:DropListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DropList_Filtro">
+      <wsdl:input message="tns:DropList_FiltroSoapIn" />
+      <wsdl:output message="tns:DropList_FiltroSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Relacionamento">
+      <wsdl:input message="tns:RelacionamentoSoapIn" />
+      <wsdl:output message="tns:RelacionamentoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Centro_Custo">
+      <wsdl:input message="tns:Centro_CustoSoapIn" />
+      <wsdl:output message="tns:Centro_CustoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Departamento">
+      <wsdl:input message="tns:DepartamentoSoapIn" />
+      <wsdl:output message="tns:DepartamentoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Setor">
+      <wsdl:input message="tns:SetorSoapIn" />
+      <wsdl:output message="tns:SetorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Secao">
+      <wsdl:input message="tns:SecaoSoapIn" />
+      <wsdl:output message="tns:SecaoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Cargo">
+      <wsdl:input message="tns:CargoSoapIn" />
+      <wsdl:output message="tns:CargoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Tipo_Sub_Grupo">
+      <wsdl:input message="tns:Ativo_Tipo_Sub_GrupoSoapIn" />
+      <wsdl:output message="tns:Ativo_Tipo_Sub_GrupoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Tipo_Grupo_Tipo">
+      <wsdl:input message="tns:Ativo_Tipo_Grupo_TipoSoapIn" />
+      <wsdl:output message="tns:Ativo_Tipo_Grupo_TipoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Fabricante">
+      <wsdl:input message="tns:Ativo_FabricanteSoapIn" />
+      <wsdl:output message="tns:Ativo_FabricanteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Bilhete_Tipo">
+      <wsdl:input message="tns:Bilhete_TipoSoapIn" />
+      <wsdl:output message="tns:Bilhete_TipoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Tipo">
+      <wsdl:input message="tns:Ativo_TipoSoapIn" />
+      <wsdl:output message="tns:Ativo_TipoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Auditoria_Status">
+      <wsdl:input message="tns:Auditoria_StatusSoapIn" />
+      <wsdl:output message="tns:Auditoria_StatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Holding">
+      <wsdl:input message="tns:HoldingSoapIn" />
+      <wsdl:output message="tns:HoldingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Modelo">
+      <wsdl:input message="tns:Ativo_ModeloSoapIn" />
+      <wsdl:output message="tns:Ativo_ModeloSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Empresa">
+      <wsdl:input message="tns:EmpresaSoapIn" />
+      <wsdl:output message="tns:EmpresaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Empresa_Contratada">
+      <wsdl:input message="tns:Empresa_ContratadaSoapIn" />
+      <wsdl:output message="tns:Empresa_ContratadaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Conglomerado">
+      <wsdl:input message="tns:ConglomeradoSoapIn" />
+      <wsdl:output message="tns:ConglomeradoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Filial">
+      <wsdl:input message="tns:FilialSoapIn" />
+      <wsdl:output message="tns:FilialSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Fr_Aquisicao">
+      <wsdl:input message="tns:Ativo_Fr_AquisicaoSoapIn" />
+      <wsdl:output message="tns:Ativo_Fr_AquisicaoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Complemento">
+      <wsdl:input message="tns:Ativo_ComplementoSoapIn" />
+      <wsdl:output message="tns:Ativo_ComplementoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Servico">
+      <wsdl:input message="tns:ServicoSoapIn" />
+      <wsdl:output message="tns:ServicoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Ativo">
+      <wsdl:input message="tns:AtivoSoapIn" />
+      <wsdl:output message="tns:AtivoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Parametro">
+      <wsdl:input message="tns:Ativo_ParametroSoapIn" />
+      <wsdl:output message="tns:Ativo_ParametroSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Porcentagem_Rateio">
+      <wsdl:input message="tns:Ativo_Porcentagem_RateioSoapIn" />
+      <wsdl:output message="tns:Ativo_Porcentagem_RateioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InventarioLote">
+      <wsdl:input message="tns:InventarioLoteSoapIn" />
+      <wsdl:output message="tns:InventarioLoteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Consumidor">
+      <wsdl:input message="tns:ConsumidorSoapIn" />
+      <wsdl:output message="tns:ConsumidorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Consumidor_Tipo">
+      <wsdl:input message="tns:Consumidor_TipoSoapIn" />
+      <wsdl:output message="tns:Consumidor_TipoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Consumidor_Unidade">
+      <wsdl:input message="tns:Consumidor_UnidadeSoapIn" />
+      <wsdl:output message="tns:Consumidor_UnidadeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Usuario">
+      <wsdl:input message="tns:UsuarioSoapIn" />
+      <wsdl:output message="tns:UsuarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Usuario_Perfil">
+      <wsdl:input message="tns:Usuario_PerfilSoapIn" />
+      <wsdl:output message="tns:Usuario_PerfilSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Usuario_Grupo">
+      <wsdl:input message="tns:Usuario_GrupoSoapIn" />
+      <wsdl:output message="tns:Usuario_GrupoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Marcacao">
+      <wsdl:input message="tns:MarcacaoSoapIn" />
+      <wsdl:output message="tns:MarcacaoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Bilhete_Historico_Resumo">
+      <wsdl:input message="tns:Bilhete_Historico_ResumoSoapIn" />
+      <wsdl:output message="tns:Bilhete_Historico_ResumoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Tronco_Grupo">
+      <wsdl:input message="tns:Tronco_GrupoSoapIn" />
+      <wsdl:output message="tns:Tronco_GrupoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Tronco">
+      <wsdl:input message="tns:TroncoSoapIn" />
+      <wsdl:output message="tns:TroncoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Replace">
+      <wsdl:input message="tns:Ativo_ReplaceSoapIn" />
+      <wsdl:output message="tns:Ativo_ReplaceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Fatura_Parametro_Campo">
+      <wsdl:input message="tns:Fatura_Parametro_CampoSoapIn" />
+      <wsdl:output message="tns:Fatura_Parametro_CampoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Fatura_Parametro">
+      <wsdl:input message="tns:Fatura_ParametroSoapIn" />
+      <wsdl:output message="tns:Fatura_ParametroSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Consumidor_Status">
+      <wsdl:input message="tns:Consumidor_StatusSoapIn" />
+      <wsdl:output message="tns:Consumidor_StatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Status">
+      <wsdl:input message="tns:Ativo_StatusSoapIn" />
+      <wsdl:output message="tns:Ativo_StatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Agenda_Marcacao_Particular">
+      <wsdl:input message="tns:Agenda_Marcacao_ParticularSoapIn" />
+      <wsdl:output message="tns:Agenda_Marcacao_ParticularSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Contrato_Status">
+      <wsdl:input message="tns:Contrato_StatusSoapIn" />
+      <wsdl:output message="tns:Contrato_StatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Custo_Fixo">
+      <wsdl:input message="tns:Custo_FixoSoapIn" />
+      <wsdl:output message="tns:Custo_FixoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Custo_Fixo_Item">
+      <wsdl:input message="tns:Custo_Fixo_ItemSoapIn" />
+      <wsdl:output message="tns:Custo_Fixo_ItemSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Vago">
+      <wsdl:input message="tns:Ativo_VagoSoapIn" />
+      <wsdl:output message="tns:Ativo_VagoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Envia_Log">
+      <wsdl:input message="tns:Envia_LogSoapIn" />
+      <wsdl:output message="tns:Envia_LogSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Excedente_Politica">
+      <wsdl:input message="tns:Excedente_PoliticaSoapIn" />
+      <wsdl:output message="tns:Excedente_PoliticaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Estoque_Aparelho_Status">
+      <wsdl:input message="tns:Estoque_Aparelho_StatusSoapIn" />
+      <wsdl:output message="tns:Estoque_Aparelho_StatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Solicitacao_SLA">
+      <wsdl:input message="tns:Solicitacao_SLASoapIn" />
+      <wsdl:output message="tns:Solicitacao_SLASoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Solicitacao_Tipo">
+      <wsdl:input message="tns:Solicitacao_TipoSoapIn" />
+      <wsdl:output message="tns:Solicitacao_TipoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Solicitacao_Solucao">
+      <wsdl:input message="tns:Solicitacao_SolucaoSoapIn" />
+      <wsdl:output message="tns:Solicitacao_SolucaoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Solicitacao_Data_Parada">
+      <wsdl:input message="tns:Solicitacao_Data_ParadaSoapIn" />
+      <wsdl:output message="tns:Solicitacao_Data_ParadaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Solicitacao_Fila_Atendimento">
+      <wsdl:input message="tns:Solicitacao_Fila_AtendimentoSoapIn" />
+      <wsdl:output message="tns:Solicitacao_Fila_AtendimentoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Contrato_Indice">
+      <wsdl:input message="tns:Contrato_IndiceSoapIn" />
+      <wsdl:output message="tns:Contrato_IndiceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Fatura_Nota_Fiscal">
+      <wsdl:input message="tns:Fatura_Nota_FiscalSoapIn" />
+      <wsdl:output message="tns:Fatura_Nota_FiscalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Termo_Aceite_AgendarComEmail">
+      <wsdl:input message="tns:Termo_Aceite_AgendarComEmailSoapIn" />
+      <wsdl:output message="tns:Termo_Aceite_AgendarComEmailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Termo_Aceite_Validar">
+      <wsdl:input message="tns:Termo_Aceite_ValidarSoapIn" />
+      <wsdl:output message="tns:Termo_Aceite_ValidarSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSCadastroSoap" type="tns:WSCadastroSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Lixeira">
+      <soap:operation soapAction="http://tempuri.org/Lixeira" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Hierarquia">
+      <soap:operation soapAction="http://tempuri.org/Hierarquia" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DropList">
+      <soap:operation soapAction="http://tempuri.org/DropList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DropList_Filtro">
+      <soap:operation soapAction="http://tempuri.org/DropList_Filtro" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Relacionamento">
+      <soap:operation soapAction="http://tempuri.org/Relacionamento" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Centro_Custo">
+      <soap:operation soapAction="http://tempuri.org/Centro_Custo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Departamento">
+      <soap:operation soapAction="http://tempuri.org/Departamento" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Setor">
+      <soap:operation soapAction="http://tempuri.org/Setor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Secao">
+      <soap:operation soapAction="http://tempuri.org/Secao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Cargo">
+      <soap:operation soapAction="http://tempuri.org/Cargo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Tipo_Sub_Grupo">
+      <soap:operation soapAction="http://tempuri.org/Ativo_Tipo_Sub_Grupo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Tipo_Grupo_Tipo">
+      <soap:operation soapAction="http://tempuri.org/Ativo_Tipo_Grupo_Tipo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Fabricante">
+      <soap:operation soapAction="http://tempuri.org/Ativo_Fabricante" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Bilhete_Tipo">
+      <soap:operation soapAction="http://tempuri.org/Bilhete_Tipo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Tipo">
+      <soap:operation soapAction="http://tempuri.org/Ativo_Tipo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Auditoria_Status">
+      <soap:operation soapAction="http://tempuri.org/Auditoria_Status" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Holding">
+      <soap:operation soapAction="http://tempuri.org/Holding" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Modelo">
+      <soap:operation soapAction="http://tempuri.org/Ativo_Modelo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Empresa">
+      <soap:operation soapAction="http://tempuri.org/Empresa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Empresa_Contratada">
+      <soap:operation soapAction="http://tempuri.org/Empresa_Contratada" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Conglomerado">
+      <soap:operation soapAction="http://tempuri.org/Conglomerado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Filial">
+      <soap:operation soapAction="http://tempuri.org/Filial" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Fr_Aquisicao">
+      <soap:operation soapAction="http://tempuri.org/Ativo_Fr_Aquisicao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Complemento">
+      <soap:operation soapAction="http://tempuri.org/Ativo_Complemento" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Servico">
+      <soap:operation soapAction="http://tempuri.org/Servico" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ativo">
+      <soap:operation soapAction="http://tempuri.org/Ativo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Parametro">
+      <soap:operation soapAction="http://tempuri.org/Ativo_Parametro" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Porcentagem_Rateio">
+      <soap:operation soapAction="http://tempuri.org/Ativo_Porcentagem_Rateio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InventarioLote">
+      <soap:operation soapAction="http://tempuri.org/InventarioLote" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Consumidor">
+      <soap:operation soapAction="http://tempuri.org/Consumidor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Consumidor_Tipo">
+      <soap:operation soapAction="http://tempuri.org/Consumidor_Tipo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Consumidor_Unidade">
+      <soap:operation soapAction="http://tempuri.org/Consumidor_Unidade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Usuario">
+      <soap:operation soapAction="http://tempuri.org/Usuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Usuario_Perfil">
+      <soap:operation soapAction="http://tempuri.org/Usuario_Perfil" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Usuario_Grupo">
+      <soap:operation soapAction="http://tempuri.org/Usuario_Grupo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Marcacao">
+      <soap:operation soapAction="http://tempuri.org/Marcacao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Bilhete_Historico_Resumo">
+      <soap:operation soapAction="http://tempuri.org/Bilhete_Historico_Resumo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tronco_Grupo">
+      <soap:operation soapAction="http://tempuri.org/Tronco_Grupo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tronco">
+      <soap:operation soapAction="http://tempuri.org/Tronco" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Replace">
+      <soap:operation soapAction="http://tempuri.org/Ativo_Replace" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Fatura_Parametro_Campo">
+      <soap:operation soapAction="http://tempuri.org/Fatura_Parametro_Campo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Fatura_Parametro">
+      <soap:operation soapAction="http://tempuri.org/Fatura_Parametro" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Consumidor_Status">
+      <soap:operation soapAction="http://tempuri.org/Consumidor_Status" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Status">
+      <soap:operation soapAction="http://tempuri.org/Ativo_Status" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Agenda_Marcacao_Particular">
+      <soap:operation soapAction="http://tempuri.org/Agenda_Marcacao_Particular" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Contrato_Status">
+      <soap:operation soapAction="http://tempuri.org/Contrato_Status" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Custo_Fixo">
+      <soap:operation soapAction="http://tempuri.org/Custo_Fixo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Custo_Fixo_Item">
+      <soap:operation soapAction="http://tempuri.org/Custo_Fixo_Item" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Vago">
+      <soap:operation soapAction="http://tempuri.org/Ativo_Vago" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Envia_Log">
+      <soap:operation soapAction="http://tempuri.org/Envia_Log" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Excedente_Politica">
+      <soap:operation soapAction="http://tempuri.org/Excedente_Politica" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Estoque_Aparelho_Status">
+      <soap:operation soapAction="http://tempuri.org/Estoque_Aparelho_Status" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Solicitacao_SLA">
+      <soap:operation soapAction="http://tempuri.org/Solicitacao_SLA" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Solicitacao_Tipo">
+      <soap:operation soapAction="http://tempuri.org/Solicitacao_Tipo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Solicitacao_Solucao">
+      <soap:operation soapAction="http://tempuri.org/Solicitacao_Solucao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Solicitacao_Data_Parada">
+      <soap:operation soapAction="http://tempuri.org/Solicitacao_Data_Parada" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Solicitacao_Fila_Atendimento">
+      <soap:operation soapAction="http://tempuri.org/Solicitacao_Fila_Atendimento" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Contrato_Indice">
+      <soap:operation soapAction="http://tempuri.org/Contrato_Indice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Fatura_Nota_Fiscal">
+      <soap:operation soapAction="http://tempuri.org/Fatura_Nota_Fiscal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Termo_Aceite_AgendarComEmail">
+      <soap:operation soapAction="http://tempuri.org/Termo_Aceite_AgendarComEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Termo_Aceite_Validar">
+      <soap:operation soapAction="http://tempuri.org/Termo_Aceite_Validar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WSCadastroSoap12" type="tns:WSCadastroSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Lixeira">
+      <soap12:operation soapAction="http://tempuri.org/Lixeira" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Hierarquia">
+      <soap12:operation soapAction="http://tempuri.org/Hierarquia" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DropList">
+      <soap12:operation soapAction="http://tempuri.org/DropList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DropList_Filtro">
+      <soap12:operation soapAction="http://tempuri.org/DropList_Filtro" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Relacionamento">
+      <soap12:operation soapAction="http://tempuri.org/Relacionamento" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Centro_Custo">
+      <soap12:operation soapAction="http://tempuri.org/Centro_Custo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Departamento">
+      <soap12:operation soapAction="http://tempuri.org/Departamento" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Setor">
+      <soap12:operation soapAction="http://tempuri.org/Setor" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Secao">
+      <soap12:operation soapAction="http://tempuri.org/Secao" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Cargo">
+      <soap12:operation soapAction="http://tempuri.org/Cargo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Tipo_Sub_Grupo">
+      <soap12:operation soapAction="http://tempuri.org/Ativo_Tipo_Sub_Grupo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Tipo_Grupo_Tipo">
+      <soap12:operation soapAction="http://tempuri.org/Ativo_Tipo_Grupo_Tipo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Fabricante">
+      <soap12:operation soapAction="http://tempuri.org/Ativo_Fabricante" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Bilhete_Tipo">
+      <soap12:operation soapAction="http://tempuri.org/Bilhete_Tipo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Tipo">
+      <soap12:operation soapAction="http://tempuri.org/Ativo_Tipo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Auditoria_Status">
+      <soap12:operation soapAction="http://tempuri.org/Auditoria_Status" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Holding">
+      <soap12:operation soapAction="http://tempuri.org/Holding" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Modelo">
+      <soap12:operation soapAction="http://tempuri.org/Ativo_Modelo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Empresa">
+      <soap12:operation soapAction="http://tempuri.org/Empresa" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Empresa_Contratada">
+      <soap12:operation soapAction="http://tempuri.org/Empresa_Contratada" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Conglomerado">
+      <soap12:operation soapAction="http://tempuri.org/Conglomerado" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Filial">
+      <soap12:operation soapAction="http://tempuri.org/Filial" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Fr_Aquisicao">
+      <soap12:operation soapAction="http://tempuri.org/Ativo_Fr_Aquisicao" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Complemento">
+      <soap12:operation soapAction="http://tempuri.org/Ativo_Complemento" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Servico">
+      <soap12:operation soapAction="http://tempuri.org/Servico" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ativo">
+      <soap12:operation soapAction="http://tempuri.org/Ativo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Parametro">
+      <soap12:operation soapAction="http://tempuri.org/Ativo_Parametro" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Porcentagem_Rateio">
+      <soap12:operation soapAction="http://tempuri.org/Ativo_Porcentagem_Rateio" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InventarioLote">
+      <soap12:operation soapAction="http://tempuri.org/InventarioLote" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Consumidor">
+      <soap12:operation soapAction="http://tempuri.org/Consumidor" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Consumidor_Tipo">
+      <soap12:operation soapAction="http://tempuri.org/Consumidor_Tipo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Consumidor_Unidade">
+      <soap12:operation soapAction="http://tempuri.org/Consumidor_Unidade" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Usuario">
+      <soap12:operation soapAction="http://tempuri.org/Usuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Usuario_Perfil">
+      <soap12:operation soapAction="http://tempuri.org/Usuario_Perfil" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Usuario_Grupo">
+      <soap12:operation soapAction="http://tempuri.org/Usuario_Grupo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Marcacao">
+      <soap12:operation soapAction="http://tempuri.org/Marcacao" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Bilhete_Historico_Resumo">
+      <soap12:operation soapAction="http://tempuri.org/Bilhete_Historico_Resumo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tronco_Grupo">
+      <soap12:operation soapAction="http://tempuri.org/Tronco_Grupo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tronco">
+      <soap12:operation soapAction="http://tempuri.org/Tronco" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Replace">
+      <soap12:operation soapAction="http://tempuri.org/Ativo_Replace" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Fatura_Parametro_Campo">
+      <soap12:operation soapAction="http://tempuri.org/Fatura_Parametro_Campo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Fatura_Parametro">
+      <soap12:operation soapAction="http://tempuri.org/Fatura_Parametro" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Consumidor_Status">
+      <soap12:operation soapAction="http://tempuri.org/Consumidor_Status" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Status">
+      <soap12:operation soapAction="http://tempuri.org/Ativo_Status" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Agenda_Marcacao_Particular">
+      <soap12:operation soapAction="http://tempuri.org/Agenda_Marcacao_Particular" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Contrato_Status">
+      <soap12:operation soapAction="http://tempuri.org/Contrato_Status" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Custo_Fixo">
+      <soap12:operation soapAction="http://tempuri.org/Custo_Fixo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Custo_Fixo_Item">
+      <soap12:operation soapAction="http://tempuri.org/Custo_Fixo_Item" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Vago">
+      <soap12:operation soapAction="http://tempuri.org/Ativo_Vago" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Envia_Log">
+      <soap12:operation soapAction="http://tempuri.org/Envia_Log" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Excedente_Politica">
+      <soap12:operation soapAction="http://tempuri.org/Excedente_Politica" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Estoque_Aparelho_Status">
+      <soap12:operation soapAction="http://tempuri.org/Estoque_Aparelho_Status" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Solicitacao_SLA">
+      <soap12:operation soapAction="http://tempuri.org/Solicitacao_SLA" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Solicitacao_Tipo">
+      <soap12:operation soapAction="http://tempuri.org/Solicitacao_Tipo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Solicitacao_Solucao">
+      <soap12:operation soapAction="http://tempuri.org/Solicitacao_Solucao" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Solicitacao_Data_Parada">
+      <soap12:operation soapAction="http://tempuri.org/Solicitacao_Data_Parada" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Solicitacao_Fila_Atendimento">
+      <soap12:operation soapAction="http://tempuri.org/Solicitacao_Fila_Atendimento" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Contrato_Indice">
+      <soap12:operation soapAction="http://tempuri.org/Contrato_Indice" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Fatura_Nota_Fiscal">
+      <soap12:operation soapAction="http://tempuri.org/Fatura_Nota_Fiscal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Termo_Aceite_AgendarComEmail">
+      <soap12:operation soapAction="http://tempuri.org/Termo_Aceite_AgendarComEmail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Termo_Aceite_Validar">
+      <soap12:operation soapAction="http://tempuri.org/Termo_Aceite_Validar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WSCadastro">
+    <wsdl:port name="WSCadastroSoap" binding="tns:WSCadastroSoap">
+      <soap:address location="http://localhost:8080/WSCadastro.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WSCadastroSoap12" binding="tns:WSCadastroSoap12">
+      <soap12:address location="http://localhost:8080/WSCadastro.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

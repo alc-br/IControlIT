@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="http://localhost:8080/WSChamado.asmx?wsdl" docRef="http://localhost:8080/WSChamado.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="http://localhost:8080/WSChamado.asmx" xmlns:q1="WSChamado" binding="q1:WSChamadoSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="http://localhost:8080/WSChamado.asmx" xmlns:q2="WSChamado" binding="q2:WSChamadoSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>

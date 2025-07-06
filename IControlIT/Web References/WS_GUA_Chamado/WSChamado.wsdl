@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="WSChamado" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="WSChamado" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="WSChamado">
+      <s:element name="Chamado">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pageNumber" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pageSize" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="idChamado" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="requestNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="workOrderNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="estado" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="comentarios" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="atribuidoPara" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tipoSolicitacao" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="transactionID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="idConsumidor" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="idAtivo" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="idConglomerado" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="designationProduct" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="telecomProvider" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="framingPlan" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="migrationDevice" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="servicePack" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="newAreaCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="newUserNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="newTelecomProvider" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="countryDateForRoaming" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="managerOrAdm" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="viewProfile" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="managerNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="additionalInformation" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pTermoBusca" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRetorno" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChamadoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ChamadoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExecutarAcaoAtivo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="procedureName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPakage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Chamado" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pComentariosAtivo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pCampo1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pCampo2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pCampo3" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pCampo4" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pCampo5" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pCampo6" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRetorno" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExecutarAcaoAtivoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ExecutarAcaoAtivoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChamadoAuxiliar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pAcao" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="id_Conglomerado" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="id_Ativo" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pEmailDestino" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pEmailCopia" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="id_Mail_Sender" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pTextoAdicional" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pAssuntoEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNmUsuarioAtual" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pId_Chamado" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRetorno" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChamadoAuxiliarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ChamadoAuxiliarResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChamadoAuxiliarComAnexos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pAcao" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="id_Conglomerado" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="id_Ativo" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pEmailDestino" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pEmailCopia" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="id_Mail_Sender" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pTextoAdicional" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pAssuntoEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pEnderecoArquivo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNmUsuarioAtual" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pId_Chamado" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pRetorno" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChamadoAuxiliarComAnexosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ChamadoAuxiliarComAnexosResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AtualizarFlagManualChamado">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Chamado" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pFl_Manual" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AtualizarFlagManualChamadoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AtualizarFlagManualChamadoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ChamadoSoapIn">
+    <wsdl:part name="parameters" element="tns:Chamado" />
+  </wsdl:message>
+  <wsdl:message name="ChamadoSoapOut">
+    <wsdl:part name="parameters" element="tns:ChamadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExecutarAcaoAtivoSoapIn">
+    <wsdl:part name="parameters" element="tns:ExecutarAcaoAtivo" />
+  </wsdl:message>
+  <wsdl:message name="ExecutarAcaoAtivoSoapOut">
+    <wsdl:part name="parameters" element="tns:ExecutarAcaoAtivoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ChamadoAuxiliarSoapIn">
+    <wsdl:part name="parameters" element="tns:ChamadoAuxiliar" />
+  </wsdl:message>
+  <wsdl:message name="ChamadoAuxiliarSoapOut">
+    <wsdl:part name="parameters" element="tns:ChamadoAuxiliarResponse" />
+  </wsdl:message>
+  <wsdl:message name="ChamadoAuxiliarComAnexosSoapIn">
+    <wsdl:part name="parameters" element="tns:ChamadoAuxiliarComAnexos" />
+  </wsdl:message>
+  <wsdl:message name="ChamadoAuxiliarComAnexosSoapOut">
+    <wsdl:part name="parameters" element="tns:ChamadoAuxiliarComAnexosResponse" />
+  </wsdl:message>
+  <wsdl:message name="AtualizarFlagManualChamadoSoapIn">
+    <wsdl:part name="parameters" element="tns:AtualizarFlagManualChamado" />
+  </wsdl:message>
+  <wsdl:message name="AtualizarFlagManualChamadoSoapOut">
+    <wsdl:part name="parameters" element="tns:AtualizarFlagManualChamadoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WSChamadoSoap">
+    <wsdl:operation name="Chamado">
+      <wsdl:input message="tns:ChamadoSoapIn" />
+      <wsdl:output message="tns:ChamadoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExecutarAcaoAtivo">
+      <wsdl:input message="tns:ExecutarAcaoAtivoSoapIn" />
+      <wsdl:output message="tns:ExecutarAcaoAtivoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ChamadoAuxiliar">
+      <wsdl:input message="tns:ChamadoAuxiliarSoapIn" />
+      <wsdl:output message="tns:ChamadoAuxiliarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ChamadoAuxiliarComAnexos">
+      <wsdl:input message="tns:ChamadoAuxiliarComAnexosSoapIn" />
+      <wsdl:output message="tns:ChamadoAuxiliarComAnexosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AtualizarFlagManualChamado">
+      <wsdl:input message="tns:AtualizarFlagManualChamadoSoapIn" />
+      <wsdl:output message="tns:AtualizarFlagManualChamadoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSChamadoSoap" type="tns:WSChamadoSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Chamado">
+      <soap:operation soapAction="WSChamado/Chamado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecutarAcaoAtivo">
+      <soap:operation soapAction="WSChamado/ExecutarAcaoAtivo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChamadoAuxiliar">
+      <soap:operation soapAction="WSChamado/ChamadoAuxiliar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChamadoAuxiliarComAnexos">
+      <soap:operation soapAction="WSChamado/ChamadoAuxiliarComAnexos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AtualizarFlagManualChamado">
+      <soap:operation soapAction="WSChamado/AtualizarFlagManualChamado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WSChamadoSoap12" type="tns:WSChamadoSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Chamado">
+      <soap12:operation soapAction="WSChamado/Chamado" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecutarAcaoAtivo">
+      <soap12:operation soapAction="WSChamado/ExecutarAcaoAtivo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChamadoAuxiliar">
+      <soap12:operation soapAction="WSChamado/ChamadoAuxiliar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChamadoAuxiliarComAnexos">
+      <soap12:operation soapAction="WSChamado/ChamadoAuxiliarComAnexos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AtualizarFlagManualChamado">
+      <soap12:operation soapAction="WSChamado/AtualizarFlagManualChamado" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WSChamado">
+    <wsdl:port name="WSChamadoSoap" binding="tns:WSChamadoSoap">
+      <soap:address location="http://localhost:8080/WSChamado.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WSChamadoSoap12" binding="tns:WSChamadoSoap12">
+      <soap12:address location="http://localhost:8080/WSChamado.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

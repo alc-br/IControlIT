@@ -1,0 +1,230 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<xml>
+  
+  <!-- Termo para devolucao (CELUALR)****************************************************************************** -->
+  <Devolucao_Telefonia_Movel>
+    <Titulo>TERMO DE DEVOLUÇÃO DE APARELHO </Titulo>
+    <Texto1>declaro haver devolvido, o equipamento e acessórios abaixo descritos, o qual se destinou exclusivamente para uso a serviço da </Texto1>
+	<Texto2> e que ficou sob minha responsabilidade.</Texto2>
+    <Linha>Linha: </Linha>
+    <AtivoTipo>Tipo: </AtivoTipo>
+    <Operadora>Operadora: </Operadora>
+	<Filial>Unidade: </Filial>
+    <DadosUsuario>Dados do usuário(a):</DadosUsuario>
+    <Nome>Usuário: </Nome>
+    <Login>Login: </Login>
+    <CentroCusto>CDC: </CentroCusto>
+    <Matricula>Matricula: </Matricula>
+    <Departamento>Departamento: </Departamento>
+    <Ciente>Informo ciência do(s) seguinte(s)aparelho(s): </Ciente>
+    <DadosAparelho>Dados do(s) aparelho(s):</DadosAparelho>
+    <MarcaModelo>Modelo: </MarcaModelo>
+    <ImeiAparelho>IMEI: </ImeiAparelho>
+    <ChipAparelho>Chip: </ChipAparelho>
+    <Acessorio>Acessórios: </Acessorio>
+    <Acessorios>Acessório(s): </Acessorios>
+	<Data_1>Data da Devolução </Data_1>
+	<Data_Texto_1>__________________________________________________</Data_Texto_1>
+	<Obs> </Obs>
+
+    <Linha_Assinatura_1>______________________________</Linha_Assinatura_1>
+    <Linha_Assinatura_2>______________________________</Linha_Assinatura_2>
+    <Linha_Assinatura_3>______________________________</Linha_Assinatura_3>    
+    
+    <Assinatura_1>Nome/RG</Assinatura_1>
+    <Assinatura_2>1)Testemunha/RG</Assinatura_2>
+    <Assinatura_3>2)Testemunha/RG</Assinatura_3>
+  </Devolucao_Telefonia_Movel>
+
+  <!-- Termo para devolucao (DESKTOP)****************************************************************************** -->
+  <Devolucao_Desktop>
+    <Titulo>TERMO DE DEVOLUÇÃO DE EQUIPAMENTO </Titulo>
+    <Texto1>declaro haver devolvido, o equipamento e acessórios abaixo descritos, o qual se destinou exclusivamente para uso a serviço da </Texto1>
+	<Texto2> e que ficou sob minha responsabilidade.</Texto2>
+	<Equipamento>Equipamento: </Equipamento>
+    <NS>Número de Série: </NS>
+    <Modelo>Modelo: </Modelo>
+    <Codigo>Código de TI:</Codigo>
+    <Acessorio>Acessório: </Acessorio>
+    <DadosUsuario>Dados do usuário(a):</DadosUsuario>
+    <Login>Login: </Login>
+    <CentroCusto>CDC: </CentroCusto>
+    <Matricula>Matricula: </Matricula>
+    <Departamento>Departamento: </Departamento>
+    <Ciente>Informo ciência do(s) seguinte(s)aparelho(s): </Ciente>
+    <DadosAparelho>Dados do(s) aparelho(s):</DadosAparelho>
+    <Obs>Recebido por:</Obs>
+    <Assinatura_1>Nome/RG</Assinatura_1>
+    <Assinatura_2>1)Testemunha/RG</Assinatura_2>
+    <Assinatura_3>2)Testemunha/RG</Assinatura_3>
+  </Devolucao_Desktop>
+  
+  <!-- Termo de entrega (Celular)****************************************************************************** -->
+  <Telefonia_Movel>
+    <titulo>TERMO DE RESPONSABILIDADE </titulo>
+    <subtitulo>TELEFONIA MÓVEL</subtitulo>
+
+    <DadosUsuario>Dados do usuário(a):</DadosUsuario>
+    <Ciente>Informo ciência do(s) seguinte(s)aparelho(s) e ou acessório(s)</Ciente>
+    <DadosAparelho></DadosAparelho>
+
+    <linha>Linha: </linha>
+	<Operadora>Operadora: </Operadora>	  
+    <Login>Login: </Login>
+    <Filial>Unidade: </Filial>
+    <Matricula>Matricula: </Matricula>
+    <CentroCusto>CDC: </CentroCusto>
+    <Departamento>Departamento: </Departamento>
+	<Data_1>Data da Entrega </Data_1>
+	<Data_2></Data_2>
+	<Data_Texto_1>__________________________________________________</Data_Texto_1>
+	<Data_Texto_2></Data_Texto_2>
+	  
+    <texto1>Eu,</texto1>
+
+    <texto2>, declaro haver recebido o aparelho acima descrito, o qual se destina exclusivamente para uso da Companhia e que ficará sob minha responsabilidade. </texto2>
+
+    <texto3>Declaro estar ciente que:</texto3>
+    
+    <texto3_1>1) Deverei prestar contas regularmente acerca deste aparelho, sua utilização e conservação, assim como de seus acessórios.</texto3_1>
+
+    <texto3_2>2) A cessão deste recurso por parte da Empresa não configura benefício, regime de sobreaviso ou pagamento de salário-utilidade.</texto3_2>
+
+    <texto3_3>3) Devo zelar pela integridade do aparelho e da linha que me são confiados estritamente como instrumentos de trabalho, obrigando-me, desde já e a qualquer tempo mediante solicitação da Empresa restituir temporária ou definitivamente o aparelho e os acessórios acima descritos, ou por ocasião de meu desligamento da Companhia, independentemente do motivo.</texto3_3>
+
+    <texto3_4>4) Deverei arcar com os custos de danos causados ao aparelho e /ou acessórios, na forma do artigo 462 da CLT, inclusive nos casos de perda resultante de negligência, se assim for estabelecido pela Companhia.</texto3_4>
+
+    <texto3_5>5) Deverei comunicar imediatamente a Companhia a perda, extravio, dano, furto ou roubo dos bens que me são confiados, devidamente documentado em Boletim de Ocorrência.</texto3_5>
+
+    <texto3_6>6) Não é permitido o uso do aparelho para fins particulares, e se eventualmente utilizar, deverei apontá-las no sistema IControlIT e arcar com a despesa da(s) ligação(s) telefônica(s) correspondente(s)</texto3_6>
+
+    <texto3_7>7) O uso do aparelho e da respectiva linha telefônica não implica qualquer restrição à minha liberdade de locomoção, bem como não se configura como utilidade salarial.</texto3_7>
+    
+    <texto3_8>8) Tenho ciência da Política de Utilização de Recursos de Telefonia Móvel.</texto3_8>
+    
+    <texto3_9>Autorizo, desde já, que seja descontado de meu salário a importância equivalente ao valor do aparelho e seus acessórios caso não os restitua à Companhia quando solicitado, na hipótese de culpa ou dolo.</texto3_9>
+
+    <texto3_10> </texto3_10>
+    
+    <texto9> Este documento deve ser emitido em duas vias sendo que a primeira deve ser arquivada no prontuário do funcionário.</texto9>
+    
+    <texto10></texto10>
+    
+    <texto11></texto11>
+
+    <texto12></texto12>
+
+    <texto13></texto13>
+    <texto14></texto14>
+    <texto15></texto15>
+    <texto16></texto16>
+    <texto17></texto17>
+    <texto18></texto18>
+    <texto19></texto19>
+
+    <texto20>Dados para uso de TI Comunicações:</texto20>
+    <MarcaModeloAparelho>Marca/Modelo:</MarcaModeloAparelho>
+    <TipoAtivo>Tipo/Ativo:</TipoAtivo>
+    <ImeiAparelho>IMEI: </ImeiAparelho>
+    <ChipAparelho>Chip: </ChipAparelho>
+    <Acessorio>Acessórios: </Acessorio>
+    <NotaFiscal>Nota Fiscal: </NotaFiscal>
+
+    <texto22></texto22>
+    <texto23></texto23>
+    <texto24></texto24>
+
+	<Assinatura_1>Nome/RG</Assinatura_1>
+    <Assinatura_2>1)Testemunha/RG</Assinatura_2>
+    <Assinatura_3>2)Testemunha/RG</Assinatura_3>
+	<Assinatura_4></Assinatura_4>
+	<Assinatura_5></Assinatura_5>
+	<Assinatura_6></Assinatura_6>
+
+	<Linha_Assinatura_1>______________________________</Linha_Assinatura_1>
+	<Linha_Assinatura_2>______________________________</Linha_Assinatura_2>
+	<Linha_Assinatura_3>______________________________</Linha_Assinatura_3>
+	<Linha_Assinatura_4></Linha_Assinatura_4>
+	<Linha_Assinatura_5></Linha_Assinatura_5>
+	<Linha_Assinatura_6></Linha_Assinatura_6>	  
+	  
+  </Telefonia_Movel>
+
+  <!-- Termo de entrega (Desktop)****************************************************************************** -->
+  <Desktop>
+    <titulo>TERMO DE RESPONSABILIDADE </titulo>
+    <subtitulo>Equipamento</subtitulo>
+
+    <DadosUsuario>Dados do usuário(a):</DadosUsuario>
+    <Ciente>Informo ciência do(s) seguinte(s)aparelho(s) e ou acessório(s)</Ciente>
+    <DadosAparelho></DadosAparelho>
+
+    <linha>Linha: </linha>
+    <Login>Login: </Login>
+    <Filial>Unidade: </Filial>
+    <Matricula>Matricula: </Matricula>
+    <CentroCusto>CDC: </CentroCusto>
+    <Departamento>Departamento: </Departamento>
+    <Data>Data: </Data>
+    <texto1>Eu,</texto1>
+
+    <texto2>, declaro haver recebido o equipamento acima descrito, o qual se destina exclusivamente para uso da Companhia e que ficará sob minha responsabilidade. </texto2>
+
+    <texto3>Declaro estar ciente que:</texto3>
+
+    <texto3_1>1) Devo zelar pela integridade do EQUIPAMENTO que me foi confiado estritamente como instrumento de trabalho, obrigando-me, desde já e a qualquer tempo, mediante solicitação da Empresa, a restituí-lo temporária ou definitivamente ou por ocasião de meu desligamento da Empresa, independentemente do motivo.</texto3_1>
+
+    <texto3_2>2) Deverei arcar com os custos de danos causados ao EQUIPAMENTO, na forma do artigo 462 da CLT.</texto3_2>
+
+    <texto3_3>3) Deverei comunicar imediatamente a Empresa a perda, extravio, dano, furto ou roubo do EQUIPAMENTO que me foi confiado, devidamente documentado em Boletim de Ocorrência.</texto3_3>
+
+    <texto3_4>4) É vedado o uso do EQUIPAMENTO para fins particulares.</texto3_4>
+
+    <texto3_5>5) Devo seguir as recomendações abaixo:</texto3_5>
+
+    <texto3_6>5.1. Manter o EQUIPAMENTO em local seguro e em condições de uso normal, ou seja, não submeter o EQUIPAMENTO à umidade, exposição ao sol, chuva, oscilação de energia, etc;</texto3_6>
+
+    <texto3_7>5.2. Em hipótese alguma, deixar o EQUIPAMENTO no interior de veículos, em função do risco de furto;</texto3_7>
+
+    <texto3_8>5.3. Não permitir que terceiros utilizem o EQUIPAMENTO, com a finalidade de proteger as informações confidenciais que são de propriedade da Empresa;</texto3_8>
+
+    <texto3_9>5.4. Seguir as orientações contidas no Manual do Usuário e do Certificado de Garantia do EQUIPAMENTO; </texto3_9>
+
+    <texto3_10>6) Autorizo, desde já, que seja descontado de meu salário a importância equivalente ao valor do EQUIPAMENTO caso não o restitua à Empresa, quando solicitado, e ainda na hipótese de culpa ou dolo devidamente comprovado.</texto3_10>
+
+    <texto9> Este documento deve ser emitido em duas vias sendo que a primeira deve ser arquivada no prontuário do funcionário.</texto9>
+
+    <texto10></texto10>
+
+    <texto11></texto11>
+
+    <texto12></texto12>
+
+    <texto13></texto13>
+    <texto14></texto14>
+    <texto15></texto15>
+    <texto16></texto16>
+    <texto17></texto17>
+    <texto18></texto18>
+    <texto19></texto19>
+
+    <texto20>Dados para uso de TI Comunicações:</texto20>
+
+    <Equipamento>Equipamento: </Equipamento>
+    <Codigo_TI>Código TI:</Codigo_TI>
+    <Numero_Serie>Número Série:</Numero_Serie>
+    <Modelo>Modelo: </Modelo>
+    <Patrimonio>Patrimonio: </Patrimonio>
+    <Acessorio>Acessórios: </Acessorio>
+    
+    <texto21></texto21>
+    <texto22></texto22>
+    <texto23></texto23>
+    <texto24></texto24>
+
+    <Assinatura_1>Nome/RG</Assinatura_1>
+    <Assinatura_2>1)Testemunha/RG</Assinatura_2>
+    <Assinatura_3>2)Testemunha/RG</Assinatura_3>
+
+  </Desktop>
+</xml>
