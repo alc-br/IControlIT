@@ -31,6 +31,23 @@ Public Class Principal
             If Session("Menu") Is Nothing Then Session("Menu") = WS_Modulo.Validacao(Session("Conn_Banco"), "Sd_Menu", Session("Nm_Usuario"), Nothing, Nothing, Nothing, Session("Id_Idioma"))
             v_dataSet = Session("Menu")
 
+            ' [INÍCIO - ICTRL2025029] - Preenche o label de debug com as permissões da sessão
+            ' Este bloco verifica se as variáveis de sessão existem antes de tentar lê-las.
+            If Session("Modulos_Permitidos") IsNot Nothing Or Session("Torres_Permitidas") IsNot Nothing Then
+
+                ' Lê o valor da sessão para Módulos. Se for nulo ou vazio no banco, exibe "Nenhuma".
+                Dim modulos As String = If(Session("Modulos_Permitidos") IsNot DBNull.Value AndAlso Not String.IsNullOrEmpty(Session("Modulos_Permitidos").ToString()), Session("Modulos_Permitidos").ToString(), "Nenhuma")
+
+                ' Lê o valor da sessão para Torres. Se for nulo ou vazio no banco, exibe "Nenhuma".
+                Dim torres As String = If(Session("Torres_Permitidas") IsNot DBNull.Value AndAlso Not String.IsNullOrEmpty(Session("Torres_Permitidas").ToString()), Session("Torres_Permitidas").ToString(), "Nenhuma")
+
+                ' Preenche o texto do label.
+                lblDebugPermissions.Text = String.Format("DEBUG | Módulos: {0} | Torres: {1}", modulos, torres)
+
+            End If
+            ' [FIM - ICTRL2025029]
+
+
             If v_dataSet.Tables(0).Rows.Count > 0 Then
                 '-----monta menu
                 For vCont = 0 To v_dataSet.Tables(0).Rows.Count - 1
@@ -133,6 +150,7 @@ Public Class Principal
                     sidebarUsuario.Visible = True
                 End If
             End If
+
 
             SelecionaBotao(Request("Pagina"))
         End If

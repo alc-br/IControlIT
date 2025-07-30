@@ -13,6 +13,7 @@
 ' * [ICTRL-NF-202506-008 | 2025-06-24 | ANDERSON LUIZ CHIPAK]
 ' * [ICTRL-NF-202506-017 | 2025-06-24 | ANDERSON LUIZ CHIPAK]
 ' * [ICTRL-NF-202506-007 | 2025-07-04 | ANDERSON LUIZ CHIPAK]
+' * [ICTRL-NF-202506-004 | 2025-07-08 | ANDERSON LUIZ CHIPAK]
 ' */
 Imports System.IO
 Imports System.Net.Http
@@ -181,18 +182,22 @@ Public Class Consulta_Chamado
             ' AÇÃO: Executar o chamado normalmente (lógica original).
             Try
                 Dim mensagem As String = ExecutarAcaoChamado()
-                Dim mensagemEscapada As String = mensagem.Replace("'", "\'")
                 Try
                     DispararRequisicaoSimples("ENCERRADA", mensagem)
                 Catch exAsApi As Exception
-                    mensagemEscapada = mensagemEscapada & $" ATENÇÃO: Erro no retorno ao ServiceNow: {exAsApi.Message}"
+                    mensagem = mensagem & $" ATENÇÃO: Erro no retorno ao ServiceNow: {exAsApi.Message}"
                 End Try
+
+                Dim mensagemJs As String = HttpUtility.JavaScriptStringEncode($"Chamado processado. {mensagem}")
                 BindChamados(CurrentPage, itemsPerPage)
-                ScriptManager.RegisterStartupScript(Me, Me.GetType(), "alert", $"alert('Chamado processado. {mensagemEscapada}');", True)
+                ScriptManager.RegisterStartupScript(Me, Me.GetType(), "alert", $"alert('{mensagemJs}');", True)
+
             Catch ex As Exception
                 BindChamados(CurrentPage, itemsPerPage)
                 EscreveLog("(Consulta_Chamado.BtnExecutar_Click) Erro ao executar a ação: " & ex.Message)
-                ScriptManager.RegisterStartupScript(Me, Me.GetType(), "alert", $"alert('{ex.Message.Replace("'", "\'")}');", True)
+
+                Dim erroJs As String = HttpUtility.JavaScriptStringEncode(ex.Message)
+                ScriptManager.RegisterStartupScript(Me, Me.GetType(), "alert", $"alert('{erroJs}');", True)
             End Try
         End If
         ' [FIM - ICTRL-NF-202506-017]
@@ -401,6 +406,22 @@ Public Class Consulta_Chamado
     End Function
     ' Função que executa a ação baseada no tipo de solicitação
     Private Function ExecutarAcaoChamado() As String
+
+        ' [INÍCIO - ICTRL-NF-202506-004]
+        Dim tipoSolicitacao As String = hfTipoSolicitacao.Value.ToLower().Replace(" ", "-").Replace("/", "-")
+        Dim idChamado As Integer = If(Not String.IsNullOrEmpty(hfIdChamado.Value), Convert.ToInt32(hfIdChamado.Value), 0)
+        Dim observacaoChamado As String = SanitizeAndEncodeForJs(hfObservacaoCompleta.Value) ' Assumindo que você terá um hf para a observação
+
+        ' Verifica se a solicitação é de Habilitar ou Desabilitar Acesso
+        If hfTipoSolicitacao.Value.ToUpper().Contains("HABILITAR ACESSO") Then
+            HabilitarAcesso(idChamado, observacaoChamado)
+            Return "Processo de Habilitação de Acesso iniciado."
+        ElseIf hfTipoSolicitacao.Value.ToUpper().Contains("DESABILITAR ACESSO") Then
+            DesabilitarAcesso(idChamado, observacaoChamado)
+            Return "Processo de Desabilitação de Acesso iniciado."
+        End If
+        ' [FIM - ICTRL-NF-202506-004]
+
         Dim pCampo1 As String = ""
         Dim pCampo2 As String = ""
         Dim pCampo3 As String = ""
@@ -413,31 +434,27 @@ Public Class Consulta_Chamado
         Const c_acao_migracao_plano As String = "migracao-de-plano"
         Const c_acao_portabilidade As String = "portabilidade-de-linha"
         Const c_acao_alterar_ddd As String = "alterar-ddd"
+        Const c_simcard_m2m_nova_linha As String = "simcard-m2m---nova-linha"
+        Const c_telefone_via_satelite_nova_linha As String = "telefone-via-satélite---nova-linha"
+        Const c_e_sim_troca_de_chip_virtual As String = "e-sim-troca-de-chip-virtual"
         Try
             ' Coletando valores dos campos necessários
-            Dim tipoSolicitacao As String = hfTipoSolicitacao.Value.ToLower().Replace(" ", "-").Replace("/", "-")
-            Dim idChamado As Integer = If(Not String.IsNullOrEmpty(hfIdChamado.Value), Convert.ToInt32(hfIdChamado.Value), 0)
             Dim servicePack As String = hfServicePack.Value
             Dim comentariosAtivo As String = ""
             ' Ajusta o campo "comentarios" dependendo do tipo de solicitação
             Select Case tipoSolicitacao
-                ' [INÍCIO - ICTRL-NF-202506-002]
-                Case "simcard-m2m---nova-linha"
-                    comentariosAtivo = "Linha: " & hfNovaLinha.Value & " | Plano: " & hfnomePlanoMigracaoNL.Value
-                    pCampo1 = hfNovaLinha.Value
+                ' [INÍCIO - ICTRL-NF-202506-023]
+                Case c_acao_nova_linha, c_simcard_m2m_nova_linha, c_telefone_via_satelite_nova_linha
+                    comentariosAtivo = "Novas Linhas: " & hfMultiplosAtivos.Value & " | Plano: " & hfnomePlanoMigracaoNL.Value
+                    pCampo1 = hfMultiplosAtivos.Value
                     pCampo2 = hfnomePlanoMigracaoNL.Value
-                ' [FIM - ICTRL-NF-202506-002]
+                ' [FIM - ICTRL-NF-202506-023]
                 Case c_acao_pacote_roaming
                     If Not String.IsNullOrEmpty(servicePack) Then
                         comentariosAtivo = "Pacote contratado: " & servicePack
                         pCampo1 = servicePack
                     End If
                 ' [INÍCIO - ICTRL-NF-202506-009]
-                ' ...bloco antigo comentado
-                ' Case c_acao_migracao_plano
-                '     comentariosAtivo = hfMigrationDevice.Value
-                '     pCampo1 = hfMigrationDevice.Value
-                ' ...bloco novo
                 Case c_acao_migracao_plano
                     Dim novoPlano As String = hfNovoPlanoMigracao.Value
                     Dim tipoMigracao As String = hfOriginalMigrationDevice.Value
@@ -446,10 +463,11 @@ Public Class Consulta_Chamado
                     pCampo2 = tipoMigracao
                     comentariosAtivo = "Migração de '" & tipoMigracao & "' para o plano: " & novoPlano
                 ' [FIM - ICTRL-NF-202506-009]
-                Case c_acao_nova_linha
-                    comentariosAtivo = "Linha: " & hfNovaLinha.Value & " | Plano: " & hfnomePlanoMigracaoNL.Value
-                    pCampo1 = hfNovaLinha.Value
-                    pCampo2 = hfnomePlanoMigracaoNL.Value
+                ' [INÍCIO - ICTRL-NF-202506-001 | 2025-06-21 | Parceiro IControlIT]
+                Case c_e_sim_troca_de_chip_virtual
+                    comentariosAtivo = "Novo SIM Card: " & hfNovoSimCard.Value
+                    pCampo1 = hfNovoSimCard.Value
+                ' [FIM - ICTRL-NF-202506-001]
                 Case c_acao_alterar_ddd
                     comentariosAtivo = "Linha: (" & hfNewAreaCode.Value & ") " & hfNovaLinha.Value
                     pCampo1 = hfNovaLinha.Value
@@ -463,14 +481,6 @@ Public Class Consulta_Chamado
                     pCampo3 = hfDataEfetivacaoPortabilidade.Value
             End Select
 
-            ' [INÍCIO - ICTRL-NF-202506-001 | 2025-06-21 | Parceiro IControlIT]
-            Select Case tipoSolicitacao
-                ' ... outros cases ...
-                Case "e-sim-troca-de-chip-virtual"
-                    comentariosAtivo = "Novo SIM Card: " & hfNovoSimCard.Value
-                    pCampo1 = hfNovoSimCard.Value
-            End Select
-            ' [FIM - ICTRL-NF-202506-001]
 
             ' Chama a função que controla o tipo de solicitação, exceto para "alterar-proprietario"
             Return WS_Chamado.ExecutarAcaoAtivo(Session("Conn_Banco"), "dbo.pa_Ativo_Chamado", tipoSolicitacao, idChamado, comentariosAtivo, pCampo1, pCampo2, pCampo3, pCampo4, pCampo5, pCampo6, True)
@@ -737,6 +747,18 @@ Public Class Consulta_Chamado
     ' Função para agendar envio de email
     Private Function AgendarEnvioEmail(ByVal pEmailRespRegional As String, ByVal pEmailOperadora As String, ByVal pTextoAdicional As String, ByVal pAssuntoEmail As String, ByVal anexos As List(Of AnexoModel)) As String
         Try
+
+            ' [INÍCIO - ICTRL-NF-202506-004]
+            Dim idUsuarioLogado As Integer = Convert.ToInt32(Session("Id_Usuario")) ' Assumindo que o Id_Usuario está na sessão
+            Dim profileName As String = ObterEmailProfileDoUsuario(idUsuarioLogado)
+
+            If String.IsNullOrEmpty(profileName) Then
+                Return "Erro: Você não tem permissão para enviar e-mails a partir de chamados. Contate o administrador."
+            ElseIf profileName = "ERRO" Then
+                Return "Erro: Ocorreu um problema ao verificar suas permissões de envio. Tente novamente."
+            End If
+            ' [FIM - ICTRL-NF-202506-004]
+
             Dim id_Mail_Sender As Integer
             Dim WS_Chamado As New WS_GUA_Chamado.WSChamado
             Dim pPConn_Banco As String = HttpContext.Current.Session("Conn_Banco")
@@ -806,9 +828,9 @@ Public Class Consulta_Chamado
             Dim itemsPerPage As Integer = Convert.ToInt32(ddlItemsPerPage.SelectedValue)
             Dim msg As String = EnviarEmailChamado()
 
-            ' Escapa caracteres especiais para que a mensagem seja exibida corretamente no JavaScript
-            Dim msgEscapada As String = msg.Replace("'", "\'").Replace(vbCrLf, "\n")
-            ScriptManager.RegisterStartupScript(Me, Me.GetType(), "alert", $"alert('{msgEscapada}');", True)
+            ' Codifica a mensagem de forma segura para JavaScript
+            Dim msgJs As String = HttpUtility.JavaScriptStringEncode(msg)
+            ScriptManager.RegisterStartupScript(Me, Me.GetType(), "alert", $"alert('{msgJs}');", True)
 
             ' Apenas atualiza a lista de chamados se o envio de e-mail não retornou um erro
             If Not msg.ToLower().Contains("erro") Then
@@ -914,5 +936,61 @@ Public Class Consulta_Chamado
         Return HttpUtility.JavaScriptStringEncode(text)
     End Function
     ' [FIM - ICTRL-NF-202506-007]
+
+
+
+
+    ' [INÍCIO - ICTRL-NF-202506-004]
+
+    Private Sub HabilitarAcesso(pIdChamado As Integer, pObservacao As String)
+        Dim matricula As String = ExtrairValorDaObservacao(pObservacao, "Matricula")
+        Dim tipoVisao As String = ExtrairValorDaObservacao(pObservacao, "Visao")
+        Dim mdmVisao As String = ExtrairValorDaObservacao(pObservacao, "MDM_Visao") ' Extrai o novo campo
+
+        If String.IsNullOrEmpty(matricula) Or String.IsNullOrEmpty(tipoVisao) Or String.IsNullOrEmpty(mdmVisao) Then
+            Throw New Exception("Não foi possível encontrar a Matrícula, Tipo de Visão ou MDM_Visao na observação do chamado.")
+        End If
+
+        ' Usa o WebService para executar a lógica no banco de dados, passando o mdmVisao no pCampo3
+        WS_Chamado.ExecutarAcaoAtivo(Session("Conn_Banco"), "dbo.pa_Ativo_Chamado", "habilitar-acesso", pIdChamado, Nothing, matricula, tipoVisao, mdmVisao, Nothing, Nothing, Nothing, True)
+    End Sub
+
+    Private Sub DesabilitarAcesso(pIdChamado As Integer, pObservacao As String)
+        Dim matricula As String = ExtrairValorDaObservacao(pObservacao, "Matricula")
+        If String.IsNullOrEmpty(matricula) Then
+            Throw New Exception("Não foi possível encontrar a Matrícula na observação do chamado.")
+        End If
+
+        ' Usa o WebService para executar a lógica no banco de dados
+        WS_Chamado.ExecutarAcaoAtivo(Session("Conn_Banco"), "dbo.pa_Ativo_Chamado", "desabilitar-acesso", pIdChamado, Nothing, matricula, Nothing, Nothing, Nothing, Nothing, Nothing, True)
+    End Sub
+
+    Private Function ExtrairValorDaObservacao(observacao As String, chave As String) As String
+        Try
+            ' Procura pela chave (ex: "Matricula:") na observação, ignorando maiúsculas/minúsculas
+            Dim match As Match = Regex.Match(observacao, chave & ":\s*([^;]*)", RegexOptions.IgnoreCase)
+            If match.Success Then
+                Return match.Groups(1).Value.Trim()
+            End If
+            Return String.Empty
+        Catch
+            Return String.Empty
+        End Try
+    End Function
+
+    Private Function ObterEmailProfileDoUsuario(pIdUsuario As Integer) As String
+        Try
+            Dim ds As DataSet = WS_Chamado.ChamadoAuxiliar(Session("Conn_Banco"), "buscar_email_profile", pIdUsuario, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, True)
+            If ds IsNot Nothing AndAlso ds.Tables.Count > 0 AndAlso ds.Tables(0).Rows.Count > 0 Then
+                Return ds.Tables(0).Rows(0)("Profile_Name").ToString()
+            End If
+            Return String.Empty ' Retorna vazio se não encontrar perfil
+        Catch ex As Exception
+            EscreveLog("Erro ao buscar perfil de e-mail do usuário: " & ex.Message)
+            Return "ERRO" ' Retorna "ERRO" para ser tratado na chamada da função
+        End Try
+    End Function
+
+    ' [FIM - ICTRL-NF-202506-004]
 
 End Class

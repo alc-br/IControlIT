@@ -64,6 +64,7 @@ Namespace Sync
                 Dim privateKey As String = ConfigurationManager.AppSettings("SF_private_key")
                 Dim idpUrl As String = ConfigurationManager.AppSettings("SF_idp_url")
                 Dim apiKey As String = ConfigurationManager.AppSettings("SF_api_key")
+                Dim companyId As String = ConfigurationManager.AppSettings("SF_company_id")
 
 
                 If String.IsNullOrEmpty(clientId) OrElse String.IsNullOrEmpty(userId) OrElse String.IsNullOrEmpty(tokenUrl) OrElse String.IsNullOrEmpty(privateKey) Then
@@ -86,7 +87,7 @@ Namespace Sync
                 Using stream As Stream = idpRequest.GetRequestStream()
                     stream.Write(idpData, 0, idpData.Length)
                 End Using
-                EscreveLog("1")
+
                 Dim assertion As String = ""
                 Using idpResponse As HttpWebResponse = CType(idpRequest.GetResponse(), HttpWebResponse)
                     Using reader As New StreamReader(idpResponse.GetResponseStream(), Encoding.UTF8)
@@ -102,7 +103,6 @@ Namespace Sync
                 ' 2) Obter o access_token usando a assertion
                 Dim oauthUrl As String = tokenUrl
                 Dim grantType As String = "urn:ietf:params:oauth:grant-type:saml2-bearer"
-                Dim companyId As String = "valeT6"
 
                 Dim postDataToken As String = "client_id=" & Uri.EscapeDataString(clientId) &
                                               "&grant_type=" & Uri.EscapeDataString(grantType) &
@@ -120,10 +120,11 @@ Namespace Sync
                 End Using
 
                 Dim accessToken As String = ""
+                EscreveLog("1")
+
                 Using tokenResponse As HttpWebResponse = CType(tokenRequest.GetResponse(), HttpWebResponse)
                     Using reader As New StreamReader(tokenResponse.GetResponseStream(), Encoding.UTF8)
                         Dim jsonResp As String = reader.ReadToEnd()
-
                         Dim serializer As New JavaScriptSerializer()
                         Dim jsonDict As Dictionary(Of String, Object) = serializer.Deserialize(Of Dictionary(Of String, Object))(jsonResp)
                         If jsonDict.ContainsKey("access_token") Then
@@ -180,6 +181,97 @@ Namespace Sync
             Return results
         End Function
 
+        ' Você pode adaptar para cada Entidade (FOCompany, FOJobCode etc),
+        ' mas aqui fica genérico para qualquer uma (entidadeNome).
+        Private Function SincronizarEntidadePaginado(entidadeNome As String,
+                                             urlApi As String,
+                                             gerarXml As Func(Of Object(), String),
+                                             sincronizarEmLote As Func(Of String, String)) As String
+            Try
+                EscreveLog("Iniciando Sincronizar" & entidadeNome)
+
+                ' 1) Obter Token
+                Dim token As String = ObterTokenAcesso()
+
+                ' 2) Pegar TODOS os registros de todas as páginas
+                Dim todosRegistros As New List(Of Dictionary(Of String, Object))()
+
+                ' Padrão: se não tiver "?", adiciona ?$format=json, senão adiciona &format=json
+                If urlApi.Contains("?") Then
+                    urlApi &= "&$format=json"
+                Else
+                    urlApi &= "?$format=json"
+                End If
+
+                Dim proximaUrl As String = urlApi
+
+                ' Enquanto existir proximaUrl, chama ChamarApiGETRaw
+                Dim serializer As New JavaScriptSerializer()
+                serializer.MaxJsonLength = Integer.MaxValue
+
+                Do While Not String.IsNullOrEmpty(proximaUrl)
+                    EscreveLog($"Chamada da URL: {proximaUrl}")
+
+                    Dim responseString As String = ChamarApiGETRaw(proximaUrl, token)
+                    EscreveLog("Resposta da API obtida com sucesso.")
+
+                    ' Desserializa
+                    Dim jsonDict As Dictionary(Of String, Object) = serializer.Deserialize(Of Dictionary(Of String, Object))(responseString)
+
+                    ' Extrair 'results'
+                    Dim resultsArray As Object() = ExtrairResultados(jsonDict)
+                    EscreveLog($"Página com {resultsArray.Length} registros.")
+
+                    ' Salva no todosRegistros
+                    For Each itemObj In resultsArray
+                        ' Converte itemObj (que é Object) para Dictionary(Of String, Object)
+                        Dim item As Dictionary(Of String, Object) = TryCast(itemObj, Dictionary(Of String, Object))
+                        If item IsNot Nothing Then
+                            todosRegistros.Add(item)
+                        End If
+                    Next
+
+                    ' Tenta extrair a __next, se existir
+                    ' Ex.: jsonDict("d").__next
+                    Dim dObj As Dictionary(Of String, Object) = Nothing
+                    proximaUrl = Nothing ' assume que não tem próxima por padrão
+
+                    If jsonDict.ContainsKey("d") Then
+                        dObj = TryCast(jsonDict("d"), Dictionary(Of String, Object))
+                        If dObj IsNot Nothing AndAlso dObj.ContainsKey("__next") Then
+                            Dim prox As String = dObj("__next").ToString()
+                            If Not String.IsNullOrEmpty(prox) Then
+                                proximaUrl = prox
+                            End If
+                        End If
+                    End If
+
+                    EscreveLog(If(String.IsNullOrEmpty(proximaUrl),
+                          "Não há próxima página (__next). Finalizando coleta.",
+                          $"__next detectado. Próxima página: {proximaUrl}"))
+                Loop
+
+                ' Agora que todos foram coletados, gera o XML (uma vez só)
+                EscreveLog($"Total de registros coletados em todas as páginas: {todosRegistros.Count}.")
+
+                Dim xml As String = gerarXml(todosRegistros.ToArray())
+                EscreveLog("XML gerado com sucesso: " & xml)
+
+                ' Sincronizar em lote
+                If sincronizarEmLote IsNot Nothing Then
+                    Dim resp As String = sincronizarEmLote(xml)
+                    EscreveLog("Sincronizar" & entidadeNome & "EmLote retorno: " & resp)
+                End If
+
+                Return "Sincronização " & entidadeNome & " concluída com sucesso. XML: " & xml
+
+            Catch ex As Exception
+                EscreveLog("Erro em Sincronizar" & entidadeNome & ": " & ex.Message)
+                Throw
+            End Try
+        End Function
+
+
         ' Função genérica para sincronizar qualquer entidade
         Private Function SincronizarEntidade(entidadeNome As String,
                                              urlApi As String,
@@ -223,14 +315,34 @@ Namespace Sync
             End Try
         End Function
 
+        Private Function SafeGetValue(ByVal item As Dictionary(Of String, Object),
+                              ByVal key As String,
+                              ByVal defaultValue As String) As String
+            If item Is Nothing Then
+                Return defaultValue
+            End If
+            If Not item.ContainsKey(key) OrElse item(key) Is Nothing Then
+                Return defaultValue
+            End If
+            Return item(key).ToString()
+        End Function
+
+
         ' Funções auxiliares para gerar XML
         Private Function GerarXmlCargos(ByVal results As Object()) As String
             Dim sb As New StringBuilder()
             sb.AppendLine("<Root>")
-            For Each item As Dictionary(Of String, Object) In results
-                Dim code As String = EncodeXml(item("externalCode").ToString())
-                Dim status As String = EncodeXml(item("status").ToString())
-                Dim description As String = EncodeXml(item("name_defaultValue").ToString())
+
+            For Each obj As Object In results
+                Dim item = TryCast(obj, Dictionary(Of String, Object))
+                If item Is Nothing Then
+                    Continue For
+                End If
+
+                ' Use SafeGetValue para cada campo
+                Dim code As String = EncodeXml(SafeGetValue(item, "externalCode", "SEM_CODE"))
+                Dim status As String = SafeGetValue(item, "status", "A")
+                Dim description As String = EncodeXml(SafeGetValue(item, "name_defaultValue", "SEM_DESCRICAO"))
                 Dim flDesativado As Integer = If(status = "A", 0, 1)
 
                 sb.AppendLine("  <Cargo>")
@@ -239,17 +351,25 @@ Namespace Sync
                 sb.AppendLine($"    <Fl_Desativado>{flDesativado}</Fl_Desativado>")
                 sb.AppendLine("  </Cargo>")
             Next
+
             sb.AppendLine("</Root>")
             Return sb.ToString()
         End Function
 
+
         Private Function GerarXmlEmpresas(ByVal results As Object()) As String
             Dim sb As New StringBuilder()
             sb.AppendLine("<Root>")
-            For Each item As Dictionary(Of String, Object) In results
-                Dim companyCode As String = EncodeXml(item("externalCode").ToString())
-                Dim status As String = EncodeXml(item("status").ToString())
-                Dim description As String = EncodeXml(item("name").ToString())
+
+            For Each obj As Object In results
+                Dim item = TryCast(obj, Dictionary(Of String, Object))
+                If item Is Nothing Then
+                    Continue For
+                End If
+
+                Dim companyCode As String = EncodeXml(SafeGetValue(item, "externalCode", "SEM_CODE"))
+                Dim status As String = SafeGetValue(item, "status", "A")
+                Dim description As String = EncodeXml(SafeGetValue(item, "name", "SEM_NOME"))
                 Dim flDesativado As Integer = If(status = "A", 0, 1)
 
                 sb.AppendLine("  <Empresa>")
@@ -260,45 +380,52 @@ Namespace Sync
                 sb.AppendLine($"    <Fl_Desativado>{flDesativado}</Fl_Desativado>")
                 sb.AppendLine("  </Empresa>")
             Next
+
             sb.AppendLine("</Root>")
             Return sb.ToString()
         End Function
 
+
         Private Function GerarXmlDepartamentos(ByVal results As Object()) As String
             Dim sb As New StringBuilder()
             sb.AppendLine("<Root>")
-            For Each item As Dictionary(Of String, Object) In results
-                Dim departmentCode As String = EncodeXml(item("externalCode").ToString())
-                Dim status As String = EncodeXml(item("status").ToString())
-                Dim departmentName As String = EncodeXml(item("name_defaultValue").ToString())
+
+            For Each obj As Object In results
+                Dim item = TryCast(obj, Dictionary(Of String, Object))
+                If item Is Nothing Then
+                    Continue For
+                End If
+
+                Dim departmentCode As String = EncodeXml(SafeGetValue(item, "externalCode", "SEM_CODE"))
+                Dim status As String = SafeGetValue(item, "status", "A")
+                Dim departmentName As String = EncodeXml(SafeGetValue(item, "name_defaultValue", "SEM_NOME"))
                 Dim flDesativado As Integer = If(status = "A", 0, 1)
+
                 sb.AppendLine("  <Departamento>")
                 sb.AppendLine($"    <Cd_Departamento>{departmentCode}</Cd_Departamento>")
                 sb.AppendLine($"    <Nm_Departamento>{departmentName}</Nm_Departamento>")
                 sb.AppendLine($"    <Fl_Desativado>{flDesativado}</Fl_Desativado>")
                 sb.AppendLine("  </Departamento>")
             Next
+
             sb.AppendLine("</Root>")
             Return sb.ToString()
         End Function
+
 
         Private Function GerarXmlFiliais(ByVal results As Object()) As String
             Dim sb As New StringBuilder()
             sb.AppendLine("<Root>")
 
-            ' Função auxiliar para obter valores do dicionário com segurança
-            Dim GetValue = Function(dict As Dictionary(Of String, Object), key As String, defaultValue As String) As String
-                               If dict IsNot Nothing AndAlso dict.ContainsKey(key) AndAlso dict(key) IsNot Nothing Then
-                                   Return dict(key).ToString()
-                               End If
-                               Return defaultValue
-                           End Function
+            For Each obj As Object In results
+                Dim item = TryCast(obj, Dictionary(Of String, Object))
+                If item Is Nothing Then
+                    Continue For
+                End If
 
-            For Each item As Dictionary(Of String, Object) In results
-                ' Corrigido: Adicionado o terceiro argumento (valor padrão) nas chamadas de GetValue
-                Dim locationCode As String = EncodeXml(GetValue(item, "externalCode", ""))
-                Dim locationName As String = EncodeXml(GetValue(item, "name", ""))
-                Dim streetAddress As String = EncodeXml(GetValue(item, "customString5", ""))
+                Dim locationCode As String = EncodeXml(SafeGetValue(item, "externalCode", "SEM_CODE"))
+                Dim locationName As String = EncodeXml(SafeGetValue(item, "name", "SEM_NOME"))
+                Dim streetAddress As String = EncodeXml(SafeGetValue(item, "customString5", ""))
 
                 sb.AppendLine("  <Filial>")
                 sb.AppendLine($"    <Cd_Filial>{locationCode}</Cd_Filial>")
@@ -308,16 +435,25 @@ Namespace Sync
                 sb.AppendLine($"    <Fl_Desativado>0</Fl_Desativado>")
                 sb.AppendLine("  </Filial>")
             Next
+
             sb.AppendLine("</Root>")
             Return sb.ToString()
         End Function
 
+
         Private Function GerarXmlSetores(ByVal results As Object()) As String
             Dim sb As New StringBuilder()
             sb.AppendLine("<Root>")
-            For Each item As Dictionary(Of String, Object) In results
-                Dim level6Description As String = EncodeXml(item("level6Description").ToString())
-                Dim desc1 As String = item("level1Description").ToString()
+
+            For Each obj As Object In results
+                Dim item = TryCast(obj, Dictionary(Of String, Object))
+                If item Is Nothing Then
+                    Continue For
+                End If
+
+                Dim level6Description As String = EncodeXml(SafeGetValue(item, "level6Description", "SEM_DESCRICAO"))
+                Dim desc1 As String = EncodeXml(SafeGetValue(item, "level1Description", "SEM_COD"))
+
                 sb.AppendLine("  <Setor>")
                 sb.AppendLine($"    <Id_Setor>1</Id_Setor>")
                 sb.AppendLine($"    <Cd_Setor>{desc1}</Cd_Setor>")
@@ -325,9 +461,11 @@ Namespace Sync
                 sb.AppendLine($"    <Fl_Desativado>0</Fl_Desativado>")
                 sb.AppendLine("  </Setor>")
             Next
+
             sb.AppendLine("</Root>")
             Return sb.ToString()
         End Function
+
 
         ' Gera XML para consumidores a partir de dados extraídos do CompoundEmployee (ajuste conforme sua necessidade)
         Private Function GerarXmlConsumidores(consumersData As List(Of Dictionary(Of String, Object))) As String
@@ -354,7 +492,7 @@ Namespace Sync
                 If registroDetalhado.Length > 0 Then
                     registroDetalhado.Length -= 2
                 End If
-                EscreveLog(registroDetalhado.ToString())
+                ' EscreveLog(registroDetalhado.ToString())
 
 
 
@@ -427,7 +565,7 @@ Namespace Sync
         <WebMethod()>
         Public Function SincronizarFOCompany_1(pPConn_Banco As String) As String
             Dim apiUrl As String = ConfigurationManager.AppSettings("SF_url_api_FOCompany")
-            Return SincronizarEntidade("FOCompany",
+            Return SincronizarEntidadePaginado("FOCompany",
                                        apiUrl,
                                        AddressOf GerarXmlEmpresas,
                                        Function(xml) WSSincronizacao.SincronizarEmpresasEmLote(xml, pPConn_Banco))
@@ -437,17 +575,18 @@ Namespace Sync
         <WebMethod()>
         Public Function SincronizarFOJobCode_2(pPConn_Banco As String) As String
             Dim apiUrl As String = ConfigurationManager.AppSettings("SF_url_api_FOJobCode")
-            Return SincronizarEntidade("FOJobCode",
+            Return SincronizarEntidadePaginado("FOJobCode",
                                        apiUrl,
                                        AddressOf GerarXmlCargos,
                                        Function(xml) WSSincronizacao.SincronizarCargosEmLote(xml, pPConn_Banco))
+
         End Function
 
         ' 3 ######## MERGE_DEPARTAMENTO
         <WebMethod()>
         Public Function SincronizarFODepartment_3(pPConn_Banco As String) As String
             Dim apiUrl As String = ConfigurationManager.AppSettings("SF_url_api_FODepartment")
-            Return SincronizarEntidade("FODepartment",
+            Return SincronizarEntidadePaginado("FODepartment",
                                        apiUrl,
                                        AddressOf GerarXmlDepartamentos,
                                        Function(xml) WSSincronizacao.SincronizarDepartamentosEmLote(xml, pPConn_Banco))
@@ -458,7 +597,7 @@ Namespace Sync
         <WebMethod()>
         Public Function SincronizarFOLocation_4(pPConn_Banco As String) As String
             Dim apiUrl As String = ConfigurationManager.AppSettings("SF_url_api_FOLocation")
-            Return SincronizarEntidade("FOLocation",
+            Return SincronizarEntidadePaginado("FOLocation",
                                        apiUrl,
                                        AddressOf GerarXmlFiliais,
                                        Function(xml) WSSincronizacao.SincronizarFiliaisEmLote(xml, pPConn_Banco))
@@ -526,14 +665,15 @@ Namespace Sync
         Private Function SfapiQuery(ByVal sessionId As String) As String
             Dim queryUrl As String = ConfigurationManager.AppSettings("SF_url_api_login")
             Dim apiKey As String = ConfigurationManager.AppSettings("SF_api_key")
+            Dim c_filtro_company As String = ConfigurationManager.AppSettings("C_Filtro_Company")
             Dim soapBody As String =
                 "<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:urn='urn:sfobject.sfapi.successfactors.com'>" &
                 "<soapenv:Header/><soapenv:Body>" &
                 "<urn:query>" &
                 "<urn:queryString>" &
-                "SELECT person, personal_information, email_information, national_id_card, phone_information, employment_information, personal_documents_information, job_information FROM CompoundEmployee" &
+                "SELECT person, personal_information, email_information, national_id_card, phone_information, employment_information, personal_documents_information, job_information FROM CompoundEmployee WHERE COMPANY_TERRITORY_CODE = '" & c_filtro_company & "'" &
                 "</urn:queryString>" &
-                "<urn:param><urn:name></urn:name><urn:value></urn:value></urn:param>" &
+                "<urn:param><urn:name>maxRows</urn:name><urn:value>800</urn:value></urn:param>" &
                 "</urn:query>" &
                 "</soapenv:Body></soapenv:Envelope>"
 
@@ -562,6 +702,117 @@ Namespace Sync
             End Using
         End Function
 
+        Private Function SfapiQueryMore(sessionId As String, querySessionId As String) As String
+            Try
+                Dim queryUrl As String = ConfigurationManager.AppSettings("SF_url_api_login")
+                Dim apiKey As String = ConfigurationManager.AppSettings("SF_api_key")
+
+                Dim soapBody As String =
+            "<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:urn='urn:sfobject.sfapi.successfactors.com'>" &
+            "<soapenv:Header/><soapenv:Body>" &
+            "<urn:queryMore>" &
+            $"<urn:querySessionId>{querySessionId}</urn:querySessionId>" &
+            "</urn:queryMore>" &
+            "</soapenv:Body></soapenv:Envelope>"
+
+                Dim request As HttpWebRequest = CType(WebRequest.Create(queryUrl), HttpWebRequest)
+                request.Method = "POST"
+                request.ContentType = "text/xml; charset=UTF-8"
+                request.Headers("SOAPAction") = "#queryMore"
+
+                ' Autenticação e Cookie
+                Dim authInfo As String = Convert.ToBase64String(Encoding.UTF8.GetBytes("SFAPI@valeD:Welcome123"))
+                request.Headers("Authorization") = "Basic " & authInfo
+                request.Headers("cookie") = "JSESSIONID=" & sessionId
+                request.Headers.Add("APIKey", apiKey)
+
+                Dim bytes = Encoding.UTF8.GetBytes(soapBody)
+                request.ContentLength = bytes.Length
+                Using stream = request.GetRequestStream()
+                    stream.Write(bytes, 0, bytes.Length)
+                End Using
+
+                Using response As HttpWebResponse = CType(request.GetResponse(), HttpWebResponse)
+                    Using reader As New StreamReader(response.GetResponseStream(), Encoding.UTF8)
+                        Return reader.ReadToEnd()
+                    End Using
+                End Using
+            Catch ex As Exception
+                EscreveLog($"Erro em SfapiQueryMore: {ex.Message}")
+                Throw
+            End Try
+        End Function
+
+        ' Retorna a lista de todos os registros do CompoundEmployee
+        Private Function SfapiQueryAll(sessionId As String) As List(Of Dictionary(Of String, Object))
+            Dim todosRegistros As New List(Of Dictionary(Of String, Object))()
+
+            ' 1) Chama SfapiQuery (primeira página)
+            Dim primeiraResposta As String = SfapiQuery(sessionId)
+
+            todosRegistros.AddRange(ParseCompoundEmployeeXml(primeiraResposta))
+
+            ' 2) Se hasMore=true, chama queryMore
+            Dim hasMore As Boolean = ExtrairHasMore(primeiraResposta)
+            Dim querySessionId As String = ExtrairQuerySessionId(primeiraResposta)
+
+            While hasMore
+
+                Dim proximaResposta As String = SfapiQueryMore(sessionId, querySessionId)
+
+                todosRegistros.AddRange(ParseCompoundEmployeeXml(proximaResposta))
+
+                hasMore = ExtrairHasMore(proximaResposta)
+                querySessionId = ExtrairQuerySessionId(proximaResposta)
+
+            End While
+
+            Return todosRegistros
+        End Function
+
+
+        Private Function ExtrairHasMore(xml As String) As Boolean
+            Dim doc As New XmlDocument()
+            doc.LoadXml(xml)
+
+            Dim nsMgr As New XmlNamespaceManager(doc.NameTable)
+            nsMgr.AddNamespace("sf", "urn:sfobject.sfapi.successfactors.com")
+
+            ' Tenta no queryResponse
+            Dim node As XmlNode = doc.SelectSingleNode("//sf:queryResponse/sf:result/sf:hasMore", nsMgr)
+            If node Is Nothing Then
+                ' Se não encontrou nada, tenta no queryMoreResponse
+                node = doc.SelectSingleNode("//sf:queryMoreResponse/sf:result/sf:hasMore", nsMgr)
+            End If
+
+            Return (node IsNot Nothing AndAlso node.InnerText = "true")
+        End Function
+
+        Private Function ExtrairQuerySessionId(xml As String) As String
+            Dim doc As New XmlDocument()
+            doc.LoadXml(xml)
+
+            Dim nsMgr As New XmlNamespaceManager(doc.NameTable)
+            nsMgr.AddNamespace("sf", "urn:sfobject.sfapi.successfactors.com")
+
+            ' Tenta no queryResponse
+            Dim node As XmlNode = doc.SelectSingleNode("//sf:queryResponse/sf:result/sf:querySessionId", nsMgr)
+            If node Is Nothing Then
+                ' Se não encontrou nada, tenta no queryMoreResponse
+                node = doc.SelectSingleNode("//sf:queryMoreResponse/sf:result/sf:querySessionId", nsMgr)
+            End If
+
+            If node IsNot Nothing Then
+                Return node.InnerText
+            End If
+            Return ""
+        End Function
+
+
+
+
+
+
         ' Parse da resposta da query CompoundEmployee (XML)
         Private Function ParseCompoundEmployeeXml(soapResponse As String) As List(Of Dictionary(Of String, Object))
             Dim consumers As New List(Of Dictionary(Of String, Object))()
@@ -586,6 +837,18 @@ Namespace Sync
 
                 ' Selecionar todos os nós <sfobject> dentro de <queryResponse>/<result>
                 Dim sfobjectNodes = xmlDoc.SelectNodes("//sf:queryResponse/sf:result/sf:sfobject", nsMgr)
+                If sfobjectNodes.Count = 0 Then
+                    ' Se não achar, tenta no queryMoreResponse
+                    sfobjectNodes = xmlDoc.SelectNodes("//sf:queryMoreResponse/sf:result/sf:sfobject", nsMgr)
+
+                    If sfobjectNodes.Count = 0 Then
+                        EscreveLog("*********** XML Retornado (caso zero) ***********")
+                        EscreveLog(soapResponse)
+                        EscreveLog("*********** Fim do XML Retornado ***********")
+                    End If
+
+                End If
+
                 EscreveLog($"Número de <sfobject> encontrados: {sfobjectNodes.Count}")
 
                 For Each sfobjNode As XmlNode In sfobjectNodes
@@ -597,7 +860,6 @@ Namespace Sync
                         empData("person_id_external") = personIdExternalNode.InnerText
                     Else
                         empData("person_id_external") = "PENDENTE"
-                        EscreveLog("Chave 'person_id_external' não encontrada em um registro.")
                     End If
 
                     ' 2. Extrair <formal_name>
@@ -606,7 +868,6 @@ Namespace Sync
                         empData("formal_name") = formalNameNode.InnerText
                     Else
                         empData("formal_name") = "PENDENTE"
-                        EscreveLog("Chave 'formal_name' não encontrada em um registro.")
                     End If
 
                     ' 3. Extrair <email_address>
@@ -615,7 +876,6 @@ Namespace Sync
                         empData("email_address") = emailAddressNode.InnerText
                     Else
                         empData("email_address") = "sem-email@dominio.com"
-                        EscreveLog("Chave 'email_address' não encontrada em um registro. Definindo como 'sem-email@dominio.com'.")
                     End If
 
                     ' 4. Extrair <logon_user_is_active>
@@ -624,7 +884,6 @@ Namespace Sync
                         empData("logon_user_is_active") = logonUserIsActiveNode.InnerText
                     Else
                         empData("logon_user_is_active") = "false"
-                        EscreveLog("Chave 'logon_user_is_active' não encontrada em um registro. Definindo como 'false'.")
                     End If
 
                     ' 5. Extrair <company>
@@ -633,7 +892,6 @@ Namespace Sync
                         empData("company") = companyNode.InnerText
                     Else
                         empData("company") = "PENDENTE"
-                        EscreveLog("Chave 'company' não encontrada em um registro.")
                     End If
 
                     ' 6. Extrair <custom_string4>
@@ -642,7 +900,6 @@ Namespace Sync
                         empData("custom_string4") = customString4Node.InnerText
                     Else
                         empData("custom_string4") = "PENDENTE"
-                        EscreveLog("Chave 'custom_string4' não encontrada em um registro.")
                     End If
 
                     ' 7. Extrair <custom_string3>
@@ -651,7 +908,6 @@ Namespace Sync
                         empData("custom_string3") = customString3Node.InnerText
                     Else
                         empData("custom_string3") = "PENDENTE"
-                        EscreveLog("Chave 'custom_string3' não encontrada em um registro.")
                     End If
 
                     ' 8. Extrair <cost_center>
@@ -660,7 +916,6 @@ Namespace Sync
                         empData("cost_center") = costCenterNode.InnerText
                     Else
                         empData("cost_center") = "PENDENTE"
-                        EscreveLog("Chave 'cost_center' não encontrada em um registro.")
                     End If
 
                     ' 9. Extrair <manager_id>
@@ -669,7 +924,6 @@ Namespace Sync
                         empData("manager_id") = managerIdNode.InnerText
                     Else
                         empData("manager_id") = "PENDENTE"
-                        EscreveLog("Chave 'manager_id' não encontrada em um registro.")
                     End If
 
                     ' 10. Extrair <department>
@@ -678,7 +932,6 @@ Namespace Sync
                         empData("department") = departmentNode.InnerText
                     Else
                         empData("department") = "PENDENTE"
-                        EscreveLog("Chave 'department' não encontrada em um registro.")
                     End If
 
                     ' Opcional: Extrair <id> como employeeIdentifier (se ainda necessário)
@@ -687,7 +940,6 @@ Namespace Sync
                         empData("employeeIdentifier") = idNode.InnerText
                     Else
                         empData("employeeIdentifier") = "PENDENTE"
-                        EscreveLog("Chave 'id' não encontrada em um registro.")
                     End If
 
                     ' Adicionar empData ao consumers
@@ -722,12 +974,9 @@ Namespace Sync
                 Dim sessionId = SfapiLogin(accessToken)
                 EscreveLog("SessionId obtido: " & sessionId)
 
-                ' 2) Fazer query SOAP com Basic Auth e cookie = sessionId
-                Dim soapResponse = SfapiQuery(sessionId)
-                EscreveLog("Resposta da query SOAP obtida.")
+                ' Buscar TODAS as páginas
+                Dim consumersData = SfapiQueryAll(sessionId)
 
-                ' 3) Parsear o XML da resposta para extrair dados do CompoundEmployee
-                Dim consumersData = ParseCompoundEmployeeXml(soapResponse)
                 EscreveLog("Dados do CompoundEmployee parseados, total: " & consumersData.Count)
                 EscreveLog("INICIO DADOS")
                 ' **Logar os Dados Extraídos**
@@ -739,7 +988,7 @@ Namespace Sync
                     If logEntry.Length > 0 Then
                         logEntry.Length -= 2 ' Remove trailing comma and space
                     End If
-                    EscreveLog($"Consumidor: {logEntry.ToString()}")
+                    ' EscreveLog($"Consumidor: {logEntry.ToString()}")
                 Next
                 EscreveLog("FIM DADOS")
 

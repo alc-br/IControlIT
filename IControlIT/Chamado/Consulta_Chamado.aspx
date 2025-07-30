@@ -6,6 +6,7 @@
 * [ICTRL-NF-202506-001 | 2025-06-21 | Anderson Chipak]
 * [ICTRL-NF-202506-002 | 2025-06-22 | Anderson Chipak]
 * [ICTRL-NF-202506-007 | 2025-07-04 | Anderson Chipak]
+* [ICTRL-NF-202506-004 | 2025-07-08 | Anderson Chipak]
 * [SISTEMA-TIPO-AAAAMM-SEQ | AAAA-MM-DD | NOME AUTOR ]
 */
 --%>
@@ -417,6 +418,8 @@
     <input type="text" id="hfNovoPlanoMigracao" class="esconde" runat="server" /> <%-- [ICTRL-NF-202506-009] --%>
     <input type="text" id="hfFlManual" class="esconde" runat="server" /> <%-- [ICTRL-NF-202506-017] --%>
     <input type="text" id="hfOriginalFlManual" class="esconde" runat="server" /> <%-- [ICTRL-NF-202506-017] --%>
+    <input type="text" id="hfObservacaoCompleta" class="esconde" runat="server" /><%-- [ICTRL-NF-202506-004] --%>
+    <input type="text" id="hfMultiplosAtivos" class="esconde" runat="server" /><%-- [ICTRL-NF-202506-003] --%>
     
     
     
@@ -697,6 +700,7 @@
             setInputValue('ContentPlaceHolder1_hfNewPlanoContrato', framingPlan);
             setInputValue('ContentPlaceHolder1_hfTipoSolicitacao', tipoSolicitacao);
             setInputValue('ContentPlaceHolder1_hfComentarios', comentarios);
+            setInputValue('ContentPlaceHolder1_hfObservacaoCompleta', comentarios); //ICTRL-NF-202506-004
             setInputValue('ContentPlaceHolder1_hfEstado', estado);
             setInputValue('ContentPlaceHolder1_hfRequestNumber', requestNumber);
             setInputValue('ContentPlaceHolder1_hfWorkOrderNumber', workOrderNumber);
@@ -854,17 +858,6 @@
                         }
 
                         // [INÍCIO - ICTRL-NF-202506-009]
-                        // ...bloco antigo comentado
-                        // // Adiciona o evento de desfoque para atualizar hfMigrationDevice
-                        // var nomePlanoMigracao = document.querySelector('#nomePlanoMigracao');
-                        // if (nomePlanoMigracao) {
-                        //     nomePlanoMigracao.addEventListener('change', function () {
-                        //         var textoSelecionado = nomePlanoMigracao.options[nomePlanoMigracao.selectedIndex].text;
-                        //         document.querySelector('#ContentPlaceHolder1_hfMigrationDevice').value = textoSelecionado;
-                        //     });
-                        // }
-                        // ...bloco novo
-                        // Adiciona o evento de mudança para atualizar hfNovoPlanoMigracao
                         var nomePlanoMigracao = document.querySelector('#nomePlanoMigracao');
                         if (nomePlanoMigracao) {
                             nomePlanoMigracao.addEventListener('change', function () {
@@ -951,23 +944,32 @@
                         camposCondicionaisContainer.innerHTML = '<p><strong>Novo Proprietário:</strong> <span>' + newUserNumber + '</span></p>';
                     }
                     break;
+                // [INÍCIO - ICTRL-NF-202506-023]
                 case 'NOVA LINHA':
+                case 'TELEFONE VIA SATÉLITE - NOVA LINHA':
+                case 'SIMCARD M2M - NOVA LINHA':
                     if (estado === 'Concluído') {
-                        camposCondicionaisContainer.innerHTML = '<p><strong>Nova Linha:</strong> <span>' + Campo1 + '</span></p>';
+                        camposCondicionaisContainer.innerHTML = '<p><strong>Novas Linhas:</strong> <span>' + (Campo1 ? Campo1.replace(/,/g, ', ') : '') + '</span></p>';
                         camposCondicionaisContainer.innerHTML += '<p><strong>Plano:</strong> <span>' + Campo2 + '</span></p>';
                     } else {
-                        camposCondicionaisContainer.innerHTML = '<p><strong>Plano de referência:</strong> <span>' + framingPlan + '</span></p>';
-                        camposCondicionaisContainer.innerHTML += `
+                        let label = (solicitacao.toUpperCase() === 'NOVA LINHA') ? 'Nova Linha' : 'Novas Linhas (' + solicitacao.split(' - ')[0] + ')';
+                        camposCondicionaisContainer.innerHTML = `
+                            <div id="multiplosAtivosContainer">
                                 <p>
-                                    <input type="number" id="novaLinha" class="form-control" placeholder="Informe a nova linha"
-                                       maxlength="11" oninput="if(this.value.length > 11) this.value = this.value.slice(0, 11);" />
+                                    <label>${label}</label>
+                                    <input type="text" class="form-control multiplo-ativo-input" placeholder="Informe a nova linha" onblur="coletarMultiplosAtivos()" />
                                 </p>
-                                <p>
-                                    <select id="nomePlanoMigracaoNL" class="form-control">
-                                        <option value="1">Selecione um plano</option>
-                                    </select>
-                                </p>
-                            `;
+                            </div>
+                            <button type="button" class="btn btn-sm btn-secondary" onclick="adicionarCampoMultiploAtivo()" style="margin-top:5px;">+ Adicionar Linha</button>
+                            <br /><br />
+                            <p>
+                                <label>Plano</label>
+                                <select id="nomePlanoMigracaoNL" class="form-control">
+                                    <option value="1">Selecione um plano</option>
+                                </select>
+                            </p>
+                        `;
+                        // Adiciona listener para o dropdown de plano
                         var nomePlanoMigracaoNL = document.querySelector('#nomePlanoMigracaoNL');
                         if (nomePlanoMigracaoNL) {
                             nomePlanoMigracaoNL.addEventListener('change', function () {
@@ -975,16 +977,10 @@
                                 document.querySelector('#ContentPlaceHolder1_hfnomePlanoMigracaoNL').value = textoSelecionado;
                             });
                         }
-
-
-                        var novaLinhaInput = document.querySelector('#novaLinha');
-                        if (novaLinhaInput) {
-                            novaLinhaInput.addEventListener('blur', function () {
-                                document.querySelector('#ContentPlaceHolder1_hfNovaLinha').value = this.value;
-                            });
-                        }
                     }
                     break;
+                // [FIM - ICTRL-NF-202506-023]
+
                 <%-- [INÍCIO - ICTRL-NF-202506-001 | 2025-06-21 | Parceiro IControlIT] --%>
                 case 'E-SIM TROCA DE CHIP VIRTUAL':
                     if (estado === 'Concluído') {
@@ -1005,42 +1001,6 @@
                     }
                     break;
                 <%-- [FIM - ICTRL-NF-202506-001] --%>
-                <%-- [INÍCIO - ICTRL-NF-202506-002] --%>
-                case 'SIMCARD M2M - NOVA LINHA':
-                    // A exibição dos campos pPacoteDados e pAPN agora é feita pela função setElementVisibility,
-                    // chamada no loadFields(). Esta seção agora apenas replica a funcionalidade de entrada.
-
-                    // Replica a funcionalidade de entrada da "NOVA LINHA" normal
-                    if (estado.toUpperCase() !== 'CONCLUÍDO') {
-                        if (framingPlan) camposCondicionaisContainer.innerHTML += '<p><strong>Plano de referência:</strong> <span>' + framingPlan + '</span></p>';
-                        camposCondicionaisContainer.innerHTML += `
-                                <p>
-                                    <input type="number" id="novaLinha" class="form-control" placeholder="Informe a nova linha"
-                                       maxlength="11" oninput="if(this.value.length > 11) this.value = this.value.slice(0, 11);" />
-                                </p>
-                                <p>
-                                    <select id="nomePlanoMigracaoNL" class="form-control">
-                                        <option value="1">Selecione um plano</option>
-                                    </select>
-                                </p>
-                            `;
-                        // Adiciona os listeners para capturar os valores dos novos campos
-                        var nomePlanoMigracaoNL = document.querySelector('#nomePlanoMigracaoNL');
-                        if (nomePlanoMigracaoNL) {
-                            nomePlanoMigracaoNL.addEventListener('change', function () {
-                                var textoSelecionado = nomePlanoMigracaoNL.options[nomePlanoMigracaoNL.selectedIndex].text;
-                                document.querySelector('#ContentPlaceHolder1_hfnomePlanoMigracaoNL').value = textoSelecionado;
-                            });
-                        }
-
-                        var novaLinhaInput = document.querySelector('#novaLinha');
-                        if (novaLinhaInput) {
-                            novaLinhaInput.addEventListener('blur', function () {
-                                document.querySelector('#ContentPlaceHolder1_hfNovaLinha').value = this.value;
-                            });
-                        }
-                    }
-                    break;
 
                 case 'SIMCARD M2M - ALTERAR PROPRIETARIO':
                     // Replica a lógica de exibição do 'ALTERAR PROPRIETARIO' padrão.
@@ -1278,12 +1238,23 @@
         document.getElementById('ContentPlaceHolder1_hfFlManual').value = initialFlManualState ? '1' : '0';
         document.getElementById('ContentPlaceHolder1_hfOriginalFlManual').value = initialFlManualState ? '1' : '0';
 
-        // Define e armazena o estado inicial completo do botão "Executar"
+        // [INÍCIO - ICTRL-NF-202506-004 | 2025-07-14] - Libera o botão executar para chamados de acesso
         btnExecutar.value = 'Executar';
         const isEmailSent = emailEnviado.toString().toLowerCase() === 'true';
-        btnExecutar.disabled = !isEmailSent;
-        btnExecutar.className = isEmailSent ? 'btn btn-primary verde' : 'btn btn-primary verde desativado';
-        btnExecutar.style.cursor = isEmailSent ? 'pointer' : 'not-allowed';
+        const isAccessTicket = tipoSolicitacao.toUpperCase().includes('HABILITAR ACESSO') || tipoSolicitacao.toUpperCase().includes('DESABILITAR ACESSO');
+
+        if (isAccessTicket) {
+            // Para chamados de acesso, o botão está sempre liberado.
+            btnExecutar.disabled = false;
+            btnExecutar.className = 'btn btn-primary verde';
+            btnExecutar.style.cursor = 'pointer';
+        } else {
+            // Para os outros chamados, mantém a regra original do e-mail.
+            btnExecutar.disabled = !isEmailSent;
+            btnExecutar.className = isEmailSent ? 'btn btn-primary verde' : 'btn btn-primary verde desativado';
+            btnExecutar.style.cursor = isEmailSent ? 'pointer' : 'not-allowed';
+        }
+        // [FIM - ICTRL-NF-202506-004]
 
         // Salva o estado completo do botão para poder restaurá-lo depois
         initialButtonState = {
@@ -1468,6 +1439,26 @@
     });
 
 
+    // [INÍCIO - ICTRL-NF-202506-023]
+    function adicionarCampoMultiploAtivo() {
+        var container = document.getElementById('multiplosAtivosContainer');
+        var novoInput = document.createElement('p');
+        novoInput.innerHTML = '<input type="text" class="form-control multiplo-ativo-input" placeholder="Informe a nova linha" onblur="coletarMultiplosAtivos()" />';
+        container.appendChild(novoInput);
+    }
+
+    function coletarMultiplosAtivos() {
+        var inputs = document.querySelectorAll('.multiplo-ativo-input');
+        var valores = [];
+        inputs.forEach(function (input) {
+            if (input.value.trim() !== '') {
+                valores.push(input.value.trim());
+            }
+        });
+        document.getElementById('ContentPlaceHolder1_hfMultiplosAtivos').value = valores.join(',');
+    }
+    // [FIM - ICTRL-NF-202506-023]
+
 </script>
 
 <!-- FIM PÁGINA -->
@@ -1555,7 +1546,7 @@
                         <strong class="label-chamado">NOVO PROPRIETÁRIO:</strong> <span id="modalNewUserNumber"></span>
                     </p>
                     <p id="modalNewAreaCodeContainer" style="display:none;">
-                        <strong class="label-chamado">NewAreaCode:</strong> <span id="modalNewAreaCode"></span>
+                        <strong class="label-chamado">DDD DA LINHA:</strong> <span id="modalNewAreaCode"></span>
                     </p>
                     <p id="modalNewTelecomProviderContainer" style="display:none;">
                         <strong class="label-chamado">NewTelecomProvider:</strong> <span id="modalNewTelecomProvider"></span>
@@ -1582,7 +1573,7 @@
                             </label>
                         </div>
                     <%-- [FIM - ICTRL-NF-202506-017] --%>
-                    <asp:Button ID="btnExecutar" runat="server" CssClass="btn btn-primary verde" Text="Executar" OnClick="btnExecutar_Click" OnClientClick="preSalvarDadosDoModal(); document.getElementById('ContentPlaceHolder1_hfSNComment').value = document.getElementById('ContentPlaceHolder2_txtSNComment').value; return true;" />
+                    <asp:Button ID="btnExecutar" runat="server" CssClass="btn btn-primary verde" Text="Executar" OnClick="btnExecutar_Click" />
                     <asp:Button ID="btnCancelar" runat="server" CssClass="btn btn-secondary ml-2" Text="Cancelar Chamado" OnClientClick="mostrarCampoCancelamento(); return false;" />
                 </div>
 

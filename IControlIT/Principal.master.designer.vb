@@ -840,4 +840,13 @@ Partial Public Class Principal
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblNome As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''lblDebugPermissions control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblDebugPermissions As Global.System.Web.UI.WebControls.Label
 End Class

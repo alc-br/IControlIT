@@ -581,7 +581,7 @@
                 </div>
 
                 <div class="wrapper">
-
+                    
                     <!-- Sidebar -->
                     <div id="sidebar" class="sidebar" style="background-image: url('/Img_Sistema/bgMenu2.jpg'); background-size: cover; background-position: -130px, 0px" data-color="bluek2a" data-background-color="black">
                         <div class="logo text-center" style="height: 80px">
@@ -590,7 +590,7 @@
                         </div>
                         <!-- your sidebar here -->
                         <div class="sidebar-wrapper">
-
+                            
                             <!-- sidebar do usuário -->
                             <ul id="sidebarAdm" runat="server" class="nav">
                                 <li id="navHomeMenu" runat="server" class="nav-item active">
@@ -939,12 +939,16 @@
                                     </ul>
                                 </nav>
                                 <div class="copyright float-right" style="font-size: 14px">
+                                     <%-- [INÍCIO - ICTRL2025029] - Label temporário para debug de permissões --%>
+                                     TESTE SEGREGACAO DE ACESSO: <asp:Label ID="lblDebugPermissions" runat="server" ForeColor="Yellow" Font-Size="Small" /><br /><br />
+                                     <%-- [FIM - ICTRL2025029] --%>
                                     K2A IControlIT &copy; 2022, todos os direitos reservados (v22.06.06.2242)
                                 </div>
                             </div>
                         </footer>
 
                     </div>
+               
                 </div>
 
             </ContentTemplate>
@@ -1026,6 +1030,8 @@
 
         </script>
 
+        
     </form>
+    
 </body>
 </html>

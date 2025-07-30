@@ -806,6 +806,8 @@ Public Class _Default
                                               Nothing,
                                               Nothing)
 
+
+
             If vdataSet IsNot Nothing AndAlso vdataSet.Tables.Count > 0 AndAlso vdataSet.Tables(0).Rows.Count > 0 Then
                 Session("Id_Usuario") = vdataSet.Tables(0).Rows(0).Item("Id_Usuario")
                 Session("Id_Usuario_Perfil_Acesso") = vdataSet.Tables(0).Rows(0).Item("Id_Usuario_Perfil_Acesso")
@@ -815,10 +817,21 @@ Public Class _Default
                 txtUsuario.Text = vdataSet.Tables(0).Rows(0).Item("Nm_Usuario")
                 txtSenha.Text = ""
 
+                ' [INÍCIO - ICTRL2025029] - Carrega as novas permissões na sessão do usuário (versão segura)
+                ' Primeiro, verifica se a coluna de permissão de módulos existe antes de tentar ler.
+                If vdataSet.Tables(0).Columns.Contains("Modulos_Permitidos") Then
+                    Session("Modulos_Permitidos") = vdataSet.Tables(0).Rows(0).Item("Modulos_Permitidos")
+                End If
+
+                ' Faz a mesma verificação para a coluna de permissão de torres.
+                If vdataSet.Tables(0).Columns.Contains("Torres_Permitidas") Then
+                    Session("Torres_Permitidas") = vdataSet.Tables(0).Rows(0).Item("Torres_Permitidas")
+                End If
+                ' [FIM - ICTRL2025029]
+
                 ' 21032025 - INICIO
                 RegistrarTentativa(ipUsuario, nomeUsuario, True)
                 ' 21032025 - FIM
-
 
                 '----- Monta texto do termo
                 For Each Linha In WS_Modulo.Monta_Texto_Termo(Session("Conn_Banco"), "sp_SL_ID", Session("Empresa")).Tables(0).Rows
@@ -854,9 +867,13 @@ Public Class _Default
                                                     DateTime.Now,
                                                     "Usuário logado e autenticado",
                                                     False)
-                        Response.Redirect("~/Home.aspx")
+                        ' [INÍCIO - ICTRL2025029] - Adicionado ", False" para garantir que a sessão seja salva antes do redirect.
+                        Response.Redirect("~/Home.aspx", False)
+                        ' [FIM - ICTRL2025029]
                     Else
-                        Response.Redirect("~/CockPit_Menu.aspx")
+                        ' [INÍCIO - ICTRL2025029] - Adicionado ", False" para garantir que a sessão seja salva antes do redirect.
+                        Response.Redirect("~/CockPit_Menu.aspx", False)
+                        ' [FIM - ICTRL2025029]
                     End If
                 End If
             Else

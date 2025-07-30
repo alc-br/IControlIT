@@ -320,6 +320,24 @@ Partial Public Class Consulta_Chamado
     Protected WithEvents hfOriginalFlManual As Global.System.Web.UI.HtmlControls.HtmlInputText
 
     '''<summary>
+    '''hfObservacaoCompleta control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents hfObservacaoCompleta As Global.System.Web.UI.HtmlControls.HtmlInputText
+
+    '''<summary>
+    '''hfMultiplosAtivos control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents hfMultiplosAtivos As Global.System.Web.UI.HtmlControls.HtmlInputText
+
+    '''<summary>
     '''txtBusca control.
     '''</summary>
     '''<remarks>

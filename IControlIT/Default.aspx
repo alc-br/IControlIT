@@ -614,6 +614,11 @@
                 </div>
 
             </ContentTemplate>
+            <%-- [INÍCIO - ICTRL2025029] - DEBUG: Força o postback completo no botão de login para o debug com Response.Write funcionar --%>
+            <Triggers>
+                <asp:PostBackTrigger ControlID="btLogin" />
+            </Triggers>
+            <%-- [FIM - ICTRL2025029] --%>
         </asp:UpdatePanel>
     </form>
 </body>
