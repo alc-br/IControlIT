@@ -1,0 +1,1538 @@
+Nome do Banco|Nome da Tabela/View|PK: xxx FK: xxx
+Ativvus_Login|dbo.Usuario_Envio_TermoResponsabilidade|PK: DataCadastro
+Ativvus_Login|dbo.Usuario_Envio_TermoResponsabilidade|PK: Empresa
+Ativvus_Login|dbo.Usuario_Envio_TermoResponsabilidade|PK: Id_Ativo
+Ativvus_Login|dbo.Usuario_Envio_TermoResponsabilidade|PK: Id_Usuario
+Ativvus_Login|dbo.Usuario_Global|PK: Id_Usuario
+branco|dbo.Aditoria_item|FK: Id_Ativo  branco dbo.Ativo(Id_Ativo)
+branco|dbo.Aditoria_item|FK: id_auditoria_item  branco dbo.Aditoria_resumo(id_auditoria_resumo)
+branco|dbo.Aditoria_item|FK: Id_Bilhete_Tipo  branco dbo.Bilhete_Tipo(Id_Bilhete_Tipo)
+branco|dbo.Aditoria_item|FK: Id_Conglomerado  branco dbo.Conglomerado(Id_Conglomerado)
+branco|dbo.Aditoria_item|PK: id_auditoria_item
+branco|dbo.Aditoria_resumo|PK: id_auditoria_resumo
+branco|dbo.Agenda_Marcacao_Particular|FK: Id_Usuario  branco dbo.Usuario(Id_Usuario)
+branco|dbo.Agenda_Marcacao_Particular|PK: Id_Usuario
+branco|dbo.Agenda_Marcacao_Particular|PK: Nr_Destino
+branco|dbo.App_Captura_Imei|FK: Id_Usuario  branco dbo.Usuario(Id_Usuario)
+branco|dbo.Ativo_App_Trafego_Aplicativo|FK: Id_Ativo  branco dbo.Ativo(Id_Ativo)
+branco|dbo.Ativo_App_Trafego|FK: Id_Ativo  branco dbo.Ativo(Id_Ativo)
+branco|dbo.Ativo_Complemento|FK: Id_Ativo_Tipo  branco dbo.Ativo_Tipo(Id_Ativo_Tipo)
+branco|dbo.Ativo_Complemento|PK: Id_Ativo_Complemento
+branco|dbo.Ativo_Consumidor_Alerta|FK: Id_Consumidor  branco dbo.Consumidor(Id_Consumidor)
+branco|dbo.Ativo_Fabricante|PK: Id_Ativo_Fabricante
+branco|dbo.Ativo_Fr_Aquisicao|PK: Id_Ativo_Fr_Aquisicao
+branco|dbo.Ativo_log|PK: Id_Ativo_log
+branco|dbo.Ativo_Modelo|FK: Id_Ativo_Fabricante  branco dbo.Ativo_Fabricante(Id_Ativo_Fabricante)
+branco|dbo.Ativo_Modelo|FK: Id_Ativo_Tipo  branco dbo.Ativo_Tipo(Id_Ativo_Tipo)
+branco|dbo.Ativo_Modelo|PK: Id_Ativo_Modelo
+branco|dbo.Ativo_Parametro|FK: Id_Ativo  branco dbo.Ativo(Id_Ativo)
+branco|dbo.Ativo_Parametro|FK: Id_Ativo_Fr_Aquisicao  branco dbo.Ativo_Fr_Aquisicao(Id_Ativo_Fr_Aquisicao)
+branco|dbo.Ativo_Parametro|FK: Id_Conglomerado  branco dbo.Conglomerado(Id_Conglomerado)
+branco|dbo.Ativo_Parametro|FK: Id_Contrato  branco dbo.Contrato(Id_Contrato)
+branco|dbo.Ativo_Parametro|FK: Id_Tronco_Grupo  branco dbo.Tronco_Grupo(Id_Tronco_Grupo)
+branco|dbo.Ativo_Parametro|PK: Id_Ativo
+branco|dbo.Ativo_Status|PK: Id_Ativo_Status
+branco|dbo.Ativo_Tipo_Contato_Corporativo|FK: Id_Ativo_Tipo  branco dbo.Ativo_Tipo(Id_Ativo_Tipo)
+branco|dbo.Ativo_Tipo_Grupo_Tipo|PK: Id_Ativo_Tipo_Grupo_Tipo
+branco|dbo.Ativo_Tipo_Grupo|PK: Id_Ativo_Tipo_Grupo
+branco|dbo.Ativo_Tipo_Imagem|FK: Id_Ativo_Tipo  branco dbo.Ativo_Tipo(Id_Ativo_Tipo)
+branco|dbo.Ativo_Tipo_Imagem|PK: Id_Ativo_Tipo
+branco|dbo.Ativo_Tipo_Sub_Grupo|PK: Id_Ativo_Tipo_Sub_Grupo
+branco|dbo.Ativo_Tipo|FK: Id_Ativo_Tipo_Grupo  branco dbo.Ativo_Tipo_Grupo(Id_Ativo_Tipo_Grupo)
+branco|dbo.Ativo_Tipo|FK: Id_Ativo_Tipo_Grupo_Tipo  branco dbo.Ativo_Tipo_Grupo_Tipo(Id_Ativo_Tipo_Grupo_Tipo)
+branco|dbo.Ativo_Tipo|FK: Id_Ativo_Tipo_Sub_Grupo  branco dbo.Ativo_Tipo_Sub_Grupo(Id_Ativo_Tipo_Sub_Grupo)
+branco|dbo.Ativo_Tipo|FK: Id_Conglomerado  branco dbo.Conglomerado(Id_Conglomerado)
+branco|dbo.Ativo_Tipo|PK: Id_Ativo_Tipo
+branco|dbo.Ativo|FK: Id_Ativo_Modelo  branco dbo.Ativo_Modelo(Id_Ativo_Modelo)
+branco|dbo.Ativo|FK: Id_Ativo_Status  branco dbo.Ativo_Status(Id_Ativo_Status)
+branco|dbo.Ativo|FK: Id_Ativo_Tipo  branco dbo.Ativo_Tipo(Id_Ativo_Tipo)
+branco|dbo.Ativo|FK: Id_Conglomerado  branco dbo.Conglomerado(Id_Conglomerado)
+branco|dbo.Ativo|PK: Id_Ativo
+branco|dbo.Auditoria_Acompanhamento|FK: Id_Auditoria_Conta  branco dbo.Auditoria_Conta(Id_Auditoria_Conta)
+branco|dbo.Auditoria_Acompanhamento|FK: Id_Auditoria_Lote  branco dbo.Auditoria_Lote(Id_Auditoria_Lote)
+branco|dbo.Auditoria_Acompanhamento|FK: Id_Auditoria_Status  branco dbo.Auditoria_Status(Id_Auditoria_Status)
+branco|dbo.Auditoria_Acompanhamento|PK: Id_Auditoria_Acompanhamento
+branco|dbo.Auditoria_Conta|FK: Id_Auditoria_Lote  branco dbo.Auditoria_Lote(Id_Auditoria_Lote)
+branco|dbo.Auditoria_Conta|PK: Id_Auditoria_Conta
+branco|dbo.Auditoria_Contestacao|FK: Id_Fatura  branco dbo.Fatura(Id_Fatura)
+branco|dbo.Auditoria_Contestacao|PK: Id_Auditoria_Contestacao
+branco|dbo.Auditoria_Item|FK: Id_Ativo  branco dbo.Ativo(Id_Ativo)
+branco|dbo.Auditoria_Item|FK: Id_Auditoria_Resumo  branco dbo.Auditoria_Resumo(Id_Auditoria_Resumo)
+branco|dbo.Auditoria_Item|FK: Id_Bilhete_Tipo  branco dbo.Bilhete_Tipo(Id_Bilhete_Tipo)
+branco|dbo.Auditoria_Item|FK: Id_Conglomerado  branco dbo.Conglomerado(Id_Conglomerado)
+branco|dbo.Auditoria_Item|PK: Id_Auditoria_Item
+branco|dbo.Auditoria_Lote|FK: Id_Conglomerado  branco dbo.Conglomerado(Id_Conglomerado)
+branco|dbo.Auditoria_Lote|PK: Id_Auditoria_Lote
+branco|dbo.Auditoria_Resumo|PK: Id_Auditoria_Resumo
+branco|dbo.Auditoria_Status|PK: Id_Auditoria_Status
+branco|dbo.Auditoria_Texto|FK: Id_Auditoria_lote  branco dbo.Auditoria_Lote(Id_Auditoria_Lote)
+branco|dbo.Auditoria_Texto|PK: Id_Auditoria_Texto
+branco|dbo.Auditoria_Tipo|FK: Id_Auditoria_Conta  branco dbo.Auditoria_Conta(Id_Auditoria_Conta)
+branco|dbo.Auditoria_Tipo|PK: Id_Auditoria_Tipo
+branco|dbo.Bilhete_Data|FK: Id_Lote  branco dbo.Lote(Id_Lote)
+branco|dbo.Bilhete_Historico_Resumo|FK: Id_Usuario  branco dbo.Usuario(Id_Usuario)
+branco|dbo.Bilhete_Historico_Resumo|PK: Dt_Historico
+branco|dbo.Bilhete_Historico_Resumo|PK: Id_Lote
+branco|dbo.Bilhete_Historico_Resumo|PK: Id_Usuario
+branco|dbo.Bilhete_Manual_Tipo|FK: Id_Bilhete_Tipo  branco dbo.Bilhete_Tipo(Id_Bilhete_Tipo)
+branco|dbo.Bilhete_Tipo|FK: Id_Conglomerado  branco dbo.Conglomerado(Id_Conglomerado)
+branco|dbo.Bilhete_Tipo|PK: Id_Bilhete_Tipo
+branco|dbo.Bilhete|FK: Id_Ativo  branco dbo.Ativo(Id_Ativo)
+branco|dbo.Bilhete|FK: Id_Bilhete_Tipo  branco dbo.Bilhete_Tipo(Id_Bilhete_Tipo)
+branco|dbo.Bilhete|FK: Id_Lote  branco dbo.Lote(Id_Lote)
+branco|dbo.Bilhete|FK: Id_Tronco  branco dbo.Tronco(Id_Tronco)
+branco|dbo.Bilhete|FK: Id_Usuario  branco dbo.Usuario(Id_Usuario)
+branco|dbo.Bilhete|PK: Id_Bilhete
+branco|dbo.Cargo|PK: Id_Cargo
+branco|dbo.Centro_Custo|PK: Id_Centro_Custo
+branco|dbo.cg_Bi_Arquivo_Campo_Importacao|PK: Id_Campo
+branco|dbo.Cg_Bi_Arquivo_Campo|FK: Id_Arquivo  branco dbo.Cg_Bi_Arquivo(Id_Arquivo)
+branco|dbo.Cg_Bi_Arquivo_Campo|FK: Id_Campo_Bilhete  branco dbo.Cg_Bi_Si_Campo_Bilhete(Id_Campo_Bilhete)
+branco|dbo.Cg_Bi_Arquivo_Campo|PK: Id_Arquivo_Campo
+branco|dbo.Cg_Bi_Arquivo|PK: Id_Arquivo
+branco|dbo.Cg_Bi_Si_Campo_Bilhete|PK: Id_Campo_Bilhete
+branco|dbo.Conglomerado|PK: Id_Conglomerado
+branco|dbo.Consumidor_log|PK: id_Consumidor_log
+branco|dbo.Consumidor_Satus_Data|FK: Id_Consumidor  branco dbo.Consumidor(Id_Consumidor)
+branco|dbo.Consumidor_Satus_Data|PK: Id_Consumidor
+branco|dbo.Consumidor_Status|PK: Id_Consumidor_Status
+branco|dbo.Consumidor_Tipo|PK: Id_Consumidor_Tipo
+branco|dbo.Consumidor_Unidade_Fornecedor|FK: Id_Consumidor_Fornecedor  branco dbo.Consumidor(Id_Consumidor)
+branco|dbo.Consumidor_Unidade_Fornecedor|FK: Id_Consumidor_Unidade  branco dbo.Consumidor_Unidade(Id_Consumidor_Unidade)
+branco|dbo.Consumidor_Unidade_Fornecedor|PK: Id_Consumidor_Fornecedor
+branco|dbo.Consumidor_Unidade_Fornecedor|PK: Id_Consumidor_Unidade
+branco|dbo.Consumidor_Unidade|FK: Id_Conglomerado  branco dbo.Conglomerado(Id_Conglomerado)
+branco|dbo.Consumidor_Unidade|FK: Id_Consumidor  branco dbo.Consumidor(Id_Consumidor)
+branco|dbo.Consumidor_Unidade|PK: Id_Consumidor_Unidade
+branco|dbo.Consumidor|FK: Id_Cargo  branco dbo.Cargo(Id_Cargo)
+branco|dbo.Consumidor|FK: Id_Centro_Custo  branco dbo.Centro_Custo(Id_Centro_Custo)
+branco|dbo.Consumidor|FK: Id_Consumidor_Status  branco dbo.Consumidor_Status(Id_Consumidor_Status)
+branco|dbo.Consumidor|FK: Id_Consumidor_Tipo  branco dbo.Consumidor_Tipo(Id_Consumidor_Tipo)
+branco|dbo.Consumidor|FK: Id_Departamento  branco dbo.Departamento(Id_Departamento)
+branco|dbo.Consumidor|FK: Id_Empresa_Contratada  branco dbo.Empresa_Contratada(Id_Empresa_Contratada)
+branco|dbo.Consumidor|FK: Id_Filial  branco dbo.Filial(Id_Filial)
+branco|dbo.Consumidor|FK: Id_Secao  branco dbo.Secao(Id_Secao)
+branco|dbo.Consumidor|FK: Id_Setor  branco dbo.Setor(Id_Setor)
+branco|dbo.Consumidor|PK: Id_Consumidor
+branco|dbo.Contrato_Aditivo|FK: Id_Contrato  branco dbo.Contrato(Id_Contrato)
+branco|dbo.Contrato_Aditivo|PK: Id_Contrato_Aditivo
+branco|dbo.Contrato_Bilhete|PK: DB_Tipo_Parametro
+branco|dbo.Contrato_Indice|PK: Id_Contrato_Indice
+branco|dbo.Contrato_SLA_Operacao|FK: Id_Contrato  branco dbo.Contrato(Id_Contrato)
+branco|dbo.Contrato_SLA_Operacao|PK: Id_Contrato_SLA_Operacao
+branco|dbo.Contrato_SLA_Servico|FK: Id_Contrato  branco dbo.Contrato(Id_Contrato)
+branco|dbo.Contrato_SLA_Servico|FK: Id_Contrato_Indice  branco dbo.Contrato_Indice(Id_Contrato_Indice)
+branco|dbo.Contrato_SLA_Servico|FK: Id_Operadora  branco dbo.Conglomerado(Id_Conglomerado)
+branco|dbo.Contrato_SLA_Servico|PK: Id_Contrato_SLA_Servico
+branco|dbo.Contrato_Status|PK: Id_Contrato_Status
+branco|dbo.Contrato|FK: Id_Contrato_Indice  branco dbo.Contrato_Indice(Id_Contrato_Indice)
+branco|dbo.Contrato|FK: Id_Contrato_Status  branco dbo.Contrato_Status(Id_Contrato_Status)
+branco|dbo.Contrato|FK: Id_Empresa_Contratada  branco dbo.Empresa_Contratada(Id_Empresa_Contratada)
+branco|dbo.Contrato|FK: Id_Filial  branco dbo.Filial(Id_Filial)
+branco|dbo.Contrato|FK: Id_Servico  branco dbo.Servico(Id_Servico)
+branco|dbo.Contrato|PK: Id_Contrato
+branco|dbo.Custo_Fixo_Item|FK: Id_Ativo_Tipo  branco dbo.Ativo_Tipo(Id_Ativo_Tipo)
+branco|dbo.Custo_Fixo_Item|FK: Id_Conglomerado  branco dbo.Conglomerado(Id_Conglomerado)
+branco|dbo.Custo_Fixo_Item|FK: Id_Custo_Fixo  branco dbo.Custo_Fixo(Id_Custo_Fixo)
+branco|dbo.Custo_Fixo_Item|PK: Id_Custo_Fixo_Item
+branco|dbo.Custo_Fixo|PK: Id_Custo_Fixo
+branco|dbo.Departamento|PK: Id_Departamento
+branco|dbo.Empresa_Contratada|PK: Id_Empresa_Contratada
+branco|dbo.Empresa|FK: Id_Holding  branco dbo.Holding(Id_Holding)
+branco|dbo.Empresa|PK: Id_Empresa
+branco|dbo.Estoque_Aparelho_Status|PK: Id_Estoque_Aparelho_Status
+branco|dbo.Estoque_Aparelho|FK: Id_Ativo_Modelo  branco dbo.Ativo_Modelo(Id_Ativo_Modelo)
+branco|dbo.Estoque_Aparelho|FK: Id_Ativo_Tipo  branco dbo.Ativo_Tipo(Id_Ativo_Tipo)
+branco|dbo.Estoque_Aparelho|FK: Id_Conglomerado  branco dbo.Conglomerado(Id_Conglomerado)
+branco|dbo.Estoque_Aparelho|FK: Id_Consumidor  branco dbo.Consumidor(Id_Consumidor)
+branco|dbo.Estoque_Aparelho|FK: Id_Estoque_Aparelho_Status  branco dbo.Estoque_Aparelho_Status(Id_Estoque_Aparelho_Status)
+branco|dbo.Estoque_Aparelho|FK: Id_Estoque_Endereco_Entrega  branco dbo.Estoque_Endereco_Entrega(Id_Estoque_Endereco_Entrega)
+branco|dbo.Estoque_Aparelho|FK: Id_Estoque_Nota_Fiscal  branco dbo.Estoque_Nota_Fiscal(Id_Estoque_Nota_Fiscal)
+branco|dbo.Estoque_Aparelho|FK: Id_Estoque_Nota_Fiscal  branco dbo.Estoque_Nota_Fiscal(Id_Estoque_Nota_Fiscal)
+branco|dbo.Estoque_Aparelho|PK: Id_Aparelho
+branco|dbo.Estoque_Consumidor|FK: Id_Consumidor  branco dbo.Consumidor(Id_Consumidor)
+branco|dbo.Estoque_Endereco_Entrega|PK: Id_Estoque_Endereco_Entrega
+branco|dbo.Estoque_Nota_Fiscal|FK: Id_Ativo_Fr_Aquisicao  branco dbo.Ativo_Fr_Aquisicao(Id_Ativo_Fr_Aquisicao)
+branco|dbo.Estoque_Nota_Fiscal|PK: Id_Estoque_Nota_Fiscal
+branco|dbo.Fatura_Parametro_Campo|FK: Id_Fatura_Parametro  branco dbo.Fatura_Parametro(Id_Fatura_Parametro)
+branco|dbo.Fatura_Parametro_Campo|PK: Id_Fatura_Parametro_Campo
+branco|dbo.Fatura_Parametro|FK: Id_Ativo  branco dbo.Ativo(Id_Ativo)
+branco|dbo.Fatura_Parametro|FK: Id_Contrato  branco dbo.Contrato(Id_Contrato)
+branco|dbo.Fatura_Parametro|FK: Id_Fatura_Tipo_Rateio  branco dbo.Fatura_Tipo_Rateio(Id_Fatura_Tipo_Rateio)
+branco|dbo.Fatura_Parametro|PK: Id_Fatura_Parametro
+branco|dbo.Fatura_Plano_Conta|FK: Id_Conglomerado  branco dbo.Conglomerado(Id_Conglomerado)
+branco|dbo.Fatura_Plano_Conta|FK: Id_Contrato  branco dbo.Contrato(Id_Contrato)
+branco|dbo.Fatura_Plano_Conta|FK: Id_Empresa  branco dbo.Empresa(Id_Empresa)
+branco|dbo.Fatura_Plano_Conta|PK: Id_Fatura_Plano_Conta
+branco|dbo.Fatura_Tipo_Rateio|PK: Id_Fatura_Tipo_Rateio
+branco|dbo.Fatura|FK: Id_Fatura_Parametro  branco dbo.Fatura_Parametro(Id_Fatura_Parametro)
+branco|dbo.Fatura|PK: Id_Fatura
+branco|dbo.Filial|FK: Id_Empresa  branco dbo.Empresa(Id_Empresa)
+branco|dbo.Filial|PK: Id_Filial
+branco|dbo.Holding|PK: Id_Holding
+branco|dbo.Justificativa_Excedente|FK: Id_Ativo  branco dbo.Ativo(Id_Ativo)
+branco|dbo.Justificativa_Excedente|FK: Id_Consumidor  branco dbo.Consumidor(Id_Consumidor)
+branco|dbo.Justificativa_Excedente|FK: Id_Mail_Caixa_Siada  branco dbo.Mail_Caixa_Saida(Id_Mail_Caixa_Siada)
+branco|dbo.Justificativa_Excedente|FK: Id_Usuario  branco dbo.Usuario(Id_Usuario)
+branco|dbo.Log_Alteracao_Cadastro_Consumidor|FK: Id_Consumidor  branco dbo.Consumidor(Id_Consumidor)
+branco|dbo.Log_Alteracao_Contrato_SLA_Servico|FK: Id_Contrato_SLA_Servico  branco dbo.Contrato_SLA_Servico(Id_Contrato_SLA_Servico)
+branco|dbo.Log_Rastreio_Estoque_Aparelho|FK: Id_Aparelho  branco dbo.Estoque_Aparelho(Id_Aparelho)
+branco|dbo.Log_Rastreio_Estoque_Aparelho|FK: Id_Ativo  branco dbo.Ativo(Id_Ativo)
+branco|dbo.Log_Rastreio_Estoque_Aparelho|FK: Id_Consumidor  branco dbo.Consumidor(Id_Consumidor)
+branco|dbo.Lote_Log_Criacao|FK: Id_Centro_Custo  branco dbo.Centro_Custo(Id_Centro_Custo)
+branco|dbo.Lote_Log_Criacao|FK: Id_Consumidor  branco dbo.Consumidor(Id_Consumidor)
+branco|dbo.Lote_Log_Criacao|FK: Id_Departamento  branco dbo.Departamento(Id_Departamento)
+branco|dbo.Lote_Log_Criacao|FK: Id_Filial  branco dbo.Filial(Id_Filial)
+branco|dbo.Lote_Log_Criacao|FK: Id_Lote  branco dbo.Lote(Id_Lote)
+branco|dbo.Lote_Log_Criacao|FK: Id_Secao  branco dbo.Secao(Id_Secao)
+branco|dbo.Lote_Log_Criacao|FK: Id_Setor  branco dbo.Setor(Id_Setor)
+branco|dbo.Lote_Log_Criacao|PK: Id_Lote_Log_Criacao
+branco|dbo.Lote_Marcacao|FK: Id_Lote  branco dbo.Lote(Id_Lote)
+branco|dbo.Lote_Marcacao|FK: Id_Usuario  branco dbo.Usuario(Id_Usuario)
+branco|dbo.Lote_Marcacao|PK: Id_Lote_Marcacao
+branco|dbo.Lote|FK: Id_Ativo  branco dbo.Ativo(Id_Ativo)
+branco|dbo.Lote|PK: Id_Lote
+branco|dbo.Mail_Caixa_Saida|FK: Id_Mail_Sender  branco dbo.Mail_Sender(Id_Mail_Sender)
+branco|dbo.Mail_Caixa_Saida|PK: Id_Mail_Caixa_Siada
+branco|dbo.Mail_Sender|PK: Id_Mail_Sender
+branco|dbo.Nota_Fiscal_Fatura|PK: Id_Nota_Fiscal
+branco|dbo.Politica_Consumidor|FK: Id_Ativo_Tipo  branco dbo.Ativo_Tipo(Id_Ativo_Tipo)
+branco|dbo.Politica_Consumidor|FK: Id_Consumidor  branco dbo.Consumidor(Id_Consumidor)
+branco|dbo.Rateio_Ativo_Critica|FK: Id_Ativo  branco dbo.Ativo(Id_Ativo)
+branco|dbo.Rateio_Ativo_Critica|FK: Id_Rateio  branco dbo.Rateio(Id_Rateio)
+branco|dbo.Rateio_Item|FK: Id_Ativo  branco dbo.Ativo(Id_Ativo)
+branco|dbo.Rateio_Item|FK: Id_Centro_Custo  branco dbo.Centro_Custo(Id_Centro_Custo)
+branco|dbo.Rateio_Item|FK: Id_Conglomerado  branco dbo.Conglomerado(Id_Conglomerado)
+branco|dbo.Rateio_Item|FK: Id_Consumidor  branco dbo.Consumidor(Id_Consumidor)
+branco|dbo.Rateio_Item|FK: Id_Filial  branco dbo.Filial(Id_Filial)
+branco|dbo.Rateio_Item|FK: Id_Rateio  branco dbo.Rateio(Id_Rateio)
+branco|dbo.Rateio_Item|PK: Id_Rateio_Item
+branco|dbo.Rateio|FK: Id_Fatura_Parametro  branco dbo.Fatura_Parametro(Id_Fatura_Parametro)
+branco|dbo.Rateio|PK: Id_Rateio
+branco|dbo.Rl_Ativo_Centro_Custo|FK: Id_Ativo  branco dbo.Ativo_Parametro(Id_Ativo)
+branco|dbo.Rl_Ativo_Centro_Custo|FK: Id_Centro_Custo  branco dbo.Centro_Custo(Id_Centro_Custo)
+branco|dbo.Rl_Ativo_Centro_Custo|PK: Id_Ativo
+branco|dbo.Rl_Ativo_Centro_Custo|PK: Id_Centro_Custo
+branco|dbo.Rl_Ativo_Tipo_Ativo_Complemento|FK: Id_Ativo_Complemento  branco dbo.Ativo_Complemento(Id_Ativo_Complemento)
+branco|dbo.Rl_Ativo_Tipo_Ativo_Complemento|FK: Id_Ativo_Tipo  branco dbo.Ativo_Tipo(Id_Ativo_Tipo)
+branco|dbo.Rl_Ativo_Tipo_Ativo_Complemento|PK: Id_Ativo_Tipo
+branco|dbo.Rl_Consumidor_Ativo|FK: Id_Ativo  branco dbo.Ativo(Id_Ativo)
+branco|dbo.Rl_Consumidor_Ativo|FK: Id_Consumidor  branco dbo.Consumidor(Id_Consumidor)
+branco|dbo.Rl_Consumidor_Ativo|PK: Id_Ativo
+branco|dbo.Rl_Consumidor_Ativo|PK: Id_Consumidor
+branco|dbo.Rl_Estoque_Aparelho_Ativo|FK: Id_Aparelho  branco dbo.Estoque_Aparelho(Id_Aparelho)
+branco|dbo.Rl_Estoque_Aparelho_Ativo|FK: Id_Ativo  branco dbo.Ativo(Id_Ativo)
+branco|dbo.Rl_Estoque_Aparelho_Ativo|PK: Id_Aparelho
+branco|dbo.Rl_Estoque_Aparelho_Ativo|PK: Id_Ativo
+branco|dbo.Rl_Filial_Bilhete_Tipo|FK: Id_Bilhete_Tipo  branco dbo.Bilhete_Tipo(Id_Bilhete_Tipo)
+branco|dbo.Rl_Filial_Bilhete_Tipo|FK: Id_Filial  branco dbo.Filial(Id_Filial)
+branco|dbo.Rl_Filial_Bilhete_Tipo|PK: Id_Bilhete_Tipo
+branco|dbo.Rl_Filial_Bilhete_Tipo|PK: Id_Filial
+branco|dbo.Rl_Hi_Centro_Custo_Departamento|FK: Id_Centro_Custo  branco dbo.Centro_Custo(Id_Centro_Custo)
+branco|dbo.Rl_Hi_Centro_Custo_Departamento|FK: Id_Departamento  branco dbo.Departamento(Id_Departamento)
+branco|dbo.Rl_Hi_Centro_Custo_Departamento|PK: Id_Centro_Custo
+branco|dbo.Rl_Hi_Centro_Custo_Departamento|PK: Id_Departamento
+branco|dbo.Rl_Hi_Departamento_Setor|FK: Id_Departamento  branco dbo.Departamento(Id_Departamento)
+branco|dbo.Rl_Hi_Departamento_Setor|FK: Id_Setor  branco dbo.Setor(Id_Setor)
+branco|dbo.Rl_Hi_Departamento_Setor|PK: Id_Departamento
+branco|dbo.Rl_Hi_Departamento_Setor|PK: Id_Setor
+branco|dbo.Rl_Hi_Filial_Centro_Custo|FK: Id_Centro_Custo  branco dbo.Centro_Custo(Id_Centro_Custo)
+branco|dbo.Rl_Hi_Filial_Centro_Custo|FK: Id_Filial  branco dbo.Filial(Id_Filial)
+branco|dbo.Rl_Hi_Filial_Centro_Custo|PK: Id_Centro_Custo
+branco|dbo.Rl_Hi_Filial_Centro_Custo|PK: Id_Filial
+branco|dbo.Rl_Hi_Setor_Secao|FK: Id_Secao  branco dbo.Secao(Id_Secao)
+branco|dbo.Rl_Hi_Setor_Secao|FK: Id_Setor  branco dbo.Setor(Id_Setor)
+branco|dbo.Rl_Hi_Setor_Secao|PK: Id_Secao
+branco|dbo.Rl_Hi_Setor_Secao|PK: Id_Setor
+branco|dbo.Rl_Perfil_Ativo_Usuario|FK: Id_Ativo  branco dbo.Ativo(Id_Ativo)
+branco|dbo.Rl_Perfil_Ativo_Usuario|FK: Id_Usuario  branco dbo.Usuario(Id_Usuario)
+branco|dbo.Rl_Perfil_Ativo_Usuario|PK: Id_Ativo
+branco|dbo.Rl_Perfil_Ativo_Usuario|PK: Id_Usuario
+branco|dbo.Rl_Perfil_Centro_Custo_Usuario|FK: Id_Centro_Custo  branco dbo.Centro_Custo(Id_Centro_Custo)
+branco|dbo.Rl_Perfil_Centro_Custo_Usuario|FK: Id_Usuario  branco dbo.Usuario(Id_Usuario)
+branco|dbo.Rl_Perfil_Centro_Custo_Usuario|PK: Id_Centro_Custo
+branco|dbo.Rl_Perfil_Centro_Custo_Usuario|PK: Id_Usuario
+branco|dbo.Rl_Perfil_Conglomerado_Usuario|FK: Id_Conglomerado  branco dbo.Conglomerado(Id_Conglomerado)
+branco|dbo.Rl_Perfil_Conglomerado_Usuario|FK: Id_Usuario  branco dbo.Usuario(Id_Usuario)
+branco|dbo.Rl_Perfil_Conglomerado_Usuario|PK: Id_Conglomerado
+branco|dbo.Rl_Perfil_Conglomerado_Usuario|PK: Id_Usuario
+branco|dbo.Rl_Perfil_Consumidor_Usuario|FK: Id_Consumidor  branco dbo.Consumidor(Id_Consumidor)
+branco|dbo.Rl_Perfil_Consumidor_Usuario|FK: Id_Usuario  branco dbo.Usuario(Id_Usuario)
+branco|dbo.Rl_Perfil_Consumidor_Usuario|PK: Id_Consumidor
+branco|dbo.Rl_Perfil_Consumidor_Usuario|PK: Id_Usuario
+branco|dbo.Rl_Perfil_Departamento_Usuario|FK: Id_Departamento  branco dbo.Departamento(Id_Departamento)
+branco|dbo.Rl_Perfil_Departamento_Usuario|FK: Id_Usuario  branco dbo.Usuario(Id_Usuario)
+branco|dbo.Rl_Perfil_Departamento_Usuario|PK: Id_Departamento
+branco|dbo.Rl_Perfil_Departamento_Usuario|PK: Id_Usuario
+branco|dbo.Rl_Perfil_Filial_Usuario|FK: Id_Filial  branco dbo.Filial(Id_Filial)
+branco|dbo.Rl_Perfil_Filial_Usuario|FK: Id_Usuario  branco dbo.Usuario(Id_Usuario)
+branco|dbo.Rl_Perfil_Filial_Usuario|PK: Id_Filial
+branco|dbo.Rl_Perfil_Filial_Usuario|PK: Id_Usuario
+branco|dbo.Rl_Perfil_Secao_Usuario|FK: Id_Secao  branco dbo.Secao(Id_Secao)
+branco|dbo.Rl_Perfil_Secao_Usuario|FK: Id_Usuario  branco dbo.Usuario(Id_Usuario)
+branco|dbo.Rl_Perfil_Secao_Usuario|PK: Id_Secao
+branco|dbo.Rl_Perfil_Secao_Usuario|PK: Id_Usuario
+branco|dbo.Rl_Perfil_Setor_Usuario|FK: Id_Setor  branco dbo.Setor(Id_Setor)
+branco|dbo.Rl_Perfil_Setor_Usuario|FK: Id_Usuario  branco dbo.Usuario(Id_Usuario)
+branco|dbo.Rl_Perfil_Setor_Usuario|PK: Id_Setor
+branco|dbo.Rl_Perfil_Setor_Usuario|PK: Id_Usuario
+branco|dbo.Rl_Ra_Fatura_Parametro_Ativo|FK: Id_Ativo  branco dbo.Ativo(Id_Ativo)
+branco|dbo.Rl_Ra_Fatura_Parametro_Ativo|FK: Id_Fatura_Parametro  branco dbo.Fatura_Parametro(Id_Fatura_Parametro)
+branco|dbo.Rl_Ra_Fatura_Parametro_Ativo|PK: Id_Ativo
+branco|dbo.Rl_Ra_Fatura_Parametro_Ativo|PK: Id_Fatura_Parametro
+branco|dbo.Rl_Ra_Fatura_Parametro_Conglomerado|FK: Id_Conglomerado  branco dbo.Conglomerado(Id_Conglomerado)
+branco|dbo.Rl_Ra_Fatura_Parametro_Conglomerado|FK: Id_Fatura_Parametro  branco dbo.Fatura_Parametro(Id_Fatura_Parametro)
+branco|dbo.Rl_Ra_Fatura_Parametro_Conglomerado|PK: Id_Conglomerado
+branco|dbo.Rl_Ra_Fatura_Parametro_Conglomerado|PK: Id_Fatura_Parametro
+branco|dbo.Rl_Ra_Fatura_Parametro_Filial|FK: Id_Fatura_Parametro  branco dbo.Fatura_Parametro(Id_Fatura_Parametro)
+branco|dbo.Rl_Ra_Fatura_Parametro_Filial|FK: Id_Filial  branco dbo.Filial(Id_Filial)
+branco|dbo.Rl_Ra_Fatura_Parametro_Filial|PK: Id_Fatura_Parametro
+branco|dbo.Rl_Ra_Fatura_Parametro_Filial|PK: Id_Filial
+branco|dbo.Rl_Ra_Fatura_Parametro_Tronco_Grupo|FK: Id_Fatura_Parametro  branco dbo.Fatura_Parametro(Id_Fatura_Parametro)
+branco|dbo.Rl_Ra_Fatura_Parametro_Tronco_Grupo|FK: Id_Tronco_Grupo  branco dbo.Tronco_Grupo(Id_Tronco_Grupo)
+branco|dbo.Rl_Ra_Fatura_Parametro_Tronco_Grupo|PK: Id_Fatura_Parametro
+branco|dbo.Rl_Ra_Fatura_Parametro_Tronco_Grupo|PK: Id_Tronco_Grupo
+branco|dbo.Rl_Rateio_Fatura|FK: Id_Fatura  branco dbo.Fatura(Id_Fatura)
+branco|dbo.Rl_Rateio_Fatura|FK: Id_Rateio  branco dbo.Rateio(Id_Rateio)
+branco|dbo.Rl_Rateio_Fatura|PK: Id_Fatura
+branco|dbo.Rl_Rateio_Fatura|PK: Id_Rateio
+branco|dbo.Rl_Solicitacao_Ativo|FK: Id_Ativo  branco dbo.Ativo(Id_Ativo)
+branco|dbo.Rl_Solicitacao_Ativo|FK: Id_Solicitacao  branco dbo.Solicitacao(Id_Solicitacao)
+branco|dbo.Rl_Solicitacao_Ativo|PK: Id_Ativo
+branco|dbo.Rl_Solicitacao_Ativo|PK: Id_Solicitacao
+branco|dbo.Rl_Solicitacao_Fila_Atendimento_Usuario|FK: Id_Solicitacao_Fila_Atendimento  branco dbo.Solicitacao_Fila_Atendimento(Id_Solicitacao_Fila_Atendimento)
+branco|dbo.Rl_Solicitacao_Fila_Atendimento_Usuario|FK: Id_Usuario  branco dbo.Usuario(Id_Usuario)
+branco|dbo.Rl_Usuario_Grupo_Si_Tela|FK: Id_Tela  branco dbo.Si_Tela(Id_Tela)
+branco|dbo.Rl_Usuario_Grupo_Si_Tela|FK: Id_Usuario_Grupo  branco dbo.Usuario_Grupo(Id_Usuario_Grupo)
+branco|dbo.Rl_Usuario_Grupo_Si_Tela|PK: Id_Tela
+branco|dbo.Rl_Usuario_Grupo_Si_Tela|PK: Id_Usuario_Grupo
+branco|dbo.Rl_Usuario_Grupo_Si_Template|FK: Id_Template  branco dbo.Si_Template(Id_Template)
+branco|dbo.Rl_Usuario_Grupo_Si_Template|FK: Id_Usuario_Grupo  branco dbo.Usuario_Grupo(Id_Usuario_Grupo)
+branco|dbo.Rl_Usuario_Grupo_Si_Template|PK: Id_Template
+branco|dbo.Rl_Usuario_Grupo_Si_Template|PK: Id_Usuario_Grupo
+branco|dbo.Rl_Usuario_Solicitacao_Permissao|FK: Id_Solicitacao_Permissao  branco dbo.Solicitacao_Permissao(Id_Solicitacao_Permissao)
+branco|dbo.Rl_Usuario_Solicitacao_Permissao|FK: Id_Usuario  branco dbo.Usuario(Id_Usuario)
+branco|dbo.Rl_Usuario_Solicitacao_Permissao|PK: Id_Solicitacao_Permissao
+branco|dbo.Rl_Usuario_Solicitacao_Permissao|PK: Id_Usuario
+branco|dbo.Secao|PK: Id_Secao
+branco|dbo.Servico|PK: Id_Servico
+branco|dbo.Setor|PK: Id_Setor
+branco|dbo.Si_Ano_Fiscal|PK: Id
+branco|dbo.Si_Aproveitamento|PK: DB_Tipo_Parametro_BLT
+branco|dbo.Si_Aproveitamento|PK: DB_Tipo_Parametro_PCT
+branco|dbo.Si_Desmarca_Bilhete|PK: DB_Tipo_Parametro
+branco|dbo.Si_Formato_Valida_Data|PK: Id_Valida_Data
+branco|dbo.Si_Idioma|PK: Id_Idioma
+branco|dbo.Si_Menu|PK: Id_Menu
+branco|dbo.Si_Tela_Campo_Traducao|FK: Id_Campo  branco dbo.Si_Tela_Campo(Id_Campo)
+branco|dbo.Si_Tela_Campo_Traducao|FK: Id_Idioma  branco dbo.Si_Idioma(Id_Idioma)
+branco|dbo.Si_Tela_Campo_Traducao|PK: Id_Traducao
+branco|dbo.Si_Tela_Campo|FK: Id_Tela  branco dbo.Si_Tela(Id_Tela)
+branco|dbo.Si_Tela_Campo|PK: Id_Campo
+branco|dbo.Si_Tela|FK: Id_Menu  branco dbo.Si_Menu(Id_Menu)
+branco|dbo.Si_Tela|PK: Id_Tela
+branco|dbo.Si_Template|FK: Id_Ativo_Tipo_Grupo  branco dbo.Ativo_Tipo_Grupo(Id_Ativo_Tipo_Grupo)
+branco|dbo.Si_Template|PK: Id_Template
+branco|dbo.Si_Texto_Termo|PK: Caixa
+branco|dbo.Si_Texto_Termo|PK: Pagina
+branco|dbo.Si_Usuario_Perfil_Acesso|FK: Id_Usuario_Perfil  branco dbo.Si_Usuario_Perfil(Id_Usuario_Perfil)
+branco|dbo.Si_Usuario_Perfil_Acesso|PK: Id_Usuario_Perfil_Acesso
+branco|dbo.Si_Usuario_Perfil|PK: Id_Usuario_Perfil
+branco|dbo.Si_Volumetria|PK: DB_Tipo_Parametro
+branco|dbo.Solicitacao_Avaliacao|FK: Id_Solicitacao  branco dbo.Solicitacao(Id_Solicitacao)
+branco|dbo.Solicitacao_Avaliacao|PK: Id_Solicitacao_Avaliacao
+branco|dbo.Solicitacao_Bilhete_Tipo|FK: Id_Bilhete_Tipo  branco dbo.Bilhete_Tipo(Id_Bilhete_Tipo)
+branco|dbo.Solicitacao_Bilhete_Tipo|PK: Id_Bilhete_Tipo
+branco|dbo.Solicitacao_Data_Parada|PK: Id_Data_Parada
+branco|dbo.Solicitacao_Fila_Atendimento|PK: Id_Solicitacao_Fila_Atendimento
+branco|dbo.Solicitacao_Item|FK: Id_Solicitacao  branco dbo.Solicitacao(Id_Solicitacao)
+branco|dbo.Solicitacao_Item|FK: Id_Usuario  branco dbo.Usuario(Id_Usuario)
+branco|dbo.Solicitacao_Item|PK: Id_Solicitacao_Item
+branco|dbo.Solicitacao_Permissao|PK: Id_Solicitacao_Permissao
+branco|dbo.Solicitacao_SLA|PK: Id_Solicitacao_SLA
+branco|dbo.Solicitacao_Solucao|FK: Id_Ativo_Tipo  branco dbo.Ativo_Tipo(Id_Ativo_Tipo)
+branco|dbo.Solicitacao_Solucao|PK: Id_Solicitacao_Solucao
+branco|dbo.Solicitacao_Tipo|FK: Id_Ativo_Tipo  branco dbo.Ativo_Tipo(Id_Ativo_Tipo)
+branco|dbo.Solicitacao_Tipo|FK: Id_Solicitacao_Permissao  branco dbo.Solicitacao_Permissao(Id_Solicitacao_Permissao)
+branco|dbo.Solicitacao_Tipo|FK: Id_Solicitacao_SLA  branco dbo.Solicitacao_SLA(Id_Solicitacao_SLA)
+branco|dbo.Solicitacao_Tipo|FK: Id_Solicitacao_Unidade_Processo  branco dbo.Solicitacao_Unidade_Processo(Id_Processo_Unidade_Solicitacao)
+branco|dbo.Solicitacao_Tipo|FK: Id_Solicitcao_Fila_Atendimento  branco dbo.Solicitacao_Fila_Atendimento(Id_Solicitacao_Fila_Atendimento)
+branco|dbo.Solicitacao_Tipo|PK: Id_Solicitacao_Tipo
+branco|dbo.Solicitacao_Unidade_Processo|PK: Id_Processo_Unidade_Solicitacao
+branco|dbo.Solicitacao|FK: Id_Ativo_Tipo  branco dbo.Ativo_Tipo(Id_Ativo_Tipo)
+branco|dbo.Solicitacao|FK: Id_Mail_Caixa_Saida_Operadora  branco dbo.Mail_Caixa_Saida(Id_Mail_Caixa_Siada)
+branco|dbo.Solicitacao|FK: Id_Mail_Caixa_Saida_Usuario  branco dbo.Consumidor_Unidade(Id_Consumidor_Unidade)
+branco|dbo.Solicitacao|FK: Id_Mail_Caixa_Saida_Usuario  branco dbo.Mail_Caixa_Saida(Id_Mail_Caixa_Siada)
+branco|dbo.Solicitacao|FK: Id_Solicitacao_Solucao  branco dbo.Solicitacao_Solucao(Id_Solicitacao_Solucao)
+branco|dbo.Solicitacao|FK: Id_Solicitacao_Tipo  branco dbo.Solicitacao_Tipo(Id_Solicitacao_Tipo)
+branco|dbo.Solicitacao|FK: Id_Usuario  branco dbo.Usuario(Id_Usuario)
+branco|dbo.Solicitacao|PK: Id_Solicitacao
+branco|dbo.sysdiagrams|PK: diagram_id
+branco|dbo.Tronco_Grupo|PK: Id_Tronco_Grupo
+branco|dbo.Tronco|FK: Id_Conglomerado  branco dbo.Conglomerado(Id_Conglomerado)
+branco|dbo.Tronco|FK: Id_Tronco_Grupo  branco dbo.Tronco_Grupo(Id_Tronco_Grupo)
+branco|dbo.Tronco|PK: Id_Tronco
+branco|dbo.Usuario_Grupo|PK: Id_Usuario_Grupo
+branco|dbo.Usuario|FK: Id_Consumidor  branco dbo.Consumidor(Id_Consumidor)
+branco|dbo.Usuario|FK: Id_Idioma  branco dbo.Si_Idioma(Id_Idioma)
+branco|dbo.Usuario|FK: Id_Usuario_Grupo  branco dbo.Usuario_Grupo(Id_Usuario_Grupo)
+branco|dbo.Usuario|FK: Id_Usuario_Perfil  branco dbo.Si_Usuario_Perfil(Id_Usuario_Perfil)
+branco|dbo.Usuario|FK: Id_Usuario_Perfil_Acesso  branco dbo.Si_Usuario_Perfil_Acesso(Id_Usuario_Perfil_Acesso)
+branco|dbo.Usuario|PK: Id_Usuario
+Fortlev|dbo.Aceite_Termo_Responsabilidade|FK: Id_Ativo  Fortlev dbo.Ativo(Id_Ativo)
+Fortlev|dbo.Aceite_Termo_Responsabilidade|FK: Id_Consumidor  Fortlev dbo.Consumidor(Id_Consumidor)
+Fortlev|dbo.Aceite_Termo_Responsabilidade|PK: Id_Aceite
+Fortlev|dbo.Agenda_Marcacao_Particular|FK: Id_Usuario  Fortlev dbo.Usuario(Id_Usuario)
+Fortlev|dbo.Agenda_Marcacao_Particular|PK: Id_Usuario
+Fortlev|dbo.Agenda_Marcacao_Particular|PK: Nr_Destino
+Fortlev|dbo.App_Captura_Imei|FK: Id_Usuario  Fortlev dbo.Usuario(Id_Usuario)
+Fortlev|dbo.Arquivo_PDF_Acesso_Usuario|PK: Id
+Fortlev|dbo.Ativo_App_Trafego_Aplicativo|FK: Id_Ativo  Fortlev dbo.Ativo(Id_Ativo)
+Fortlev|dbo.Ativo_App_Trafego|FK: Id_Ativo  Fortlev dbo.Ativo(Id_Ativo)
+Fortlev|dbo.Ativo_Complemento|FK: Id_Ativo_Tipo  Fortlev dbo.Ativo_Tipo(Id_Ativo_Tipo)
+Fortlev|dbo.Ativo_Complemento|PK: Id_Ativo_Complemento
+Fortlev|dbo.Ativo_Consumidor_Alerta|FK: Id_Consumidor  Fortlev dbo.Consumidor(Id_Consumidor)
+Fortlev|dbo.Ativo_Fabricante|PK: Id_Ativo_Fabricante
+Fortlev|dbo.Ativo_Fr_Aquisicao|PK: Id_Ativo_Fr_Aquisicao
+Fortlev|dbo.Ativo_log|PK: Id_Ativo_log
+Fortlev|dbo.Ativo_Modelo|FK: Id_Ativo_Fabricante  Fortlev dbo.Ativo_Fabricante(Id_Ativo_Fabricante)
+Fortlev|dbo.Ativo_Modelo|FK: Id_Ativo_Tipo  Fortlev dbo.Ativo_Tipo(Id_Ativo_Tipo)
+Fortlev|dbo.Ativo_Modelo|PK: Id_Ativo_Modelo
+Fortlev|dbo.Ativo_Parametro|FK: Id_Ativo  Fortlev dbo.Ativo(Id_Ativo)
+Fortlev|dbo.Ativo_Parametro|FK: Id_Ativo_Fr_Aquisicao  Fortlev dbo.Ativo_Fr_Aquisicao(Id_Ativo_Fr_Aquisicao)
+Fortlev|dbo.Ativo_Parametro|FK: Id_Conglomerado  Fortlev dbo.Conglomerado(Id_Conglomerado)
+Fortlev|dbo.Ativo_Parametro|FK: Id_Contrato  Fortlev dbo.Contrato(Id_Contrato)
+Fortlev|dbo.Ativo_Parametro|FK: Id_Tronco_Grupo  Fortlev dbo.Tronco_Grupo(Id_Tronco_Grupo)
+Fortlev|dbo.Ativo_Parametro|PK: Id_Ativo
+Fortlev|dbo.Ativo_Status|PK: Id_Ativo_Status
+Fortlev|dbo.Ativo_Tipo_Contato_Corporativo|FK: Id_Ativo_Tipo  Fortlev dbo.Ativo_Tipo(Id_Ativo_Tipo)
+Fortlev|dbo.Ativo_Tipo_Grupo_Tipo|PK: Id_Ativo_Tipo_Grupo_Tipo
+Fortlev|dbo.Ativo_Tipo_Grupo|PK: Id_Ativo_Tipo_Grupo
+Fortlev|dbo.Ativo_Tipo_Imagem|FK: Id_Ativo_Tipo  Fortlev dbo.Ativo_Tipo(Id_Ativo_Tipo)
+Fortlev|dbo.Ativo_Tipo_Imagem|PK: Id_Ativo_Tipo
+Fortlev|dbo.Ativo_Tipo_Sub_Grupo|PK: Id_Ativo_Tipo_Sub_Grupo
+Fortlev|dbo.Ativo_Tipo|FK: Id_Ativo_Tipo_Grupo  Fortlev dbo.Ativo_Tipo_Grupo(Id_Ativo_Tipo_Grupo)
+Fortlev|dbo.Ativo_Tipo|FK: Id_Ativo_Tipo_Grupo_Tipo  Fortlev dbo.Ativo_Tipo_Grupo_Tipo(Id_Ativo_Tipo_Grupo_Tipo)
+Fortlev|dbo.Ativo_Tipo|FK: Id_Ativo_Tipo_Sub_Grupo  Fortlev dbo.Ativo_Tipo_Sub_Grupo(Id_Ativo_Tipo_Sub_Grupo)
+Fortlev|dbo.Ativo_Tipo|FK: Id_Conglomerado  Fortlev dbo.Conglomerado(Id_Conglomerado)
+Fortlev|dbo.Ativo_Tipo|PK: Id_Ativo_Tipo
+Fortlev|dbo.Ativo|FK: Id_Ativo_Modelo  Fortlev dbo.Ativo_Modelo(Id_Ativo_Modelo)
+Fortlev|dbo.Ativo|FK: Id_Ativo_Status  Fortlev dbo.Ativo_Status(Id_Ativo_Status)
+Fortlev|dbo.Ativo|FK: Id_Ativo_Tipo  Fortlev dbo.Ativo_Tipo(Id_Ativo_Tipo)
+Fortlev|dbo.Ativo|FK: Id_Conglomerado  Fortlev dbo.Conglomerado(Id_Conglomerado)
+Fortlev|dbo.Ativo|PK: Id_Ativo
+Fortlev|dbo.Auditoria_Acompanhamento|FK: Id_Auditoria_Conta  Fortlev dbo.Auditoria_Conta(Id_Auditoria_Conta)
+Fortlev|dbo.Auditoria_Acompanhamento|FK: Id_Auditoria_Lote  Fortlev dbo.Auditoria_Lote(Id_Auditoria_Lote)
+Fortlev|dbo.Auditoria_Acompanhamento|FK: Id_Auditoria_Status  Fortlev dbo.Auditoria_Status(Id_Auditoria_Status)
+Fortlev|dbo.Auditoria_Acompanhamento|PK: Id_Auditoria_Acompanhamento
+Fortlev|dbo.Auditoria_Conta|FK: Id_Auditoria_Lote  Fortlev dbo.Auditoria_Lote(Id_Auditoria_Lote)
+Fortlev|dbo.Auditoria_Conta|PK: Id_Auditoria_Conta
+Fortlev|dbo.Auditoria_Contestacao|FK: Id_Fatura  Fortlev dbo.Fatura(Id_Fatura)
+Fortlev|dbo.Auditoria_Contestacao|PK: Id_Auditoria_Contestacao
+Fortlev|dbo.Auditoria_Item|FK: Id_Ativo  Fortlev dbo.Ativo(Id_Ativo)
+Fortlev|dbo.Auditoria_Item|FK: Id_Auditoria_Resumo  Fortlev dbo.Auditoria_Resumo(Id_Auditoria_Resumo)
+Fortlev|dbo.Auditoria_Item|FK: Id_Bilhete_Tipo  Fortlev dbo.Bilhete_Tipo(Id_Bilhete_Tipo)
+Fortlev|dbo.Auditoria_Item|FK: Id_Conglomerado  Fortlev dbo.Conglomerado(Id_Conglomerado)
+Fortlev|dbo.Auditoria_Item|PK: Id_Auditoria_Item
+Fortlev|dbo.Auditoria_Lote|FK: Id_Conglomerado  Fortlev dbo.Conglomerado(Id_Conglomerado)
+Fortlev|dbo.Auditoria_Lote|PK: Id_Auditoria_Lote
+Fortlev|dbo.Auditoria_Resumo|PK: Id_Auditoria_Resumo
+Fortlev|dbo.Auditoria_Status|PK: Id_Auditoria_Status
+Fortlev|dbo.Auditoria_Texto|FK: Id_Auditoria_lote  Fortlev dbo.Auditoria_Lote(Id_Auditoria_Lote)
+Fortlev|dbo.Auditoria_Texto|PK: Id_Auditoria_Texto
+Fortlev|dbo.Auditoria_Tipo|FK: Id_Auditoria_Conta  Fortlev dbo.Auditoria_Conta(Id_Auditoria_Conta)
+Fortlev|dbo.Auditoria_Tipo|PK: Id_Auditoria_Tipo
+Fortlev|dbo.Bilhete_Data|FK: Id_Lote  Fortlev dbo.Lote(Id_Lote)
+Fortlev|dbo.Bilhete_Historico_Resumo|FK: Id_Usuario  Fortlev dbo.Usuario(Id_Usuario)
+Fortlev|dbo.Bilhete_Historico_Resumo|PK: Dt_Historico
+Fortlev|dbo.Bilhete_Historico_Resumo|PK: Id_Lote
+Fortlev|dbo.Bilhete_Historico_Resumo|PK: Id_Usuario
+Fortlev|dbo.Bilhete_Manual_Tipo|FK: Id_Bilhete_Tipo  Fortlev dbo.Bilhete_Tipo(Id_Bilhete_Tipo)
+Fortlev|dbo.Bilhete_Tipo|FK: Id_Conglomerado  Fortlev dbo.Conglomerado(Id_Conglomerado)
+Fortlev|dbo.Bilhete_Tipo|PK: Id_Bilhete_Tipo
+Fortlev|dbo.Bilhete|FK: Id_Ativo  Fortlev dbo.Ativo(Id_Ativo)
+Fortlev|dbo.Bilhete|FK: Id_Bilhete_Tipo  Fortlev dbo.Bilhete_Tipo(Id_Bilhete_Tipo)
+Fortlev|dbo.Bilhete|FK: Id_Lote  Fortlev dbo.Lote(Id_Lote)
+Fortlev|dbo.Bilhete|FK: Id_Tronco  Fortlev dbo.Tronco(Id_Tronco)
+Fortlev|dbo.Bilhete|FK: Id_Usuario  Fortlev dbo.Usuario(Id_Usuario)
+Fortlev|dbo.Bilhete|PK: Id_Bilhete
+Fortlev|dbo.Cargo|PK: Id_Cargo
+Fortlev|dbo.Centro_Custo|PK: Id_Centro_Custo
+Fortlev|dbo.cg_Bi_Arquivo_Campo_Importacao|PK: Id_Campo
+Fortlev|dbo.Cg_Bi_Arquivo_Campo|FK: Id_Arquivo  Fortlev dbo.Cg_Bi_Arquivo(Id_Arquivo)
+Fortlev|dbo.Cg_Bi_Arquivo_Campo|FK: Id_Campo_Bilhete  Fortlev dbo.Cg_Bi_Si_Campo_Bilhete(Id_Campo_Bilhete)
+Fortlev|dbo.Cg_Bi_Arquivo_Campo|PK: Id_Arquivo_Campo
+Fortlev|dbo.Cg_Bi_Arquivo|PK: Id_Arquivo
+Fortlev|dbo.Cg_Bi_Si_Campo_Bilhete|PK: Id_Campo_Bilhete
+Fortlev|dbo.Conglomerado|PK: Id_Conglomerado
+Fortlev|dbo.Consumidor_log|PK: id_Consumidor_log
+Fortlev|dbo.Consumidor_Satus_Data|FK: Id_Consumidor  Fortlev dbo.Consumidor(Id_Consumidor)
+Fortlev|dbo.Consumidor_Satus_Data|PK: Id_Consumidor
+Fortlev|dbo.Consumidor_Status|PK: Id_Consumidor_Status
+Fortlev|dbo.Consumidor_Tipo|PK: Id_Consumidor_Tipo
+Fortlev|dbo.Consumidor_Unidade_Fornecedor|FK: Id_Consumidor_Fornecedor  Fortlev dbo.Consumidor(Id_Consumidor)
+Fortlev|dbo.Consumidor_Unidade_Fornecedor|FK: Id_Consumidor_Unidade  Fortlev dbo.Consumidor_Unidade(Id_Consumidor_Unidade)
+Fortlev|dbo.Consumidor_Unidade_Fornecedor|PK: Id_Consumidor_Fornecedor
+Fortlev|dbo.Consumidor_Unidade_Fornecedor|PK: Id_Consumidor_Unidade
+Fortlev|dbo.Consumidor_Unidade|FK: Id_Conglomerado  Fortlev dbo.Conglomerado(Id_Conglomerado)
+Fortlev|dbo.Consumidor_Unidade|FK: Id_Consumidor  Fortlev dbo.Consumidor(Id_Consumidor)
+Fortlev|dbo.Consumidor_Unidade|PK: Id_Consumidor_Unidade
+Fortlev|dbo.Consumidor|FK: Id_Cargo  Fortlev dbo.Cargo(Id_Cargo)
+Fortlev|dbo.Consumidor|FK: Id_Centro_Custo  Fortlev dbo.Centro_Custo(Id_Centro_Custo)
+Fortlev|dbo.Consumidor|FK: Id_Consumidor_Status  Fortlev dbo.Consumidor_Status(Id_Consumidor_Status)
+Fortlev|dbo.Consumidor|FK: Id_Consumidor_Tipo  Fortlev dbo.Consumidor_Tipo(Id_Consumidor_Tipo)
+Fortlev|dbo.Consumidor|FK: Id_Departamento  Fortlev dbo.Departamento(Id_Departamento)
+Fortlev|dbo.Consumidor|FK: Id_Empresa_Contratada  Fortlev dbo.Empresa_Contratada(Id_Empresa_Contratada)
+Fortlev|dbo.Consumidor|FK: Id_Filial  Fortlev dbo.Filial(Id_Filial)
+Fortlev|dbo.Consumidor|FK: Id_Secao  Fortlev dbo.Secao(Id_Secao)
+Fortlev|dbo.Consumidor|FK: Id_Setor  Fortlev dbo.Setor(Id_Setor)
+Fortlev|dbo.Consumidor|PK: Id_Consumidor
+Fortlev|dbo.Contrato_Aditivo|FK: Id_Contrato  Fortlev dbo.Contrato(Id_Contrato)
+Fortlev|dbo.Contrato_Aditivo|PK: Id_Contrato_Aditivo
+Fortlev|dbo.Contrato_Bilhete|PK: DB_Tipo_Parametro
+Fortlev|dbo.Contrato_Indice|PK: Id_Contrato_Indice
+Fortlev|dbo.Contrato_SLA_Operacao|FK: Id_Contrato  Fortlev dbo.Contrato(Id_Contrato)
+Fortlev|dbo.Contrato_SLA_Operacao|PK: Id_Contrato_SLA_Operacao
+Fortlev|dbo.Contrato_SLA_Servico|FK: Id_Contrato  Fortlev dbo.Contrato(Id_Contrato)
+Fortlev|dbo.Contrato_SLA_Servico|FK: Id_Contrato_Indice  Fortlev dbo.Contrato_Indice(Id_Contrato_Indice)
+Fortlev|dbo.Contrato_SLA_Servico|FK: Id_Operadora  Fortlev dbo.Conglomerado(Id_Conglomerado)
+Fortlev|dbo.Contrato_SLA_Servico|PK: Id_Contrato_SLA_Servico
+Fortlev|dbo.Contrato_Status|PK: Id_Contrato_Status
+Fortlev|dbo.Contrato|FK: Id_Contrato_Indice  Fortlev dbo.Contrato_Indice(Id_Contrato_Indice)
+Fortlev|dbo.Contrato|FK: Id_Contrato_Status  Fortlev dbo.Contrato_Status(Id_Contrato_Status)
+Fortlev|dbo.Contrato|FK: Id_Empresa_Contratada  Fortlev dbo.Empresa_Contratada(Id_Empresa_Contratada)
+Fortlev|dbo.Contrato|FK: Id_Filial  Fortlev dbo.Filial(Id_Filial)
+Fortlev|dbo.Contrato|FK: Id_Servico  Fortlev dbo.Servico(Id_Servico)
+Fortlev|dbo.Contrato|PK: Id_Contrato
+Fortlev|dbo.Custo_Fixo_Item|FK: Id_Ativo_Tipo  Fortlev dbo.Ativo_Tipo(Id_Ativo_Tipo)
+Fortlev|dbo.Custo_Fixo_Item|FK: Id_Conglomerado  Fortlev dbo.Conglomerado(Id_Conglomerado)
+Fortlev|dbo.Custo_Fixo_Item|FK: Id_Custo_Fixo  Fortlev dbo.Custo_Fixo(Id_Custo_Fixo)
+Fortlev|dbo.Custo_Fixo_Item|PK: Id_Custo_Fixo_Item
+Fortlev|dbo.Custo_Fixo|PK: Id_Custo_Fixo
+Fortlev|dbo.Departamento|PK: Id_Departamento
+Fortlev|dbo.Empresa_Contratada|PK: Id_Empresa_Contratada
+Fortlev|dbo.Empresa|FK: Id_Holding  Fortlev dbo.Holding(Id_Holding)
+Fortlev|dbo.Empresa|PK: Id_Empresa
+Fortlev|dbo.Estoque_Aparelho_Status|PK: Id_Estoque_Aparelho_Status
+Fortlev|dbo.Estoque_Aparelho|FK: Id_Ativo_Modelo  Fortlev dbo.Ativo_Modelo(Id_Ativo_Modelo)
+Fortlev|dbo.Estoque_Aparelho|FK: Id_Ativo_Tipo  Fortlev dbo.Ativo_Tipo(Id_Ativo_Tipo)
+Fortlev|dbo.Estoque_Aparelho|FK: Id_Conglomerado  Fortlev dbo.Conglomerado(Id_Conglomerado)
+Fortlev|dbo.Estoque_Aparelho|FK: Id_Consumidor  Fortlev dbo.Consumidor(Id_Consumidor)
+Fortlev|dbo.Estoque_Aparelho|FK: Id_Estoque_Aparelho_Status  Fortlev dbo.Estoque_Aparelho_Status(Id_Estoque_Aparelho_Status)
+Fortlev|dbo.Estoque_Aparelho|FK: Id_Estoque_Endereco_Entrega  Fortlev dbo.Estoque_Endereco_Entrega(Id_Estoque_Endereco_Entrega)
+Fortlev|dbo.Estoque_Aparelho|FK: Id_Estoque_Nota_Fiscal  Fortlev dbo.Estoque_Nota_Fiscal(Id_Estoque_Nota_Fiscal)
+Fortlev|dbo.Estoque_Aparelho|FK: Id_Estoque_Nota_Fiscal  Fortlev dbo.Estoque_Nota_Fiscal(Id_Estoque_Nota_Fiscal)
+Fortlev|dbo.Estoque_Aparelho|PK: Id_Aparelho
+Fortlev|dbo.Estoque_Consumidor|FK: Id_Consumidor  Fortlev dbo.Consumidor(Id_Consumidor)
+Fortlev|dbo.Estoque_Endereco_Entrega|PK: Id_Estoque_Endereco_Entrega
+Fortlev|dbo.Estoque_Nota_Fiscal|FK: Id_Ativo_Fr_Aquisicao  Fortlev dbo.Ativo_Fr_Aquisicao(Id_Ativo_Fr_Aquisicao)
+Fortlev|dbo.Estoque_Nota_Fiscal|PK: Id_Estoque_Nota_Fiscal
+Fortlev|dbo.Fatura_Parametro_Campo|FK: Id_Fatura_Parametro  Fortlev dbo.Fatura_Parametro(Id_Fatura_Parametro)
+Fortlev|dbo.Fatura_Parametro_Campo|PK: Id_Fatura_Parametro_Campo
+Fortlev|dbo.Fatura_Parametro|FK: Id_Ativo  Fortlev dbo.Ativo(Id_Ativo)
+Fortlev|dbo.Fatura_Parametro|FK: Id_Contrato  Fortlev dbo.Contrato(Id_Contrato)
+Fortlev|dbo.Fatura_Parametro|FK: Id_Fatura_Tipo_Rateio  Fortlev dbo.Fatura_Tipo_Rateio(Id_Fatura_Tipo_Rateio)
+Fortlev|dbo.Fatura_Parametro|PK: Id_Fatura_Parametro
+Fortlev|dbo.Fatura_Plano_Conta|FK: Id_Conglomerado  Fortlev dbo.Conglomerado(Id_Conglomerado)
+Fortlev|dbo.Fatura_Plano_Conta|FK: Id_Contrato  Fortlev dbo.Contrato(Id_Contrato)
+Fortlev|dbo.Fatura_Plano_Conta|FK: Id_Empresa  Fortlev dbo.Empresa(Id_Empresa)
+Fortlev|dbo.Fatura_Plano_Conta|PK: Id_Fatura_Plano_Conta
+Fortlev|dbo.Fatura_Tipo_Rateio|PK: Id_Fatura_Tipo_Rateio
+Fortlev|dbo.Fatura|FK: Id_Fatura_Parametro  Fortlev dbo.Fatura_Parametro(Id_Fatura_Parametro)
+Fortlev|dbo.Fatura|PK: Id_Fatura
+Fortlev|dbo.Filial|FK: Id_Empresa  Fortlev dbo.Empresa(Id_Empresa)
+Fortlev|dbo.Filial|PK: Id_Filial
+Fortlev|dbo.Holding|PK: Id_Holding
+Fortlev|dbo.Justificativa_Excedente|FK: Id_Ativo  Fortlev dbo.Ativo(Id_Ativo)
+Fortlev|dbo.Justificativa_Excedente|FK: Id_Consumidor  Fortlev dbo.Consumidor(Id_Consumidor)
+Fortlev|dbo.Justificativa_Excedente|FK: Id_Mail_Caixa_Siada  Fortlev dbo.Mail_Caixa_Saida(Id_Mail_Caixa_Siada)
+Fortlev|dbo.Justificativa_Excedente|FK: Id_Usuario  Fortlev dbo.Usuario(Id_Usuario)
+Fortlev|dbo.Log_Alteracao_Cadastro_Consumidor|FK: Id_Consumidor  Fortlev dbo.Consumidor(Id_Consumidor)
+Fortlev|dbo.Log_Alteracao_Contrato_SLA_Servico|FK: Id_Contrato_SLA_Servico  Fortlev dbo.Contrato_SLA_Servico(Id_Contrato_SLA_Servico)
+Fortlev|dbo.Log_Rastreio_Estoque_Aparelho|FK: Id_Aparelho  Fortlev dbo.Estoque_Aparelho(Id_Aparelho)
+Fortlev|dbo.Log_Rastreio_Estoque_Aparelho|FK: Id_Ativo  Fortlev dbo.Ativo(Id_Ativo)
+Fortlev|dbo.Log_Rastreio_Estoque_Aparelho|FK: Id_Consumidor  Fortlev dbo.Consumidor(Id_Consumidor)
+Fortlev|dbo.Lote_Log_Criacao|FK: Id_Centro_Custo  Fortlev dbo.Centro_Custo(Id_Centro_Custo)
+Fortlev|dbo.Lote_Log_Criacao|FK: Id_Consumidor  Fortlev dbo.Consumidor(Id_Consumidor)
+Fortlev|dbo.Lote_Log_Criacao|FK: Id_Departamento  Fortlev dbo.Departamento(Id_Departamento)
+Fortlev|dbo.Lote_Log_Criacao|FK: Id_Filial  Fortlev dbo.Filial(Id_Filial)
+Fortlev|dbo.Lote_Log_Criacao|FK: Id_Lote  Fortlev dbo.Lote(Id_Lote)
+Fortlev|dbo.Lote_Log_Criacao|FK: Id_Secao  Fortlev dbo.Secao(Id_Secao)
+Fortlev|dbo.Lote_Log_Criacao|FK: Id_Setor  Fortlev dbo.Setor(Id_Setor)
+Fortlev|dbo.Lote_Log_Criacao|PK: Id_Lote_Log_Criacao
+Fortlev|dbo.Lote_Marcacao|FK: Id_Lote  Fortlev dbo.Lote(Id_Lote)
+Fortlev|dbo.Lote_Marcacao|FK: Id_Usuario  Fortlev dbo.Usuario(Id_Usuario)
+Fortlev|dbo.Lote_Marcacao|PK: Id_Lote_Marcacao
+Fortlev|dbo.Lote|FK: Id_Ativo  Fortlev dbo.Ativo(Id_Ativo)
+Fortlev|dbo.Lote|PK: Id_Lote
+Fortlev|dbo.Mail_Caixa_Saida|FK: Id_Mail_Sender  Fortlev dbo.Mail_Sender(Id_Mail_Sender)
+Fortlev|dbo.Mail_Caixa_Saida|PK: Id_Mail_Caixa_Siada
+Fortlev|dbo.Mail_Sender|PK: Id_Mail_Sender
+Fortlev|dbo.Nota_Fiscal_Fatura|PK: Id_Nota_Fiscal
+Fortlev|dbo.Politica_Consumidor|FK: Id_Ativo_Tipo  Fortlev dbo.Ativo_Tipo(Id_Ativo_Tipo)
+Fortlev|dbo.Politica_Consumidor|FK: Id_Consumidor  Fortlev dbo.Consumidor(Id_Consumidor)
+Fortlev|dbo.Rateio_Ativo_Critica|FK: Id_Ativo  Fortlev dbo.Ativo(Id_Ativo)
+Fortlev|dbo.Rateio_Ativo_Critica|FK: Id_Rateio  Fortlev dbo.Rateio(Id_Rateio)
+Fortlev|dbo.Rateio_Item|FK: Id_Ativo  Fortlev dbo.Ativo(Id_Ativo)
+Fortlev|dbo.Rateio_Item|FK: Id_Centro_Custo  Fortlev dbo.Centro_Custo(Id_Centro_Custo)
+Fortlev|dbo.Rateio_Item|FK: Id_Conglomerado  Fortlev dbo.Conglomerado(Id_Conglomerado)
+Fortlev|dbo.Rateio_Item|FK: Id_Consumidor  Fortlev dbo.Consumidor(Id_Consumidor)
+Fortlev|dbo.Rateio_Item|FK: Id_Filial  Fortlev dbo.Filial(Id_Filial)
+Fortlev|dbo.Rateio_Item|FK: Id_Rateio  Fortlev dbo.Rateio(Id_Rateio)
+Fortlev|dbo.Rateio_Item|PK: Id_Rateio_Item
+Fortlev|dbo.Rateio|FK: Id_Fatura_Parametro  Fortlev dbo.Fatura_Parametro(Id_Fatura_Parametro)
+Fortlev|dbo.Rateio|PK: Id_Rateio
+Fortlev|dbo.Rl_Ativo_Centro_Custo|FK: Id_Ativo  Fortlev dbo.Ativo_Parametro(Id_Ativo)
+Fortlev|dbo.Rl_Ativo_Centro_Custo|FK: Id_Centro_Custo  Fortlev dbo.Centro_Custo(Id_Centro_Custo)
+Fortlev|dbo.Rl_Ativo_Centro_Custo|PK: Id_Ativo
+Fortlev|dbo.Rl_Ativo_Centro_Custo|PK: Id_Centro_Custo
+Fortlev|dbo.Rl_Ativo_Tipo_Ativo_Complemento|FK: Id_Ativo_Complemento  Fortlev dbo.Ativo_Complemento(Id_Ativo_Complemento)
+Fortlev|dbo.Rl_Ativo_Tipo_Ativo_Complemento|FK: Id_Ativo_Tipo  Fortlev dbo.Ativo_Tipo(Id_Ativo_Tipo)
+Fortlev|dbo.Rl_Ativo_Tipo_Ativo_Complemento|PK: Id_Ativo_Tipo
+Fortlev|dbo.Rl_Consumidor_Ativo|FK: Id_Ativo  Fortlev dbo.Ativo(Id_Ativo)
+Fortlev|dbo.Rl_Consumidor_Ativo|FK: Id_Consumidor  Fortlev dbo.Consumidor(Id_Consumidor)
+Fortlev|dbo.Rl_Consumidor_Ativo|PK: Id_Ativo
+Fortlev|dbo.Rl_Consumidor_Ativo|PK: Id_Consumidor
+Fortlev|dbo.Rl_Estoque_Aparelho_Ativo|FK: Id_Aparelho  Fortlev dbo.Estoque_Aparelho(Id_Aparelho)
+Fortlev|dbo.Rl_Estoque_Aparelho_Ativo|FK: Id_Ativo  Fortlev dbo.Ativo(Id_Ativo)
+Fortlev|dbo.Rl_Estoque_Aparelho_Ativo|PK: Id_Aparelho
+Fortlev|dbo.Rl_Estoque_Aparelho_Ativo|PK: Id_Ativo
+Fortlev|dbo.Rl_Filial_Bilhete_Tipo|FK: Id_Bilhete_Tipo  Fortlev dbo.Bilhete_Tipo(Id_Bilhete_Tipo)
+Fortlev|dbo.Rl_Filial_Bilhete_Tipo|FK: Id_Filial  Fortlev dbo.Filial(Id_Filial)
+Fortlev|dbo.Rl_Filial_Bilhete_Tipo|PK: Id_Bilhete_Tipo
+Fortlev|dbo.Rl_Filial_Bilhete_Tipo|PK: Id_Filial
+Fortlev|dbo.Rl_Hi_Centro_Custo_Departamento|FK: Id_Centro_Custo  Fortlev dbo.Centro_Custo(Id_Centro_Custo)
+Fortlev|dbo.Rl_Hi_Centro_Custo_Departamento|FK: Id_Departamento  Fortlev dbo.Departamento(Id_Departamento)
+Fortlev|dbo.Rl_Hi_Centro_Custo_Departamento|PK: Id_Centro_Custo
+Fortlev|dbo.Rl_Hi_Centro_Custo_Departamento|PK: Id_Departamento
+Fortlev|dbo.Rl_Hi_Departamento_Setor|FK: Id_Departamento  Fortlev dbo.Departamento(Id_Departamento)
+Fortlev|dbo.Rl_Hi_Departamento_Setor|FK: Id_Setor  Fortlev dbo.Setor(Id_Setor)
+Fortlev|dbo.Rl_Hi_Departamento_Setor|PK: Id_Departamento
+Fortlev|dbo.Rl_Hi_Departamento_Setor|PK: Id_Setor
+Fortlev|dbo.Rl_Hi_Filial_Centro_Custo|FK: Id_Centro_Custo  Fortlev dbo.Centro_Custo(Id_Centro_Custo)
+Fortlev|dbo.Rl_Hi_Filial_Centro_Custo|FK: Id_Filial  Fortlev dbo.Filial(Id_Filial)
+Fortlev|dbo.Rl_Hi_Filial_Centro_Custo|PK: Id_Centro_Custo
+Fortlev|dbo.Rl_Hi_Filial_Centro_Custo|PK: Id_Filial
+Fortlev|dbo.Rl_Hi_Setor_Secao|FK: Id_Secao  Fortlev dbo.Secao(Id_Secao)
+Fortlev|dbo.Rl_Hi_Setor_Secao|FK: Id_Setor  Fortlev dbo.Setor(Id_Setor)
+Fortlev|dbo.Rl_Hi_Setor_Secao|PK: Id_Secao
+Fortlev|dbo.Rl_Hi_Setor_Secao|PK: Id_Setor
+Fortlev|dbo.Rl_Perfil_Ativo_Usuario|FK: Id_Ativo  Fortlev dbo.Ativo(Id_Ativo)
+Fortlev|dbo.Rl_Perfil_Ativo_Usuario|FK: Id_Usuario  Fortlev dbo.Usuario(Id_Usuario)
+Fortlev|dbo.Rl_Perfil_Ativo_Usuario|PK: Id_Ativo
+Fortlev|dbo.Rl_Perfil_Ativo_Usuario|PK: Id_Usuario
+Fortlev|dbo.Rl_Perfil_Centro_Custo_Usuario|FK: Id_Centro_Custo  Fortlev dbo.Centro_Custo(Id_Centro_Custo)
+Fortlev|dbo.Rl_Perfil_Centro_Custo_Usuario|FK: Id_Usuario  Fortlev dbo.Usuario(Id_Usuario)
+Fortlev|dbo.Rl_Perfil_Centro_Custo_Usuario|PK: Id_Centro_Custo
+Fortlev|dbo.Rl_Perfil_Centro_Custo_Usuario|PK: Id_Usuario
+Fortlev|dbo.Rl_Perfil_Conglomerado_Usuario|FK: Id_Conglomerado  Fortlev dbo.Conglomerado(Id_Conglomerado)
+Fortlev|dbo.Rl_Perfil_Conglomerado_Usuario|FK: Id_Usuario  Fortlev dbo.Usuario(Id_Usuario)
+Fortlev|dbo.Rl_Perfil_Conglomerado_Usuario|PK: Id_Conglomerado
+Fortlev|dbo.Rl_Perfil_Conglomerado_Usuario|PK: Id_Usuario
+Fortlev|dbo.Rl_Perfil_Consumidor_Usuario|FK: Id_Consumidor  Fortlev dbo.Consumidor(Id_Consumidor)
+Fortlev|dbo.Rl_Perfil_Consumidor_Usuario|FK: Id_Usuario  Fortlev dbo.Usuario(Id_Usuario)
+Fortlev|dbo.Rl_Perfil_Consumidor_Usuario|PK: Id_Consumidor
+Fortlev|dbo.Rl_Perfil_Consumidor_Usuario|PK: Id_Usuario
+Fortlev|dbo.Rl_Perfil_Departamento_Usuario|FK: Id_Departamento  Fortlev dbo.Departamento(Id_Departamento)
+Fortlev|dbo.Rl_Perfil_Departamento_Usuario|FK: Id_Usuario  Fortlev dbo.Usuario(Id_Usuario)
+Fortlev|dbo.Rl_Perfil_Departamento_Usuario|PK: Id_Departamento
+Fortlev|dbo.Rl_Perfil_Departamento_Usuario|PK: Id_Usuario
+Fortlev|dbo.Rl_Perfil_Filial_Usuario|FK: Id_Filial  Fortlev dbo.Filial(Id_Filial)
+Fortlev|dbo.Rl_Perfil_Filial_Usuario|FK: Id_Usuario  Fortlev dbo.Usuario(Id_Usuario)
+Fortlev|dbo.Rl_Perfil_Filial_Usuario|PK: Id_Filial
+Fortlev|dbo.Rl_Perfil_Filial_Usuario|PK: Id_Usuario
+Fortlev|dbo.Rl_Perfil_Secao_Usuario|FK: Id_Secao  Fortlev dbo.Secao(Id_Secao)
+Fortlev|dbo.Rl_Perfil_Secao_Usuario|FK: Id_Usuario  Fortlev dbo.Usuario(Id_Usuario)
+Fortlev|dbo.Rl_Perfil_Secao_Usuario|PK: Id_Secao
+Fortlev|dbo.Rl_Perfil_Secao_Usuario|PK: Id_Usuario
+Fortlev|dbo.Rl_Perfil_Setor_Usuario|FK: Id_Setor  Fortlev dbo.Setor(Id_Setor)
+Fortlev|dbo.Rl_Perfil_Setor_Usuario|FK: Id_Usuario  Fortlev dbo.Usuario(Id_Usuario)
+Fortlev|dbo.Rl_Perfil_Setor_Usuario|PK: Id_Setor
+Fortlev|dbo.Rl_Perfil_Setor_Usuario|PK: Id_Usuario
+Fortlev|dbo.Rl_Ra_Fatura_Parametro_Ativo|FK: Id_Ativo  Fortlev dbo.Ativo(Id_Ativo)
+Fortlev|dbo.Rl_Ra_Fatura_Parametro_Ativo|FK: Id_Fatura_Parametro  Fortlev dbo.Fatura_Parametro(Id_Fatura_Parametro)
+Fortlev|dbo.Rl_Ra_Fatura_Parametro_Ativo|PK: Id_Ativo
+Fortlev|dbo.Rl_Ra_Fatura_Parametro_Ativo|PK: Id_Fatura_Parametro
+Fortlev|dbo.Rl_Ra_Fatura_Parametro_Conglomerado|FK: Id_Conglomerado  Fortlev dbo.Conglomerado(Id_Conglomerado)
+Fortlev|dbo.Rl_Ra_Fatura_Parametro_Conglomerado|FK: Id_Fatura_Parametro  Fortlev dbo.Fatura_Parametro(Id_Fatura_Parametro)
+Fortlev|dbo.Rl_Ra_Fatura_Parametro_Conglomerado|PK: Id_Conglomerado
+Fortlev|dbo.Rl_Ra_Fatura_Parametro_Conglomerado|PK: Id_Fatura_Parametro
+Fortlev|dbo.Rl_Ra_Fatura_Parametro_Filial|FK: Id_Fatura_Parametro  Fortlev dbo.Fatura_Parametro(Id_Fatura_Parametro)
+Fortlev|dbo.Rl_Ra_Fatura_Parametro_Filial|FK: Id_Filial  Fortlev dbo.Filial(Id_Filial)
+Fortlev|dbo.Rl_Ra_Fatura_Parametro_Filial|PK: Id_Fatura_Parametro
+Fortlev|dbo.Rl_Ra_Fatura_Parametro_Filial|PK: Id_Filial
+Fortlev|dbo.Rl_Ra_Fatura_Parametro_Tronco_Grupo|FK: Id_Fatura_Parametro  Fortlev dbo.Fatura_Parametro(Id_Fatura_Parametro)
+Fortlev|dbo.Rl_Ra_Fatura_Parametro_Tronco_Grupo|FK: Id_Tronco_Grupo  Fortlev dbo.Tronco_Grupo(Id_Tronco_Grupo)
+Fortlev|dbo.Rl_Ra_Fatura_Parametro_Tronco_Grupo|PK: Id_Fatura_Parametro
+Fortlev|dbo.Rl_Ra_Fatura_Parametro_Tronco_Grupo|PK: Id_Tronco_Grupo
+Fortlev|dbo.Rl_Rateio_Fatura|FK: Id_Fatura  Fortlev dbo.Fatura(Id_Fatura)
+Fortlev|dbo.Rl_Rateio_Fatura|FK: Id_Rateio  Fortlev dbo.Rateio(Id_Rateio)
+Fortlev|dbo.Rl_Rateio_Fatura|PK: Id_Fatura
+Fortlev|dbo.Rl_Rateio_Fatura|PK: Id_Rateio
+Fortlev|dbo.Rl_Solicitacao_Ativo|FK: Id_Ativo  Fortlev dbo.Ativo(Id_Ativo)
+Fortlev|dbo.Rl_Solicitacao_Ativo|FK: Id_Solicitacao  Fortlev dbo.Solicitacao(Id_Solicitacao)
+Fortlev|dbo.Rl_Solicitacao_Ativo|PK: Id_Ativo
+Fortlev|dbo.Rl_Solicitacao_Ativo|PK: Id_Solicitacao
+Fortlev|dbo.Rl_Solicitacao_Fila_Atendimento_Usuario|FK: Id_Solicitacao_Fila_Atendimento  Fortlev dbo.Solicitacao_Fila_Atendimento(Id_Solicitacao_Fila_Atendimento)
+Fortlev|dbo.Rl_Solicitacao_Fila_Atendimento_Usuario|FK: Id_Usuario  Fortlev dbo.Usuario(Id_Usuario)
+Fortlev|dbo.Rl_Usuario_Grupo_Si_Tela|FK: Id_Tela  Fortlev dbo.Si_Tela(Id_Tela)
+Fortlev|dbo.Rl_Usuario_Grupo_Si_Tela|FK: Id_Usuario_Grupo  Fortlev dbo.Usuario_Grupo(Id_Usuario_Grupo)
+Fortlev|dbo.Rl_Usuario_Grupo_Si_Tela|PK: Id_Tela
+Fortlev|dbo.Rl_Usuario_Grupo_Si_Tela|PK: Id_Usuario_Grupo
+Fortlev|dbo.Rl_Usuario_Grupo_Si_Template|FK: Id_Template  Fortlev dbo.Si_Template(Id_Template)
+Fortlev|dbo.Rl_Usuario_Grupo_Si_Template|FK: Id_Usuario_Grupo  Fortlev dbo.Usuario_Grupo(Id_Usuario_Grupo)
+Fortlev|dbo.Rl_Usuario_Grupo_Si_Template|PK: Id_Template
+Fortlev|dbo.Rl_Usuario_Grupo_Si_Template|PK: Id_Usuario_Grupo
+Fortlev|dbo.Rl_Usuario_Solicitacao_Permissao|FK: Id_Solicitacao_Permissao  Fortlev dbo.Solicitacao_Permissao(Id_Solicitacao_Permissao)
+Fortlev|dbo.Rl_Usuario_Solicitacao_Permissao|FK: Id_Usuario  Fortlev dbo.Usuario(Id_Usuario)
+Fortlev|dbo.Rl_Usuario_Solicitacao_Permissao|PK: Id_Solicitacao_Permissao
+Fortlev|dbo.Rl_Usuario_Solicitacao_Permissao|PK: Id_Usuario
+Fortlev|dbo.Secao|PK: Id_Secao
+Fortlev|dbo.Servico|PK: Id_Servico
+Fortlev|dbo.Setor|PK: Id_Setor
+Fortlev|dbo.Si_Ano_Fiscal|PK: Id
+Fortlev|dbo.Si_Aproveitamento|PK: DB_Tipo_Parametro_BLT
+Fortlev|dbo.Si_Aproveitamento|PK: DB_Tipo_Parametro_PCT
+Fortlev|dbo.Si_Desmarca_Bilhete|PK: DB_Tipo_Parametro
+Fortlev|dbo.Si_Formato_Valida_Data|PK: Id_Valida_Data
+Fortlev|dbo.Si_Idioma|PK: Id_Idioma
+Fortlev|dbo.Si_Menu|PK: Id_Menu
+Fortlev|dbo.Si_Tela_Campo_Traducao|FK: Id_Campo  Fortlev dbo.Si_Tela_Campo(Id_Campo)
+Fortlev|dbo.Si_Tela_Campo_Traducao|FK: Id_Idioma  Fortlev dbo.Si_Idioma(Id_Idioma)
+Fortlev|dbo.Si_Tela_Campo_Traducao|PK: Id_Traducao
+Fortlev|dbo.Si_Tela_Campo|FK: Id_Tela  Fortlev dbo.Si_Tela(Id_Tela)
+Fortlev|dbo.Si_Tela_Campo|PK: Id_Campo
+Fortlev|dbo.Si_Tela|FK: Id_Menu  Fortlev dbo.Si_Menu(Id_Menu)
+Fortlev|dbo.Si_Tela|PK: Id_Tela
+Fortlev|dbo.Si_Template|FK: Id_Ativo_Tipo_Grupo  Fortlev dbo.Ativo_Tipo_Grupo(Id_Ativo_Tipo_Grupo)
+Fortlev|dbo.Si_Template|PK: Id_Template
+Fortlev|dbo.Si_Texto_Termo|PK: Caixa
+Fortlev|dbo.Si_Texto_Termo|PK: Pagina
+Fortlev|dbo.Si_Usuario_Perfil_Acesso|FK: Id_Usuario_Perfil  Fortlev dbo.Si_Usuario_Perfil(Id_Usuario_Perfil)
+Fortlev|dbo.Si_Usuario_Perfil_Acesso|PK: Id_Usuario_Perfil_Acesso
+Fortlev|dbo.Si_Usuario_Perfil|PK: Id_Usuario_Perfil
+Fortlev|dbo.Si_Volumetria|PK: DB_Tipo_Parametro
+Fortlev|dbo.Solicitacao_Avaliacao|FK: Id_Solicitacao  Fortlev dbo.Solicitacao(Id_Solicitacao)
+Fortlev|dbo.Solicitacao_Avaliacao|PK: Id_Solicitacao_Avaliacao
+Fortlev|dbo.Solicitacao_Bilhete_Tipo|FK: Id_Bilhete_Tipo  Fortlev dbo.Bilhete_Tipo(Id_Bilhete_Tipo)
+Fortlev|dbo.Solicitacao_Bilhete_Tipo|PK: Id_Bilhete_Tipo
+Fortlev|dbo.Solicitacao_Data_Parada|PK: Id_Data_Parada
+Fortlev|dbo.Solicitacao_Fila_Atendimento|PK: Id_Solicitacao_Fila_Atendimento
+Fortlev|dbo.Solicitacao_Item|FK: Id_Solicitacao  Fortlev dbo.Solicitacao(Id_Solicitacao)
+Fortlev|dbo.Solicitacao_Item|FK: Id_Usuario  Fortlev dbo.Usuario(Id_Usuario)
+Fortlev|dbo.Solicitacao_Item|PK: Id_Solicitacao_Item
+Fortlev|dbo.Solicitacao_Permissao|PK: Id_Solicitacao_Permissao
+Fortlev|dbo.Solicitacao_SLA|PK: Id_Solicitacao_SLA
+Fortlev|dbo.Solicitacao_Solucao|FK: Id_Ativo_Tipo  Fortlev dbo.Ativo_Tipo(Id_Ativo_Tipo)
+Fortlev|dbo.Solicitacao_Solucao|PK: Id_Solicitacao_Solucao
+Fortlev|dbo.Solicitacao_Tipo|FK: Id_Ativo_Tipo  Fortlev dbo.Ativo_Tipo(Id_Ativo_Tipo)
+Fortlev|dbo.Solicitacao_Tipo|FK: Id_Solicitacao_Permissao  Fortlev dbo.Solicitacao_Permissao(Id_Solicitacao_Permissao)
+Fortlev|dbo.Solicitacao_Tipo|FK: Id_Solicitacao_SLA  Fortlev dbo.Solicitacao_SLA(Id_Solicitacao_SLA)
+Fortlev|dbo.Solicitacao_Tipo|FK: Id_Solicitacao_Unidade_Processo  Fortlev dbo.Solicitacao_Unidade_Processo(Id_Processo_Unidade_Solicitacao)
+Fortlev|dbo.Solicitacao_Tipo|FK: Id_Solicitcao_Fila_Atendimento  Fortlev dbo.Solicitacao_Fila_Atendimento(Id_Solicitacao_Fila_Atendimento)
+Fortlev|dbo.Solicitacao_Tipo|PK: Id_Solicitacao_Tipo
+Fortlev|dbo.Solicitacao_Unidade_Processo|PK: Id_Processo_Unidade_Solicitacao
+Fortlev|dbo.Solicitacao|FK: Id_Ativo_Tipo  Fortlev dbo.Ativo_Tipo(Id_Ativo_Tipo)
+Fortlev|dbo.Solicitacao|FK: Id_Mail_Caixa_Saida_Operadora  Fortlev dbo.Mail_Caixa_Saida(Id_Mail_Caixa_Siada)
+Fortlev|dbo.Solicitacao|FK: Id_Mail_Caixa_Saida_Usuario  Fortlev dbo.Consumidor_Unidade(Id_Consumidor_Unidade)
+Fortlev|dbo.Solicitacao|FK: Id_Mail_Caixa_Saida_Usuario  Fortlev dbo.Mail_Caixa_Saida(Id_Mail_Caixa_Siada)
+Fortlev|dbo.Solicitacao|FK: Id_Solicitacao_Solucao  Fortlev dbo.Solicitacao_Solucao(Id_Solicitacao_Solucao)
+Fortlev|dbo.Solicitacao|FK: Id_Solicitacao_Tipo  Fortlev dbo.Solicitacao_Tipo(Id_Solicitacao_Tipo)
+Fortlev|dbo.Solicitacao|FK: Id_Usuario  Fortlev dbo.Usuario(Id_Usuario)
+Fortlev|dbo.Solicitacao|PK: Id_Solicitacao
+Fortlev|dbo.sysdiagrams|PK: diagram_id
+Fortlev|dbo.Tronco_Grupo|PK: Id_Tronco_Grupo
+Fortlev|dbo.Tronco|FK: Id_Conglomerado  Fortlev dbo.Conglomerado(Id_Conglomerado)
+Fortlev|dbo.Tronco|FK: Id_Tronco_Grupo  Fortlev dbo.Tronco_Grupo(Id_Tronco_Grupo)
+Fortlev|dbo.Tronco|PK: Id_Tronco
+Fortlev|dbo.Usuario_Grupo|PK: Id_Usuario_Grupo
+Fortlev|dbo.Usuario|FK: Id_Consumidor  Fortlev dbo.Consumidor(Id_Consumidor)
+Fortlev|dbo.Usuario|FK: Id_Idioma  Fortlev dbo.Si_Idioma(Id_Idioma)
+Fortlev|dbo.Usuario|FK: Id_Usuario_Grupo  Fortlev dbo.Usuario_Grupo(Id_Usuario_Grupo)
+Fortlev|dbo.Usuario|FK: Id_Usuario_Perfil  Fortlev dbo.Si_Usuario_Perfil(Id_Usuario_Perfil)
+Fortlev|dbo.Usuario|FK: Id_Usuario_Perfil_Acesso  Fortlev dbo.Si_Usuario_Perfil_Acesso(Id_Usuario_Perfil_Acesso)
+Fortlev|dbo.Usuario|PK: Id_Usuario
+Vale_backup|dbo.__RefactorLog|PK: OperationKey
+Vale_backup|dbo.Agenda_Marcacao_Particular|FK: Id_Usuario  Vale_backup dbo.Usuario(Id_Usuario)
+Vale_backup|dbo.Agenda_Marcacao_Particular|PK: Id_Usuario
+Vale_backup|dbo.Agenda_Marcacao_Particular|PK: Nr_Destino
+Vale_backup|dbo.App_Captura_Imei|FK: Id_Usuario  Vale_backup dbo.Usuario(Id_Usuario)
+Vale_backup|dbo.Ativo_App_Trafego_Aplicativo|FK: Id_Ativo  Vale_backup dbo.Ativo(Id_Ativo)
+Vale_backup|dbo.Ativo_App_Trafego|FK: Id_Ativo  Vale_backup dbo.Ativo(Id_Ativo)
+Vale_backup|dbo.Ativo_Complemento|FK: Id_Ativo_Tipo  Vale_backup dbo.Ativo_Tipo(Id_Ativo_Tipo)
+Vale_backup|dbo.Ativo_Complemento|PK: Id_Ativo_Complemento
+Vale_backup|dbo.Ativo_Consumidor_Alerta|FK: Id_Consumidor  Vale_backup dbo.Consumidor(Id_Consumidor)
+Vale_backup|dbo.Ativo_Fabricante|PK: Id_Ativo_Fabricante
+Vale_backup|dbo.Ativo_Fr_Aquisicao|PK: Id_Ativo_Fr_Aquisicao
+Vale_backup|dbo.Ativo_log|PK: Id_Ativo_log
+Vale_backup|dbo.Ativo_Modelo|FK: Id_Ativo_Fabricante  Vale_backup dbo.Ativo_Fabricante(Id_Ativo_Fabricante)
+Vale_backup|dbo.Ativo_Modelo|FK: Id_Ativo_Tipo  Vale_backup dbo.Ativo_Tipo(Id_Ativo_Tipo)
+Vale_backup|dbo.Ativo_Modelo|PK: Id_Ativo_Modelo
+Vale_backup|dbo.Ativo_Parametro|FK: Id_Ativo  Vale_backup dbo.Ativo(Id_Ativo)
+Vale_backup|dbo.Ativo_Parametro|FK: Id_Ativo_Fr_Aquisicao  Vale_backup dbo.Ativo_Fr_Aquisicao(Id_Ativo_Fr_Aquisicao)
+Vale_backup|dbo.Ativo_Parametro|FK: Id_Conglomerado  Vale_backup dbo.Conglomerado(Id_Conglomerado)
+Vale_backup|dbo.Ativo_Parametro|FK: Id_Contrato  Vale_backup dbo.Contrato(Id_Contrato)
+Vale_backup|dbo.Ativo_Parametro|FK: Id_Tronco_Grupo  Vale_backup dbo.Tronco_Grupo(Id_Tronco_Grupo)
+Vale_backup|dbo.Ativo_Parametro|PK: Id_Ativo
+Vale_backup|dbo.Ativo_Status|PK: Id_Ativo_Status
+Vale_backup|dbo.Ativo_Tipo_Contato_Corporativo|FK: Id_Ativo_Tipo  Vale_backup dbo.Ativo_Tipo(Id_Ativo_Tipo)
+Vale_backup|dbo.Ativo_Tipo_Grupo_Tipo|PK: Id_Ativo_Tipo_Grupo_Tipo
+Vale_backup|dbo.Ativo_Tipo_Grupo|PK: Id_Ativo_Tipo_Grupo
+Vale_backup|dbo.Ativo_Tipo_Imagem|FK: Id_Ativo_Tipo  Vale_backup dbo.Ativo_Tipo(Id_Ativo_Tipo)
+Vale_backup|dbo.Ativo_Tipo_Imagem|PK: Id_Ativo_Tipo
+Vale_backup|dbo.Ativo_Tipo_Sub_Grupo|PK: Id_Ativo_Tipo_Sub_Grupo
+Vale_backup|dbo.Ativo_Tipo|FK: Id_Ativo_Tipo_Grupo  Vale_backup dbo.Ativo_Tipo_Grupo(Id_Ativo_Tipo_Grupo)
+Vale_backup|dbo.Ativo_Tipo|FK: Id_Ativo_Tipo_Grupo_Tipo  Vale_backup dbo.Ativo_Tipo_Grupo_Tipo(Id_Ativo_Tipo_Grupo_Tipo)
+Vale_backup|dbo.Ativo_Tipo|FK: Id_Ativo_Tipo_Sub_Grupo  Vale_backup dbo.Ativo_Tipo_Sub_Grupo(Id_Ativo_Tipo_Sub_Grupo)
+Vale_backup|dbo.Ativo_Tipo|FK: Id_Conglomerado  Vale_backup dbo.Conglomerado(Id_Conglomerado)
+Vale_backup|dbo.Ativo_Tipo|PK: Id_Ativo_Tipo
+Vale_backup|dbo.Ativo|FK: Id_Ativo_Modelo  Vale_backup dbo.Ativo_Modelo(Id_Ativo_Modelo)
+Vale_backup|dbo.Ativo|FK: Id_Ativo_Status  Vale_backup dbo.Ativo_Status(Id_Ativo_Status)
+Vale_backup|dbo.Ativo|FK: Id_Ativo_Tipo  Vale_backup dbo.Ativo_Tipo(Id_Ativo_Tipo)
+Vale_backup|dbo.Ativo|FK: Id_Conglomerado  Vale_backup dbo.Conglomerado(Id_Conglomerado)
+Vale_backup|dbo.Ativo|PK: Id_Ativo
+Vale_backup|dbo.Auditoria_Acompanhamento|FK: Id_Auditoria_Conta  Vale_backup dbo.Auditoria_Conta(Id_Auditoria_Conta)
+Vale_backup|dbo.Auditoria_Acompanhamento|FK: Id_Auditoria_Lote  Vale_backup dbo.Auditoria_Lote(Id_Auditoria_Lote)
+Vale_backup|dbo.Auditoria_Acompanhamento|FK: Id_Auditoria_Status  Vale_backup dbo.Auditoria_Status(Id_Auditoria_Status)
+Vale_backup|dbo.Auditoria_Acompanhamento|PK: Id_Auditoria_Acompanhamento
+Vale_backup|dbo.Auditoria_Conta|FK: Id_Auditoria_Lote  Vale_backup dbo.Auditoria_Lote(Id_Auditoria_Lote)
+Vale_backup|dbo.Auditoria_Conta|PK: Id_Auditoria_Conta
+Vale_backup|dbo.Auditoria_Contestacao|FK: Id_Fatura  Vale_backup dbo.Fatura(Id_Fatura)
+Vale_backup|dbo.Auditoria_Contestacao|PK: Id_Auditoria_Contestacao
+Vale_backup|dbo.Auditoria_Item|FK: Id_Ativo  Vale_backup dbo.Ativo(Id_Ativo)
+Vale_backup|dbo.Auditoria_Item|FK: Id_Auditoria_Resumo  Vale_backup dbo.Auditoria_Resumo(Id_Auditoria_Resumo)
+Vale_backup|dbo.Auditoria_Item|FK: Id_Bilhete_Tipo  Vale_backup dbo.Bilhete_Tipo(Id_Bilhete_Tipo)
+Vale_backup|dbo.Auditoria_Item|FK: Id_Conglomerado  Vale_backup dbo.Conglomerado(Id_Conglomerado)
+Vale_backup|dbo.Auditoria_Item|PK: Id_Auditoria_Item
+Vale_backup|dbo.Auditoria_Lote|FK: Id_Conglomerado  Vale_backup dbo.Conglomerado(Id_Conglomerado)
+Vale_backup|dbo.Auditoria_Lote|PK: Id_Auditoria_Lote
+Vale_backup|dbo.Auditoria_Resumo|PK: Id_Auditoria_Resumo
+Vale_backup|dbo.Auditoria_Status|PK: Id_Auditoria_Status
+Vale_backup|dbo.Auditoria_Texto|FK: Id_Auditoria_lote  Vale_backup dbo.Auditoria_Lote(Id_Auditoria_Lote)
+Vale_backup|dbo.Auditoria_Texto|PK: Id_Auditoria_Texto
+Vale_backup|dbo.Auditoria_Tipo|FK: Id_Auditoria_Conta  Vale_backup dbo.Auditoria_Conta(Id_Auditoria_Conta)
+Vale_backup|dbo.Auditoria_Tipo|PK: Id_Auditoria_Tipo
+Vale_backup|dbo.Bilhete_Data|FK: Id_Lote  Vale_backup dbo.Lote(Id_Lote)
+Vale_backup|dbo.Bilhete_Historico_Resumo|FK: Id_Usuario  Vale_backup dbo.Usuario(Id_Usuario)
+Vale_backup|dbo.Bilhete_Historico_Resumo|PK: Dt_Historico
+Vale_backup|dbo.Bilhete_Historico_Resumo|PK: Id_Lote
+Vale_backup|dbo.Bilhete_Historico_Resumo|PK: Id_Usuario
+Vale_backup|dbo.Bilhete_Manual_Tipo|FK: Id_Bilhete_Tipo  Vale_backup dbo.Bilhete_Tipo(Id_Bilhete_Tipo)
+Vale_backup|dbo.Bilhete_Tipo|FK: Id_Conglomerado  Vale_backup dbo.Conglomerado(Id_Conglomerado)
+Vale_backup|dbo.Bilhete_Tipo|PK: Id_Bilhete_Tipo
+Vale_backup|dbo.Bilhete|FK: Id_Ativo  Vale_backup dbo.Ativo(Id_Ativo)
+Vale_backup|dbo.Bilhete|FK: Id_Bilhete_Tipo  Vale_backup dbo.Bilhete_Tipo(Id_Bilhete_Tipo)
+Vale_backup|dbo.Bilhete|FK: Id_Lote  Vale_backup dbo.Lote(Id_Lote)
+Vale_backup|dbo.Bilhete|FK: Id_Tronco  Vale_backup dbo.Tronco(Id_Tronco)
+Vale_backup|dbo.Bilhete|FK: Id_Usuario  Vale_backup dbo.Usuario(Id_Usuario)
+Vale_backup|dbo.Bilhete|PK: Id_Bilhete
+Vale_backup|dbo.Cargo_Map|PK: Id_Cargo
+Vale_backup|dbo.Cargo|PK: Id_Cargo
+Vale_backup|dbo.Centro_Custo_Map|PK: Id_Centro_Custo
+Vale_backup|dbo.Centro_Custo|PK: Id_Centro_Custo
+Vale_backup|dbo.cg_Bi_Arquivo_Campo_Importacao|PK: Id_Campo
+Vale_backup|dbo.Cg_Bi_Arquivo_Campo|FK: Id_Arquivo  Vale_backup dbo.Cg_Bi_Arquivo(Id_Arquivo)
+Vale_backup|dbo.Cg_Bi_Arquivo_Campo|FK: Id_Campo_Bilhete  Vale_backup dbo.Cg_Bi_Si_Campo_Bilhete(Id_Campo_Bilhete)
+Vale_backup|dbo.Cg_Bi_Arquivo_Campo|PK: Id_Arquivo_Campo
+Vale_backup|dbo.Cg_Bi_Arquivo|PK: Id_Arquivo
+Vale_backup|dbo.Cg_Bi_Si_Campo_Bilhete|PK: Id_Campo_Bilhete
+Vale_backup|dbo.Chamado_Tipo|PK: Id_Tipo_Solicitacao
+Vale_backup|dbo.Chamado|FK: Id_Ativo  Vale_backup dbo.Ativo(Id_Ativo)
+Vale_backup|dbo.Chamado|FK: Id_Conglomerado  Vale_backup dbo.Conglomerado(Id_Conglomerado)
+Vale_backup|dbo.Chamado|FK: Id_Consumidor  Vale_backup dbo.Consumidor(Id_Consumidor)
+Vale_backup|dbo.Chamado|FK: Id_Tipo_Solicitacao  Vale_backup dbo.Chamado_Tipo(Id_Tipo_Solicitacao)
+Vale_backup|dbo.Chamado|PK: Id_Chamado
+Vale_backup|dbo.ChamadoDadosAuxiliares|FK: Id_Chamado  Vale_backup dbo.Chamado(Id_Chamado)
+Vale_backup|dbo.ChamadoDadosAuxiliares|PK: Id_Auxiliar
+Vale_backup|dbo.Conglomerado_Email|FK: Id_Conglomerado  Vale_backup dbo.Conglomerado(Id_Conglomerado)
+Vale_backup|dbo.Conglomerado_Email|PK: Id_Email
+Vale_backup|dbo.Conglomerado|PK: Id_Conglomerado
+Vale_backup|dbo.Consumidor_log|PK: id_Consumidor_log
+Vale_backup|dbo.Consumidor_Satus_Data|FK: Id_Consumidor  Vale_backup dbo.Consumidor(Id_Consumidor)
+Vale_backup|dbo.Consumidor_Satus_Data|PK: Id_Consumidor
+Vale_backup|dbo.Consumidor_Status|PK: Id_Consumidor_Status
+Vale_backup|dbo.Consumidor_Tipo|PK: Id_Consumidor_Tipo
+Vale_backup|dbo.Consumidor_Unidade_Fornecedor|FK: Id_Consumidor_Fornecedor  Vale_backup dbo.Consumidor(Id_Consumidor)
+Vale_backup|dbo.Consumidor_Unidade_Fornecedor|FK: Id_Consumidor_Unidade  Vale_backup dbo.Consumidor_Unidade(Id_Consumidor_Unidade)
+Vale_backup|dbo.Consumidor_Unidade_Fornecedor|PK: Id_Consumidor_Fornecedor
+Vale_backup|dbo.Consumidor_Unidade_Fornecedor|PK: Id_Consumidor_Unidade
+Vale_backup|dbo.Consumidor_Unidade|FK: Id_Conglomerado  Vale_backup dbo.Conglomerado(Id_Conglomerado)
+Vale_backup|dbo.Consumidor_Unidade|FK: Id_Consumidor  Vale_backup dbo.Consumidor(Id_Consumidor)
+Vale_backup|dbo.Consumidor_Unidade|PK: Id_Consumidor_Unidade
+Vale_backup|dbo.Consumidor|FK: Id_Cargo  Vale_backup dbo.Cargo(Id_Cargo)
+Vale_backup|dbo.Consumidor|FK: Id_Centro_Custo  Vale_backup dbo.Centro_Custo(Id_Centro_Custo)
+Vale_backup|dbo.Consumidor|FK: Id_Consumidor_Status  Vale_backup dbo.Consumidor_Status(Id_Consumidor_Status)
+Vale_backup|dbo.Consumidor|FK: Id_Consumidor_Tipo  Vale_backup dbo.Consumidor_Tipo(Id_Consumidor_Tipo)
+Vale_backup|dbo.Consumidor|FK: Id_Departamento  Vale_backup dbo.Departamento(Id_Departamento)
+Vale_backup|dbo.Consumidor|FK: Id_Empresa_Contratada  Vale_backup dbo.Empresa_Contratada(Id_Empresa_Contratada)
+Vale_backup|dbo.Consumidor|FK: Id_Filial  Vale_backup dbo.Filial(Id_Filial)
+Vale_backup|dbo.Consumidor|FK: Id_Secao  Vale_backup dbo.Secao(Id_Secao)
+Vale_backup|dbo.Consumidor|FK: Id_Setor  Vale_backup dbo.Setor(Id_Setor)
+Vale_backup|dbo.Consumidor|PK: Id_Consumidor
+Vale_backup|dbo.Contrato_Aditivo|FK: Id_Contrato  Vale_backup dbo.Contrato(Id_Contrato)
+Vale_backup|dbo.Contrato_Aditivo|PK: Id_Contrato_Aditivo
+Vale_backup|dbo.Contrato_Bilhete|PK: DB_Tipo_Parametro
+Vale_backup|dbo.Contrato_Indice|PK: Id_Contrato_Indice
+Vale_backup|dbo.Contrato_SLA_Operacao|FK: Id_Contrato  Vale_backup dbo.Contrato(Id_Contrato)
+Vale_backup|dbo.Contrato_SLA_Operacao|PK: Id_Contrato_SLA_Operacao
+Vale_backup|dbo.Contrato_SLA_Servico|FK: Id_Contrato  Vale_backup dbo.Contrato(Id_Contrato)
+Vale_backup|dbo.Contrato_SLA_Servico|FK: Id_Contrato_Indice  Vale_backup dbo.Contrato_Indice(Id_Contrato_Indice)
+Vale_backup|dbo.Contrato_SLA_Servico|FK: Id_Operadora  Vale_backup dbo.Conglomerado(Id_Conglomerado)
+Vale_backup|dbo.Contrato_SLA_Servico|PK: Id_Contrato_SLA_Servico
+Vale_backup|dbo.Contrato_Status|PK: Id_Contrato_Status
+Vale_backup|dbo.Contrato|FK: Id_Contrato_Indice  Vale_backup dbo.Contrato_Indice(Id_Contrato_Indice)
+Vale_backup|dbo.Contrato|FK: Id_Contrato_Status  Vale_backup dbo.Contrato_Status(Id_Contrato_Status)
+Vale_backup|dbo.Contrato|FK: Id_Empresa_Contratada  Vale_backup dbo.Empresa_Contratada(Id_Empresa_Contratada)
+Vale_backup|dbo.Contrato|FK: Id_Filial  Vale_backup dbo.Filial(Id_Filial)
+Vale_backup|dbo.Contrato|FK: Id_Servico  Vale_backup dbo.Servico(Id_Servico)
+Vale_backup|dbo.Contrato|PK: Id_Contrato
+Vale_backup|dbo.Custo_Fixo_Item|FK: Id_Ativo_Tipo  Vale_backup dbo.Ativo_Tipo(Id_Ativo_Tipo)
+Vale_backup|dbo.Custo_Fixo_Item|FK: Id_Conglomerado  Vale_backup dbo.Conglomerado(Id_Conglomerado)
+Vale_backup|dbo.Custo_Fixo_Item|FK: Id_Custo_Fixo  Vale_backup dbo.Custo_Fixo(Id_Custo_Fixo)
+Vale_backup|dbo.Custo_Fixo_Item|PK: Id_Custo_Fixo_Item
+Vale_backup|dbo.Custo_Fixo|PK: Id_Custo_Fixo
+Vale_backup|dbo.Departamento_Map|PK: Id_Departamento
+Vale_backup|dbo.Departamento|PK: Id_Departamento
+Vale_backup|dbo.Empresa_Contratada|PK: Id_Empresa_Contratada
+Vale_backup|dbo.Empresa_Map|PK: Id_Empresa
+Vale_backup|dbo.Empresa|FK: Id_Holding  Vale_backup dbo.Holding(Id_Holding)
+Vale_backup|dbo.Empresa|PK: Id_Empresa
+Vale_backup|dbo.Estoque_Aparelho_Status|PK: Id_Estoque_Aparelho_Status
+Vale_backup|dbo.Estoque_Aparelho|FK: Id_Ativo_Modelo  Vale_backup dbo.Ativo_Modelo(Id_Ativo_Modelo)
+Vale_backup|dbo.Estoque_Aparelho|FK: Id_Ativo_Tipo  Vale_backup dbo.Ativo_Tipo(Id_Ativo_Tipo)
+Vale_backup|dbo.Estoque_Aparelho|FK: Id_Conglomerado  Vale_backup dbo.Conglomerado(Id_Conglomerado)
+Vale_backup|dbo.Estoque_Aparelho|FK: Id_Consumidor  Vale_backup dbo.Consumidor(Id_Consumidor)
+Vale_backup|dbo.Estoque_Aparelho|FK: Id_Estoque_Aparelho_Status  Vale_backup dbo.Estoque_Aparelho_Status(Id_Estoque_Aparelho_Status)
+Vale_backup|dbo.Estoque_Aparelho|FK: Id_Estoque_Endereco_Entrega  Vale_backup dbo.Estoque_Endereco_Entrega(Id_Estoque_Endereco_Entrega)
+Vale_backup|dbo.Estoque_Aparelho|FK: Id_Estoque_Nota_Fiscal  Vale_backup dbo.Estoque_Nota_Fiscal(Id_Estoque_Nota_Fiscal)
+Vale_backup|dbo.Estoque_Aparelho|FK: Id_Estoque_Nota_Fiscal  Vale_backup dbo.Estoque_Nota_Fiscal(Id_Estoque_Nota_Fiscal)
+Vale_backup|dbo.Estoque_Aparelho|PK: Id_Aparelho
+Vale_backup|dbo.Estoque_Consumidor|FK: Id_Consumidor  Vale_backup dbo.Consumidor(Id_Consumidor)
+Vale_backup|dbo.Estoque_Endereco_Entrega|PK: Id_Estoque_Endereco_Entrega
+Vale_backup|dbo.Estoque_Nota_Fiscal|FK: Id_Ativo_Fr_Aquisicao  Vale_backup dbo.Ativo_Fr_Aquisicao(Id_Ativo_Fr_Aquisicao)
+Vale_backup|dbo.Estoque_Nota_Fiscal|PK: Id_Estoque_Nota_Fiscal
+Vale_backup|dbo.Fatura_Parametro_Campo|FK: Id_Fatura_Parametro  Vale_backup dbo.Fatura_Parametro(Id_Fatura_Parametro)
+Vale_backup|dbo.Fatura_Parametro_Campo|PK: Id_Fatura_Parametro_Campo
+Vale_backup|dbo.Fatura_Parametro|FK: Id_Ativo  Vale_backup dbo.Ativo(Id_Ativo)
+Vale_backup|dbo.Fatura_Parametro|FK: Id_Contrato  Vale_backup dbo.Contrato(Id_Contrato)
+Vale_backup|dbo.Fatura_Parametro|FK: Id_Fatura_Tipo_Rateio  Vale_backup dbo.Fatura_Tipo_Rateio(Id_Fatura_Tipo_Rateio)
+Vale_backup|dbo.Fatura_Parametro|PK: Id_Fatura_Parametro
+Vale_backup|dbo.Fatura_Plano_Conta|FK: Id_Conglomerado  Vale_backup dbo.Conglomerado(Id_Conglomerado)
+Vale_backup|dbo.Fatura_Plano_Conta|FK: Id_Contrato  Vale_backup dbo.Contrato(Id_Contrato)
+Vale_backup|dbo.Fatura_Plano_Conta|FK: Id_Empresa  Vale_backup dbo.Empresa(Id_Empresa)
+Vale_backup|dbo.Fatura_Plano_Conta|PK: Id_Fatura_Plano_Conta
+Vale_backup|dbo.Fatura_Tipo_Rateio|PK: Id_Fatura_Tipo_Rateio
+Vale_backup|dbo.Fatura|FK: Id_Fatura_Parametro  Vale_backup dbo.Fatura_Parametro(Id_Fatura_Parametro)
+Vale_backup|dbo.Fatura|PK: Id_Fatura
+Vale_backup|dbo.Filial_Map|PK: Id_Filial
+Vale_backup|dbo.Filial|FK: Id_Empresa  Vale_backup dbo.Empresa(Id_Empresa)
+Vale_backup|dbo.Filial|PK: Id_Filial
+Vale_backup|dbo.Holding|PK: Id_Holding
+Vale_backup|dbo.Justificativa_Excedente|FK: Id_Ativo  Vale_backup dbo.Ativo(Id_Ativo)
+Vale_backup|dbo.Justificativa_Excedente|FK: Id_Consumidor  Vale_backup dbo.Consumidor(Id_Consumidor)
+Vale_backup|dbo.Justificativa_Excedente|FK: Id_Mail_Caixa_Siada  Vale_backup dbo.Mail_Caixa_Saida(Id_Mail_Caixa_Siada)
+Vale_backup|dbo.Justificativa_Excedente|FK: Id_Usuario  Vale_backup dbo.Usuario(Id_Usuario)
+Vale_backup|dbo.Log_Alteracao_Cadastro_Consumidor|FK: Id_Consumidor  Vale_backup dbo.Consumidor(Id_Consumidor)
+Vale_backup|dbo.Log_Alteracao_Contrato_SLA_Servico|FK: Id_Contrato_SLA_Servico  Vale_backup dbo.Contrato_SLA_Servico(Id_Contrato_SLA_Servico)
+Vale_backup|dbo.Log_Rastreio_Estoque_Aparelho|FK: Id_Aparelho  Vale_backup dbo.Estoque_Aparelho(Id_Aparelho)
+Vale_backup|dbo.Log_Rastreio_Estoque_Aparelho|FK: Id_Ativo  Vale_backup dbo.Ativo(Id_Ativo)
+Vale_backup|dbo.Log_Rastreio_Estoque_Aparelho|FK: Id_Consumidor  Vale_backup dbo.Consumidor(Id_Consumidor)
+Vale_backup|dbo.Lote_Log_Criacao|FK: Id_Centro_Custo  Vale_backup dbo.Centro_Custo(Id_Centro_Custo)
+Vale_backup|dbo.Lote_Log_Criacao|FK: Id_Consumidor  Vale_backup dbo.Consumidor(Id_Consumidor)
+Vale_backup|dbo.Lote_Log_Criacao|FK: Id_Departamento  Vale_backup dbo.Departamento(Id_Departamento)
+Vale_backup|dbo.Lote_Log_Criacao|FK: Id_Filial  Vale_backup dbo.Filial(Id_Filial)
+Vale_backup|dbo.Lote_Log_Criacao|FK: Id_Lote  Vale_backup dbo.Lote(Id_Lote)
+Vale_backup|dbo.Lote_Log_Criacao|FK: Id_Secao  Vale_backup dbo.Secao(Id_Secao)
+Vale_backup|dbo.Lote_Log_Criacao|FK: Id_Setor  Vale_backup dbo.Setor(Id_Setor)
+Vale_backup|dbo.Lote_Log_Criacao|PK: Id_Lote_Log_Criacao
+Vale_backup|dbo.Lote_Marcacao|FK: Id_Lote  Vale_backup dbo.Lote(Id_Lote)
+Vale_backup|dbo.Lote_Marcacao|FK: Id_Usuario  Vale_backup dbo.Usuario(Id_Usuario)
+Vale_backup|dbo.Lote_Marcacao|PK: Id_Lote_Marcacao
+Vale_backup|dbo.Lote|FK: Id_Ativo  Vale_backup dbo.Ativo(Id_Ativo)
+Vale_backup|dbo.Lote|PK: Id_Lote
+Vale_backup|dbo.Mail_Caixa_Saida_Anexos|PK: Id_Anexo
+Vale_backup|dbo.Mail_Caixa_Saida|FK: Id_Mail_Sender  Vale_backup dbo.Mail_Sender(Id_Mail_Sender)
+Vale_backup|dbo.Mail_Caixa_Saida|PK: Id_Mail_Caixa_Siada
+Vale_backup|dbo.Mail_Sender|PK: Id_Mail_Sender
+Vale_backup|dbo.Nota_Fiscal_Fatura|PK: Id_Nota_Fiscal
+Vale_backup|dbo.Politica_Consumidor|FK: Id_Ativo_Tipo  Vale_backup dbo.Ativo_Tipo(Id_Ativo_Tipo)
+Vale_backup|dbo.Politica_Consumidor|FK: Id_Consumidor  Vale_backup dbo.Consumidor(Id_Consumidor)
+Vale_backup|dbo.Rateio_Ativo_Critica|FK: Id_Ativo  Vale_backup dbo.Ativo(Id_Ativo)
+Vale_backup|dbo.Rateio_Ativo_Critica|FK: Id_Rateio  Vale_backup dbo.Rateio(Id_Rateio)
+Vale_backup|dbo.Rateio_Item|FK: Id_Ativo  Vale_backup dbo.Ativo(Id_Ativo)
+Vale_backup|dbo.Rateio_Item|FK: Id_Centro_Custo  Vale_backup dbo.Centro_Custo(Id_Centro_Custo)
+Vale_backup|dbo.Rateio_Item|FK: Id_Conglomerado  Vale_backup dbo.Conglomerado(Id_Conglomerado)
+Vale_backup|dbo.Rateio_Item|FK: Id_Consumidor  Vale_backup dbo.Consumidor(Id_Consumidor)
+Vale_backup|dbo.Rateio_Item|FK: Id_Filial  Vale_backup dbo.Filial(Id_Filial)
+Vale_backup|dbo.Rateio_Item|FK: Id_Rateio  Vale_backup dbo.Rateio(Id_Rateio)
+Vale_backup|dbo.Rateio_Item|PK: Id_Rateio_Item
+Vale_backup|dbo.Rateio|FK: Id_Fatura_Parametro  Vale_backup dbo.Fatura_Parametro(Id_Fatura_Parametro)
+Vale_backup|dbo.Rateio|PK: Id_Rateio
+Vale_backup|dbo.Rl_Ativo_Centro_Custo|FK: Id_Ativo  Vale_backup dbo.Ativo_Parametro(Id_Ativo)
+Vale_backup|dbo.Rl_Ativo_Centro_Custo|FK: Id_Centro_Custo  Vale_backup dbo.Centro_Custo(Id_Centro_Custo)
+Vale_backup|dbo.Rl_Ativo_Centro_Custo|PK: Id_Ativo
+Vale_backup|dbo.Rl_Ativo_Centro_Custo|PK: Id_Centro_Custo
+Vale_backup|dbo.Rl_Ativo_Tipo_Ativo_Complemento|FK: Id_Ativo_Complemento  Vale_backup dbo.Ativo_Complemento(Id_Ativo_Complemento)
+Vale_backup|dbo.Rl_Ativo_Tipo_Ativo_Complemento|FK: Id_Ativo_Tipo  Vale_backup dbo.Ativo_Tipo(Id_Ativo_Tipo)
+Vale_backup|dbo.Rl_Ativo_Tipo_Ativo_Complemento|PK: Id_Ativo_Tipo
+Vale_backup|dbo.Rl_Consumidor_Ativo|FK: Id_Ativo  Vale_backup dbo.Ativo(Id_Ativo)
+Vale_backup|dbo.Rl_Consumidor_Ativo|FK: Id_Consumidor  Vale_backup dbo.Consumidor(Id_Consumidor)
+Vale_backup|dbo.Rl_Consumidor_Ativo|PK: Id_Ativo
+Vale_backup|dbo.Rl_Consumidor_Ativo|PK: Id_Consumidor
+Vale_backup|dbo.Rl_Estoque_Aparelho_Ativo|FK: Id_Aparelho  Vale_backup dbo.Estoque_Aparelho(Id_Aparelho)
+Vale_backup|dbo.Rl_Estoque_Aparelho_Ativo|FK: Id_Ativo  Vale_backup dbo.Ativo(Id_Ativo)
+Vale_backup|dbo.Rl_Estoque_Aparelho_Ativo|PK: Id_Aparelho
+Vale_backup|dbo.Rl_Estoque_Aparelho_Ativo|PK: Id_Ativo
+Vale_backup|dbo.Rl_Filial_Bilhete_Tipo|FK: Id_Bilhete_Tipo  Vale_backup dbo.Bilhete_Tipo(Id_Bilhete_Tipo)
+Vale_backup|dbo.Rl_Filial_Bilhete_Tipo|FK: Id_Filial  Vale_backup dbo.Filial(Id_Filial)
+Vale_backup|dbo.Rl_Filial_Bilhete_Tipo|PK: Id_Bilhete_Tipo
+Vale_backup|dbo.Rl_Filial_Bilhete_Tipo|PK: Id_Filial
+Vale_backup|dbo.Rl_Hi_Centro_Custo_Departamento|FK: Id_Centro_Custo  Vale_backup dbo.Centro_Custo(Id_Centro_Custo)
+Vale_backup|dbo.Rl_Hi_Centro_Custo_Departamento|FK: Id_Departamento  Vale_backup dbo.Departamento(Id_Departamento)
+Vale_backup|dbo.Rl_Hi_Centro_Custo_Departamento|PK: Id_Centro_Custo
+Vale_backup|dbo.Rl_Hi_Centro_Custo_Departamento|PK: Id_Departamento
+Vale_backup|dbo.Rl_Hi_Departamento_Setor|FK: Id_Departamento  Vale_backup dbo.Departamento(Id_Departamento)
+Vale_backup|dbo.Rl_Hi_Departamento_Setor|FK: Id_Setor  Vale_backup dbo.Setor(Id_Setor)
+Vale_backup|dbo.Rl_Hi_Departamento_Setor|PK: Id_Departamento
+Vale_backup|dbo.Rl_Hi_Departamento_Setor|PK: Id_Setor
+Vale_backup|dbo.Rl_Hi_Filial_Centro_Custo|FK: Id_Centro_Custo  Vale_backup dbo.Centro_Custo(Id_Centro_Custo)
+Vale_backup|dbo.Rl_Hi_Filial_Centro_Custo|FK: Id_Filial  Vale_backup dbo.Filial(Id_Filial)
+Vale_backup|dbo.Rl_Hi_Filial_Centro_Custo|PK: Id_Centro_Custo
+Vale_backup|dbo.Rl_Hi_Filial_Centro_Custo|PK: Id_Filial
+Vale_backup|dbo.Rl_Hi_Setor_Secao|FK: Id_Secao  Vale_backup dbo.Secao(Id_Secao)
+Vale_backup|dbo.Rl_Hi_Setor_Secao|FK: Id_Setor  Vale_backup dbo.Setor(Id_Setor)
+Vale_backup|dbo.Rl_Hi_Setor_Secao|PK: Id_Secao
+Vale_backup|dbo.Rl_Hi_Setor_Secao|PK: Id_Setor
+Vale_backup|dbo.Rl_Perfil_Ativo_Usuario|FK: Id_Ativo  Vale_backup dbo.Ativo(Id_Ativo)
+Vale_backup|dbo.Rl_Perfil_Ativo_Usuario|FK: Id_Usuario  Vale_backup dbo.Usuario(Id_Usuario)
+Vale_backup|dbo.Rl_Perfil_Ativo_Usuario|PK: Id_Ativo
+Vale_backup|dbo.Rl_Perfil_Ativo_Usuario|PK: Id_Usuario
+Vale_backup|dbo.Rl_Perfil_Centro_Custo_Usuario|FK: Id_Centro_Custo  Vale_backup dbo.Centro_Custo(Id_Centro_Custo)
+Vale_backup|dbo.Rl_Perfil_Centro_Custo_Usuario|FK: Id_Usuario  Vale_backup dbo.Usuario(Id_Usuario)
+Vale_backup|dbo.Rl_Perfil_Centro_Custo_Usuario|PK: Id_Centro_Custo
+Vale_backup|dbo.Rl_Perfil_Centro_Custo_Usuario|PK: Id_Usuario
+Vale_backup|dbo.Rl_Perfil_Conglomerado_Usuario|FK: Id_Conglomerado  Vale_backup dbo.Conglomerado(Id_Conglomerado)
+Vale_backup|dbo.Rl_Perfil_Conglomerado_Usuario|FK: Id_Usuario  Vale_backup dbo.Usuario(Id_Usuario)
+Vale_backup|dbo.Rl_Perfil_Conglomerado_Usuario|PK: Id_Conglomerado
+Vale_backup|dbo.Rl_Perfil_Conglomerado_Usuario|PK: Id_Usuario
+Vale_backup|dbo.Rl_Perfil_Consumidor_Usuario|FK: Id_Consumidor  Vale_backup dbo.Consumidor(Id_Consumidor)
+Vale_backup|dbo.Rl_Perfil_Consumidor_Usuario|FK: Id_Usuario  Vale_backup dbo.Usuario(Id_Usuario)
+Vale_backup|dbo.Rl_Perfil_Consumidor_Usuario|PK: Id_Consumidor
+Vale_backup|dbo.Rl_Perfil_Consumidor_Usuario|PK: Id_Usuario
+Vale_backup|dbo.Rl_Perfil_Departamento_Usuario|FK: Id_Departamento  Vale_backup dbo.Departamento(Id_Departamento)
+Vale_backup|dbo.Rl_Perfil_Departamento_Usuario|FK: Id_Usuario  Vale_backup dbo.Usuario(Id_Usuario)
+Vale_backup|dbo.Rl_Perfil_Departamento_Usuario|PK: Id_Departamento
+Vale_backup|dbo.Rl_Perfil_Departamento_Usuario|PK: Id_Usuario
+Vale_backup|dbo.Rl_Perfil_Filial_Usuario|FK: Id_Filial  Vale_backup dbo.Filial(Id_Filial)
+Vale_backup|dbo.Rl_Perfil_Filial_Usuario|FK: Id_Usuario  Vale_backup dbo.Usuario(Id_Usuario)
+Vale_backup|dbo.Rl_Perfil_Filial_Usuario|PK: Id_Filial
+Vale_backup|dbo.Rl_Perfil_Filial_Usuario|PK: Id_Usuario
+Vale_backup|dbo.Rl_Perfil_Secao_Usuario|FK: Id_Secao  Vale_backup dbo.Secao(Id_Secao)
+Vale_backup|dbo.Rl_Perfil_Secao_Usuario|FK: Id_Usuario  Vale_backup dbo.Usuario(Id_Usuario)
+Vale_backup|dbo.Rl_Perfil_Secao_Usuario|PK: Id_Secao
+Vale_backup|dbo.Rl_Perfil_Secao_Usuario|PK: Id_Usuario
+Vale_backup|dbo.Rl_Perfil_Setor_Usuario|FK: Id_Setor  Vale_backup dbo.Setor(Id_Setor)
+Vale_backup|dbo.Rl_Perfil_Setor_Usuario|FK: Id_Usuario  Vale_backup dbo.Usuario(Id_Usuario)
+Vale_backup|dbo.Rl_Perfil_Setor_Usuario|PK: Id_Setor
+Vale_backup|dbo.Rl_Perfil_Setor_Usuario|PK: Id_Usuario
+Vale_backup|dbo.Rl_Ra_Fatura_Parametro_Ativo|FK: Id_Ativo  Vale_backup dbo.Ativo(Id_Ativo)
+Vale_backup|dbo.Rl_Ra_Fatura_Parametro_Ativo|FK: Id_Fatura_Parametro  Vale_backup dbo.Fatura_Parametro(Id_Fatura_Parametro)
+Vale_backup|dbo.Rl_Ra_Fatura_Parametro_Ativo|PK: Id_Ativo
+Vale_backup|dbo.Rl_Ra_Fatura_Parametro_Ativo|PK: Id_Fatura_Parametro
+Vale_backup|dbo.Rl_Ra_Fatura_Parametro_Conglomerado|FK: Id_Conglomerado  Vale_backup dbo.Conglomerado(Id_Conglomerado)
+Vale_backup|dbo.Rl_Ra_Fatura_Parametro_Conglomerado|FK: Id_Fatura_Parametro  Vale_backup dbo.Fatura_Parametro(Id_Fatura_Parametro)
+Vale_backup|dbo.Rl_Ra_Fatura_Parametro_Conglomerado|PK: Id_Conglomerado
+Vale_backup|dbo.Rl_Ra_Fatura_Parametro_Conglomerado|PK: Id_Fatura_Parametro
+Vale_backup|dbo.Rl_Ra_Fatura_Parametro_Filial|FK: Id_Fatura_Parametro  Vale_backup dbo.Fatura_Parametro(Id_Fatura_Parametro)
+Vale_backup|dbo.Rl_Ra_Fatura_Parametro_Filial|FK: Id_Filial  Vale_backup dbo.Filial(Id_Filial)
+Vale_backup|dbo.Rl_Ra_Fatura_Parametro_Filial|PK: Id_Fatura_Parametro
+Vale_backup|dbo.Rl_Ra_Fatura_Parametro_Filial|PK: Id_Filial
+Vale_backup|dbo.Rl_Ra_Fatura_Parametro_Tronco_Grupo|FK: Id_Fatura_Parametro  Vale_backup dbo.Fatura_Parametro(Id_Fatura_Parametro)
+Vale_backup|dbo.Rl_Ra_Fatura_Parametro_Tronco_Grupo|FK: Id_Tronco_Grupo  Vale_backup dbo.Tronco_Grupo(Id_Tronco_Grupo)
+Vale_backup|dbo.Rl_Ra_Fatura_Parametro_Tronco_Grupo|PK: Id_Fatura_Parametro
+Vale_backup|dbo.Rl_Ra_Fatura_Parametro_Tronco_Grupo|PK: Id_Tronco_Grupo
+Vale_backup|dbo.Rl_Rateio_Fatura|FK: Id_Fatura  Vale_backup dbo.Fatura(Id_Fatura)
+Vale_backup|dbo.Rl_Rateio_Fatura|FK: Id_Rateio  Vale_backup dbo.Rateio(Id_Rateio)
+Vale_backup|dbo.Rl_Rateio_Fatura|PK: Id_Fatura
+Vale_backup|dbo.Rl_Rateio_Fatura|PK: Id_Rateio
+Vale_backup|dbo.Rl_Solicitacao_Ativo|FK: Id_Ativo  Vale_backup dbo.Ativo(Id_Ativo)
+Vale_backup|dbo.Rl_Solicitacao_Ativo|FK: Id_Solicitacao  Vale_backup dbo.Solicitacao(Id_Solicitacao)
+Vale_backup|dbo.Rl_Solicitacao_Ativo|PK: Id_Ativo
+Vale_backup|dbo.Rl_Solicitacao_Ativo|PK: Id_Solicitacao
+Vale_backup|dbo.Rl_Solicitacao_Fila_Atendimento_Usuario|FK: Id_Solicitacao_Fila_Atendimento  Vale_backup dbo.Solicitacao_Fila_Atendimento(Id_Solicitacao_Fila_Atendimento)
+Vale_backup|dbo.Rl_Solicitacao_Fila_Atendimento_Usuario|FK: Id_Usuario  Vale_backup dbo.Usuario(Id_Usuario)
+Vale_backup|dbo.Rl_Usuario_Grupo_Si_Tela|FK: Id_Tela  Vale_backup dbo.Si_Tela(Id_Tela)
+Vale_backup|dbo.Rl_Usuario_Grupo_Si_Tela|FK: Id_Usuario_Grupo  Vale_backup dbo.Usuario_Grupo(Id_Usuario_Grupo)
+Vale_backup|dbo.Rl_Usuario_Grupo_Si_Tela|PK: Id_Tela
+Vale_backup|dbo.Rl_Usuario_Grupo_Si_Tela|PK: Id_Usuario_Grupo
+Vale_backup|dbo.Rl_Usuario_Grupo_Si_Template|FK: Id_Template  Vale_backup dbo.Si_Template(Id_Template)
+Vale_backup|dbo.Rl_Usuario_Grupo_Si_Template|FK: Id_Usuario_Grupo  Vale_backup dbo.Usuario_Grupo(Id_Usuario_Grupo)
+Vale_backup|dbo.Rl_Usuario_Grupo_Si_Template|PK: Id_Template
+Vale_backup|dbo.Rl_Usuario_Grupo_Si_Template|PK: Id_Usuario_Grupo
+Vale_backup|dbo.Rl_Usuario_Solicitacao_Permissao|FK: Id_Solicitacao_Permissao  Vale_backup dbo.Solicitacao_Permissao(Id_Solicitacao_Permissao)
+Vale_backup|dbo.Rl_Usuario_Solicitacao_Permissao|FK: Id_Usuario  Vale_backup dbo.Usuario(Id_Usuario)
+Vale_backup|dbo.Rl_Usuario_Solicitacao_Permissao|PK: Id_Solicitacao_Permissao
+Vale_backup|dbo.Rl_Usuario_Solicitacao_Permissao|PK: Id_Usuario
+Vale_backup|dbo.Secao|PK: Id_Secao
+Vale_backup|dbo.Servico|PK: Id_Servico
+Vale_backup|dbo.Setor|PK: Id_Setor
+Vale_backup|dbo.Si_Ano_Fiscal|PK: Id
+Vale_backup|dbo.Si_Aproveitamento|PK: DB_Tipo_Parametro_BLT
+Vale_backup|dbo.Si_Aproveitamento|PK: DB_Tipo_Parametro_PCT
+Vale_backup|dbo.Si_Desmarca_Bilhete|PK: DB_Tipo_Parametro
+Vale_backup|dbo.Si_Formato_Valida_Data|PK: Id_Valida_Data
+Vale_backup|dbo.Si_Idioma|PK: Id_Idioma
+Vale_backup|dbo.Si_Menu|PK: Id_Menu
+Vale_backup|dbo.Si_Tela_Campo_Traducao|FK: Id_Campo  Vale_backup dbo.Si_Tela_Campo(Id_Campo)
+Vale_backup|dbo.Si_Tela_Campo_Traducao|FK: Id_Idioma  Vale_backup dbo.Si_Idioma(Id_Idioma)
+Vale_backup|dbo.Si_Tela_Campo_Traducao|PK: Id_Traducao
+Vale_backup|dbo.Si_Tela_Campo|FK: Id_Tela  Vale_backup dbo.Si_Tela(Id_Tela)
+Vale_backup|dbo.Si_Tela_Campo|PK: Id_Campo
+Vale_backup|dbo.Si_Tela|FK: Id_Menu  Vale_backup dbo.Si_Menu(Id_Menu)
+Vale_backup|dbo.Si_Tela|PK: Id_Tela
+Vale_backup|dbo.Si_Template|FK: Id_Ativo_Tipo_Grupo  Vale_backup dbo.Ativo_Tipo_Grupo(Id_Ativo_Tipo_Grupo)
+Vale_backup|dbo.Si_Template|PK: Id_Template
+Vale_backup|dbo.Si_Texto_Termo|PK: Caixa
+Vale_backup|dbo.Si_Texto_Termo|PK: Pagina
+Vale_backup|dbo.Si_Usuario_Perfil_Acesso|FK: Id_Usuario_Perfil  Vale_backup dbo.Si_Usuario_Perfil(Id_Usuario_Perfil)
+Vale_backup|dbo.Si_Usuario_Perfil_Acesso|PK: Id_Usuario_Perfil_Acesso
+Vale_backup|dbo.Si_Usuario_Perfil|PK: Id_Usuario_Perfil
+Vale_backup|dbo.Si_Volumetria|PK: DB_Tipo_Parametro
+Vale_backup|dbo.Solicitacao_Avaliacao|FK: Id_Solicitacao  Vale_backup dbo.Solicitacao(Id_Solicitacao)
+Vale_backup|dbo.Solicitacao_Avaliacao|PK: Id_Solicitacao_Avaliacao
+Vale_backup|dbo.Solicitacao_Bilhete_Tipo|FK: Id_Bilhete_Tipo  Vale_backup dbo.Bilhete_Tipo(Id_Bilhete_Tipo)
+Vale_backup|dbo.Solicitacao_Bilhete_Tipo|PK: Id_Bilhete_Tipo
+Vale_backup|dbo.Solicitacao_Data_Parada|PK: Id_Data_Parada
+Vale_backup|dbo.Solicitacao_Fila_Atendimento|PK: Id_Solicitacao_Fila_Atendimento
+Vale_backup|dbo.Solicitacao_Item|FK: Id_Solicitacao  Vale_backup dbo.Solicitacao(Id_Solicitacao)
+Vale_backup|dbo.Solicitacao_Item|FK: Id_Usuario  Vale_backup dbo.Usuario(Id_Usuario)
+Vale_backup|dbo.Solicitacao_Item|PK: Id_Solicitacao_Item
+Vale_backup|dbo.Solicitacao_Permissao|PK: Id_Solicitacao_Permissao
+Vale_backup|dbo.Solicitacao_SLA|PK: Id_Solicitacao_SLA
+Vale_backup|dbo.Solicitacao_Solucao|FK: Id_Ativo_Tipo  Vale_backup dbo.Ativo_Tipo(Id_Ativo_Tipo)
+Vale_backup|dbo.Solicitacao_Solucao|PK: Id_Solicitacao_Solucao
+Vale_backup|dbo.Solicitacao_Tipo|FK: Id_Ativo_Tipo  Vale_backup dbo.Ativo_Tipo(Id_Ativo_Tipo)
+Vale_backup|dbo.Solicitacao_Tipo|FK: Id_Solicitacao_Permissao  Vale_backup dbo.Solicitacao_Permissao(Id_Solicitacao_Permissao)
+Vale_backup|dbo.Solicitacao_Tipo|FK: Id_Solicitacao_SLA  Vale_backup dbo.Solicitacao_SLA(Id_Solicitacao_SLA)
+Vale_backup|dbo.Solicitacao_Tipo|FK: Id_Solicitacao_Unidade_Processo  Vale_backup dbo.Solicitacao_Unidade_Processo(Id_Processo_Unidade_Solicitacao)
+Vale_backup|dbo.Solicitacao_Tipo|FK: Id_Solicitcao_Fila_Atendimento  Vale_backup dbo.Solicitacao_Fila_Atendimento(Id_Solicitacao_Fila_Atendimento)
+Vale_backup|dbo.Solicitacao_Tipo|PK: Id_Solicitacao_Tipo
+Vale_backup|dbo.Solicitacao_Unidade_Processo|PK: Id_Processo_Unidade_Solicitacao
+Vale_backup|dbo.Solicitacao|FK: Id_Ativo_Tipo  Vale_backup dbo.Ativo_Tipo(Id_Ativo_Tipo)
+Vale_backup|dbo.Solicitacao|FK: Id_Mail_Caixa_Saida_Operadora  Vale_backup dbo.Mail_Caixa_Saida(Id_Mail_Caixa_Siada)
+Vale_backup|dbo.Solicitacao|FK: Id_Mail_Caixa_Saida_Usuario  Vale_backup dbo.Consumidor_Unidade(Id_Consumidor_Unidade)
+Vale_backup|dbo.Solicitacao|FK: Id_Mail_Caixa_Saida_Usuario  Vale_backup dbo.Mail_Caixa_Saida(Id_Mail_Caixa_Siada)
+Vale_backup|dbo.Solicitacao|FK: Id_Solicitacao_Solucao  Vale_backup dbo.Solicitacao_Solucao(Id_Solicitacao_Solucao)
+Vale_backup|dbo.Solicitacao|FK: Id_Solicitacao_Tipo  Vale_backup dbo.Solicitacao_Tipo(Id_Solicitacao_Tipo)
+Vale_backup|dbo.Solicitacao|FK: Id_Usuario  Vale_backup dbo.Usuario(Id_Usuario)
+Vale_backup|dbo.Solicitacao|PK: Id_Solicitacao
+Vale_backup|dbo.sysdiagrams|PK: diagram_id
+Vale_backup|dbo.Tronco_Grupo|PK: Id_Tronco_Grupo
+Vale_backup|dbo.Tronco|FK: Id_Conglomerado  Vale_backup dbo.Conglomerado(Id_Conglomerado)
+Vale_backup|dbo.Tronco|FK: Id_Tronco_Grupo  Vale_backup dbo.Tronco_Grupo(Id_Tronco_Grupo)
+Vale_backup|dbo.Tronco|PK: Id_Tronco
+Vale_backup|dbo.Usuario_Grupo|PK: Id_Usuario_Grupo
+Vale_backup|dbo.Usuario|FK: Id_Consumidor  Vale_backup dbo.Consumidor(Id_Consumidor)
+Vale_backup|dbo.Usuario|FK: Id_Idioma  Vale_backup dbo.Si_Idioma(Id_Idioma)
+Vale_backup|dbo.Usuario|FK: Id_Usuario_Grupo  Vale_backup dbo.Usuario_Grupo(Id_Usuario_Grupo)
+Vale_backup|dbo.Usuario|FK: Id_Usuario_Perfil  Vale_backup dbo.Si_Usuario_Perfil(Id_Usuario_Perfil)
+Vale_backup|dbo.Usuario|FK: Id_Usuario_Perfil_Acesso  Vale_backup dbo.Si_Usuario_Perfil_Acesso(Id_Usuario_Perfil_Acesso)
+Vale_backup|dbo.Usuario|PK: Id_Usuario
+Vale|dbo.Aceite_Termo_Responsabilidade|FK: Id_Ativo  Vale dbo.Ativo(Id_Ativo)
+Vale|dbo.Aceite_Termo_Responsabilidade|FK: Id_Consumidor  Vale dbo.Consumidor(Id_Consumidor)
+Vale|dbo.Aceite_Termo_Responsabilidade|PK: Id_Aceite
+Vale|dbo.Agenda_Marcacao_Particular|FK: Id_Usuario  Vale dbo.Usuario(Id_Usuario)
+Vale|dbo.Agenda_Marcacao_Particular|PK: Id_Usuario
+Vale|dbo.Agenda_Marcacao_Particular|PK: Nr_Destino
+Vale|dbo.App_Captura_Imei|FK: Id_Usuario  Vale dbo.Usuario(Id_Usuario)
+Vale|dbo.Arquivo_PDF_Acesso_Usuario|PK: Id
+Vale|dbo.Ativo_App_Trafego_Aplicativo|FK: Id_Ativo  Vale dbo.Ativo(Id_Ativo)
+Vale|dbo.Ativo_App_Trafego|FK: Id_Ativo  Vale dbo.Ativo(Id_Ativo)
+Vale|dbo.Ativo_Complemento|FK: Id_Ativo_Tipo  Vale dbo.Ativo_Tipo(Id_Ativo_Tipo)
+Vale|dbo.Ativo_Complemento|PK: Id_Ativo_Complemento
+Vale|dbo.Ativo_Consumidor_Alerta|FK: Id_Consumidor  Vale dbo.Consumidor(Id_Consumidor)
+Vale|dbo.Ativo_Fabricante|PK: Id_Ativo_Fabricante
+Vale|dbo.Ativo_Fr_Aquisicao|PK: Id_Ativo_Fr_Aquisicao
+Vale|dbo.Ativo_log|PK: Id_Ativo_log
+Vale|dbo.Ativo_Modelo|FK: Id_Ativo_Fabricante  Vale dbo.Ativo_Fabricante(Id_Ativo_Fabricante)
+Vale|dbo.Ativo_Modelo|FK: Id_Ativo_Tipo  Vale dbo.Ativo_Tipo(Id_Ativo_Tipo)
+Vale|dbo.Ativo_Modelo|PK: Id_Ativo_Modelo
+Vale|dbo.Ativo_Parametro|FK: Id_Ativo  Vale dbo.Ativo(Id_Ativo)
+Vale|dbo.Ativo_Parametro|FK: Id_Ativo_Fr_Aquisicao  Vale dbo.Ativo_Fr_Aquisicao(Id_Ativo_Fr_Aquisicao)
+Vale|dbo.Ativo_Parametro|FK: Id_Conglomerado  Vale dbo.Conglomerado(Id_Conglomerado)
+Vale|dbo.Ativo_Parametro|FK: Id_Contrato  Vale dbo.Contrato(Id_Contrato)
+Vale|dbo.Ativo_Parametro|FK: Id_Tronco_Grupo  Vale dbo.Tronco_Grupo(Id_Tronco_Grupo)
+Vale|dbo.Ativo_Parametro|PK: Id_Ativo
+Vale|dbo.Ativo_Status|PK: Id_Ativo_Status
+Vale|dbo.Ativo_Tipo_Contato_Corporativo|FK: Id_Ativo_Tipo  Vale dbo.Ativo_Tipo(Id_Ativo_Tipo)
+Vale|dbo.Ativo_Tipo_Grupo_Tipo|PK: Id_Ativo_Tipo_Grupo_Tipo
+Vale|dbo.Ativo_Tipo_Grupo|PK: Id_Ativo_Tipo_Grupo
+Vale|dbo.Ativo_Tipo_Imagem|FK: Id_Ativo_Tipo  Vale dbo.Ativo_Tipo(Id_Ativo_Tipo)
+Vale|dbo.Ativo_Tipo_Imagem|PK: Id_Ativo_Tipo
+Vale|dbo.Ativo_Tipo_Sub_Grupo|PK: Id_Ativo_Tipo_Sub_Grupo
+Vale|dbo.Ativo_Tipo|FK: Id_Ativo_Tipo_Grupo  Vale dbo.Ativo_Tipo_Grupo(Id_Ativo_Tipo_Grupo)
+Vale|dbo.Ativo_Tipo|FK: Id_Ativo_Tipo_Grupo_Tipo  Vale dbo.Ativo_Tipo_Grupo_Tipo(Id_Ativo_Tipo_Grupo_Tipo)
+Vale|dbo.Ativo_Tipo|FK: Id_Ativo_Tipo_Sub_Grupo  Vale dbo.Ativo_Tipo_Sub_Grupo(Id_Ativo_Tipo_Sub_Grupo)
+Vale|dbo.Ativo_Tipo|FK: Id_Conglomerado  Vale dbo.Conglomerado(Id_Conglomerado)
+Vale|dbo.Ativo_Tipo|PK: Id_Ativo_Tipo
+Vale|dbo.Ativo|FK: Id_Ativo_Modelo  Vale dbo.Ativo_Modelo(Id_Ativo_Modelo)
+Vale|dbo.Ativo|FK: Id_Ativo_Status  Vale dbo.Ativo_Status(Id_Ativo_Status)
+Vale|dbo.Ativo|FK: Id_Ativo_Tipo  Vale dbo.Ativo_Tipo(Id_Ativo_Tipo)
+Vale|dbo.Ativo|FK: Id_Conglomerado  Vale dbo.Conglomerado(Id_Conglomerado)
+Vale|dbo.Ativo|PK: Id_Ativo
+Vale|dbo.Auditoria_Acompanhamento|FK: Id_Auditoria_Conta  Vale dbo.Auditoria_Conta(Id_Auditoria_Conta)
+Vale|dbo.Auditoria_Acompanhamento|FK: Id_Auditoria_Lote  Vale dbo.Auditoria_Lote(Id_Auditoria_Lote)
+Vale|dbo.Auditoria_Acompanhamento|FK: Id_Auditoria_Status  Vale dbo.Auditoria_Status(Id_Auditoria_Status)
+Vale|dbo.Auditoria_Acompanhamento|PK: Id_Auditoria_Acompanhamento
+Vale|dbo.Auditoria_Conta|FK: Id_Auditoria_Lote  Vale dbo.Auditoria_Lote(Id_Auditoria_Lote)
+Vale|dbo.Auditoria_Conta|PK: Id_Auditoria_Conta
+Vale|dbo.Auditoria_Contestacao|FK: Id_Fatura  Vale dbo.Fatura(Id_Fatura)
+Vale|dbo.Auditoria_Contestacao|PK: Id_Auditoria_Contestacao
+Vale|dbo.Auditoria_Item|FK: Id_Ativo  Vale dbo.Ativo(Id_Ativo)
+Vale|dbo.Auditoria_Item|FK: Id_Auditoria_Resumo  Vale dbo.Auditoria_Resumo(Id_Auditoria_Resumo)
+Vale|dbo.Auditoria_Item|FK: Id_Bilhete_Tipo  Vale dbo.Bilhete_Tipo(Id_Bilhete_Tipo)
+Vale|dbo.Auditoria_Item|FK: Id_Conglomerado  Vale dbo.Conglomerado(Id_Conglomerado)
+Vale|dbo.Auditoria_Item|PK: Id_Auditoria_Item
+Vale|dbo.Auditoria_Lote|FK: Id_Conglomerado  Vale dbo.Conglomerado(Id_Conglomerado)
+Vale|dbo.Auditoria_Lote|PK: Id_Auditoria_Lote
+Vale|dbo.Auditoria_Resumo|PK: Id_Auditoria_Resumo
+Vale|dbo.Auditoria_Status|PK: Id_Auditoria_Status
+Vale|dbo.Auditoria_Texto|FK: Id_Auditoria_lote  Vale dbo.Auditoria_Lote(Id_Auditoria_Lote)
+Vale|dbo.Auditoria_Texto|PK: Id_Auditoria_Texto
+Vale|dbo.Auditoria_Tipo|FK: Id_Auditoria_Conta  Vale dbo.Auditoria_Conta(Id_Auditoria_Conta)
+Vale|dbo.Auditoria_Tipo|PK: Id_Auditoria_Tipo
+Vale|dbo.Bilhete_Data|FK: Id_Lote  Vale dbo.Lote(Id_Lote)
+Vale|dbo.Bilhete_Historico_Resumo|FK: Id_Usuario  Vale dbo.Usuario(Id_Usuario)
+Vale|dbo.Bilhete_Historico_Resumo|PK: Dt_Historico
+Vale|dbo.Bilhete_Historico_Resumo|PK: Id_Lote
+Vale|dbo.Bilhete_Historico_Resumo|PK: Id_Usuario
+Vale|dbo.Bilhete_Manual_Tipo|FK: Id_Bilhete_Tipo  Vale dbo.Bilhete_Tipo(Id_Bilhete_Tipo)
+Vale|dbo.Bilhete_Tipo|FK: Id_Conglomerado  Vale dbo.Conglomerado(Id_Conglomerado)
+Vale|dbo.Bilhete_Tipo|PK: Id_Bilhete_Tipo
+Vale|dbo.Bilhete|FK: Id_Ativo  Vale dbo.Ativo(Id_Ativo)
+Vale|dbo.Bilhete|FK: Id_Bilhete_Tipo  Vale dbo.Bilhete_Tipo(Id_Bilhete_Tipo)
+Vale|dbo.Bilhete|FK: Id_Lote  Vale dbo.Lote(Id_Lote)
+Vale|dbo.Bilhete|FK: Id_Tronco  Vale dbo.Tronco(Id_Tronco)
+Vale|dbo.Bilhete|FK: Id_Usuario  Vale dbo.Usuario(Id_Usuario)
+Vale|dbo.Bilhete|PK: Id_Bilhete
+Vale|dbo.Cargo_Map|PK: Id_Cargo
+Vale|dbo.Cargo|PK: Id_Cargo
+Vale|dbo.Centro_Custo_Map|PK: Id_Centro_Custo
+Vale|dbo.Centro_Custo|PK: Id_Centro_Custo
+Vale|dbo.cg_Bi_Arquivo_Campo_Importacao|PK: Id_Campo
+Vale|dbo.Cg_Bi_Arquivo_Campo|FK: Id_Arquivo  Vale dbo.Cg_Bi_Arquivo(Id_Arquivo)
+Vale|dbo.Cg_Bi_Arquivo_Campo|FK: Id_Campo_Bilhete  Vale dbo.Cg_Bi_Si_Campo_Bilhete(Id_Campo_Bilhete)
+Vale|dbo.Cg_Bi_Arquivo_Campo|PK: Id_Arquivo_Campo
+Vale|dbo.Cg_Bi_Arquivo|PK: Id_Arquivo
+Vale|dbo.Cg_Bi_Si_Campo_Bilhete|PK: Id_Campo_Bilhete
+Vale|dbo.Chamado_Tipo|PK: Id_Tipo_Solicitacao
+Vale|dbo.Chamado|FK: Id_Ativo  Vale dbo.Ativo(Id_Ativo)
+Vale|dbo.Chamado|FK: Id_Conglomerado  Vale dbo.Conglomerado(Id_Conglomerado)
+Vale|dbo.Chamado|FK: Id_Consumidor  Vale dbo.Consumidor(Id_Consumidor)
+Vale|dbo.Chamado|FK: Id_Tipo_Solicitacao  Vale dbo.Chamado_Tipo(Id_Tipo_Solicitacao)
+Vale|dbo.Chamado|PK: Id_Chamado
+Vale|dbo.ChamadoDadosAuxiliares|FK: Id_Chamado  Vale dbo.Chamado(Id_Chamado)
+Vale|dbo.ChamadoDadosAuxiliares|PK: Id_Auxiliar
+Vale|dbo.Conglomerado_Email|FK: Id_Conglomerado  Vale dbo.Conglomerado(Id_Conglomerado)
+Vale|dbo.Conglomerado_Email|PK: Id_Email
+Vale|dbo.Conglomerado|PK: Id_Conglomerado
+Vale|dbo.Consumidor_log|PK: id_Consumidor_log
+Vale|dbo.Consumidor_Satus_Data|FK: Id_Consumidor  Vale dbo.Consumidor(Id_Consumidor)
+Vale|dbo.Consumidor_Satus_Data|PK: Id_Consumidor
+Vale|dbo.Consumidor_Status|PK: Id_Consumidor_Status
+Vale|dbo.Consumidor_Tipo|PK: Id_Consumidor_Tipo
+Vale|dbo.Consumidor_Unidade_Fornecedor|FK: Id_Consumidor_Fornecedor  Vale dbo.Consumidor(Id_Consumidor)
+Vale|dbo.Consumidor_Unidade_Fornecedor|FK: Id_Consumidor_Unidade  Vale dbo.Consumidor_Unidade(Id_Consumidor_Unidade)
+Vale|dbo.Consumidor_Unidade_Fornecedor|PK: Id_Consumidor_Fornecedor
+Vale|dbo.Consumidor_Unidade_Fornecedor|PK: Id_Consumidor_Unidade
+Vale|dbo.Consumidor_Unidade|FK: Id_Conglomerado  Vale dbo.Conglomerado(Id_Conglomerado)
+Vale|dbo.Consumidor_Unidade|FK: Id_Consumidor  Vale dbo.Consumidor(Id_Consumidor)
+Vale|dbo.Consumidor_Unidade|PK: Id_Consumidor_Unidade
+Vale|dbo.Consumidor|FK: Id_Cargo  Vale dbo.Cargo(Id_Cargo)
+Vale|dbo.Consumidor|FK: Id_Centro_Custo  Vale dbo.Centro_Custo(Id_Centro_Custo)
+Vale|dbo.Consumidor|FK: Id_Consumidor_Status  Vale dbo.Consumidor_Status(Id_Consumidor_Status)
+Vale|dbo.Consumidor|FK: Id_Consumidor_Tipo  Vale dbo.Consumidor_Tipo(Id_Consumidor_Tipo)
+Vale|dbo.Consumidor|FK: Id_Departamento  Vale dbo.Departamento(Id_Departamento)
+Vale|dbo.Consumidor|FK: Id_Empresa_Contratada  Vale dbo.Empresa_Contratada(Id_Empresa_Contratada)
+Vale|dbo.Consumidor|FK: Id_Filial  Vale dbo.Filial(Id_Filial)
+Vale|dbo.Consumidor|FK: Id_Secao  Vale dbo.Secao(Id_Secao)
+Vale|dbo.Consumidor|FK: Id_Setor  Vale dbo.Setor(Id_Setor)
+Vale|dbo.Consumidor|PK: Id_Consumidor
+Vale|dbo.Contrato_Aditivo|FK: Id_Contrato  Vale dbo.Contrato(Id_Contrato)
+Vale|dbo.Contrato_Aditivo|PK: Id_Contrato_Aditivo
+Vale|dbo.Contrato_Bilhete|PK: DB_Tipo_Parametro
+Vale|dbo.Contrato_Indice|PK: Id_Contrato_Indice
+Vale|dbo.Contrato_SLA_Operacao|FK: Id_Contrato  Vale dbo.Contrato(Id_Contrato)
+Vale|dbo.Contrato_SLA_Operacao|PK: Id_Contrato_SLA_Operacao
+Vale|dbo.Contrato_SLA_Servico|FK: Id_Contrato  Vale dbo.Contrato(Id_Contrato)
+Vale|dbo.Contrato_SLA_Servico|FK: Id_Contrato_Indice  Vale dbo.Contrato_Indice(Id_Contrato_Indice)
+Vale|dbo.Contrato_SLA_Servico|FK: Id_Operadora  Vale dbo.Conglomerado(Id_Conglomerado)
+Vale|dbo.Contrato_SLA_Servico|PK: Id_Contrato_SLA_Servico
+Vale|dbo.Contrato_Status|PK: Id_Contrato_Status
+Vale|dbo.Contrato|FK: Id_Contrato_Indice  Vale dbo.Contrato_Indice(Id_Contrato_Indice)
+Vale|dbo.Contrato|FK: Id_Contrato_Status  Vale dbo.Contrato_Status(Id_Contrato_Status)
+Vale|dbo.Contrato|FK: Id_Empresa_Contratada  Vale dbo.Empresa_Contratada(Id_Empresa_Contratada)
+Vale|dbo.Contrato|FK: Id_Filial  Vale dbo.Filial(Id_Filial)
+Vale|dbo.Contrato|FK: Id_Servico  Vale dbo.Servico(Id_Servico)
+Vale|dbo.Contrato|PK: Id_Contrato
+Vale|dbo.Custo_Fixo_Item|FK: Id_Ativo_Tipo  Vale dbo.Ativo_Tipo(Id_Ativo_Tipo)
+Vale|dbo.Custo_Fixo_Item|FK: Id_Conglomerado  Vale dbo.Conglomerado(Id_Conglomerado)
+Vale|dbo.Custo_Fixo_Item|FK: Id_Custo_Fixo  Vale dbo.Custo_Fixo(Id_Custo_Fixo)
+Vale|dbo.Custo_Fixo_Item|PK: Id_Custo_Fixo_Item
+Vale|dbo.Custo_Fixo|PK: Id_Custo_Fixo
+Vale|dbo.Departamento_Map|PK: Id_Departamento
+Vale|dbo.Departamento|PK: Id_Departamento
+Vale|dbo.Empresa_Contratada|PK: Id_Empresa_Contratada
+Vale|dbo.Empresa_Map|PK: Id_Empresa
+Vale|dbo.Empresa|FK: Id_Holding  Vale dbo.Holding(Id_Holding)
+Vale|dbo.Empresa|PK: Id_Empresa
+Vale|dbo.Estoque_Aparelho_Status|PK: Id_Estoque_Aparelho_Status
+Vale|dbo.Estoque_Aparelho|FK: Id_Ativo_Modelo  Vale dbo.Ativo_Modelo(Id_Ativo_Modelo)
+Vale|dbo.Estoque_Aparelho|FK: Id_Ativo_Tipo  Vale dbo.Ativo_Tipo(Id_Ativo_Tipo)
+Vale|dbo.Estoque_Aparelho|FK: Id_Conglomerado  Vale dbo.Conglomerado(Id_Conglomerado)
+Vale|dbo.Estoque_Aparelho|FK: Id_Consumidor  Vale dbo.Consumidor(Id_Consumidor)
+Vale|dbo.Estoque_Aparelho|FK: Id_Estoque_Aparelho_Status  Vale dbo.Estoque_Aparelho_Status(Id_Estoque_Aparelho_Status)
+Vale|dbo.Estoque_Aparelho|FK: Id_Estoque_Endereco_Entrega  Vale dbo.Estoque_Endereco_Entrega(Id_Estoque_Endereco_Entrega)
+Vale|dbo.Estoque_Aparelho|FK: Id_Estoque_Nota_Fiscal  Vale dbo.Estoque_Nota_Fiscal(Id_Estoque_Nota_Fiscal)
+Vale|dbo.Estoque_Aparelho|FK: Id_Estoque_Nota_Fiscal  Vale dbo.Estoque_Nota_Fiscal(Id_Estoque_Nota_Fiscal)
+Vale|dbo.Estoque_Aparelho|PK: Id_Aparelho
+Vale|dbo.Estoque_Consumidor|FK: Id_Consumidor  Vale dbo.Consumidor(Id_Consumidor)
+Vale|dbo.Estoque_Endereco_Entrega|PK: Id_Estoque_Endereco_Entrega
+Vale|dbo.Estoque_Nota_Fiscal|FK: Id_Ativo_Fr_Aquisicao  Vale dbo.Ativo_Fr_Aquisicao(Id_Ativo_Fr_Aquisicao)
+Vale|dbo.Estoque_Nota_Fiscal|PK: Id_Estoque_Nota_Fiscal
+Vale|dbo.Fatura_Parametro_Campo|FK: Id_Fatura_Parametro  Vale dbo.Fatura_Parametro(Id_Fatura_Parametro)
+Vale|dbo.Fatura_Parametro_Campo|PK: Id_Fatura_Parametro_Campo
+Vale|dbo.Fatura_Parametro|FK: Id_Ativo  Vale dbo.Ativo(Id_Ativo)
+Vale|dbo.Fatura_Parametro|FK: Id_Contrato  Vale dbo.Contrato(Id_Contrato)
+Vale|dbo.Fatura_Parametro|FK: Id_Fatura_Tipo_Rateio  Vale dbo.Fatura_Tipo_Rateio(Id_Fatura_Tipo_Rateio)
+Vale|dbo.Fatura_Parametro|PK: Id_Fatura_Parametro
+Vale|dbo.Fatura_Plano_Conta|FK: Id_Conglomerado  Vale dbo.Conglomerado(Id_Conglomerado)
+Vale|dbo.Fatura_Plano_Conta|FK: Id_Contrato  Vale dbo.Contrato(Id_Contrato)
+Vale|dbo.Fatura_Plano_Conta|FK: Id_Empresa  Vale dbo.Empresa(Id_Empresa)
+Vale|dbo.Fatura_Plano_Conta|PK: Id_Fatura_Plano_Conta
+Vale|dbo.Fatura_Tipo_Rateio|PK: Id_Fatura_Tipo_Rateio
+Vale|dbo.Fatura|FK: Id_Fatura_Parametro  Vale dbo.Fatura_Parametro(Id_Fatura_Parametro)
+Vale|dbo.Fatura|PK: Id_Fatura
+Vale|dbo.Filial_Map|PK: Id_Filial
+Vale|dbo.Filial|FK: Id_Empresa  Vale dbo.Empresa(Id_Empresa)
+Vale|dbo.Filial|PK: Id_Filial
+Vale|dbo.Holding|PK: Id_Holding
+Vale|dbo.Justificativa_Excedente|FK: Id_Ativo  Vale dbo.Ativo(Id_Ativo)
+Vale|dbo.Justificativa_Excedente|FK: Id_Consumidor  Vale dbo.Consumidor(Id_Consumidor)
+Vale|dbo.Justificativa_Excedente|FK: Id_Mail_Caixa_Siada  Vale dbo.Mail_Caixa_Saida(Id_Mail_Caixa_Siada)
+Vale|dbo.Justificativa_Excedente|FK: Id_Usuario  Vale dbo.Usuario(Id_Usuario)
+Vale|dbo.Log_Alteracao_Cadastro_Consumidor|FK: Id_Consumidor  Vale dbo.Consumidor(Id_Consumidor)
+Vale|dbo.Log_Alteracao_Contrato_SLA_Servico|FK: Id_Contrato_SLA_Servico  Vale dbo.Contrato_SLA_Servico(Id_Contrato_SLA_Servico)
+Vale|dbo.Log_Rastreio_Estoque_Aparelho|FK: Id_Aparelho  Vale dbo.Estoque_Aparelho(Id_Aparelho)
+Vale|dbo.Log_Rastreio_Estoque_Aparelho|FK: Id_Ativo  Vale dbo.Ativo(Id_Ativo)
+Vale|dbo.Log_Rastreio_Estoque_Aparelho|FK: Id_Consumidor  Vale dbo.Consumidor(Id_Consumidor)
+Vale|dbo.Lote_Log_Criacao|FK: Id_Centro_Custo  Vale dbo.Centro_Custo(Id_Centro_Custo)
+Vale|dbo.Lote_Log_Criacao|FK: Id_Consumidor  Vale dbo.Consumidor(Id_Consumidor)
+Vale|dbo.Lote_Log_Criacao|FK: Id_Departamento  Vale dbo.Departamento(Id_Departamento)
+Vale|dbo.Lote_Log_Criacao|FK: Id_Filial  Vale dbo.Filial(Id_Filial)
+Vale|dbo.Lote_Log_Criacao|FK: Id_Lote  Vale dbo.Lote(Id_Lote)
+Vale|dbo.Lote_Log_Criacao|FK: Id_Secao  Vale dbo.Secao(Id_Secao)
+Vale|dbo.Lote_Log_Criacao|FK: Id_Setor  Vale dbo.Setor(Id_Setor)
+Vale|dbo.Lote_Log_Criacao|PK: Id_Lote_Log_Criacao
+Vale|dbo.Lote_Marcacao|FK: Id_Lote  Vale dbo.Lote(Id_Lote)
+Vale|dbo.Lote_Marcacao|FK: Id_Usuario  Vale dbo.Usuario(Id_Usuario)
+Vale|dbo.Lote_Marcacao|PK: Id_Lote_Marcacao
+Vale|dbo.Lote|FK: Id_Ativo  Vale dbo.Ativo(Id_Ativo)
+Vale|dbo.Lote|PK: Id_Lote
+Vale|dbo.Mail_Caixa_Saida_Anexos|PK: Id_Anexo
+Vale|dbo.Mail_Caixa_Saida|FK: Id_Mail_Sender  Vale dbo.Mail_Sender(Id_Mail_Sender)
+Vale|dbo.Mail_Caixa_Saida|PK: Id_Mail_Caixa_Siada
+Vale|dbo.Mail_Sender|PK: Id_Mail_Sender
+Vale|dbo.Nota_Fiscal_Fatura|PK: Id_Nota_Fiscal
+Vale|dbo.Politica_Consumidor|FK: Id_Ativo_Tipo  Vale dbo.Ativo_Tipo(Id_Ativo_Tipo)
+Vale|dbo.Politica_Consumidor|FK: Id_Consumidor  Vale dbo.Consumidor(Id_Consumidor)
+Vale|dbo.Rateio_Ativo_Critica|FK: Id_Ativo  Vale dbo.Ativo(Id_Ativo)
+Vale|dbo.Rateio_Ativo_Critica|FK: Id_Rateio  Vale dbo.Rateio(Id_Rateio)
+Vale|dbo.Rateio_Item|FK: Id_Ativo  Vale dbo.Ativo(Id_Ativo)
+Vale|dbo.Rateio_Item|FK: Id_Centro_Custo  Vale dbo.Centro_Custo(Id_Centro_Custo)
+Vale|dbo.Rateio_Item|FK: Id_Conglomerado  Vale dbo.Conglomerado(Id_Conglomerado)
+Vale|dbo.Rateio_Item|FK: Id_Consumidor  Vale dbo.Consumidor(Id_Consumidor)
+Vale|dbo.Rateio_Item|FK: Id_Filial  Vale dbo.Filial(Id_Filial)
+Vale|dbo.Rateio_Item|FK: Id_Rateio  Vale dbo.Rateio(Id_Rateio)
+Vale|dbo.Rateio_Item|PK: Id_Rateio_Item
+Vale|dbo.Rateio|FK: Id_Fatura_Parametro  Vale dbo.Fatura_Parametro(Id_Fatura_Parametro)
+Vale|dbo.Rateio|PK: Id_Rateio
+Vale|dbo.Rl_Ativo_Centro_Custo|FK: Id_Ativo  Vale dbo.Ativo_Parametro(Id_Ativo)
+Vale|dbo.Rl_Ativo_Centro_Custo|FK: Id_Centro_Custo  Vale dbo.Centro_Custo(Id_Centro_Custo)
+Vale|dbo.Rl_Ativo_Centro_Custo|PK: Id_Ativo
+Vale|dbo.Rl_Ativo_Centro_Custo|PK: Id_Centro_Custo
+Vale|dbo.Rl_Ativo_Tipo_Ativo_Complemento|FK: Id_Ativo_Complemento  Vale dbo.Ativo_Complemento(Id_Ativo_Complemento)
+Vale|dbo.Rl_Ativo_Tipo_Ativo_Complemento|FK: Id_Ativo_Tipo  Vale dbo.Ativo_Tipo(Id_Ativo_Tipo)
+Vale|dbo.Rl_Ativo_Tipo_Ativo_Complemento|PK: Id_Ativo_Tipo
+Vale|dbo.Rl_Consumidor_Ativo|FK: Id_Ativo  Vale dbo.Ativo(Id_Ativo)
+Vale|dbo.Rl_Consumidor_Ativo|FK: Id_Consumidor  Vale dbo.Consumidor(Id_Consumidor)
+Vale|dbo.Rl_Consumidor_Ativo|PK: Id_Ativo
+Vale|dbo.Rl_Consumidor_Ativo|PK: Id_Consumidor
+Vale|dbo.Rl_Estoque_Aparelho_Ativo|FK: Id_Aparelho  Vale dbo.Estoque_Aparelho(Id_Aparelho)
+Vale|dbo.Rl_Estoque_Aparelho_Ativo|FK: Id_Ativo  Vale dbo.Ativo(Id_Ativo)
+Vale|dbo.Rl_Estoque_Aparelho_Ativo|PK: Id_Aparelho
+Vale|dbo.Rl_Estoque_Aparelho_Ativo|PK: Id_Ativo
+Vale|dbo.Rl_Filial_Bilhete_Tipo|FK: Id_Bilhete_Tipo  Vale dbo.Bilhete_Tipo(Id_Bilhete_Tipo)
+Vale|dbo.Rl_Filial_Bilhete_Tipo|FK: Id_Filial  Vale dbo.Filial(Id_Filial)
+Vale|dbo.Rl_Filial_Bilhete_Tipo|PK: Id_Bilhete_Tipo
+Vale|dbo.Rl_Filial_Bilhete_Tipo|PK: Id_Filial
+Vale|dbo.Rl_Hi_Centro_Custo_Departamento|FK: Id_Centro_Custo  Vale dbo.Centro_Custo(Id_Centro_Custo)
+Vale|dbo.Rl_Hi_Centro_Custo_Departamento|FK: Id_Departamento  Vale dbo.Departamento(Id_Departamento)
+Vale|dbo.Rl_Hi_Centro_Custo_Departamento|PK: Id_Centro_Custo
+Vale|dbo.Rl_Hi_Centro_Custo_Departamento|PK: Id_Departamento
+Vale|dbo.Rl_Hi_Departamento_Setor|FK: Id_Departamento  Vale dbo.Departamento(Id_Departamento)
+Vale|dbo.Rl_Hi_Departamento_Setor|FK: Id_Setor  Vale dbo.Setor(Id_Setor)
+Vale|dbo.Rl_Hi_Departamento_Setor|PK: Id_Departamento
+Vale|dbo.Rl_Hi_Departamento_Setor|PK: Id_Setor
+Vale|dbo.Rl_Hi_Filial_Centro_Custo|FK: Id_Centro_Custo  Vale dbo.Centro_Custo(Id_Centro_Custo)
+Vale|dbo.Rl_Hi_Filial_Centro_Custo|FK: Id_Filial  Vale dbo.Filial(Id_Filial)
+Vale|dbo.Rl_Hi_Filial_Centro_Custo|PK: Id_Centro_Custo
+Vale|dbo.Rl_Hi_Filial_Centro_Custo|PK: Id_Filial
+Vale|dbo.Rl_Hi_Setor_Secao|FK: Id_Secao  Vale dbo.Secao(Id_Secao)
+Vale|dbo.Rl_Hi_Setor_Secao|FK: Id_Setor  Vale dbo.Setor(Id_Setor)
+Vale|dbo.Rl_Hi_Setor_Secao|PK: Id_Secao
+Vale|dbo.Rl_Hi_Setor_Secao|PK: Id_Setor
+Vale|dbo.Rl_Perfil_Ativo_Usuario|FK: Id_Ativo  Vale dbo.Ativo(Id_Ativo)
+Vale|dbo.Rl_Perfil_Ativo_Usuario|FK: Id_Usuario  Vale dbo.Usuario(Id_Usuario)
+Vale|dbo.Rl_Perfil_Ativo_Usuario|PK: Id_Ativo
+Vale|dbo.Rl_Perfil_Ativo_Usuario|PK: Id_Usuario
+Vale|dbo.Rl_Perfil_Centro_Custo_Usuario|FK: Id_Centro_Custo  Vale dbo.Centro_Custo(Id_Centro_Custo)
+Vale|dbo.Rl_Perfil_Centro_Custo_Usuario|FK: Id_Usuario  Vale dbo.Usuario(Id_Usuario)
+Vale|dbo.Rl_Perfil_Centro_Custo_Usuario|PK: Id_Centro_Custo
+Vale|dbo.Rl_Perfil_Centro_Custo_Usuario|PK: Id_Usuario
+Vale|dbo.Rl_Perfil_Conglomerado_Usuario|FK: Id_Conglomerado  Vale dbo.Conglomerado(Id_Conglomerado)
+Vale|dbo.Rl_Perfil_Conglomerado_Usuario|FK: Id_Usuario  Vale dbo.Usuario(Id_Usuario)
+Vale|dbo.Rl_Perfil_Conglomerado_Usuario|PK: Id_Conglomerado
+Vale|dbo.Rl_Perfil_Conglomerado_Usuario|PK: Id_Usuario
+Vale|dbo.Rl_Perfil_Consumidor_Usuario|FK: Id_Consumidor  Vale dbo.Consumidor(Id_Consumidor)
+Vale|dbo.Rl_Perfil_Consumidor_Usuario|FK: Id_Usuario  Vale dbo.Usuario(Id_Usuario)
+Vale|dbo.Rl_Perfil_Consumidor_Usuario|PK: Id_Consumidor
+Vale|dbo.Rl_Perfil_Consumidor_Usuario|PK: Id_Usuario
+Vale|dbo.Rl_Perfil_Departamento_Usuario|FK: Id_Departamento  Vale dbo.Departamento(Id_Departamento)
+Vale|dbo.Rl_Perfil_Departamento_Usuario|FK: Id_Usuario  Vale dbo.Usuario(Id_Usuario)
+Vale|dbo.Rl_Perfil_Departamento_Usuario|PK: Id_Departamento
+Vale|dbo.Rl_Perfil_Departamento_Usuario|PK: Id_Usuario
+Vale|dbo.Rl_Perfil_Filial_Usuario|FK: Id_Filial  Vale dbo.Filial(Id_Filial)
+Vale|dbo.Rl_Perfil_Filial_Usuario|FK: Id_Usuario  Vale dbo.Usuario(Id_Usuario)
+Vale|dbo.Rl_Perfil_Filial_Usuario|PK: Id_Filial
+Vale|dbo.Rl_Perfil_Filial_Usuario|PK: Id_Usuario
+Vale|dbo.Rl_Perfil_Secao_Usuario|FK: Id_Secao  Vale dbo.Secao(Id_Secao)
+Vale|dbo.Rl_Perfil_Secao_Usuario|FK: Id_Usuario  Vale dbo.Usuario(Id_Usuario)
+Vale|dbo.Rl_Perfil_Secao_Usuario|PK: Id_Secao
+Vale|dbo.Rl_Perfil_Secao_Usuario|PK: Id_Usuario
+Vale|dbo.Rl_Perfil_Setor_Usuario|FK: Id_Setor  Vale dbo.Setor(Id_Setor)
+Vale|dbo.Rl_Perfil_Setor_Usuario|FK: Id_Usuario  Vale dbo.Usuario(Id_Usuario)
+Vale|dbo.Rl_Perfil_Setor_Usuario|PK: Id_Setor
+Vale|dbo.Rl_Perfil_Setor_Usuario|PK: Id_Usuario
+Vale|dbo.Rl_Ra_Fatura_Parametro_Ativo|FK: Id_Ativo  Vale dbo.Ativo(Id_Ativo)
+Vale|dbo.Rl_Ra_Fatura_Parametro_Ativo|FK: Id_Fatura_Parametro  Vale dbo.Fatura_Parametro(Id_Fatura_Parametro)
+Vale|dbo.Rl_Ra_Fatura_Parametro_Ativo|PK: Id_Ativo
+Vale|dbo.Rl_Ra_Fatura_Parametro_Ativo|PK: Id_Fatura_Parametro
+Vale|dbo.Rl_Ra_Fatura_Parametro_Conglomerado|FK: Id_Conglomerado  Vale dbo.Conglomerado(Id_Conglomerado)
+Vale|dbo.Rl_Ra_Fatura_Parametro_Conglomerado|FK: Id_Fatura_Parametro  Vale dbo.Fatura_Parametro(Id_Fatura_Parametro)
+Vale|dbo.Rl_Ra_Fatura_Parametro_Conglomerado|PK: Id_Conglomerado
+Vale|dbo.Rl_Ra_Fatura_Parametro_Conglomerado|PK: Id_Fatura_Parametro
+Vale|dbo.Rl_Ra_Fatura_Parametro_Filial|FK: Id_Fatura_Parametro  Vale dbo.Fatura_Parametro(Id_Fatura_Parametro)
+Vale|dbo.Rl_Ra_Fatura_Parametro_Filial|FK: Id_Filial  Vale dbo.Filial(Id_Filial)
+Vale|dbo.Rl_Ra_Fatura_Parametro_Filial|PK: Id_Fatura_Parametro
+Vale|dbo.Rl_Ra_Fatura_Parametro_Filial|PK: Id_Filial
+Vale|dbo.Rl_Ra_Fatura_Parametro_Tronco_Grupo|FK: Id_Fatura_Parametro  Vale dbo.Fatura_Parametro(Id_Fatura_Parametro)
+Vale|dbo.Rl_Ra_Fatura_Parametro_Tronco_Grupo|FK: Id_Tronco_Grupo  Vale dbo.Tronco_Grupo(Id_Tronco_Grupo)
+Vale|dbo.Rl_Ra_Fatura_Parametro_Tronco_Grupo|PK: Id_Fatura_Parametro
+Vale|dbo.Rl_Ra_Fatura_Parametro_Tronco_Grupo|PK: Id_Tronco_Grupo
+Vale|dbo.Rl_Rateio_Fatura|FK: Id_Fatura  Vale dbo.Fatura(Id_Fatura)
+Vale|dbo.Rl_Rateio_Fatura|FK: Id_Rateio  Vale dbo.Rateio(Id_Rateio)
+Vale|dbo.Rl_Rateio_Fatura|PK: Id_Fatura
+Vale|dbo.Rl_Rateio_Fatura|PK: Id_Rateio
+Vale|dbo.Rl_Solicitacao_Ativo|FK: Id_Ativo  Vale dbo.Ativo(Id_Ativo)
+Vale|dbo.Rl_Solicitacao_Ativo|FK: Id_Solicitacao  Vale dbo.Solicitacao(Id_Solicitacao)
+Vale|dbo.Rl_Solicitacao_Ativo|PK: Id_Ativo
+Vale|dbo.Rl_Solicitacao_Ativo|PK: Id_Solicitacao
+Vale|dbo.Rl_Solicitacao_Fila_Atendimento_Usuario|FK: Id_Solicitacao_Fila_Atendimento  Vale dbo.Solicitacao_Fila_Atendimento(Id_Solicitacao_Fila_Atendimento)
+Vale|dbo.Rl_Solicitacao_Fila_Atendimento_Usuario|FK: Id_Usuario  Vale dbo.Usuario(Id_Usuario)
+Vale|dbo.Rl_Usuario_Grupo_Si_Tela|FK: Id_Tela  Vale dbo.Si_Tela(Id_Tela)
+Vale|dbo.Rl_Usuario_Grupo_Si_Tela|FK: Id_Usuario_Grupo  Vale dbo.Usuario_Grupo(Id_Usuario_Grupo)
+Vale|dbo.Rl_Usuario_Grupo_Si_Tela|PK: Id_Tela
+Vale|dbo.Rl_Usuario_Grupo_Si_Tela|PK: Id_Usuario_Grupo
+Vale|dbo.Rl_Usuario_Grupo_Si_Template|FK: Id_Template  Vale dbo.Si_Template(Id_Template)
+Vale|dbo.Rl_Usuario_Grupo_Si_Template|FK: Id_Usuario_Grupo  Vale dbo.Usuario_Grupo(Id_Usuario_Grupo)
+Vale|dbo.Rl_Usuario_Grupo_Si_Template|PK: Id_Template
+Vale|dbo.Rl_Usuario_Grupo_Si_Template|PK: Id_Usuario_Grupo
+Vale|dbo.Rl_Usuario_Modulo_Acesso|FK: Id_Usuario  Vale dbo.Usuario(Id_Usuario)
+Vale|dbo.Rl_Usuario_Modulo_Acesso|PK: Id_Usuario
+Vale|dbo.Rl_Usuario_Modulo_Acesso|PK: Nome_Modulo
+Vale|dbo.Rl_Usuario_Solicitacao_Permissao|FK: Id_Solicitacao_Permissao  Vale dbo.Solicitacao_Permissao(Id_Solicitacao_Permissao)
+Vale|dbo.Rl_Usuario_Solicitacao_Permissao|FK: Id_Usuario  Vale dbo.Usuario(Id_Usuario)
+Vale|dbo.Rl_Usuario_Solicitacao_Permissao|PK: Id_Solicitacao_Permissao
+Vale|dbo.Rl_Usuario_Solicitacao_Permissao|PK: Id_Usuario
+Vale|dbo.Rl_Usuario_Torre_Acesso|FK: Id_Ativo_Tipo_Grupo  Vale dbo.Ativo_Tipo_Grupo(Id_Ativo_Tipo_Grupo)
+Vale|dbo.Rl_Usuario_Torre_Acesso|FK: Id_Usuario  Vale dbo.Usuario(Id_Usuario)
+Vale|dbo.Rl_Usuario_Torre_Acesso|PK: Id_Ativo_Tipo_Grupo
+Vale|dbo.Rl_Usuario_Torre_Acesso|PK: Id_Usuario
+Vale|dbo.Secao|PK: Id_Secao
+Vale|dbo.Servico|PK: Id_Servico
+Vale|dbo.Setor|PK: Id_Setor
+Vale|dbo.Si_Ano_Fiscal|PK: Id
+Vale|dbo.Si_Aproveitamento|PK: DB_Tipo_Parametro_BLT
+Vale|dbo.Si_Aproveitamento|PK: DB_Tipo_Parametro_PCT
+Vale|dbo.Si_Desmarca_Bilhete|PK: DB_Tipo_Parametro
+Vale|dbo.Si_Formato_Valida_Data|PK: Id_Valida_Data
+Vale|dbo.Si_Idioma|PK: Id_Idioma
+Vale|dbo.Si_Menu|PK: Id_Menu
+Vale|dbo.Si_Tela_Campo_Traducao|FK: Id_Campo  Vale dbo.Si_Tela_Campo(Id_Campo)
+Vale|dbo.Si_Tela_Campo_Traducao|FK: Id_Idioma  Vale dbo.Si_Idioma(Id_Idioma)
+Vale|dbo.Si_Tela_Campo_Traducao|PK: Id_Traducao
+Vale|dbo.Si_Tela_Campo|FK: Id_Tela  Vale dbo.Si_Tela(Id_Tela)
+Vale|dbo.Si_Tela_Campo|PK: Id_Campo
+Vale|dbo.Si_Tela|FK: Id_Menu  Vale dbo.Si_Menu(Id_Menu)
+Vale|dbo.Si_Tela|PK: Id_Tela
+Vale|dbo.Si_Template|FK: Id_Ativo_Tipo_Grupo  Vale dbo.Ativo_Tipo_Grupo(Id_Ativo_Tipo_Grupo)
+Vale|dbo.Si_Template|PK: Id_Template
+Vale|dbo.Si_Texto_Termo|PK: Caixa
+Vale|dbo.Si_Texto_Termo|PK: Pagina
+Vale|dbo.Si_Usuario_Perfil_Acesso|FK: Id_Usuario_Perfil  Vale dbo.Si_Usuario_Perfil(Id_Usuario_Perfil)
+Vale|dbo.Si_Usuario_Perfil_Acesso|PK: Id_Usuario_Perfil_Acesso
+Vale|dbo.Si_Usuario_Perfil|PK: Id_Usuario_Perfil
+Vale|dbo.Si_Volumetria|PK: DB_Tipo_Parametro
+Vale|dbo.Solicitacao_Avaliacao|FK: Id_Solicitacao  Vale dbo.Solicitacao(Id_Solicitacao)
+Vale|dbo.Solicitacao_Avaliacao|PK: Id_Solicitacao_Avaliacao
+Vale|dbo.Solicitacao_Bilhete_Tipo|FK: Id_Bilhete_Tipo  Vale dbo.Bilhete_Tipo(Id_Bilhete_Tipo)
+Vale|dbo.Solicitacao_Bilhete_Tipo|PK: Id_Bilhete_Tipo
+Vale|dbo.Solicitacao_Data_Parada|PK: Id_Data_Parada
+Vale|dbo.Solicitacao_Fila_Atendimento|PK: Id_Solicitacao_Fila_Atendimento
+Vale|dbo.Solicitacao_Item|FK: Id_Solicitacao  Vale dbo.Solicitacao(Id_Solicitacao)
+Vale|dbo.Solicitacao_Item|FK: Id_Usuario  Vale dbo.Usuario(Id_Usuario)
+Vale|dbo.Solicitacao_Item|PK: Id_Solicitacao_Item
+Vale|dbo.Solicitacao_Permissao|PK: Id_Solicitacao_Permissao
+Vale|dbo.Solicitacao_SLA|PK: Id_Solicitacao_SLA
+Vale|dbo.Solicitacao_Solucao|FK: Id_Ativo_Tipo  Vale dbo.Ativo_Tipo(Id_Ativo_Tipo)
+Vale|dbo.Solicitacao_Solucao|PK: Id_Solicitacao_Solucao
+Vale|dbo.Solicitacao_Tipo|FK: Id_Ativo_Tipo  Vale dbo.Ativo_Tipo(Id_Ativo_Tipo)
+Vale|dbo.Solicitacao_Tipo|FK: Id_Solicitacao_Permissao  Vale dbo.Solicitacao_Permissao(Id_Solicitacao_Permissao)
+Vale|dbo.Solicitacao_Tipo|FK: Id_Solicitacao_SLA  Vale dbo.Solicitacao_SLA(Id_Solicitacao_SLA)
+Vale|dbo.Solicitacao_Tipo|FK: Id_Solicitacao_Unidade_Processo  Vale dbo.Solicitacao_Unidade_Processo(Id_Processo_Unidade_Solicitacao)
+Vale|dbo.Solicitacao_Tipo|FK: Id_Solicitcao_Fila_Atendimento  Vale dbo.Solicitacao_Fila_Atendimento(Id_Solicitacao_Fila_Atendimento)
+Vale|dbo.Solicitacao_Tipo|PK: Id_Solicitacao_Tipo
+Vale|dbo.Solicitacao_Unidade_Processo|PK: Id_Processo_Unidade_Solicitacao
+Vale|dbo.Solicitacao|FK: Id_Ativo_Tipo  Vale dbo.Ativo_Tipo(Id_Ativo_Tipo)
+Vale|dbo.Solicitacao|FK: Id_Mail_Caixa_Saida_Operadora  Vale dbo.Mail_Caixa_Saida(Id_Mail_Caixa_Siada)
+Vale|dbo.Solicitacao|FK: Id_Mail_Caixa_Saida_Usuario  Vale dbo.Consumidor_Unidade(Id_Consumidor_Unidade)
+Vale|dbo.Solicitacao|FK: Id_Mail_Caixa_Saida_Usuario  Vale dbo.Mail_Caixa_Saida(Id_Mail_Caixa_Siada)
+Vale|dbo.Solicitacao|FK: Id_Solicitacao_Solucao  Vale dbo.Solicitacao_Solucao(Id_Solicitacao_Solucao)
+Vale|dbo.Solicitacao|FK: Id_Solicitacao_Tipo  Vale dbo.Solicitacao_Tipo(Id_Solicitacao_Tipo)
+Vale|dbo.Solicitacao|FK: Id_Usuario  Vale dbo.Usuario(Id_Usuario)
+Vale|dbo.Solicitacao|PK: Id_Solicitacao
+Vale|dbo.sysdiagrams|PK: diagram_id
+Vale|dbo.T_Usuario_Email_Profile|FK: Id_Usuario  Vale dbo.Usuario(Id_Usuario)
+Vale|dbo.T_Usuario_Email_Profile|PK: Id_Usuario
+Vale|dbo.Tronco_Grupo|PK: Id_Tronco_Grupo
+Vale|dbo.Tronco|FK: Id_Conglomerado  Vale dbo.Conglomerado(Id_Conglomerado)
+Vale|dbo.Tronco|FK: Id_Tronco_Grupo  Vale dbo.Tronco_Grupo(Id_Tronco_Grupo)
+Vale|dbo.Tronco|PK: Id_Tronco
+Vale|dbo.Usuario_Grupo|PK: Id_Usuario_Grupo
+Vale|dbo.Usuario|FK: Id_Consumidor  Vale dbo.Consumidor(Id_Consumidor)
+Vale|dbo.Usuario|FK: Id_Idioma  Vale dbo.Si_Idioma(Id_Idioma)
+Vale|dbo.Usuario|FK: Id_Usuario_Grupo  Vale dbo.Usuario_Grupo(Id_Usuario_Grupo)
+Vale|dbo.Usuario|FK: Id_Usuario_Perfil  Vale dbo.Si_Usuario_Perfil(Id_Usuario_Perfil)
+Vale|dbo.Usuario|FK: Id_Usuario_Perfil_Acesso  Vale dbo.Si_Usuario_Perfil_Acesso(Id_Usuario_Perfil_Acesso)
+Vale|dbo.Usuario|PK: Id_Usuario
