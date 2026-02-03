@@ -1098,8 +1098,9 @@ Namespace WS_GUA_Cadastro
                     ByVal pNumero_Sim_Card As String,  _
                     ByVal pValor_Contrato As String,  _
                     ByVal pPlano_Contrato As String,  _
-                    ByVal pVelocidade As String) As System.Data.DataSet
-            Dim results() As Object = Me.Invoke("Ativo", New Object() {pPConn_Banco, pId_Ativo, pNr_Ativo, pFinalidade, pId_Ativo_Tipo, pId_Conglomerado, pId_Ativo_Modelo, pLocalidade, pDt_Ativacao, pObservacao, pAtivo_Complemento, pId_Ativo_Status, pArray_Consumidor, pId_Usuario_Permissao, pPakage, pRetorno, pEndereco, pNumero_Sim_Card, pValor_Contrato, pPlano_Contrato, pVelocidade})
+                    ByVal pVelocidade As String,  _
+                    ByVal pCNPJ As String) As System.Data.DataSet
+            Dim results() As Object = Me.Invoke("Ativo", New Object() {pPConn_Banco, pId_Ativo, pNr_Ativo, pFinalidade, pId_Ativo_Tipo, pId_Conglomerado, pId_Ativo_Modelo, pLocalidade, pDt_Ativacao, pObservacao, pAtivo_Complemento, pId_Ativo_Status, pArray_Consumidor, pId_Usuario_Permissao, pPakage, pRetorno, pEndereco, pNumero_Sim_Card, pValor_Contrato, pPlano_Contrato, pVelocidade, pCNPJ})
             Return CType(results(0),System.Data.DataSet)
         End Function
         
@@ -1125,10 +1126,11 @@ Namespace WS_GUA_Cadastro
                     ByVal pNumero_Sim_Card As String,  _
                     ByVal pValor_Contrato As String,  _
                     ByVal pPlano_Contrato As String,  _
-                    ByVal pVelocidade As String)
-            Me.AtivoAsync(pPConn_Banco, pId_Ativo, pNr_Ativo, pFinalidade, pId_Ativo_Tipo, pId_Conglomerado, pId_Ativo_Modelo, pLocalidade, pDt_Ativacao, pObservacao, pAtivo_Complemento, pId_Ativo_Status, pArray_Consumidor, pId_Usuario_Permissao, pPakage, pRetorno, pEndereco, pNumero_Sim_Card, pValor_Contrato, pPlano_Contrato, pVelocidade, Nothing)
+                    ByVal pVelocidade As String,  _
+                    ByVal pCNPJ As String)
+            Me.AtivoAsync(pPConn_Banco, pId_Ativo, pNr_Ativo, pFinalidade, pId_Ativo_Tipo, pId_Conglomerado, pId_Ativo_Modelo, pLocalidade, pDt_Ativacao, pObservacao, pAtivo_Complemento, pId_Ativo_Status, pArray_Consumidor, pId_Usuario_Permissao, pPakage, pRetorno, pEndereco, pNumero_Sim_Card, pValor_Contrato, pPlano_Contrato, pVelocidade, pCNPJ, Nothing)
         End Sub
-        
+
         '''<remarks/>
         Public Overloads Sub AtivoAsync( _
                     ByVal pPConn_Banco As String,  _
@@ -1152,11 +1154,12 @@ Namespace WS_GUA_Cadastro
                     ByVal pValor_Contrato As String,  _
                     ByVal pPlano_Contrato As String,  _
                     ByVal pVelocidade As String,  _
+                    ByVal pCNPJ As String,  _
                     ByVal userState As Object)
             If (Me.AtivoOperationCompleted Is Nothing) Then
                 Me.AtivoOperationCompleted = AddressOf Me.OnAtivoOperationCompleted
             End If
-            Me.InvokeAsync("Ativo", New Object() {pPConn_Banco, pId_Ativo, pNr_Ativo, pFinalidade, pId_Ativo_Tipo, pId_Conglomerado, pId_Ativo_Modelo, pLocalidade, pDt_Ativacao, pObservacao, pAtivo_Complemento, pId_Ativo_Status, pArray_Consumidor, pId_Usuario_Permissao, pPakage, pRetorno, pEndereco, pNumero_Sim_Card, pValor_Contrato, pPlano_Contrato, pVelocidade}, Me.AtivoOperationCompleted, userState)
+            Me.InvokeAsync("Ativo", New Object() {pPConn_Banco, pId_Ativo, pNr_Ativo, pFinalidade, pId_Ativo_Tipo, pId_Conglomerado, pId_Ativo_Modelo, pLocalidade, pDt_Ativacao, pObservacao, pAtivo_Complemento, pId_Ativo_Status, pArray_Consumidor, pId_Usuario_Permissao, pPakage, pRetorno, pEndereco, pNumero_Sim_Card, pValor_Contrato, pPlano_Contrato, pVelocidade, pCNPJ}, Me.AtivoOperationCompleted, userState)
         End Sub
         
         Private Sub OnAtivoOperationCompleted(ByVal arg As Object)

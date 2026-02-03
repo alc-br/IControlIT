@@ -38,7 +38,7 @@ Public Class Ativo_Alerta
     End Sub
 
     Protected Sub btExecutar_Click(sender As Object, e As System.EventArgs) Handles btExecutar.Click
-        Session("DataSet") = WS_Cadastro.Ativo(Session("Conn_Banco"), Nothing, Nothing, Nothing, Nothing, oConfig.ValidaCampo(cboConglomerado.SelectedValue), Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, "sd_SL_Ativo_Alerta", True, Nothing, Nothing, Nothing, Nothing, Nothing)
+        Session("DataSet") = WS_Cadastro.Ativo(Session("Conn_Banco"), Nothing, Nothing, Nothing, Nothing, oConfig.ValidaCampo(cboConglomerado.SelectedValue), Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, "sd_SL_Ativo_Alerta", True, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
 
         dtgLocaliza.CurrentPageIndex = 0
         dtgLocaliza.DataSource = Session("DataSet")
@@ -55,7 +55,7 @@ Public Class Ativo_Alerta
     End Sub
 
     Protected Sub btLocalizar_Click(sender As Object, e As System.Web.UI.ImageClickEventArgs) Handles btLocalizar.Click
-        Session("DataSet") = WS_Cadastro.Ativo(Session("Conn_Banco"), Nothing, txtLocalizar.Text, Nothing, Nothing, oConfig.ValidaCampo(cboConglomerado.SelectedValue), Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, "sd_SL_Ativo_Alerta", True, Nothing, Nothing, Nothing, Nothing, Nothing)
+        Session("DataSet") = WS_Cadastro.Ativo(Session("Conn_Banco"), Nothing, txtLocalizar.Text, Nothing, Nothing, oConfig.ValidaCampo(cboConglomerado.SelectedValue), Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, "sd_SL_Ativo_Alerta", True, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
 
         dtgLocaliza.CurrentPageIndex = 0
         dtgLocaliza.DataSource = Session("DataSet")
@@ -99,7 +99,7 @@ Public Class Ativo_Alerta
                                                 Nothing,
                                                 Session("Id_Usuario"),
                                                 "sd_SM_Ativo_Alerta",
-                                                False, Nothing, Nothing, Nothing, Nothing, Nothing).Tables(0).Rows(0).Item(0)
+                                                False, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing).Tables(0).Rows(0).Item(0)
 
         '-----lista base
         dtgLocaliza.DataSource = Nothing

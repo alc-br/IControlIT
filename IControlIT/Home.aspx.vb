@@ -952,7 +952,7 @@
             Case "Ativo"
                 vdataSet = WS_Cadastro.Ativo(Session("Conn_Banco"), dtgLocaliza.Items(dtgLocaliza.SelectedIndex).Cells(2).Text,
                                             Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing,
-                                            Nothing, Nothing, Nothing, "sp_SL_ID", True, Nothing, Nothing, Nothing, Nothing, Nothing)
+                                            Nothing, Nothing, Nothing, "sp_SL_ID", True, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
             Case "Consumidor"
                 vdataSet = WS_Cadastro.Consumidor(Session("Conn_Banco"), dtgLocaliza.Items(dtgLocaliza.SelectedIndex).Cells(2).Text,
                                                   Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing,

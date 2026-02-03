@@ -74,6 +74,10 @@ Namespace WS_GUA_Modulo
 
         Private Monitoramento_DadosOperationCompleted As System.Threading.SendOrPostCallback
 
+        Private Get_Dados_KPIOperationCompleted As System.Threading.SendOrPostCallback
+
+        Private Marcar_Fatura_PagaOperationCompleted As System.Threading.SendOrPostCallback
+
         Private useDefaultCredentialsSetExplicitly As Boolean
 
         '''<remarks/>
@@ -174,6 +178,12 @@ Namespace WS_GUA_Modulo
 
         '''<remarks/>
         Public Event Monitoramento_DadosCompleted As Monitoramento_DadosCompletedEventHandler
+
+        '''<remarks/>
+        Public Event Get_Dados_KPICompleted As Get_Dados_KPICompletedEventHandler
+
+        '''<remarks/>
+        Public Event Marcar_Fatura_PagaCompleted As Marcar_Fatura_PagaCompletedEventHandler
 
         '''<remarks/>
         <System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Conn_Banco", RequestNamespace:="http://tempuri.org/", ResponseNamespace:="http://tempuri.org/", Use:=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle:=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)>
@@ -797,6 +807,62 @@ Namespace WS_GUA_Modulo
             End If
         End Sub
 
+        ' [INÍCIO - ICTRL-NF-202509-002] - KPIs Home
+        '''<remarks/>
+        <System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Get_Dados_KPI", RequestNamespace:="http://tempuri.org/", ResponseNamespace:="http://tempuri.org/", Use:=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle:=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)>
+        Public Function Get_Dados_KPI(ByVal pPConn_Banco As String, ByVal pAcao As String) As System.Data.DataSet
+            Dim results() As Object = Me.Invoke("Get_Dados_KPI", New Object() {pPConn_Banco, pAcao})
+            Return CType(results(0), System.Data.DataSet)
+        End Function
+
+        '''<remarks/>
+        Public Overloads Sub Get_Dados_KPIAsync(ByVal pPConn_Banco As String, ByVal pAcao As String)
+            Me.Get_Dados_KPIAsync(pPConn_Banco, pAcao, Nothing)
+        End Sub
+
+        '''<remarks/>
+        Public Overloads Sub Get_Dados_KPIAsync(ByVal pPConn_Banco As String, ByVal pAcao As String, ByVal userState As Object)
+            If (Me.Get_Dados_KPIOperationCompleted Is Nothing) Then
+                Me.Get_Dados_KPIOperationCompleted = AddressOf Me.OnGet_Dados_KPIOperationCompleted
+            End If
+            Me.InvokeAsync("Get_Dados_KPI", New Object() {pPConn_Banco, pAcao}, Me.Get_Dados_KPIOperationCompleted, userState)
+        End Sub
+
+        Private Sub OnGet_Dados_KPIOperationCompleted(ByVal arg As Object)
+            If (Not (Me.Get_Dados_KPICompletedEvent) Is Nothing) Then
+                Dim invokeArgs As System.Web.Services.Protocols.InvokeCompletedEventArgs = CType(arg, System.Web.Services.Protocols.InvokeCompletedEventArgs)
+                RaiseEvent Get_Dados_KPICompleted(Me, New Get_Dados_KPICompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState))
+            End If
+        End Sub
+
+        '''<remarks/>
+        <System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Marcar_Fatura_Paga", RequestNamespace:="http://tempuri.org/", ResponseNamespace:="http://tempuri.org/", Use:=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle:=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)>
+        Public Function Marcar_Fatura_Paga(ByVal pPConn_Banco As String, ByVal pId_Fatura As Integer) As System.Data.DataSet
+            Dim results() As Object = Me.Invoke("Marcar_Fatura_Paga", New Object() {pPConn_Banco, pId_Fatura})
+            Return CType(results(0), System.Data.DataSet)
+        End Function
+
+        '''<remarks/>
+        Public Overloads Sub Marcar_Fatura_PagaAsync(ByVal pPConn_Banco As String, ByVal pId_Fatura As Integer)
+            Me.Marcar_Fatura_PagaAsync(pPConn_Banco, pId_Fatura, Nothing)
+        End Sub
+
+        '''<remarks/>
+        Public Overloads Sub Marcar_Fatura_PagaAsync(ByVal pPConn_Banco As String, ByVal pId_Fatura As Integer, ByVal userState As Object)
+            If (Me.Marcar_Fatura_PagaOperationCompleted Is Nothing) Then
+                Me.Marcar_Fatura_PagaOperationCompleted = AddressOf Me.OnMarcar_Fatura_PagaOperationCompleted
+            End If
+            Me.InvokeAsync("Marcar_Fatura_Paga", New Object() {pPConn_Banco, pId_Fatura}, Me.Marcar_Fatura_PagaOperationCompleted, userState)
+        End Sub
+
+        Private Sub OnMarcar_Fatura_PagaOperationCompleted(ByVal arg As Object)
+            If (Not (Me.Marcar_Fatura_PagaCompletedEvent) Is Nothing) Then
+                Dim invokeArgs As System.Web.Services.Protocols.InvokeCompletedEventArgs = CType(arg, System.Web.Services.Protocols.InvokeCompletedEventArgs)
+                RaiseEvent Marcar_Fatura_PagaCompleted(Me, New Marcar_Fatura_PagaCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState))
+            End If
+        End Sub
+        ' [FIM - ICTRL-NF-202509-002]
+
         '''<remarks/>
         Public Shadows Sub CancelAsync(ByVal userState As Object)
             MyBase.CancelAsync(userState)
@@ -1366,14 +1432,14 @@ Namespace WS_GUA_Modulo
      System.ComponentModel.DesignerCategoryAttribute("code")>  _
     Partial Public Class Monitoramento_DadosCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As System.Data.DataSet
             Get
@@ -1382,4 +1448,60 @@ Namespace WS_GUA_Modulo
             End Get
         End Property
     End Class
+
+    ' [INÍCIO - ICTRL-NF-202509-002] - KPIs Home
+    '''<remarks/>
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")>
+    Public Delegate Sub Get_Dados_KPICompletedEventHandler(ByVal sender As Object, ByVal e As Get_Dados_KPICompletedEventArgs)
+
+    '''<remarks/>
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0"),  _
+     System.Diagnostics.DebuggerStepThroughAttribute(),  _
+     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    Partial Public Class Get_Dados_KPICompletedEventArgs
+        Inherits System.ComponentModel.AsyncCompletedEventArgs
+
+        Private results() As Object
+
+        Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
+            MyBase.New(exception, cancelled, userState)
+            Me.results = results
+        End Sub
+
+        '''<remarks/>
+        Public ReadOnly Property Result() As System.Data.DataSet
+            Get
+                Me.RaiseExceptionIfNecessary
+                Return CType(Me.results(0),System.Data.DataSet)
+            End Get
+        End Property
+    End Class
+
+    '''<remarks/>
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")>
+    Public Delegate Sub Marcar_Fatura_PagaCompletedEventHandler(ByVal sender As Object, ByVal e As Marcar_Fatura_PagaCompletedEventArgs)
+
+    '''<remarks/>
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0"),  _
+     System.Diagnostics.DebuggerStepThroughAttribute(),  _
+     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    Partial Public Class Marcar_Fatura_PagaCompletedEventArgs
+        Inherits System.ComponentModel.AsyncCompletedEventArgs
+
+        Private results() As Object
+
+        Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
+            MyBase.New(exception, cancelled, userState)
+            Me.results = results
+        End Sub
+
+        '''<remarks/>
+        Public ReadOnly Property Result() As System.Data.DataSet
+            Get
+                Me.RaiseExceptionIfNecessary
+                Return CType(Me.results(0),System.Data.DataSet)
+            End Get
+        End Property
+    End Class
+    ' [FIM - ICTRL-NF-202509-002]
 End Namespace

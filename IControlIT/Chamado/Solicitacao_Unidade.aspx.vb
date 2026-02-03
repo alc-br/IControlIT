@@ -784,7 +784,7 @@ Public Class Solicitacao_Unidade
                                         oConfig.ValidaCampo(cboUnidadeAtivo.SelectedValue),
                                         Session("Id_Usuario"),
                                         "sd_Cria_Ativo_Solicitacao",
-                                        False, Nothing, Nothing, Nothing, Nothing, Nothing).Tables(0).Rows(0).Item(0)
+                                        False, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing).Tables(0).Rows(0).Item(0)
 
                 vMSGSolicitcao_Item = "Equipamento encaminhado para entrega pelo forncedor"
 
@@ -806,7 +806,7 @@ Public Class Solicitacao_Unidade
                                                         oConfig.ValidaCampo(txtNumeroAtivoUnidade.Text),
                                                         Nothing, Nothing, oConfig.ValidaCampo(cboConglomerado.SelectedValue), hdfId_Consumidor_Unidade.Value, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing,
                                                         "sd_Cancela_Numero_Serie",
-                                                        True, Nothing, Nothing, Nothing, Nothing, Nothing)
+                                                        True, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
 
                 If vDataSetCancelamento.Tables(0).Rows(0).Item("Validacao") = 1 Then
                     vMSGSolicitcao_Item = vDataSetCancelamento.Tables(0).Rows(0).Item("Msg")
@@ -922,7 +922,7 @@ Public Class Solicitacao_Unidade
                                                         Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing,
                                                         Session("Id_Usuario"),
                                                         "sd_Altera_Numero_Serie",
-                                                        False, Nothing, Nothing, Nothing, Nothing, Nothing).Tables(0).Rows(0).Item(0)
+                                                        False, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing).Tables(0).Rows(0).Item(0)
 
             If Mid(txtNumeroAtivoUnidade.Text, 1, 2) = "RQ" Then
                 btSalvarAtivo.Visible = True

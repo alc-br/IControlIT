@@ -50,7 +50,7 @@ Public Class Termo_Aceite
             Return
         End If
 
-        Dim dsDadosTermo As DataSet = WS_Cadastro.Ativo(pPConn_Banco, idAtivo, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, "sd_SL_Termo", True, Nothing, Nothing, Nothing, Nothing, Nothing)
+        Dim dsDadosTermo As DataSet = WS_Cadastro.Ativo(pPConn_Banco, idAtivo, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, "sd_SL_Termo", True, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
         If dsDadosTermo Is Nothing OrElse dsDadosTermo.Tables.Count = 0 OrElse dsDadosTermo.Tables(0).Rows.Count = 0 Then
             ExibirMensagem("Erro: Não foi possível carregar os dados do termo.", True)
             Return

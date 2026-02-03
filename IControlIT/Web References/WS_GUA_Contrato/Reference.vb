@@ -39,7 +39,9 @@ Namespace WS_GUA_Contrato
         Private Contrato_SLA_ServicoOperationCompleted As System.Threading.SendOrPostCallback
         
         Private Contrato_AditivoOperationCompleted As System.Threading.SendOrPostCallback
-        
+
+        Private Contrato_FiltroOperationCompleted As System.Threading.SendOrPostCallback
+
         Private useDefaultCredentialsSetExplicitly As Boolean
         
         '''<remarks/>
@@ -89,6 +91,9 @@ Namespace WS_GUA_Contrato
         
         '''<remarks/>
         Public Event Contrato_AditivoCompleted As Contrato_AditivoCompletedEventHandler
+
+        '''<remarks/>
+        Public Event Contrato_FiltroCompleted As Contrato_FiltroCompletedEventHandler
 
         '''<remarks/>
         <System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Contrato", RequestNamespace:="http://tempuri.org/", ResponseNamespace:="http://tempuri.org/", Use:=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle:=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)>
@@ -197,7 +202,36 @@ Namespace WS_GUA_Contrato
                 RaiseEvent Contrato_AditivoCompleted(Me, New Contrato_AditivoCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState))
             End If
         End Sub
-        
+
+        ' [INÍCIO - ICTRL-NF-202509-002] - Filtro Contratos
+        '''<remarks/>
+        <System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Contrato_Filtro", RequestNamespace:="http://tempuri.org/", ResponseNamespace:="http://tempuri.org/", Use:=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle:=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)>
+        Public Function Contrato_Filtro(ByVal pPConn_Banco As String, ByVal pId_Contrato_Status As Integer, ByVal pDias_Vencimento As Integer) As System.Data.DataSet
+            Dim results() As Object = Me.Invoke("Contrato_Filtro", New Object() {pPConn_Banco, pId_Contrato_Status, pDias_Vencimento})
+            Return CType(results(0), System.Data.DataSet)
+        End Function
+
+        '''<remarks/>
+        Public Overloads Sub Contrato_FiltroAsync(ByVal pPConn_Banco As String, ByVal pId_Contrato_Status As Integer, ByVal pDias_Vencimento As Integer)
+            Me.Contrato_FiltroAsync(pPConn_Banco, pId_Contrato_Status, pDias_Vencimento, Nothing)
+        End Sub
+
+        '''<remarks/>
+        Public Overloads Sub Contrato_FiltroAsync(ByVal pPConn_Banco As String, ByVal pId_Contrato_Status As Integer, ByVal pDias_Vencimento As Integer, ByVal userState As Object)
+            If (Me.Contrato_FiltroOperationCompleted Is Nothing) Then
+                Me.Contrato_FiltroOperationCompleted = AddressOf Me.OnContrato_FiltroOperationCompleted
+            End If
+            Me.InvokeAsync("Contrato_Filtro", New Object() {pPConn_Banco, pId_Contrato_Status, pDias_Vencimento}, Me.Contrato_FiltroOperationCompleted, userState)
+        End Sub
+
+        Private Sub OnContrato_FiltroOperationCompleted(ByVal arg As Object)
+            If (Not (Me.Contrato_FiltroCompletedEvent) Is Nothing) Then
+                Dim invokeArgs As System.Web.Services.Protocols.InvokeCompletedEventArgs = CType(arg, System.Web.Services.Protocols.InvokeCompletedEventArgs)
+                RaiseEvent Contrato_FiltroCompleted(Me, New Contrato_FiltroCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState))
+            End If
+        End Sub
+        ' [FIM - ICTRL-NF-202509-002]
+
         '''<remarks/>
         Public Shadows Sub CancelAsync(ByVal userState As Object)
             MyBase.CancelAsync(userState)
@@ -308,14 +342,14 @@ Namespace WS_GUA_Contrato
      System.ComponentModel.DesignerCategoryAttribute("code")>  _
     Partial Public Class Contrato_AditivoCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
+
         Private results() As Object
-        
+
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-        
+
         '''<remarks/>
         Public ReadOnly Property Result() As System.Data.DataSet
             Get
@@ -324,4 +358,33 @@ Namespace WS_GUA_Contrato
             End Get
         End Property
     End Class
+
+    ' [INÍCIO - ICTRL-NF-202509-002] - Filtro Contratos
+    '''<remarks/>
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")>
+    Public Delegate Sub Contrato_FiltroCompletedEventHandler(ByVal sender As Object, ByVal e As Contrato_FiltroCompletedEventArgs)
+
+    '''<remarks/>
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0"),  _
+     System.Diagnostics.DebuggerStepThroughAttribute(),  _
+     System.ComponentModel.DesignerCategoryAttribute("code")>  _
+    Partial Public Class Contrato_FiltroCompletedEventArgs
+        Inherits System.ComponentModel.AsyncCompletedEventArgs
+
+        Private results() As Object
+
+        Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
+            MyBase.New(exception, cancelled, userState)
+            Me.results = results
+        End Sub
+
+        '''<remarks/>
+        Public ReadOnly Property Result() As System.Data.DataSet
+            Get
+                Me.RaiseExceptionIfNecessary
+                Return CType(Me.results(0),System.Data.DataSet)
+            End Get
+        End Property
+    End Class
+    ' [FIM - ICTRL-NF-202509-002]
 End Namespace

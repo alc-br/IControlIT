@@ -55,7 +55,7 @@ Partial Public Class Termo_Devolucao_Ativo
 
             vDataSet = WS_Cadastro.Ativo(Session("Conn_Banco"), Request("Id_Ativo"), Nothing, Nothing, Nothing, Nothing, Nothing, Nothing,
                       Nothing, Nothing, Nothing, Nothing, Nothing,
-                      Nothing, "sd_SL_Termo", True, Nothing, Nothing, Nothing, Nothing, Nothing)
+                      Nothing, "sd_SL_Termo", True, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
 
             Dim vDataView As System.Data.DataView
             vDataView = New Data.DataView(vDataSet.Tables(0), "Id_Consumidor = " & Request("Id_Consumidor"), Nothing, Data.DataViewRowState.OriginalRows)
