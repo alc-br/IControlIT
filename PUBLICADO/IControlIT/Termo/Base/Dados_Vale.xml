@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<xml>
+  
+  <!-- Termo para devolucao (CELUALR)****************************************************************************** -->
+  <Devolucao_Telefonia_Movel>
+    <Titulo>TERMO DE DECLARAÇÃO E  DE EQUIPAMENTO TELEFONE CELULAR</Titulo>
+    <Texto1>declaro haver devolvido, o equipamento e acessórios abaixo descritos, o qual se destinou exclusivamente para uso a serviço da </Texto1>
+	<Texto2> e que ficou sob minha responsabilidade.</Texto2>
+    <Linha>Linha: </Linha>
+    <AtivoTipo>Tipo: </AtivoTipo>
+    <Operadora>Operadora: </Operadora>
+	<Filial>Unidade: </Filial>
+    <DadosUsuario>Dados do usuário(a):</DadosUsuario>
+    <Nome>Usuário: </Nome>
+    <Login>Login: </Login>
+    <CentroCusto>CDC: </CentroCusto>
+    <Matricula>Matricula: </Matricula>
+    <Departamento>Departamento: </Departamento>
+    <Ciente>Informo ciência do(s) seguinte(s)aparelho(s): </Ciente>
+    <DadosAparelho>Dados do(s) aparelho(s):</DadosAparelho>
+    <MarcaModelo>Modelo: </MarcaModelo>
+    <ImeiAparelho>IMEI: </ImeiAparelho>
+    <ChipAparelho>Chip: </ChipAparelho>
+    <Acessorio>Acessórios: </Acessorio>
+    <Acessorios>Acessório(s): </Acessorios>
+	<Data_1>Data da Devolução </Data_1>
+	<Data_Texto_1>__________________________________________________</Data_Texto_1>
+	<Obs> </Obs>
+
+    <Linha_Assinatura_1>__________________________________________________</Linha_Assinatura_1>
+    <Linha_Assinatura_2>__________________________________________________</Linha_Assinatura_2>
+    <Linha_Assinatura_3>__________________________________________________</Linha_Assinatura_3>
+    
+    <Assinatura_1>Nome/RG</Assinatura_1>
+    <Assinatura_2>1)Testemunha/RG</Assinatura_2>
+    <Assinatura_3>2)Testemunha/RG</Assinatura_3>
+  </Devolucao_Telefonia_Movel>
+
+  <!-- Termo de entrega (Celular)****************************************************************************** -->
+  <Telefonia_Movel>
+    <titulo>TERMO DE DECLARAÇÃO E COMPROMISSO </titulo>
+    <subtitulo> </subtitulo>
+
+    <DadosUsuario></DadosUsuario>
+    <Ciente></Ciente>
+    <DadosAparelho></DadosAparelho>
+
+    <linha>Linha: </linha>
+	<Operadora>Operadora: </Operadora>	  
+    <Login>Login: </Login>
+    <Filial>Unidade: </Filial>
+    <Matricula>Matricula: </Matricula>
+    <CentroCusto>CDC: </CentroCusto>
+    <Departamento>Departamento: </Departamento>
+	<Data_1>Localidade/Data:</Data_1>
+	<Data_2></Data_2>
+	<Data_Texto_1>__________________________________________________</Data_Texto_1>
+	<Data_Texto_2></Data_Texto_2>
+	  
+    <texto1></texto1>
+    <texto2>, brasileiro (a), portador (a) da matrícula:</texto2>
+    <texto3>, DECLARA E COMPROMETE:</texto3>
+    <texto3_1>1.	Que recebe neste ato, o aparelho abaixo descriminado em REGIME DE COMODATO (item 5), estando o mesmo em perfeito estado de conservação e funcionamento; </texto3_1>
+    <texto3_2>      </texto3_2>
+    <texto3_3>2.	A fazer o devido uso do referido aparelho e seus dispositivos, cuidando e conservando o mesmo, bem como, restituí-lo quando solicitado pela COMODANTE; </texto3_3>
+    <texto3_4>    </texto3_4>
+    <texto3_5>3.	Que quando a COMODANTE requisitar o aparelho, o mesmo deverá ser entregue no prazo máximo de 03(três) dias pela COMODATÁRIA, bem como, em caso da rescisão do contrato de trabalho.</texto3_5>
+    <texto3_6>     </texto3_6>
+    <texto3_7>4.	Em caso de danificação, perda, furto, roubo e/ou qualquer situação que impossibilita a devolução do aparelho a DECLARANTE deverá restituir o valor vigente do aparelho ao COMODANTE; </texto3_7>
+    <texto3_8> </texto3_8>
+    <texto3_9>5.	DESCRIÇÃO DO APARELHO E ACESSÓRIOS  </texto3_9>
+    <texto3_10> IMEI/CHIP:</texto3_10>
+    <texto9> </texto9>
+    <texto10></texto10>
+    <texto11></texto11>
+    <texto12></texto12>
+    <texto13></texto13>
+    <texto14></texto14>
+    <texto15></texto15>
+    <texto16></texto16>
+    <texto17></texto17>
+    <texto18></texto18>
+    <texto19></texto19>
+
+    <texto20>Dados para uso de TI Comunicações:</texto20>
+    <MarcaModeloAparelho>Marca/Modelo:</MarcaModeloAparelho>
+    <TipoAtivo>Tipo/Ativo:</TipoAtivo>
+    <ImeiAparelho>IMEI: </ImeiAparelho>
+    <ChipAparelho>Chip: </ChipAparelho>
+    <Acessorio>Acessórios: </Acessorio>
+    <NotaFiscal>Nota Fiscal: </NotaFiscal>
+
+    <texto22></texto22>
+    <texto23></texto23>
+    <texto24></texto24>
+
+	<Assinatura_1></Assinatura_1>
+    <Assinatura_2></Assinatura_2>
+    <Assinatura_3>Nome:</Assinatura_3>
+	<Assinatura_4>Assinatura do Cliente:</Assinatura_4>
+	<Assinatura_5></Assinatura_5>
+	<Assinatura_6></Assinatura_6>
+
+	<Linha_Assinatura_1>__________________________________________________</Linha_Assinatura_1>
+	<Linha_Assinatura_2></Linha_Assinatura_2>
+	<Linha_Assinatura_3>__________________________________________________</Linha_Assinatura_3>
+	<Linha_Assinatura_4></Linha_Assinatura_4>
+	<Linha_Assinatura_5></Linha_Assinatura_5>
+	<Linha_Assinatura_6>_______________________________________________________________</Linha_Assinatura_6>
+	  
+	  <TextoAceite>realizou o aceite do termo no dia:</TextoAceite>
+	  
+  </Telefonia_Movel>
+ 
+</xml>

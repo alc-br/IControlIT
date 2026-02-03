@@ -1,0 +1,227 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<xml>
+  
+  <!-- Termo para devolucao (CELUALR)****************************************************************************** -->
+  <Devolucao_Telefonia_Movel>
+    <Titulo>TERMO DE DEVOLUÇÃO DE APARELHO </Titulo>
+    <Texto1>declaro haver devolvido, o equipamento e acessórios abaixo descritos, o qual se destinou exclusivamente para uso a serviço da </Texto1>
+	<Texto2> e que ficou sob minha responsabilidade.</Texto2>
+    <Linha>Linha: </Linha>
+    <AtivoTipo>Tipo: </AtivoTipo>
+    <Operadora>Operadora: </Operadora>
+    <DadosUsuario>Dados do usuário(a):</DadosUsuario>
+    <Nome>Usuário: </Nome>
+    <Login>Login: </Login>
+	<Filial>Filial: </Filial>  
+    <CentroCusto>CDC: </CentroCusto>
+    <Matricula>Matricula: </Matricula>
+    <Departamento>Departamento: </Departamento>
+    <Ciente>Informo ciência do(s) seguinte(s)aparelho(s): </Ciente>
+    <DadosAparelho>Dados do(s) aparelho(s):</DadosAparelho>
+    <MarcaModelo>Modelo: </MarcaModelo>
+    <ImeiAparelho>IMEI: </ImeiAparelho>
+    <ChipAparelho>Chip: </ChipAparelho>
+    <Acessorio>Acessórios: </Acessorio>
+    <Acessorios>Acessório(s): </Acessorios>
+	<Data_1>Data da Devolução </Data_1>
+	<Data_Texto_1>__________________________________________________</Data_Texto_1>	  
+    <Obs> </Obs>
+
+    <Linha_Assinatura_1>______________________________</Linha_Assinatura_1>
+    <Linha_Assinatura_2>______________________________</Linha_Assinatura_2>
+    <Linha_Assinatura_3>______________________________</Linha_Assinatura_3>    
+    
+    <Assinatura_1>Nome/RG</Assinatura_1>
+    <Assinatura_2>1)Testemunha/RG</Assinatura_2>
+    <Assinatura_3>2)Testemunha/RG</Assinatura_3>
+  </Devolucao_Telefonia_Movel>
+
+  <!-- Termo para devolucao (DESKTOP)****************************************************************************** -->
+  <Devolucao_Desktop>
+    <Titulo>TERMO DE DEVOLUÇÃO DE EQUIPAMENTO </Titulo>
+    <Texto1>declaro haver devolvido, o equipamento e acessórios abaixo descritos, o qual se destinou exclusivamente para uso a serviço da </Texto1>
+	<Texto2> e que ficou sob minha responsabilidade.</Texto2>
+	<Equipamento>Equipamento: </Equipamento>
+    <NS>Número de Série: </NS>
+    <Modelo>Modelo: </Modelo>
+    <Codigo>Código de TI:</Codigo>
+    <Acessorio>Acessório: </Acessorio>
+    <DadosUsuario>Dados do usuário(a):</DadosUsuario>
+    <Login>Login: </Login>
+    <CentroCusto>CDC: </CentroCusto>
+    <Matricula>Matricula: </Matricula>
+    <Departamento>Departamento: </Departamento>
+    <Ciente>Informo ciência do(s) seguinte(s)aparelho(s): </Ciente>
+    <DadosAparelho>Dados do(s) aparelho(s):</DadosAparelho>
+    <Obs>Recebido por:</Obs>
+    <Assinatura_1>Nome/RG</Assinatura_1>
+    <Assinatura_2>1)Testemunha/RG</Assinatura_2>
+    <Assinatura_3>2)Testemunha/RG</Assinatura_3>
+  </Devolucao_Desktop>
+  
+  <!-- Termo de entrega (Celular)****************************************************************************** -->
+  <Telefonia_Movel>
+    <titulo>TERMO DE RESPONSABILIDADE DE UTILIZAÇÃO DE CELULAR CORPORATIVO</titulo>
+    <subtitulo></subtitulo>
+
+    <DadosUsuario>Sodexo do Brasil Comercial Ltda., com sua principal sede à Av. Ibirapuera, 1196, inscrito no CGC sob o número 49.930.514-0001-35 e inscrição estadual 110.368.794.112, DECLARA que o equipamento descrito abaixo está sob responsabilidade do funcionário (a): </DadosUsuario>
+    <Ciente>Informo ciência do(s) seguinte(s)aparelho(s) e ou acessório(s)</Ciente>
+    <DadosAparelho></DadosAparelho>
+
+    <linha>Linha: </linha>
+	<Operadora>Operadora: </Operadora>
+    <Login>Login: </Login>
+    <Filial>Unidade: </Filial>
+    <Matricula>Matricula: </Matricula>
+    <CentroCusto>CDC: </CentroCusto>
+    <Departamento>Departamento: </Departamento>
+    <Data_1>Data da Entrega </Data_1>
+	<Data_2>Data da Devolução </Data_2>
+	<Data_Texto_1>__________________________________________________</Data_Texto_1>
+	<Data_Texto_2>__________________________________________________</Data_Texto_2>
+	  
+	  
+    <texto1>Eu,</texto1>
+
+    <texto2>, declaro para os fins de direito que recebi do meu empregador o equipamento descrito acima, de sua propriedade, obrigando-me a:  </texto2>
+
+    <texto3>1. A Empregadora concederá ao Empregado, exclusivamente para o exercício da função contratada, o Celular Corporativo por ela fornecido, cujos dados seguem abaixo transcritos (ou conforme disponibilidade).</texto3>
+    
+    <texto3_1>2. O Celular Corporativo deverá ser utilizado única e exclusivamente para o trabalho contratualmente pactuada, ficando, bem como qualquer outra utilização do mesmo, inclusive fins particulares, sob pena de constituir falta administrativa, nos termos da disposição contida na legislação trabalhista.</texto3_1>
+
+    <texto3_2>3. O Empregado será responsável pela guarda e conservação do bem e acessórios que o guarnecem, respondendo por eventuais danos ou perdas a que der causa, mediante comprovação, fornecido pela Empregadora, inclusive direito de ressarcimento pela Empregadora, dependendo da situação, concordando e autorizando, desde já, a aplicar o disposto contido no item 06 do presente Termo de Responsabilidade.</texto3_2>
+
+    <texto3_3>4. O Empregado será responsável pelos danos e avarias que cometer no celular corporativo, concordando e autorizando a Empresa, desde já, aplicar o disposto contido no item 06 do presente Termo de Responsabilidade, podendo, inclusive, ser desdobrada em parcelas mensais por meio de comum acordo expresso entre as partes, em caso de culpa, através de documento próprio a ser celebrado posteriormente.</texto3_3>
+
+    <texto3_4>5. Fica vedado à troca do celular corporativo entre Empregados sem o conhecimento e autorização expressa do Departamento de Controle.</texto3_4>
+
+    <texto3_5>6. O Empregado, desde já, concorda e autoriza a Empregadora a efetivar o desconto nas verbas de que for credor, em decorrência da vigência do Contrato Individual de Trabalho, inclusive verbas rescisórias, quanto ao prejuízo causado por negligência, imprudência ou imperícia, em razão de avaria ou dano causado ao Celular Corporativo, ora fornecido, bem como dos respectivos acessórios, mediante comprovação, nos termos do disposto no parágrafo primeiro do artigo 462, da Consolidação das Leis de Trabalho.</texto3_5>
+
+    <texto3_6>7. A utilização do Celular Corporativo, em desconformidade com as condições descritas no presente termo, poderá ensejar a responsabilidade civil e criminal do infrator, sem prejuízo das penalidades aplicáveis com fundamento na legislação trabalhista.</texto3_6>
+
+    <texto3_7>8. A Empregadora responderá pelas despesas das contas do Celular Corporativo fornecido ao Empregado.</texto3_7>
+    
+    <texto3_8>9. Na eventualidade de rescisão contratual, estando o Empregado de posse do Celular Corporativo fornecido, fica este profissional obrigado a restituir o Celular Corporativo Imediatamente, a partir da comunicação da dispensa, bem como os respectivos acessórios.</texto3_8>
+    
+    <texto3_9>10. Devolver o bem por simples solicitação do empregador, ou quando da rescisão do meu contrato de trabalho, ou vir a ocupar um cargo não elegível a utilizar Celular;</texto3_9>
+
+    <texto3_10>11. Permanecerão inalteradas todas as demais cláusulas do contrato individual de trabalho. E por estarem justos e acertados, firmam o presente em duas vias de igual teor e forma. salto_Linha 12. Declaro ainda estar ciente do procedimento EMP_REB_07 onde estão descritas todas as regras de utilização do celular, além das já citada nesse termo. salto_Linha 13. A não devolução de uma via do Termo assinado para a Central de Serviços de Ti implicará no bloqueio do aparelho. salto_Linha . salto_Linha .</texto3_10>
+    
+    <texto9></texto9>
+    
+    <texto10> Os Aparelhos na devolução devem vir acompanhados dos respectivos acessórios:</texto10>
+    <texto11>Enviado com Marcar o que foi recebido Marcar o que foi devolvido salto_Linha </texto11>
+	<texto12></texto12> 
+    <texto13>APARELHO.............: (___) ______________________________ (___) ______________________________ salto_Linha . </texto13>
+    <texto14>CHIP SIM CARD.....: (___) ______________________________ (___) ______________________________ salto_Linha . </texto14>
+    <texto15>CARREGADOR......: (___) ______________________________ (___) ______________________________ salto_Linha . </texto15>
+    <texto16>BATERIA.................: (___) ______________________________ (___) ______________________________ salto_Linha . </texto16>
+    <texto17>FONE DE OUVIDO.: (___) ______________________________ (___) ______________________________ salto_Linha . </texto17>
+    <texto18></texto18>
+    <texto19>1. Na falta destes ocorrendo cobrança da operadora será debitado do seu Centro de Custo. salto_Linha 2. Em hipótese alguma chip de um aparelho deve ser colocado em outro, pois tal ocorrência ocasiona o bloqueio dos aparelhos e dos respectivos chips. salto_Linha 3. Ao receber devolver 1 via assinada (entrega). Na devolução do aparelho devolver a via que ficou com usuário juntamente com aparelho (devolução).</texto19>
+
+    <MarcaModeloAparelho>Marca/Modelo:</MarcaModeloAparelho>
+    <TipoAtivo>Tipo/Ativo:</TipoAtivo>
+    <ImeiAparelho>IMEI: </ImeiAparelho>
+    <ChipAparelho>Chip: </ChipAparelho>
+    <Acessorio>Acessórios: </Acessorio>
+    <NotaFiscal>Nota Fiscal: </NotaFiscal>
+
+    <texto22></texto22>
+    <texto23></texto23>
+    <texto24></texto24>
+
+    <Assinatura_1>Telecom and Telephony Management Leader</Assinatura_1>
+    <Assinatura_2></Assinatura_2>
+    <Assinatura_3>Responsável</Assinatura_3>
+	<Assinatura_4>Telecom and Telephony Management Leader</Assinatura_4>
+	<Assinatura_5></Assinatura_5>
+	<Assinatura_6>Responsável</Assinatura_6>	  
+	 
+	<Linha_Assinatura_1>______</Linha_Assinatura_1>
+    <Linha_Assinatura_2></Linha_Assinatura_2>
+    <Linha_Assinatura_3>______________________________</Linha_Assinatura_3>
+	<Linha_Assinatura_4>______________________________</Linha_Assinatura_4>
+	<Linha_Assinatura_5></Linha_Assinatura_5>
+	<Linha_Assinatura_6>______________________________</Linha_Assinatura_6>	
+	 
+  </Telefonia_Movel>
+
+  <!-- Termo de entrega (Desktop)****************************************************************************** -->
+  <Desktop>
+    <titulo>TERMO DE RESPONSABILIDADE </titulo>
+    <subtitulo>Equipamento</subtitulo>
+
+    <DadosUsuario>Dados do usuário(a):</DadosUsuario>
+    <Ciente>Informo ciência do(s) seguinte(s)aparelho(s) e ou acessório(s)</Ciente>
+    <DadosAparelho></DadosAparelho>
+
+    <linha>Linha: </linha>
+    <Login>Login: </Login>
+    <Filial>Unidade: </Filial>
+    <Matricula>Matricula: </Matricula>
+    <CentroCusto>CDC: </CentroCusto>
+    <Departamento>Departamento: </Departamento>
+    <Data>Data: </Data>
+    <texto1>Eu,</texto1>
+
+    <texto2>, declaro haver recebido o equipamento acima descrito, o qual se destina exclusivamente para uso da Companhia e que ficará sob minha responsabilidade. </texto2>
+
+    <texto3>Declaro estar ciente que:</texto3>
+
+    <texto3_1>1) Devo zelar pela integridade do EQUIPAMENTO que me foi confiado estritamente como instrumento de trabalho, obrigando-me, desde já e a qualquer tempo, mediante solicitação da Empresa, a restituí-lo temporária ou definitivamente ou por ocasião de meu desligamento da Empresa, independentemente do motivo.</texto3_1>
+
+    <texto3_2>2) Deverei arcar com os custos de danos causados ao EQUIPAMENTO, na forma do artigo 462 da CLT.</texto3_2>
+
+    <texto3_3>3) Deverei comunicar imediatamente a Empresa a perda, extravio, dano, furto ou roubo do EQUIPAMENTO que me foi confiado, devidamente documentado em Boletim de Ocorrência.</texto3_3>
+
+    <texto3_4>4) É vedado o uso do EQUIPAMENTO para fins particulares.</texto3_4>
+
+    <texto3_5>5) Devo seguir as recomendações abaixo:</texto3_5>
+
+    <texto3_6>5.1. Manter o EQUIPAMENTO em local seguro e em condições de uso normal, ou seja, não submeter o EQUIPAMENTO à umidade, exposição ao sol, chuva, oscilação de energia, etc;</texto3_6>
+
+    <texto3_7>5.2. Em hipótese alguma, deixar o EQUIPAMENTO no interior de veículos, em função do risco de furto;</texto3_7>
+
+    <texto3_8>5.3. Não permitir que terceiros utilizem o EQUIPAMENTO, com a finalidade de proteger as informações confidenciais que são de propriedade da Empresa;</texto3_8>
+
+    <texto3_9>5.4. Seguir as orientações contidas no Manual do Usuário e do Certificado de Garantia do EQUIPAMENTO; </texto3_9>
+
+    <texto3_10>6) Autorizo, desde já, que seja descontado de meu salário a importância equivalente ao valor do EQUIPAMENTO caso não o restitua à Empresa, quando solicitado, e ainda na hipótese de culpa ou dolo devidamente comprovado.</texto3_10>
+
+    <texto9> Este documento deve ser emitido em duas vias sendo que a primeira deve ser arquivada no prontuário do funcionário.</texto9>
+
+    <texto10></texto10>
+
+    <texto11></texto11>
+
+    <texto12></texto12>
+
+    <texto13></texto13>
+    <texto14></texto14>
+    <texto15></texto15>
+    <texto16></texto16>
+    <texto17></texto17>
+    <texto18></texto18>
+    <texto19></texto19>
+
+    <texto20>Dados para uso de TI Comunicações:</texto20>
+
+    <Equipamento>Equipamento: </Equipamento>
+    <Codigo_TI>Código TI:</Codigo_TI>
+    <Numero_Serie>Número Série:</Numero_Serie>
+    <Modelo>Modelo: </Modelo>
+    <Patrimonio>Patrimonio: </Patrimonio>
+    <Acessorio>Acessórios: </Acessorio>
+    
+    <texto21></texto21>
+    <texto22></texto22>
+    <texto23></texto23>
+    <texto24></texto24>
+
+    <Assinatura_1>Nome/RG</Assinatura_1>
+    <Assinatura_2>1)Testemunha/RG</Assinatura_2>
+    <Assinatura_3>2)Testemunha/RG</Assinatura_3>
+
+  </Desktop>
+</xml>

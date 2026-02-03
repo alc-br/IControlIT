@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<xml>
+  
+  <!-- Termo para devolucao (CELUALR)****************************************************************************** -->
+  <Devolucao_Telefonia_Movel>
+    <Titulo>TERMO DE RESPONSABILIDADE DE EQUIPAMENTO TELEFONE CELULAR</Titulo>
+    <Texto1>declaro haver devolvido, o equipamento e acessórios abaixo descritos, o qual se destinou exclusivamente para uso a serviço da </Texto1>
+	<Texto2> e que ficou sob minha responsabilidade.</Texto2>
+    <Linha>Linha: </Linha>
+    <AtivoTipo>Tipo: </AtivoTipo>
+    <Operadora>Operadora: </Operadora>
+	<Filial>Unidade: </Filial>
+    <DadosUsuario>Dados do usuário(a):</DadosUsuario>
+    <Nome>Usuário: </Nome>
+    <Login>Login: </Login>
+    <CentroCusto>CDC: </CentroCusto>
+    <Matricula>Matricula: </Matricula>
+    <Departamento>Departamento: </Departamento>
+    <Ciente>Informo ciência do(s) seguinte(s)aparelho(s): </Ciente>
+    <DadosAparelho>Dados do(s) aparelho(s):</DadosAparelho>
+    <MarcaModelo>Modelo: </MarcaModelo>
+    <ImeiAparelho>IMEI: </ImeiAparelho>
+    <ChipAparelho>Chip: </ChipAparelho>
+    <Acessorio>Acessórios: </Acessorio>
+    <Acessorios>Acessório(s): </Acessorios>
+	<Data_1>Data da Devolução </Data_1>
+	<Data_Texto_1>__________________________________________________</Data_Texto_1>
+	<Obs> </Obs>
+
+    <Linha_Assinatura_1>______________________________</Linha_Assinatura_1>
+    <Linha_Assinatura_2>______________________________</Linha_Assinatura_2>
+    <Linha_Assinatura_3>______________________________</Linha_Assinatura_3>
+    
+    <Assinatura_1>Nome/RG</Assinatura_1>
+    <Assinatura_2>1)Testemunha/RG</Assinatura_2>
+    <Assinatura_3>2)Testemunha/RG</Assinatura_3>
+  </Devolucao_Telefonia_Movel>
+
+  <!-- Termo de entrega (Celular)****************************************************************************** -->
+  <Telefonia_Movel>
+    <titulo>TERMO DE RESPONSABILIDADE </titulo>
+    <subtitulo>TELEFONIA MÓVEL</subtitulo>
+
+    <DadosUsuario>1.Responsável</DadosUsuario>
+    <Ciente>2.Equipamento</Ciente>
+    <DadosAparelho></DadosAparelho>
+
+    <linha>Linha: </linha>
+	<Operadora>Operadora: </Operadora>	  
+    <Login>Login: </Login>
+    <Filial>Unidade: </Filial>
+    <Matricula>Matricula: </Matricula>
+    <CentroCusto>CDC: </CentroCusto>
+    <Departamento>Departamento: </Departamento>
+	<Data_1>Data da Entrega </Data_1>
+	<Data_2></Data_2>
+	<Data_Texto_1>__________________________________________________</Data_Texto_1>
+	<Data_Texto_2></Data_Texto_2>
+	  
+    <texto1>Eu,</texto1>
+
+    <texto2>, declaro ter recebido nesta data o aparelho celular descrito no item “2” de propriedade do Grupo United Health Brasil, em perfeito estado de funcionamento. </texto2>
+
+    <texto3>Estar ciente das normas e disposições internas da empresa relacionadas à Política de Uso de Celulares, disponível no the hub (Intranet), assumindo o compromisso de respeitá-las integralmente, bem como, informar à área de Telecomunicações, toda e qualquer alteração das informações contidas no item “1”;
+	Estar ciente de que o referido equipamento somente deverá ser utilizado para serviços profissionais relacionados ao trabalho por ele desenvolvido, vedada qualquer utilização em caráter pessoal.
+	Ressarcir a empresa, através de desconto em folha de pagamento quando o aparelho for extraviado ou danificado por mau uso; Em caso de perda ou roubo do equipamento, irá entrar imediatamente (1ª hora útil) em contato com a área de Telecomunicações informando o responsável o ocorrido e em até 5 (cinco) dias úteis realizar a abertura de chamado através do Support Center e anexar o respectivo boletim de ocorrências.
+	Comprometer-se a devolver imediatamente o equipamento cedido em perfeitas condições de uso, acompanhado dos acessórios relacionados no item “2”, e funcionamento em caso de rescisão ou término de seu vínculo contratual com a UnitedHealth Group ou </texto3>
+    <texto3_1>Que todas as informações geradas ou presentes no equipamento são pertencentes à UnitedHealth Group Brasil e não poderão ser utilizadas ou divulgadas para quaisquer fins que não sejam os pertinentes às atividades profissionais exercidas por ele (a) na empresa.
+	Assumir o compromisso de não utilizar, revelar ou divulgar a terceiros, de modo algum, direta ou indiretamente, em proveito próprio ou de terceiros, qualquer informação, confidencial ou não, que tenha ou venha a ter conhecimento em razão de suas funções na UnitedHealth Group Brasil, mesmo depois de terminado o vínculo contratual mantido com a empresa. Estar ciente de que é sua responsabilidade restringir, através de senha pessoal, o acesso às informações contidas no equipamento, conforme os padrões de segurança definidos pela UnitedHealth Group Brasil, que são de seu conhecimento e entendimento.
+	Estar ciente de que não poderá transferir seus direitos ou confiar a ninguém os direitos do presente termo, sendo qualquer intento nulo, sem que tenha prévio consentimento por escrito do time de Gestão de Ativos.
+	Manifestar e reafirmar neste ato sua concordância expressa com os direitos e obrigações regulamentadas pela Política de Segurança da Informação, bem como demais políticas e normas internas da UnitedHealth Group, quer seja de seu conhecimento por relação direta de trabalho, ou através da empresa para a qual trabalha como contratado (a) ou fornecedor (a) da empresa. Reconhece ainda que é seu dever estar atualizado (a) com as normas da empresa, devendo sempre buscar as informações necessárias sobre as mesmas para o correto exercício de suas funções.
+	Estar ciente de que o não cumprimento dos compromissos assumidos neste instrumento, acarretará violação de conduta da empresa e desobediência à ordem que foi dirigida, ensejando exame da conduta sob o aspecto disciplinar na hipótese de funcionário (a), ou rescisão de contrato com aplicação da cláusula de multa na hipótese de prestação de serviço terceirizado através de parceiro ou empresa fornecedora da UnitedHealth Group, sem prejuízo de arcar pessoalmente com os danos morais e materiais dela decorrentes, e das sanções penais cabíveis. </texto3_1>
+
+    <texto3_2> </texto3_2>
+    <texto3_3> </texto3_3>
+    <texto3_4> </texto3_4>
+    <texto3_5> </texto3_5>
+    <texto3_6> </texto3_6>
+    <texto3_7> </texto3_7>
+    <texto3_8> </texto3_8>
+    <texto3_9> Por fim, manifesta neste ato sua concordância expressa com todas as cláusulas acima, assinando o presente Termo de </texto3_9>
+    <texto3_10> Responsabilidade como prova de seu livre e espontâneo aceite. </texto3_10>
+    <texto9> </texto9>
+    <texto10></texto10>
+    <texto11></texto11>
+    <texto12></texto12>
+    <texto13></texto13>
+    <texto14></texto14>
+    <texto15></texto15>
+    <texto16></texto16>
+    <texto17></texto17>
+    <texto18></texto18>
+    <texto19></texto19>
+
+    <texto20>Dados para uso de TI Comunicações:</texto20>
+    <MarcaModeloAparelho>Marca/Modelo:</MarcaModeloAparelho>
+    <TipoAtivo>Tipo/Ativo:</TipoAtivo>
+    <ImeiAparelho>IMEI: </ImeiAparelho>
+    <ChipAparelho>Chip: </ChipAparelho>
+    <Acessorio>Acessórios: </Acessorio>
+    <NotaFiscal>Nota Fiscal: </NotaFiscal>
+
+    <texto22></texto22>
+    <texto23></texto23>
+    <texto24></texto24>
+
+	<Assinatura_1>Nome completo/CPF</Assinatura_1>
+    <Assinatura_2></Assinatura_2>
+    <Assinatura_3></Assinatura_3>
+	<Assinatura_4></Assinatura_4>
+	<Assinatura_5></Assinatura_5>
+	<Assinatura_6></Assinatura_6>
+
+	<Linha_Assinatura_1>______________________________</Linha_Assinatura_1>
+	<Linha_Assinatura_2></Linha_Assinatura_2>
+	<Linha_Assinatura_3></Linha_Assinatura_3>
+	<Linha_Assinatura_4></Linha_Assinatura_4>
+	<Linha_Assinatura_5></Linha_Assinatura_5>
+	<Linha_Assinatura_6></Linha_Assinatura_6>	  
+	  
+  </Telefonia_Movel>
+ 
+</xml>

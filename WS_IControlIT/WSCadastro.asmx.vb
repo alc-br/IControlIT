@@ -1653,4 +1653,354 @@ Public Class WSCadastro
         Return Me.Termo_Aceite_AgendarComEmail(pPConn_Banco, pAcao, pId_Consumidor, pId_Ativo, pHash_Acesso, pEmail_EnviadoPara, Nothing, Nothing, Nothing)
     End Function
     ' [FIM - ICTRL-NF-202506-026]
+    '----- [NOVO MÉTODO PARA PARÂMETROS ANIMA] -----
+    <WebMethod()>
+    Public Function Parametros_Anima(ByVal pPConn_Banco As String,
+                                     ByVal pAcao As String,
+                                     ByVal pId_Parametro As Integer,
+                                     ByVal pCodigo_Referencia As String,
+                                     ByVal pTipo As String,
+                                     ByVal pCNPJ_Anima As String,
+                                     ByVal pConta As String,
+                                     ByVal pDescricaoServico As String,
+                                     ByVal pMesEmissao As String,
+                                     ByVal pRequisitioningBUId As String,
+                                     ByVal pRequisitioningBUName As String,
+                                     ByVal pDescription As String,
+                                     ByVal pJustification As String,
+                                     ByVal pPreparerEmail As String,
+                                     ByVal pApproverEmail As String,
+                                     ByVal pDocumentStatusCode As String,
+                                     ByVal pRequisitionType As String,
+                                     ByVal pSourceUniqueId As String,
+                                     ByVal pCategoryName As String,
+                                     ByVal pDeliverToLocationCode As String,
+                                     ByVal pDeliverToOrganizationCode As String,
+                                     ByVal pProcurementBUName As String,
+                                     ByVal pItemDescription As String,
+                                     ByVal pItemNumber As String,
+                                     ByVal pRequesterEmail As String,
+                                     ByVal pSupplierName As String,
+                                     ByVal pSupplierContactName As String,
+                                     ByVal pSupplierSiteName As String,
+                                     ByVal pCentroDeCusto As String,
+                                     ByVal pEstabelecimento As String,
+                                     ByVal pUnidadeNegocio As String,
+                                     ByVal pFinalidade As String,
+                                     ByVal pProjeto As String,
+                                     ByVal pInterCompany As String,
+                                     ByVal pCodigoRequisicaoCompra As String,
+                                     ByVal pCodigoOrdemCompra As String,
+                                     ByVal pCodigoInvoice As String,
+                                     ByVal pObservacao As String,
+                                     ByVal pUsuario As String,
+                                     ByVal pFl_Ativo As Boolean,
+                                     ByVal pProcessamento_Manual As Boolean) As System.Data.DataSet
+        If String.Equals(pAcao, "PURGE", StringComparison.OrdinalIgnoreCase) Then
+            Return ExcluirParametroAnima(pPConn_Banco, pCodigo_Referencia, pId_Parametro)
+        End If
+
+        ReDim vParametro(39)
+
+        oBanco.monta_Parametro(vParametro, pAcao, "@pAcao", False)
+        oBanco.monta_Parametro(vParametro, pId_Parametro, "@pId_Parametro", False)
+
+        ' Tratamento para GUID e outros valores que podem ser nulos
+        If pCodigo_Referencia Is Nothing OrElse String.IsNullOrEmpty(pCodigo_Referencia) Then
+            oBanco.monta_Parametro(vParametro, Guid.Empty, "@pCodigo_Referencia", False)
+        Else
+            oBanco.monta_Parametro(vParametro, New Guid(pCodigo_Referencia), "@pCodigo_Referencia", False)
+        End If
+
+        oBanco.monta_Parametro(vParametro, If(pTipo Is Nothing, String.Empty, pTipo), "@pTipo", False)
+        oBanco.monta_Parametro(vParametro, If(pCNPJ_Anima Is Nothing, String.Empty, pCNPJ_Anima), "@pCNPJ_Anima", False)
+        oBanco.monta_Parametro(vParametro, If(pConta Is Nothing, String.Empty, pConta), "@pConta", False)
+        oBanco.monta_Parametro(vParametro, If(pDescricaoServico Is Nothing, String.Empty, pDescricaoServico), "@pDescricaoServico", False)
+        oBanco.monta_Parametro(vParametro, If(pMesEmissao Is Nothing, String.Empty, pMesEmissao), "@pMesEmissao", False)
+        oBanco.monta_Parametro(vParametro, If(pRequisitioningBUId Is Nothing, String.Empty, pRequisitioningBUId), "@pRequisitioningBUId", False)
+        oBanco.monta_Parametro(vParametro, If(pRequisitioningBUName Is Nothing, String.Empty, pRequisitioningBUName), "@pRequisitioningBUName", False)
+        oBanco.monta_Parametro(vParametro, If(pDescription Is Nothing, String.Empty, pDescription), "@pDescription", False)
+        oBanco.monta_Parametro(vParametro, If(pJustification Is Nothing, String.Empty, pJustification), "@pJustification", False)
+        oBanco.monta_Parametro(vParametro, If(pPreparerEmail Is Nothing, String.Empty, pPreparerEmail), "@pPreparerEmail", False)
+        oBanco.monta_Parametro(vParametro, If(pApproverEmail Is Nothing, String.Empty, pApproverEmail), "@pApproverEmail", False)
+        oBanco.monta_Parametro(vParametro, If(pDocumentStatusCode Is Nothing, String.Empty, pDocumentStatusCode), "@pDocumentStatusCode", False)
+        oBanco.monta_Parametro(vParametro, If(pRequisitionType Is Nothing, String.Empty, pRequisitionType), "@pRequisitionType", False)
+        oBanco.monta_Parametro(vParametro, If(pSourceUniqueId Is Nothing, String.Empty, pSourceUniqueId), "@pSourceUniqueId", False)
+        oBanco.monta_Parametro(vParametro, If(pCategoryName Is Nothing, String.Empty, pCategoryName), "@pCategoryName", False)
+        oBanco.monta_Parametro(vParametro, If(pDeliverToLocationCode Is Nothing, String.Empty, pDeliverToLocationCode), "@pDeliverToLocationCode", False)
+        oBanco.monta_Parametro(vParametro, If(pDeliverToOrganizationCode Is Nothing, String.Empty, pDeliverToOrganizationCode), "@pDeliverToOrganizationCode", False)
+        oBanco.monta_Parametro(vParametro, If(pProcurementBUName Is Nothing, String.Empty, pProcurementBUName), "@pProcurementBUName", False)
+        oBanco.monta_Parametro(vParametro, If(pItemDescription Is Nothing, String.Empty, pItemDescription), "@pItemDescription", False)
+        oBanco.monta_Parametro(vParametro, If(pItemNumber Is Nothing, String.Empty, pItemNumber), "@pItemNumber", False)
+        oBanco.monta_Parametro(vParametro, If(pRequesterEmail Is Nothing, String.Empty, pRequesterEmail), "@pRequesterEmail", False)
+        oBanco.monta_Parametro(vParametro, If(pSupplierName Is Nothing, String.Empty, pSupplierName), "@pSupplierName", False)
+        oBanco.monta_Parametro(vParametro, If(pSupplierContactName Is Nothing, String.Empty, pSupplierContactName), "@pSupplierContactName", False)
+        oBanco.monta_Parametro(vParametro, If(pSupplierSiteName Is Nothing, String.Empty, pSupplierSiteName), "@pSupplierSiteName", False)
+        oBanco.monta_Parametro(vParametro, If(pCentroDeCusto Is Nothing, String.Empty, pCentroDeCusto), "@pCentroDeCusto", False)
+        oBanco.monta_Parametro(vParametro, If(pEstabelecimento Is Nothing, String.Empty, pEstabelecimento), "@pEstabelecimento", False)
+        oBanco.monta_Parametro(vParametro, If(pUnidadeNegocio Is Nothing, String.Empty, pUnidadeNegocio), "@pUnidadeNegocio", False)
+        oBanco.monta_Parametro(vParametro, If(pFinalidade Is Nothing, String.Empty, pFinalidade), "@pFinalidade", False)
+        oBanco.monta_Parametro(vParametro, If(pProjeto Is Nothing, String.Empty, pProjeto), "@pProjeto", False)
+        oBanco.monta_Parametro(vParametro, If(pInterCompany Is Nothing, String.Empty, pInterCompany), "@pInterCompany", False)
+        oBanco.monta_Parametro(vParametro, If(pCodigoRequisicaoCompra Is Nothing, String.Empty, pCodigoRequisicaoCompra), "@pCodigoRequisicaoCompra", False)
+        oBanco.monta_Parametro(vParametro, If(pCodigoOrdemCompra Is Nothing, String.Empty, pCodigoOrdemCompra), "@pCodigoOrdemCompra", False)
+        oBanco.monta_Parametro(vParametro, If(pCodigoInvoice Is Nothing, String.Empty, pCodigoInvoice), "@pCodigoInvoice", False)
+        oBanco.monta_Parametro(vParametro, If(pObservacao Is Nothing, String.Empty, pObservacao), "@pObservacao", False)
+        oBanco.monta_Parametro(vParametro, If(pUsuario Is Nothing, String.Empty, pUsuario), "@pUsuario", False)
+        oBanco.monta_Parametro(vParametro, pFl_Ativo, "@pFl_Ativo", False)
+        oBanco.monta_Parametro(vParametro, pProcessamento_Manual, "@pProcessamento_Manual", False)
+
+        Return oBanco.retorna_Query("dbo.pa_Manutencao_Anima_Parametros", vParametro, pPConn_Banco)
+    End Function
+
+    '----- [MÉTODO PARA DETALHAMENTO DE FATURA ANIMA] -----
+    ''' <summary>
+    ''' Obtém o detalhamento da fatura (bilhetes) para uma conta específica.
+    ''' Chama a stored procedure cn_Detalhamento_Bilhete_API.
+    ''' </summary>
+    ''' <param name="pPConn_Banco">String de conexão criptografada</param>
+    ''' <param name="pNr_Fatura">Número da fatura (conta)</param>
+    ''' <param name="pDt_Lote">Período no formato YYYYMM (pode ser Nothing para retornar todos)</param>
+    ''' <returns>DataSet com detalhamento dos bilhetes</returns>
+    <WebMethod(MessageName:="Anima_Detalhamento_Fatura_Method")>
+    Public Function Anima_Detalhamento_Fatura(ByVal pPConn_Banco As String,
+                                              ByVal pNr_Fatura As String,
+                                              ByVal pDt_Lote As String) As System.Data.DataSet
+        Dim resultado As New DataSet("DetalhamentoFatura")
+        Dim tabela As New DataTable("Detalhes")
+
+        If String.IsNullOrWhiteSpace(pNr_Fatura) Then
+            Return resultado
+        End If
+
+        Dim connectionString As String = oBanco.Descriptografar(pPConn_Banco)
+
+        Using conexao As New SqlClient.SqlConnection(connectionString)
+            conexao.Open()
+            Using cmd As New SqlClient.SqlCommand("dbo.cn_Detalhamento_Bilhete_API", conexao)
+                cmd.CommandType = CommandType.StoredProcedure
+                cmd.CommandTimeout = 300
+
+                ' DEBUG: Log para verificar valores recebidos (REMOVER APOS TESTE)
+                System.Diagnostics.Debug.WriteLine($"[WS DEBUG] Anima_Detalhamento_Fatura - pNr_Fatura={pNr_Fatura}, pDt_Lote={pDt_Lote}")
+
+                ' Parâmetros da stored procedure
+                cmd.Parameters.AddWithValue("@pPakage", "sp_Detalhamento")
+                cmd.Parameters.AddWithValue("@pNr_Fatura", pNr_Fatura)
+
+                ' Parâmetro de período (opcional) - filtrar por período específico
+                If Not String.IsNullOrWhiteSpace(pDt_Lote) Then
+                    cmd.Parameters.AddWithValue("@pDt_LoteDe", pDt_Lote)
+                    cmd.Parameters.AddWithValue("@pDt_LoteAte", pDt_Lote)
+                Else
+                    cmd.Parameters.AddWithValue("@pDt_LoteDe", DBNull.Value)
+                    cmd.Parameters.AddWithValue("@pDt_LoteAte", DBNull.Value)
+                End If
+
+                ' Parâmetros opcionais (NULL)
+                cmd.Parameters.AddWithValue("@pAtivo_Tipo_Grupo", DBNull.Value)
+                cmd.Parameters.AddWithValue("@pId_Conglomerado", DBNull.Value)
+
+                Using adapter As New SqlClient.SqlDataAdapter(cmd)
+                    adapter.Fill(tabela)
+                End Using
+            End Using
+        End Using
+
+        resultado.Tables.Add(tabela)
+        Return resultado
+    End Function
+
+    Private Function ExcluirParametroAnima(pPConn_Banco As String, codigoReferencia As String, idParametro As Integer) As DataSet
+        Dim resultado As New DataSet("Resultado")
+        Dim tabela As New DataTable("Status")
+        tabela.Columns.Add("Sucesso", GetType(Boolean))
+        tabela.Columns.Add("Mensagem", GetType(String))
+        resultado.Tables.Add(tabela)
+
+        Dim possuiCodigo As Boolean = False
+        Dim guidReferencia As Guid = Guid.Empty
+        If Not String.IsNullOrWhiteSpace(codigoReferencia) Then
+            possuiCodigo = Guid.TryParse(codigoReferencia, guidReferencia)
+        End If
+
+        If Not possuiCodigo AndAlso idParametro <= 0 Then
+            tabela.Rows.Add(False, "Identificador invalido para exclusao.")
+            Return resultado
+        End If
+
+        Dim connectionString As String = oBanco.Descriptografar(pPConn_Banco)
+        Using conexao As New SqlClient.SqlConnection(connectionString)
+            conexao.Open()
+            Using transacao = conexao.BeginTransaction()
+                Try
+                    Using cmdHistorico As New SqlClient.SqlCommand()
+                        cmdHistorico.CommandText = "DELETE FROM dbo.Anima_Parametros_Historico WHERE (@hasCodigo = 1 AND Codigo_Referencia = @Codigo) OR (@hasCodigo = 0 AND Id_Parametro = @Id)"
+                        cmdHistorico.Connection = conexao
+                        cmdHistorico.Transaction = transacao
+                        cmdHistorico.Parameters.Add("@hasCodigo", SqlDbType.Bit).Value = If(possuiCodigo, 1, 0)
+                        cmdHistorico.Parameters.Add("@Codigo", SqlDbType.UniqueIdentifier).Value = If(possuiCodigo, CType(guidReferencia, Object), Guid.Empty)
+                        cmdHistorico.Parameters.Add("@Id", SqlDbType.Int).Value = idParametro
+                        cmdHistorico.ExecuteNonQuery()
+                    End Using
+
+                    Using cmdParametro As New SqlClient.SqlCommand()
+                        cmdParametro.CommandText = "DELETE FROM dbo.Anima_Parametros WHERE (@hasCodigo = 1 AND Codigo_Referencia = @Codigo) OR (@hasCodigo = 0 AND Id_Parametro = @Id)"
+                        cmdParametro.Connection = conexao
+                        cmdParametro.Transaction = transacao
+                        cmdParametro.Parameters.Add("@hasCodigo", SqlDbType.Bit).Value = If(possuiCodigo, 1, 0)
+                        cmdParametro.Parameters.Add("@Codigo", SqlDbType.UniqueIdentifier).Value = If(possuiCodigo, CType(guidReferencia, Object), Guid.Empty)
+                        cmdParametro.Parameters.Add("@Id", SqlDbType.Int).Value = idParametro
+                        Dim registros = cmdParametro.ExecuteNonQuery()
+                        If registros = 0 Then
+                            Throw New Exception("Registro nao encontrado para exclusao permanente.")
+                        End If
+                    End Using
+
+                    transacao.Commit()
+                    tabela.Rows.Add(True, "Registro excluido com sucesso.")
+                Catch ex As Exception
+                    transacao.Rollback()
+                    Throw
+                End Try
+            End Using
+        End Using
+
+        Return resultado
+    End Function
+
+    '----- [MÉTODOS AUXILIARES PARA API DE PARÂMETROS ANIMA] -----
+
+    ''' <summary>
+    ''' Atualiza campos relacionados a compras (Requisição, Ordem, Invoice, Observações)
+    ''' </summary>
+    <WebMethod()>
+    Public Sub AtualizarCamposCompras(
+        pPConn_Banco As String,
+        pId_Parametro As Integer,
+        pRequisicao_Compra As String,
+        pOrdem_Compra As String,
+        pInvoice As String,
+        pObservacoes As String,
+        pUsuario As String
+    )
+        ReDim vParametro(6)
+        oBanco.monta_Parametro(vParametro, pId_Parametro, "@pId_Parametro", False)
+        oBanco.monta_Parametro(vParametro, pRequisicao_Compra, "@pRequisicao_Compra", False)
+        oBanco.monta_Parametro(vParametro, pOrdem_Compra, "@pOrdem_Compra", False)
+        oBanco.monta_Parametro(vParametro, pInvoice, "@pInvoice", False)
+        oBanco.monta_Parametro(vParametro, pObservacoes, "@pObservacoes", False)
+        oBanco.monta_Parametro(vParametro, pUsuario, "@pUsuario", False)
+        oBanco.monta_Parametro(vParametro, DateTime.Now, "@pData_Atualizacao", False)
+
+        oBanco.manutencao_Dados("dbo.pa_Anima_AtualizarCamposCompras", vParametro, pPConn_Banco)
+    End Sub
+
+    ''' <summary>
+    ''' Atualiza Status e Descrição de um parâmetro
+    ''' </summary>
+    <WebMethod()>
+    Public Sub AtualizarStatusDescricao(
+        pPConn_Banco As String,
+        pId_Parametro As Integer,
+        pStatus As String,
+        pDescricao As String,
+        pUsuario As String
+    )
+        ReDim vParametro(4)
+        oBanco.monta_Parametro(vParametro, pId_Parametro, "@pId_Parametro", False)
+        oBanco.monta_Parametro(vParametro, pStatus, "@pStatus", False)
+        oBanco.monta_Parametro(vParametro, pDescricao, "@pDescricao", False)
+        oBanco.monta_Parametro(vParametro, pUsuario, "@pUsuario", False)
+        oBanco.monta_Parametro(vParametro, DateTime.Now, "@pData_Atualizacao", False)
+
+        oBanco.manutencao_Dados("dbo.pa_Anima_AtualizarStatusDescricao", vParametro, pPConn_Banco)
+    End Sub
+
+    ''' <summary>
+    ''' Método legado para compatibilidade - usar Parametros_Anima ao invés deste
+    ''' </summary>
+    <WebMethod()>
+    Public Function Parametros_AnimaLegacy(
+        pPConn_Banco As String,
+        pAcao As String,
+        pId_Parametro As Integer,
+        pCodigo_Referencia As String,
+        pTipo As String,
+        pCNPJ_Anima As String,
+        pConta As String,
+        pDescricaoServico As String,
+        pMesEmissao As String,
+        pRequisitioningBUId As String,
+        pRequisitioningBUName As String,
+        pDescription As String,
+        pJustification As String,
+        pPreparerEmail As String,
+        pApproverEmail As String,
+        pDocumentStatusCode As String,
+        pRequisitionType As String,
+        pSourceUniqueId As String,
+        pCategoryName As String,
+        pDeliverToLocationCode As String,
+        pDeliverToOrganizationCode As String,
+        pProcurementBUName As String,
+        pItemDescription As String,
+        pItemNumber As String,
+        pRequesterEmail As String,
+        pSupplierName As String,
+        pSupplierContactName As String,
+        pSupplierSiteName As String,
+        pCentroDeCusto As String,
+        pEstabelecimento As String,
+        pUnidadeNegocio As String,
+        pFinalidade As String,
+        pProjeto As String,
+        pInterCompany As String,
+        pCodigoRequisicaoCompra As String,
+        pCodigoOrdemCompra As String,
+        pCodigoInvoice As String,
+        pObservacao As String,
+        pUsuario As String,
+        pFl_Ativo As Boolean
+    ) As DataSet
+        ' Redireciona para o método atual (pProcessamento_Manual = False como padrao para metodo legado)
+        Return Parametros_Anima(
+            pPConn_Banco, pAcao, pId_Parametro, pCodigo_Referencia, pTipo,
+            pCNPJ_Anima, pConta, pDescricaoServico, pMesEmissao,
+            pRequisitioningBUId, pRequisitioningBUName, pDescription, pJustification,
+            pPreparerEmail, pApproverEmail, pDocumentStatusCode, pRequisitionType,
+            pSourceUniqueId, pCategoryName, pDeliverToLocationCode,
+            pDeliverToOrganizationCode, pProcurementBUName, pItemDescription,
+            pItemNumber, pRequesterEmail, pSupplierName, pSupplierContactName,
+            pSupplierSiteName, pCentroDeCusto, pEstabelecimento, pUnidadeNegocio,
+            pFinalidade, pProjeto, pInterCompany, pCodigoRequisicaoCompra,
+            pCodigoOrdemCompra, pCodigoInvoice, pObservacao, pUsuario, pFl_Ativo,
+            False
+        )
+    End Function
+
+'===============================================================================
+'  ANIMA - INICIO DO CODIGO ESPECIFICO
+'===============================================================================
+
+    '-----ANIMA - Consulta detalhamento de fatura por Nr_Fatura (Conta)
+    '-----Usa cn_Detalhamento_Bilhete_API com sp_Detalhamento, filtrando por DC_Nr_Nota_Fiscal
+    <WebMethod()>
+    Public Function Anima_Detalhamento_Fatura(ByVal pPConn_Banco As System.String,
+                                              ByVal pNr_Fatura As System.String) As System.Data.DataSet
+        ReDim vParametro(4)
+        oBanco.monta_Parametro(vParametro, "sp_Detalhamento", "@pPakage", False)
+        oBanco.monta_Parametro(vParametro, pNr_Fatura, "@pNr_Fatura", False)
+        oBanco.monta_Parametro(vParametro, Nothing, "@pAtivo_Tipo_Grupo", False)
+        oBanco.monta_Parametro(vParametro, Nothing, "@pId_Conglomerado", False)
+        oBanco.monta_Parametro(vParametro, Nothing, "@pDt_LoteDe", False)
+        oBanco.monta_Parametro(vParametro, Nothing, "@pDt_LoteAte", False)
+
+        Return oBanco.retorna_Query("dbo.cn_Detalhamento_Bilhete_API", vParametro, pPConn_Banco)
+    End Function
+
+'===============================================================================
+'  ANIMA - FIM DO CODIGO ESPECIFICO
+'===============================================================================
+
 End Class
