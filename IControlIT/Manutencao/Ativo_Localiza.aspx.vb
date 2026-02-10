@@ -1,4 +1,8 @@
-
+'/*
+'* HISTÓRICO DE MODIFICAÇÕES
+'* [ICTRL-NF-202509-001 | 2025-09-30 | Parceiro IControlIT]
+'* [ICTRL-NF-202512-002 | 2025-12-03 | Parceiro IControlIT] - KPI Contas Não Pagas: 10 colunas, botões Comprovante e Fatura, lógica de cores
+'*/
 Public Class Ativo_Localiza
     Inherits System.Web.UI.Page
     Dim WS_Modulo As New WS_GUA_Modulo.WSModulo
@@ -7,6 +11,13 @@ Public Class Ativo_Localiza
     Dim vdataset As New Data.DataSet
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        ' [INÍCIO - ICTRL-NF-202509-001] - Validar Session
+        If Session("Conn_Banco") Is Nothing OrElse Session("Nm_Usuario") Is Nothing Then
+            Response.Redirect("~/Default.aspx")
+            Exit Sub
+        End If
+        ' [FIM - ICTRL-NF-202509-001]
+
         If Not Page.IsPostBack Then
             WS_Modulo.Credentials = System.Net.CredentialCache.DefaultCredentials
 
@@ -73,6 +84,25 @@ Public Class Ativo_Localiza
                 vTraduzir.Traduzir(Session("Conn_Banco"), Master.FindControl("ContentPlaceHolder1"), Page.Request.Path, Session("Id_Idioma"))))
             End If
 
+            ' [INÍCIO - ICTRL-NF-202509-001] Contas Não Pagas (KPI Home)
+            If Request("ID") = "ContasNaoPagas" Then
+                Session("DataSet") = WS_Modulo.Exec_Procedure_Simple(Session("Conn_Banco"), "sp_SL_ContasNaoPagas")
+
+                If Session("DataSet") IsNot Nothing AndAlso _
+                   CType(Session("DataSet"), DataSet).Tables.Count > 0 AndAlso _
+                   CType(Session("DataSet"), DataSet).Tables(0).Rows.Count > 0 Then
+                    dtgLocaliza.DataSource = Session("DataSet")
+                    dtgLocaliza.DataBind()
+                Else
+                    dtgLocaliza.DataSource = Nothing
+                    dtgLocaliza.DataBind()
+                End If
+
+                lblDescricaoVagos.Text = "Contas com Pagamento Pendente (Mês Vigente)"
+                Call Master.Titulo("Relatório de Contas Não Pagas")
+            End If
+            ' [FIM - ICTRL-NF-202509-001]
+
             If dtgLista.Items.Count = 0 Then
                 btAlerta.Enabled = True
                 btAlerta.Style.Add("Opacity", "0.1")
@@ -86,6 +116,54 @@ Public Class Ativo_Localiza
         dtgLocaliza.DataBind()
     End Sub
 
+    ' [INÍCIO - ICTRL-NF-202512-002 - KPI Contas Não Pagas]
+    Protected Sub dtgLocaliza_ItemDataBound(sender As Object, e As DataGridItemEventArgs) Handles dtgLocaliza.ItemDataBound
+        If e.Item.ItemType = ListItemType.Item OrElse e.Item.ItemType = ListItemType.AlternatingItem Then
+            If Request("ID") = "ContasNaoPagas" Then
+                ' A coluna Status (Fl_Pago) é a 7ª (índice 6)
+                Dim statusCell As TableCell = e.Item.Cells(6)
+                Dim statusValue As String = ""
+
+                ' A stored procedure retorna Fl_Pago como string ('Pago' ou 'Pendente')
+                If Not IsDBNull(DataBinder.Eval(e.Item.DataItem, "Fl_Pago")) Then
+                    statusValue = DataBinder.Eval(e.Item.DataItem, "Fl_Pago").ToString().Trim()
+                End If
+
+                If statusValue = "Pendente" OrElse statusValue = "" Then
+                    ' Fatura NÃO PAGA - Células vermelhas
+                    e.Item.BackColor = System.Drawing.Color.FromArgb(255, 235, 238) ' Vermelho claro (#FFEBEE)
+                    statusCell.ForeColor = System.Drawing.Color.DarkRed
+                    statusCell.Font.Bold = True
+                Else
+                    ' Fatura PAGA - Células verdes
+                    e.Item.BackColor = System.Drawing.Color.FromArgb(232, 245, 233) ' Verde claro (#E8F5E9)
+                    statusCell.ForeColor = System.Drawing.Color.DarkGreen
+                    statusCell.Font.Bold = True
+                End If
+            End If
+        End If
+    End Sub
+
+    Protected Sub btComprovante_Click(sender As Object, e As ImageClickEventArgs)
+        Dim v_bt As ImageButton = sender
+        Dim idFatura As String = v_bt.CommandArgument
+
+        ' Abrir popup com a lista de anexos (comprovantes de pagamento)
+        ' Usar a mesma tela de Lista_PDF.aspx mas com tabela "Fatura_Comprovante"
+        ScriptManager.RegisterStartupScript(Me, Me.GetType(), "key",
+            "window.open('../PDF/Lista_PDF.aspx?pRegistro=" & idFatura & "&pTabela=Fatura_Comprovante','_blank','resizable=yes, menubar=yes, scrollbars=no, height=700, width=1200, top=0, left=0');",
+            True)
+    End Sub
+
+    Protected Sub btFatura_Click(sender As Object, e As ImageClickEventArgs)
+        Dim v_bt As ImageButton = sender
+        Dim idFatura As String = v_bt.CommandArgument
+
+        ' Redirecionar para a tela de Cadastro de Fatura
+        Response.Redirect("~/Recepcao_Fatura/Fatura.aspx?ID=" & idFatura)
+    End Sub
+    ' [FIM - ICTRL-NF-202512-002]
+
     Protected Sub btFechar_Click(sender As Object, e As EventArgs) Handles btFechar.Click
         pnlMsg.Visible = False
     End Sub
@@ -95,10 +173,15 @@ Public Class Ativo_Localiza
     Protected Sub btExportar_Click(sender As Object, e As EventArgs)
         '-----comentado = todos ou posso selecionar um tipo de modelo por vez
         Dim Tipo As System.String = Nothing
-        '-----nome do arquivo a ser exportado
-        Dim Descricao As System.String = "Detalhamento"
+        '-----nome do arquivo a ser exportado (dinâmico baseado no ID)
+        Dim Descricao As System.String = "Detalhamento_" & Request("ID")
         '-----campos a ser exportado modelo (xxxx;xxxxx;xxxx). quando null sistema gera com base no dataset
         Dim Campo As System.String = Nothing
+
+        ' [INÍCIO - ICTRL-NF-202512-002] - Preparar DataSet para exportação
+        Session("DataSet_Exportacao") = CType(Session("DataSet"), DataSet)
+        ' [FIM - ICTRL-NF-202512-002]
+
         '-----abre pnl de exportacao
         ScriptManager.RegisterStartupScript(Me, Me.GetType(), "key", "window.open('../Exportacao/Exporta.aspx?" &
                                             "Descricao=" & Descricao &

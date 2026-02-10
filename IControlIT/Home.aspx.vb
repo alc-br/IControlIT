@@ -213,24 +213,6 @@
                     End If
                 End If
 
-                If vdataSet.Tables(0).Rows(i).Item("Descricao") = "Cota" Then
-                    If btOrcamento.Disabled = False Then
-                        If vdataSet.Tables(0).Rows(i).Item("QTD") = 0 Then lblDescricaoCota.Text = "Cotas"
-                        If vdataSet.Tables(0).Rows(i).Item("QTD") > 0 Then
-                            lblDescricaoCota.Text = vdataSet.Tables(0).Rows(i).Item("QTD")
-                            lblDescricaoCotaSub.Text = "S/Orçamento"
-                            'imgCota.ImageUrl = "~/Img_Sistema/Master/Alerta.png"
-                            divCota.Style.Add("background-color", "#FF4949")
-                            iconeCota.Attributes("class") = "fas fa-bell"
-                        End If
-                        imgCotaFull.Enabled = False
-                        imgCota.Enabled = False
-                        imgCota.Style.Add("Opacity", "0.9")
-                        lblDescricaoCota.Style.Add("Opacity", "0.9")
-                        lblDescricaoCotaSub.Style.Add("Opacity", "0.9")
-                    End If
-                End If
-
                 If vdataSet.Tables(0).Rows(i).Item("Descricao") = "Contrato" Then
                     If btContrato.Disabled = False Then
                         If vdataSet.Tables(0).Rows(i).Item("QTD") = 0 Then lblDescricaoContrato.Text = "Contrato"
@@ -267,24 +249,6 @@
                     End If
                 End If
 
-                If vdataSet.Tables(0).Rows(i).Item("Descricao") = "Auditoria" Then
-                    If btContestacao.Disabled = False Then
-                        If vdataSet.Tables(0).Rows(i).Item("QTD") = 0 Then
-                            lblDescricaoContestacao.Text = "S/Contestação"
-                            'imgContestacao.ImageUrl = "~/Img_Sistema/Master/Alerta_Contestacao.png"
-                            divContestacao.Style.Add("background-color", "#FF4949")
-                            iconeContestacao.Attributes("class") = "fas fa-bell"
-                        Else
-                            lblDescricaoContestacao.Text = vdataSet.Tables(0).Rows(i).Item("QTD") & "K"
-                            lblDescricaoContestacaoSub.Text = "Recuperado"
-                        End If
-                        imgContestacaoFull.Enabled = False
-                        imgContestacao.Enabled = False
-                        imgContestacao.Style.Add("Opacity", "0.9")
-                        lblDescricaoContestacao.Style.Add("Opacity", "0.9")
-                        lblDescricaoContestacaoSub.Style.Add("Opacity", "0.9")
-                    End If
-                End If
             Next i
 
             '-----------------------------------------------------------------------------------------------------------
@@ -870,20 +834,12 @@
         End If
     End Sub
 
-    Protected Sub imgContestacao_Click(sender As Object, e As EventArgs)
-        Response.Redirect("~/Auditoria/Auditoria_Consulta.aspx")
-    End Sub
-
     Protected Sub imgRH_Click(sender As Object, e As EventArgs)
         Response.Redirect("~/Manutencao/Ativo_Localiza.aspx?ID=Custo_Cancelada")
     End Sub
 
     Protected Sub imgFatura_Click(sender As Object, e As EventArgs)
         Response.Redirect("~/Manutencao/Ativo_Localiza.aspx?ID=Custo_Estoque")
-    End Sub
-
-    Protected Sub imgCota_Click(sender As Object, e As EventArgs)
-        Response.Redirect("~/Politica/Politica_Consumidor.aspx")
     End Sub
 
     Protected Sub imgContrato_Click(sender As Object, e As EventArgs)
@@ -982,4 +938,66 @@
         pnlConfirmacao.Visible = False
         ScriptManager.RegisterStartupScript(Me, Me.GetType(), "key", "enableScrolling();", True)
     End Sub
+
+    ' [INÍCIO - ICTRL-NF-202509-001 e ICTRL-NF-202509-002]
+    Private Sub CarregarDadosKPIs()
+        Try
+            ' Card de Contas não Pagas
+            Dim dsContas As DataSet = WS_Modulo.Get_Dados_KPI(Session("Conn_Banco"), "CONTAS_NAO_PAGAS")
+            If dsContas IsNot Nothing AndAlso dsContas.Tables.Count > 0 AndAlso dsContas.Tables(0).Rows.Count > 0 Then
+                Dim totalContas As Integer = Convert.ToInt32(dsContas.Tables(0).Rows(0)("Total"))
+                lblTotalContasNaoPagas.Text = totalContas.ToString()
+                If totalContas > 0 Then
+                    divContasNaoPagas.Style("background-color") = "#FF4949" ' Vermelho para alerta
+                    iconContasNaoPagas.Attributes("class") = "fas fa-bell"
+                Else
+                    divContasNaoPagas.Style("background-color") = "#00CC00" ' Verde para OK
+                    iconContasNaoPagas.Attributes("class") = "fas fa-thumbs-up"
+                End If
+            End If
+
+            ' Card de Contratos a Vencer
+            Dim dsContratos As DataSet = WS_Modulo.Get_Dados_KPI(Session("Conn_Banco"), "CONTRATOS_A_VENCER")
+            If dsContratos IsNot Nothing AndAlso dsContratos.Tables.Count > 0 AndAlso dsContratos.Tables(0).Rows.Count > 0 Then
+                Dim totalContratos As Integer = Convert.ToInt32(dsContratos.Tables(0).Rows(0)("Total"))
+                Dim diasPadrao As Integer = 45
+                ' Tenta ler o DiasPadrao retornado pela stored procedure
+                If dsContratos.Tables(0).Columns.Contains("DiasPadrao") Then
+                    diasPadrao = Convert.ToInt32(dsContratos.Tables(0).Rows(0)("DiasPadrao"))
+                End If
+
+                lblTotalContratosAVencer.Text = totalContratos.ToString()
+                lblDescContratosAVencer.Text = "Contratos a Vencer (" & diasPadrao & " dias)"
+
+                ' Armazenar dias na Session para uso no redirect
+                Session("DiasContratosVencer") = diasPadrao
+
+                If totalContratos > 0 Then
+                    divContratosAVencer.Style("background-color") = "#FF9800" ' Laranja para atencao
+                    iconContratosAVencer.Attributes("class") = "fas fa-exclamation-triangle"
+                Else
+                    divContratosAVencer.Style("background-color") = "#00CC00" ' Verde para OK
+                    iconContratosAVencer.Attributes("class") = "fas fa-thumbs-up"
+                End If
+            End If
+        Catch ex As Exception
+            ' Se ocorrer erro, mantém os valores padrão
+        End Try
+    End Sub
+
+    Protected Sub btnContasNaoPagas_Click(sender As Object, e As EventArgs)
+        ' Redireciona para Ativo_Localiza conforme FVO-FRESENIUS-PRD
+        Response.Redirect("~/Manutencao/Ativo_Localiza.aspx?ID=ContasNaoPagas")
+    End Sub
+
+    Protected Sub btnContratosAVencer_Click(sender As Object, e As EventArgs)
+        ' Usar dias da Session (definido em CarregarDadosKPIs)
+        Dim dias As Integer = 45
+        If Session("DiasContratosVencer") IsNot Nothing Then
+            dias = Convert.ToInt32(Session("DiasContratosVencer"))
+        End If
+        Response.Redirect("~/Contrato/Consulta_Contrato.aspx?vencimento=" & dias)
+    End Sub
+    ' [FIM - ICTRL-NF-202509-001 e ICTRL-NF-202509-002]
+
 End Class

@@ -1,9 +1,9 @@
 '------------------------------------------------------------------------------
 ' <gerado automaticamente>
-'     Esse código foi gerado por uma ferramenta.
+'     Esse cï¿½digo foi gerado por uma ferramenta.
 '
-'     As alterações ao arquivo poderão causar comportamento incorreto e serão perdidas se
-'     o código for recriado
+'     As alteraï¿½ï¿½es ao arquivo poderï¿½o causar comportamento incorreto e serï¿½o perdidas se
+'     o cï¿½digo for recriado
 ' </gerado automaticamente>
 '------------------------------------------------------------------------------
 
@@ -18,7 +18,7 @@ Partial Public Class Importa_PDF
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+    '''Para modificar, mova a declaraï¿½ï¿½o de campo do arquivo de designer a um arquivo code-behind.
     '''</remarks>
     Protected WithEvents form1 As Global.System.Web.UI.HtmlControls.HtmlForm
 
@@ -27,7 +27,7 @@ Partial Public Class Importa_PDF
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+    '''Para modificar, mova a declaraï¿½ï¿½o de campo do arquivo de designer a um arquivo code-behind.
     '''</remarks>
     Protected WithEvents lblImportaPDF As Global.System.Web.UI.WebControls.Label
 
@@ -36,7 +36,7 @@ Partial Public Class Importa_PDF
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+    '''Para modificar, mova a declaraï¿½ï¿½o de campo do arquivo de designer a um arquivo code-behind.
     '''</remarks>
     Protected WithEvents lblArquivo As Global.System.Web.UI.WebControls.Label
 
@@ -45,16 +45,61 @@ Partial Public Class Importa_PDF
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+    '''Para modificar, mova a declaraï¿½ï¿½o de campo do arquivo de designer a um arquivo code-behind.
     '''</remarks>
     Protected WithEvents inputPDF As Global.System.Web.UI.HtmlControls.HtmlInputFile
+
+    '''<summary>
+    '''Controle trObservacao.
+    '''</summary>
+    '''<remarks>
+    '''Campo gerado automaticamente.
+    '''Para modificar, mova a declaracao de campo do arquivo de designer a um arquivo code-behind.
+    '''</remarks>
+    Protected WithEvents trObservacao As Global.System.Web.UI.HtmlControls.HtmlTableRow
+
+    '''<summary>
+    '''Controle lblObservacao.
+    '''</summary>
+    '''<remarks>
+    '''Campo gerado automaticamente.
+    '''Para modificar, mova a declaracao de campo do arquivo de designer a um arquivo code-behind.
+    '''</remarks>
+    Protected WithEvents lblObservacao As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''Controle txtObservacao.
+    '''</summary>
+    '''<remarks>
+    '''Campo gerado automaticamente.
+    '''Para modificar, mova a declaracao de campo do arquivo de designer a um arquivo code-behind.
+    '''</remarks>
+    Protected WithEvents txtObservacao As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''Controle rfvObservacao.
+    '''</summary>
+    '''<remarks>
+    '''Campo gerado automaticamente.
+    '''Para modificar, mova a declaracao de campo do arquivo de designer a um arquivo code-behind.
+    '''</remarks>
+    Protected WithEvents rfvObservacao As Global.System.Web.UI.WebControls.RequiredFieldValidator
+
+    '''<summary>
+    '''Controle lblInfoObservacao.
+    '''</summary>
+    '''<remarks>
+    '''Campo gerado automaticamente.
+    '''Para modificar, mova a declaracao de campo do arquivo de designer a um arquivo code-behind.
+    '''</remarks>
+    Protected WithEvents lblInfoObservacao As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''Controle btIncluir.
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+    '''Para modificar, mova a declaracao de campo do arquivo de designer a um arquivo code-behind.
     '''</remarks>
     Protected WithEvents btIncluir As Global.System.Web.UI.WebControls.Button
 
@@ -63,7 +108,7 @@ Partial Public Class Importa_PDF
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+    '''Para modificar, mova a declaraï¿½ï¿½o de campo do arquivo de designer a um arquivo code-behind.
     '''</remarks>
     Protected WithEvents btVoltar As Global.System.Web.UI.WebControls.Button
 
@@ -72,7 +117,7 @@ Partial Public Class Importa_PDF
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+    '''Para modificar, mova a declaraï¿½ï¿½o de campo do arquivo de designer a um arquivo code-behind.
     '''</remarks>
     Protected WithEvents lblInfo As Global.System.Web.UI.WebControls.Label
 End Class

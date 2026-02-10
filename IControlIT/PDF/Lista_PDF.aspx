@@ -81,15 +81,44 @@
                             </tr>
                             <tr>
                                 <td>
+                                    <%-- [INÍCIO - ICTRL-NF-202509-001] --%>
+                                    <!-- Painel de Confirmação para Marcar como Pago -->
+                                    <div id="pnlConfirmacaoPago" runat="server" class="bgModal" visible="false">
+                                        <div class="modalPopup" style="width: 400px;">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <asp:Label runat="server" CssClass="configlabel" Text="Confirmar Pagamento" Font-Size="16pt" Style="float: left;"></asp:Label>
+                                                </div>
+                                                <div class="col-md-12" style="margin-top: 15px;">
+                                                    <asp:Label runat="server" CssClass="configlabel" Text="Por favor, insira uma observação:" Style="float: left;"></asp:Label>
+                                                    <asp:TextBox ID="txtObservacao" runat="server" TextMode="MultiLine" Rows="3" CssClass="form-control"></asp:TextBox>
+                                                    <asp:RequiredFieldValidator ID="rfvObservacao" runat="server" ControlToValidate="txtObservacao"
+                                                        ErrorMessage="A observação é obrigatória." ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
+                                                </div>
+                                            </div>
+                                            <div class="row" style="margin-top: 20px;">
+                                                <div class="col-md-12 text-right">
+                                                    <asp:Button ID="btnCancelarConfirmacao" class="btn btn-default" runat="server" Text="Cancelar" CausesValidation="False" OnClick="btnCancelarConfirmacao_Click" />
+                                                    <asp:Button ID="btnConfirmarPago" class="btn btn-primary" runat="server" Text="Confirmar" OnClick="btnConfirmarPago_Click" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                     <table style="width: 100%">
                                         <tr>
-                                            <td></td>
-
+                                            <td>
+                                                <!-- Painel que controla a visibilidade do botão 'Marcar como pago' -->
+                                                <asp:Panel ID="pnlMarcarPago" runat="server" Visible="false" Style="float: right; margin-right: 10px;">
+                                                    <asp:Button ID="btnMarcarComoPago" class="btn btn-primary" runat="server" Text="Marcar como pago" CausesValidation="False" OnClick="btnMarcarComoPago_Click" />
+                                                </asp:Panel>
+                                            </td>
                                             <td style="width: 164px">
                                                 <asp:Button ID="btInserir" class="btn btn-success" runat="server" Text="Anexar novo arquivo" CausesValidation="False" />
                                             </td>
                                         </tr>
                                     </table>
+                                    <%-- [FIM - ICTRL-NF-202509-001] --%>
                                 </td>
                             </tr>
                         </table>

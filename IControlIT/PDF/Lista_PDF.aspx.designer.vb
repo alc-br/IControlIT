@@ -50,6 +50,69 @@ Partial Public Class Lista_PDF
     Protected WithEvents dtgListaPDF As Global.System.Web.UI.WebControls.DataGrid
 
     '''<summary>
+    '''pnlConfirmacaoPago control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents pnlConfirmacaoPago As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+
+    '''<summary>
+    '''txtObservacao control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtObservacao As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''rfvObservacao control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents rfvObservacao As Global.System.Web.UI.WebControls.RequiredFieldValidator
+
+    '''<summary>
+    '''btnCancelarConfirmacao control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btnCancelarConfirmacao As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''btnConfirmarPago control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btnConfirmarPago As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''pnlMarcarPago control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents pnlMarcarPago As Global.System.Web.UI.WebControls.Panel
+
+    '''<summary>
+    '''btnMarcarComoPago control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btnMarcarComoPago As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
     '''btInserir control.
     '''</summary>
     '''<remarks>

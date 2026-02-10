@@ -4,6 +4,24 @@
 <%@ Register Src="../Localizar.ascx" TagName="Localizar" TagPrefix="uc1" %>
 <%@ MasterType VirtualPath="~/Principal.master" %>
 
+<%-- [INÃCIO - ICTRL-NF-202509-002] - Filtros acima da tabela Contrato_Tabela1 --%>
+<asp:Content ID="ContentFiltrosContrato" ContentPlaceHolderID="ContentPlaceHolderFiltrosContrato" runat="Server">
+    <div class="row" style="margin-bottom: 15px; padding: 0 15px;">
+        <div class="col-md-4">
+            <asp:Label runat="server" Text="Status:" CssClass="configlabel" />
+            <asp:DropDownList ID="ddlStatusContrato" runat="server" AutoPostBack="true" CssClass="form-control" OnSelectedIndexChanged="Filtro_Changed" />
+        </div>
+        <div class="col-md-4">
+            <asp:Label runat="server" Text="Vence em:" CssClass="configlabel" />
+            <asp:DropDownList ID="ddlVenceEm" runat="server" AutoPostBack="true" CssClass="form-control" OnSelectedIndexChanged="Filtro_Changed" />
+        </div>
+        <div class="col-md-4 text-right" style="padding-top: 25px;">
+            <asp:Button ID="btnExportar" runat="server" Text="Exportar para Excel" CssClass="btn btn-success" OnClick="btnExportar_Click" />
+        </div>
+    </div>
+</asp:Content>
+<%-- [FIM - ICTRL-NF-202509-002] --%>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 
     <!--Msg *************************************************************************************** -->
@@ -21,7 +39,7 @@
                         <asp:DataGrid ID="dtgLista" runat="server" AutoGenerateColumns="False" BorderColor="Black" CellPadding="5" CellSpacing="5" Font-Bold="False" HorizontalAlign="Center" Font-Italic="False" BackColor="Transparent" Font-Names="Arial"
                             Font-Overline="False" Font-Size="9pt" Font-Strikeout="False" Font-Underline="False" ForeColor="Black">
                             <Columns>
-                                <asp:BoundColumn DataField="Descricao" HeaderText="Descrição"></asp:BoundColumn>
+                                <asp:BoundColumn DataField="Descricao" HeaderText="Descriï¿½ï¿½o"></asp:BoundColumn>
                                 <asp:BoundColumn DataField="Qtd" HeaderText="Qtde">
                                     <ItemStyle Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" />
                                 </asp:BoundColumn>
@@ -52,7 +70,7 @@
             <nav>
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
                     <asp:Button ID="btnHome" runat="server" class="btn-tab pull-left" Text="Capa" CausesValidation="False" OnClick="btnHome_Click" />
-                    <asp:Button ID="btnProduto" runat="server" class="btn-tab-disable pull-left" Text="Serviço" CausesValidation="False" OnClick="btnProduto_Click" />
+                    <asp:Button ID="btnProduto" runat="server" class="btn-tab-disable pull-left" Text="Serviï¿½o" CausesValidation="False" OnClick="btnProduto_Click" />
                     <asp:Button ID="btnSla" runat="server" class="btn-tab-disable pull-left" Text="SLA" CausesValidation="False" OnClick="btnSla_Click" />
                     <asp:Button ID="btnAditivo" runat="server" class="btn-tab-disable pull-left" Text="Aditivo" CausesValidation="False" OnClick="btnAditivo_Click" />
                     <asp:Button ID="btnContas" runat="server" class="btn-tab-disable pull-left" Text="Contas" CausesValidation="False" OnClick="btnContas_Click" />
@@ -106,7 +124,7 @@
                                                             <table style="width: 100%;">
                                                                 <tr>
                                                                     <td style="width: 100px;">
-                                                                        <asp:Label ID="lblContrato" runat="server" CssClass="configlabel" Text="Número.:" ForeColor="#9CCC2A"></asp:Label>
+                                                                        <asp:Label ID="lblContrato" runat="server" CssClass="configlabel" Text="Nï¿½mero.:" ForeColor="#9CCC2A"></asp:Label>
                                                                     </td>
                                                                     <td>
                                                                         <asp:Label ID="txtNumeroContrato" runat="server" CssClass="configlabel" Style="float: left;"></asp:Label>
@@ -142,7 +160,7 @@
                                                     </tr>
                                                     <tr>
                                                         <td style="text-align: Left; height: 40px">
-                                                            <asp:Label ID="lblInformacao" runat="server" Text="Informação" Font-Bold="False" Font-Names="Verdana" Font-Size="12pt" ForeColor="#666666"></asp:Label>
+                                                            <asp:Label ID="lblInformacao" runat="server" Text="Informaï¿½ï¿½o" Font-Bold="False" Font-Names="Verdana" Font-Size="12pt" ForeColor="#666666"></asp:Label>
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -206,7 +224,7 @@
                     </div>
                 </div>
 
-                <!--Serviço-->
+                <!--Serviï¿½o-->
                 <div id="divServico" runat="server" visible="false" class="row">
                     <div class="col-md-12">
                         <div class="card-body" style="box-shadow: none;">
@@ -220,7 +238,7 @@
                                                 </asp:LinkButton>
                                             </td>
                                             <td>
-                                                <asp:Label ID="lblProduto" runat="server" Font-Bold="False" Font-Names="Microsoft JhengHei Light" Font-Size="Larger" ForeColor="#333333" Text="Produtos e Serviços Contratados" Style="float: none"></asp:Label>
+                                                <asp:Label ID="lblProduto" runat="server" Font-Bold="False" Font-Names="Microsoft JhengHei Light" Font-Size="Larger" ForeColor="#333333" Text="Produtos e Serviï¿½os Contratados" Style="float: none"></asp:Label>
                                             </td>
                                         </tr>
                                     </table>
@@ -228,7 +246,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-12 overflow-auto">
-                                    <asp:DataGrid ID="dtgProduto" runat="server" AutoGenerateColumns="False" BorderColor="Black" CellPadding="5" Font-Bold="False" HorizontalAlign="Center" Font-Italic="False" BackColor="Transparent" Font-Names="Arial"
+                                    <asp:DataGrid ID="dtgProduto" runat="server" AutoGenerateColumns="True" BorderColor="Black" CellPadding="5" Font-Bold="False" HorizontalAlign="Center" Font-Italic="False" BackColor="Transparent" Font-Names="Arial"
                                         Font-Overline="False" Font-Size="9pt" Font-Strikeout="False" Font-Underline="False" ForeColor="Black" Width="100%" BorderStyle="Solid" BorderWidth="1px" AllowPaging="false">
 
                                         <Columns>
@@ -236,7 +254,7 @@
                                             <asp:BoundColumn DataField="Id_Contrato_SLA_Servico" Visible="False">
                                                 <ItemStyle Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" />
                                             </asp:BoundColumn>
-                                            <asp:TemplateColumn HeaderText="Descrição">
+                                            <asp:TemplateColumn HeaderText="Descriï¿½ï¿½o">
                                                 <ItemTemplate>
                                                     <asp:TextBox ID="txtDescricaoProduto" runat="server" CssClass="configtext" Style="height: 15px" ReadOnly="True" Width="100%" Text="<%# Bind('Descricao') %>" BorderColor="Transparent" BorderStyle="Solid" BorderWidth="1px"></asp:TextBox>
                                                 </ItemTemplate>
@@ -249,16 +267,15 @@
                                                 <HeaderStyle Width="100px" />
                                                 <ItemStyle HorizontalAlign="left" Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" />
                                             </asp:BoundColumn>
-                                            <asp:TemplateColumn HeaderText="Ação" ItemStyle-Width="60px">
+                                            <asp:TemplateColumn HeaderText="Aï¿½ï¿½o" ItemStyle-Width="60px">
                                                 <ItemTemplate>
                                                     <asp:ImageButton ID="btnRedirect" runat="server" ImageUrl="~/Img_Sistema/Botao/Grid/Grid_View.png" OnClick="btnRedirect_Click" CommandArgument='<%# Eval("Id_Contrato_SLA_Servico") %>' Height="25px" CausesValidation="False" />
                                                 </ItemTemplate>
-                                            </asp:TemplateColumn> 
+                                            </asp:TemplateColumn>
 
                                         </Columns>
 
                                         <HeaderStyle Font-Bold="False" Height="30px" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" ForeColor="#CCCCCC" BackColor="Black" BorderColor="Black" Font-Names="Calibri Light" Font-Size="12pt" HorizontalAlign="Left" />
-                                        <%--<PagerStyle Mode="NumericPages" />--%>
                                         <AlternatingItemStyle BackColor="#E0E0E0" />
 
                                     </asp:DataGrid>
@@ -299,7 +316,7 @@
                                             <asp:BoundColumn DataField="Id_Contrato_SLA_Operacao" Visible="False">
                                                 <ItemStyle Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" />
                                             </asp:BoundColumn>
-                                            <asp:TemplateColumn HeaderText="Descrição">
+                                            <asp:TemplateColumn HeaderText="Descriï¿½ï¿½o">
                                                 <ItemTemplate>
                                                     <asp:TextBox ID="txtDescricaoSLA" runat="server" CssClass="configtext" Height="32px" MaxLength="100" Text="<%# Bind('Descricao') %>" ReadOnly="True" TextMode="MultiLine" Width="300px" BorderColor="Transparent" BorderStyle="Solid" BorderWidth="1px"></asp:TextBox>
                                                 </ItemTemplate>
@@ -358,13 +375,13 @@
                                             <asp:BoundColumn DataField="Id_Contrato_Aditivo" Visible="False">
                                                 <ItemStyle Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" />
                                             </asp:BoundColumn>
-                                            <asp:TemplateColumn HeaderText="Descrição">
+                                            <asp:TemplateColumn HeaderText="Descriï¿½ï¿½o">
                                                 <ItemTemplate>
                                                     <asp:TextBox ID="txtDescricaoAditivo" runat="server" CssClass="configtext" MaxLength="100" Text="<%# Bind('Descricao') %>" ReadOnly="True" TextMode="MultiLine" Width="100%" BorderColor="Transparent" BorderStyle="Solid" BorderWidth="1px"></asp:TextBox>
                                                 </ItemTemplate>
                                                 <ItemStyle Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" />
                                             </asp:TemplateColumn>
-                                            <asp:BoundColumn DataField="Dt_Vigencia" HeaderText="Vigência" Visible="True">
+                                            <asp:BoundColumn DataField="Dt_Vigencia" HeaderText="Vigï¿½ncia" Visible="True">
                                                 <ItemStyle Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" />
                                             </asp:BoundColumn>
                                         </Columns>

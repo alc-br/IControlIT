@@ -146,20 +146,6 @@
                 <div id="divMenuPesquisa" runat="server" visible="false">
                     <div class="row text-center">
                         <div class="col-md-3 col-sm-6">
-                            <div id="divContestacao" runat="server" class="card" style="background-color: #00CC00; cursor: pointer" onclick="imgContestacao_Click">
-                                <div class="card-body">
-                                    <asp:Button ID="imgContestacaoFull" runat="server" CssClass="bt_cockpit_menu" OnClick="imgContestacao_Click" />
-                                    <asp:LinkButton ID="imgContestacao" runat="server" CssClass="nav-link">
-                                        <i id="iconeContestacao" runat="server" class="fas fa-thumbs-up" style="font-size: 22pt; color: #FFFFFF"></i>
-                                    </asp:LinkButton>
-                                    <br />
-                                    <asp:Label ID="lblDescricaoContestacao" runat="server" Style="opacity: 0.2" Text="Indicador" Font-Bold="True" Font-Names="Segoe UI" Font-Size="18pt" ForeColor="#FFFFFF"></asp:Label>
-                                    <br />
-                                    <asp:Label ID="lblDescricaoContestacaoSub" runat="server" Style="opacity: 0.2; line-height: 45px" Text="Indicador" Font-Bold="False" Font-Names="Segoe UI" Font-Size="14pt" ForeColor="#FFFFFF"></asp:Label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6">
                             <div id="divGestao" runat="server" class="card" style="background-color: #00CC00; cursor: pointer" onclick="Gestao">
                                 <div class="card-body">
                                     <asp:Button ID="btGestaoFUll" runat="server" CssClass="bt_cockpit_menu" OnClick="btGestao_Click" />
@@ -187,6 +173,8 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div class="row text-center">
                         <div class="col-md-3 col-sm-6">
                             <div id="divFatura" runat="server" class="card" style="background-color: #00CC00">
                                 <div class="card-body">
@@ -198,22 +186,6 @@
                                     <asp:Label ID="lblDescricaoCarga" runat="server" Style="opacity: 0.2" Text="Indicador" Font-Bold="True" Font-Names="Segoe UI" Font-Size="16pt" ForeColor="#FFFFFF"></asp:Label>
                                     <br />
                                     <asp:Label ID="lblDescricaoCargaSub" runat="server" Style="opacity: 0.2; line-height: 45px" Text="Indicador" Font-Bold="False" Font-Names="Segoe UI" Font-Size="14pt" ForeColor="#FFFFFF"></asp:Label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row text-center">
-                        <div class="col-md-3 col-sm-6">
-                            <div id="divCota" runat="server" class="card" style="background-color: #00CC00">
-                                <div class="card-body">
-                                    <asp:Button ID="imgCotaFull" runat="server" CssClass="bt_cockpit_menu" OnClick="imgCota_Click" />
-                                    <asp:LinkButton ID="imgCota" runat="server" CssClass="nav-link">
-                                        <i id="iconeCota" runat="server" class="fas fa-thumbs-up" style="font-size: 22pt; color: #FFFFFF"></i>
-                                    </asp:LinkButton>
-                                    <br />
-                                    <asp:Label ID="lblDescricaoCota" runat="server" Style="opacity: 0.2" Text="Indicador" Font-Bold="True" Font-Names="Segoe UI" Font-Size="16pt" ForeColor="#FFFFFF"></asp:Label>
-                                    <br />
-                                    <asp:Label ID="lblDescricaoCotaSub" runat="server" Style="opacity: 0.2; line-height: 45px" Text="Indicador" Font-Bold="False" Font-Names="Segoe UI" Font-Size="14pt" ForeColor="#FFFFFF"></asp:Label>
                                 </div>
                             </div>
                         </div>

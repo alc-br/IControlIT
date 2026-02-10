@@ -149,60 +149,6 @@ Partial Public Class Home
     Protected WithEvents divMenuPesquisa As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
     '''<summary>
-    '''Controle divContestacao.
-    '''</summary>
-    '''<remarks>
-    '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-    '''</remarks>
-    Protected WithEvents divContestacao As Global.System.Web.UI.HtmlControls.HtmlGenericControl
-
-    '''<summary>
-    '''Controle imgContestacaoFull.
-    '''</summary>
-    '''<remarks>
-    '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-    '''</remarks>
-    Protected WithEvents imgContestacaoFull As Global.System.Web.UI.WebControls.Button
-
-    '''<summary>
-    '''Controle imgContestacao.
-    '''</summary>
-    '''<remarks>
-    '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-    '''</remarks>
-    Protected WithEvents imgContestacao As Global.System.Web.UI.WebControls.LinkButton
-
-    '''<summary>
-    '''Controle iconeContestacao.
-    '''</summary>
-    '''<remarks>
-    '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-    '''</remarks>
-    Protected WithEvents iconeContestacao As Global.System.Web.UI.HtmlControls.HtmlGenericControl
-
-    '''<summary>
-    '''Controle lblDescricaoContestacao.
-    '''</summary>
-    '''<remarks>
-    '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-    '''</remarks>
-    Protected WithEvents lblDescricaoContestacao As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''Controle lblDescricaoContestacaoSub.
-    '''</summary>
-    '''<remarks>
-    '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-    '''</remarks>
-    Protected WithEvents lblDescricaoContestacaoSub As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
     '''Controle divGestao.
     '''</summary>
     '''<remarks>
@@ -363,60 +309,6 @@ Partial Public Class Home
     '''Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
     '''</remarks>
     Protected WithEvents lblDescricaoCargaSub As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''Controle divCota.
-    '''</summary>
-    '''<remarks>
-    '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-    '''</remarks>
-    Protected WithEvents divCota As Global.System.Web.UI.HtmlControls.HtmlGenericControl
-
-    '''<summary>
-    '''Controle imgCotaFull.
-    '''</summary>
-    '''<remarks>
-    '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-    '''</remarks>
-    Protected WithEvents imgCotaFull As Global.System.Web.UI.WebControls.Button
-
-    '''<summary>
-    '''Controle imgCota.
-    '''</summary>
-    '''<remarks>
-    '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-    '''</remarks>
-    Protected WithEvents imgCota As Global.System.Web.UI.WebControls.LinkButton
-
-    '''<summary>
-    '''Controle iconeCota.
-    '''</summary>
-    '''<remarks>
-    '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-    '''</remarks>
-    Protected WithEvents iconeCota As Global.System.Web.UI.HtmlControls.HtmlGenericControl
-
-    '''<summary>
-    '''Controle lblDescricaoCota.
-    '''</summary>
-    '''<remarks>
-    '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-    '''</remarks>
-    Protected WithEvents lblDescricaoCota As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''Controle lblDescricaoCotaSub.
-    '''</summary>
-    '''<remarks>
-    '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-    '''</remarks>
-    Protected WithEvents lblDescricaoCotaSub As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''Controle divContrato.

@@ -49,6 +49,20 @@
                                             <td style="width: 82px;">&nbsp;</td>
                                             <td>&nbsp;</td>
                                         </tr>
+                                        <%-- [INÍCIO - ICTRL-NF-202512-002] - Observação obrigatória ao anexar comprovante --%>
+                                        <tr id="trObservacao" runat="server" visible="false">
+                                            <td style="width: 82px;">
+                                                <asp:Label ID="lblObservacao" runat="server" Font-Size="9pt" Style="float: right" Font-Bold="False" ForeColor="#333333">Observação</asp:Label>
+                                            </td>
+                                            <td>
+                                                <asp:TextBox ID="txtObservacao" runat="server" TextMode="MultiLine" Rows="3" Style="width: 460px" CssClass="form-control"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="rfvObservacao" runat="server" ControlToValidate="txtObservacao"
+                                                    ErrorMessage="A observação é obrigatória ao anexar comprovante de pagamento." ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
+                                                <asp:Label ID="lblInfoObservacao" runat="server" Font-Size="8pt" ForeColor="#666666"
+                                                    Text="* Obrigatório: Informe como o pagamento foi realizado"></asp:Label>
+                                            </td>
+                                        </tr>
+                                        <%-- [FIM - ICTRL-NF-202512-002] --%>
                                         <tr>
                                             <td style="width: 82px;">&nbsp;</td>
                                             <td>
@@ -57,7 +71,7 @@
                                                         <td></td>
 
                                                         <td style="width: 84px">
-                                                            <asp:Button ID="btIncluir" class="btn btn-success" Width="80px" runat="server" Text="Salvar" CausesValidation="False" disabled ="true" />
+                                                            <asp:Button ID="btIncluir" class="btn btn-success" Width="80px" runat="server" Text="Salvar" CausesValidation="True" disabled ="true" />
                                                         </td>
 
                                                         <td style="width: 84px">

@@ -92,6 +92,15 @@ Public Class Consulta_Contrato
                                                                         Nothing, Nothing, "sp_SL_Consulta_Conta", True)
                 dtgConta.DataSource = Session("DataSet_Conta")
                 dtgConta.DataBind()
+            Else
+                ' [INÍCIO - ICTRL-NF-202509-002]
+                ' Quando não tem ID, verifica se veio com filtro de vencimento
+                If Not String.IsNullOrEmpty(Request.QueryString("vencimento")) Then
+                    ' O dropdown já foi selecionado em PopularFiltros()
+                    ' Agora busca os contratos com o filtro
+                    Call BuscarContratos()
+                End If
+                ' [FIM - ICTRL-NF-202509-002]
             End If
         End If
     End Sub
@@ -213,6 +222,71 @@ Public Class Consulta_Contrato
     End Sub
 
 
+    ' [INÍCIO - ICTRL-NF-202509-002]
+    Private Sub PopularFiltros()
+        Try
+            ' Popula dropdown de Vencimento
+            Dim dsVencimento As DataSet = WS_Contrato.Contrato(Session("Conn_Banco"), 0, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, "sp_Drop_Contrato_Vencimento", True)
+            If dsVencimento IsNot Nothing AndAlso dsVencimento.Tables.Count > 0 Then
+                ddlVenceEm.DataSource = dsVencimento
+                ddlVenceEm.DataTextField = "Descricao"
+                ddlVenceEm.DataValueField = "Dias"
+                ddlVenceEm.DataBind()
+                ddlVenceEm.Items.Insert(0, New ListItem("Qualquer Data", "0"))
+            End If
 
+            ' Se veio da Home com parâmetro vencimento, seleciona o valor
+            If Not String.IsNullOrEmpty(Request.QueryString("vencimento")) Then
+                If ddlVenceEm.Items.FindByValue(Request.QueryString("vencimento")) IsNot Nothing Then
+                    ddlVenceEm.SelectedValue = Request.QueryString("vencimento")
+                End If
+            End If
+        Catch ex As Exception
+            ' Tratar erro se a carga dos filtros falhar
+        End Try
+    End Sub
+
+    Protected Sub Filtro_Changed(sender As Object, e As EventArgs)
+        Call BuscarContratos()
+    End Sub
+
+    Private Sub BuscarContratos()
+        Dim idStatus As Integer = 0
+        Dim diasVencimento As Integer = 0
+
+        ' Credentials para PostBack (quando altera dropdowns)
+        WS_Contrato.Credentials = System.Net.CredentialCache.DefaultCredentials
+
+        ' Ler valores dos dropdowns
+        If ddlStatusContrato.Items.Count > 0 AndAlso Not String.IsNullOrEmpty(ddlStatusContrato.SelectedValue) Then
+            Integer.TryParse(ddlStatusContrato.SelectedValue, idStatus)
+        End If
+
+        If ddlVenceEm.Items.Count > 0 AndAlso Not String.IsNullOrEmpty(ddlVenceEm.SelectedValue) Then
+            Integer.TryParse(ddlVenceEm.SelectedValue, diasVencimento)
+        End If
+
+        ' Chamando o novo método Contrato_Filtro
+        vdataset = WS_Contrato.Contrato_Filtro(Session("Conn_Banco"), idStatus, diasVencimento)
+
+        ' Armazena em Session("DataSet") para que o UserControl Contrato_Tabela possa usar
+        Session("DataSet") = vdataset
+
+        ' Rebind na grid do Contrato_Tabela (UserControl na Master Page)
+        Dim contratoTabela As Contrato_Tabela = CType(Master.FindControl("pnlContrato_Tabela").FindControl("Contrato_Tabela1"), Contrato_Tabela)
+        If contratoTabela IsNot Nothing Then
+            contratoTabela.RebindGrid()
+        End If
+    End Sub
+
+    Protected Sub btnExportar_Click(sender As Object, e As EventArgs)
+        If Session("DataSet") IsNot Nothing Then
+            Session("DataSet_Exportacao") = CType(Session("DataSet"), DataSet)
+
+            Dim script As String = "window.open('../Exportacao/Exporta.aspx?Descricao=Relatorio_de_Contratos','','resizable=yes, menubar=yes, scrollbars=no,height=768px, width=1024px, top=10, left=10');"
+            ScriptManager.RegisterStartupScript(Page, Page.GetType(), "exportWindow", script, True)
+        End If
+    End Sub
+    ' [FIM - ICTRL-NF-202509-002]
 
 End Class
