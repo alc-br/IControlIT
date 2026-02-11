@@ -1,1 +1,0 @@
-﻿<%@ WebService Language="vb" CodeBehind="SuccessFactors.asmx.vb" Class="WS_IControlIT.Sync.SuccessFactors" %>
