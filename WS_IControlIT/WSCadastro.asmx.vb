@@ -1979,9 +1979,9 @@ Public Class WSCadastro
         )
     End Function
 
-'===============================================================================
-'  ANIMA - INICIO DO CODIGO ESPECIFICO
-'===============================================================================
+    '===============================================================================
+    '  ANIMA - INICIO DO CODIGO ESPECIFICO
+    '===============================================================================
 
     '-----ANIMA - Consulta detalhamento de fatura por Nr_Fatura (Conta)
     '-----Usa cn_Detalhamento_Bilhete_API com sp_Detalhamento, filtrando por DC_Nr_Nota_Fiscal
@@ -1999,8 +1999,8 @@ Public Class WSCadastro
         Return oBanco.retorna_Query("dbo.cn_Detalhamento_Bilhete_API", vParametro, pPConn_Banco)
     End Function
 
-'===============================================================================
-'  ANIMA - FIM DO CODIGO ESPECIFICO
-'===============================================================================
+    '===============================================================================
+    '  ANIMA - FIM DO CODIGO ESPECIFICO
+    '===============================================================================
 
 End Class
