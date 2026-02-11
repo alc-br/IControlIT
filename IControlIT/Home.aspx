@@ -144,7 +144,39 @@
 
                 <!--Indicadores-->
                 <div id="divMenuPesquisa" runat="server" visible="false">
+                    <%-- [INÍCIO - ICTRL-NF-202509-001 e ICTRL-NF-202509-002] - Cards de KPIs --%>
                     <div class="row text-center">
+                        <%-- Card Contas não Pagas --%>
+                        <div class="col-md-3 col-sm-6">
+                            <div id="divContasNaoPagas" runat="server" class="card" style="background-color: #00CC00; cursor: pointer">
+                                <div class="card-body">
+                                    <asp:Button ID="btnContasNaoPagasFull" runat="server" CssClass="bt_cockpit_menu" OnClick="btnContasNaoPagas_Click" />
+                                    <asp:LinkButton ID="lnkContasNaoPagas" runat="server" CssClass="nav-link" OnClick="btnContasNaoPagas_Click">
+                                        <i id="iconContasNaoPagas" runat="server" class="fas fa-file-invoice-dollar" style="font-size: 22pt; color: #FFFFFF"></i>
+                                    </asp:LinkButton>
+                                    <br />
+                                    <asp:Label ID="lblTotalContasNaoPagas" runat="server" Text="0" Font-Bold="True" Font-Names="Segoe UI" Font-Size="18pt" ForeColor="#FFFFFF"></asp:Label>
+                                    <br />
+                                    <asp:Label ID="lblDescContasNaoPagas" runat="server" Text="Contas não Pagas (Mês)" Font-Bold="False" Font-Names="Segoe UI" Font-Size="14pt" ForeColor="#FFFFFF"></asp:Label>
+                                </div>
+                            </div>
+                        </div>
+                        <%-- Card Contratos a Vencer --%>
+                        <div class="col-md-3 col-sm-6">
+                            <div id="divContratosAVencer" runat="server" class="card" style="background-color: #00CC00; cursor: pointer">
+                                <div class="card-body">
+                                    <asp:Button ID="btnContratosAVencerFull" runat="server" CssClass="bt_cockpit_menu" OnClick="btnContratosAVencer_Click" />
+                                    <asp:LinkButton ID="lnkContratosAVencer" runat="server" CssClass="nav-link" OnClick="btnContratosAVencer_Click">
+                                        <i id="iconContratosAVencer" runat="server" class="fas fa-file-signature" style="font-size: 22pt; color: #FFFFFF"></i>
+                                    </asp:LinkButton>
+                                    <br />
+                                    <asp:Label ID="lblTotalContratosAVencer" runat="server" Text="0" Font-Bold="True" Font-Names="Segoe UI" Font-Size="18pt" ForeColor="#FFFFFF"></asp:Label>
+                                    <br />
+                                    <asp:Label ID="lblDescContratosAVencer" runat="server" Text="Contratos a Vencer" Font-Bold="False" Font-Names="Segoe UI" Font-Size="14pt" ForeColor="#FFFFFF"></asp:Label>
+                                </div>
+                            </div>
+                        </div>
+                        <%-- [FIM - ICTRL-NF-202509-001 e ICTRL-NF-202509-002] --%>
                         <div class="col-md-3 col-sm-6">
                             <div id="divGestao" runat="server" class="card" style="background-color: #00CC00; cursor: pointer" onclick="Gestao">
                                 <div class="card-body">

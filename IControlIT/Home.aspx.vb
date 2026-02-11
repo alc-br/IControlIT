@@ -50,6 +50,10 @@
             Call ValidaBotao(bt01)
             Call ValidaBotaoSub(btRelatorioGeral)
 
+            ' [INÍCIO - ICTRL-NF-202509-001 e ICTRL-NF-202509-002]
+            Call CarregarDadosKPIs()
+            ' [FIM - ICTRL-NF-202509-001 e ICTRL-NF-202509-002]
+
             '-----busca dados menu
             '-----session para criacao do menu 
             If Session("Menu") Is Nothing Then Session("Menu") = WS_Modulo.Validacao(Session("Conn_Banco"), "Sd_Menu", Session("Nm_Usuario"), Nothing, Nothing, Nothing, Session("Id_Idioma"))

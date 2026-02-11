@@ -1455,6 +1455,68 @@ Partial Public Class Home
     '''</remarks>
     Protected WithEvents lblBtS20 As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
+    ' [INÍCIO - ICTRL-NF-202509-001 e ICTRL-NF-202509-002]
+    '''<summary>
+    '''Controle divContasNaoPagas.
+    '''</summary>
+    Protected WithEvents divContasNaoPagas As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+
+    '''<summary>
+    '''Controle btnContasNaoPagasFull.
+    '''</summary>
+    Protected WithEvents btnContasNaoPagasFull As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''Controle lnkContasNaoPagas.
+    '''</summary>
+    Protected WithEvents lnkContasNaoPagas As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
+    '''Controle iconContasNaoPagas.
+    '''</summary>
+    Protected WithEvents iconContasNaoPagas As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+
+    '''<summary>
+    '''Controle lblTotalContasNaoPagas.
+    '''</summary>
+    Protected WithEvents lblTotalContasNaoPagas As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''Controle lblDescContasNaoPagas.
+    '''</summary>
+    Protected WithEvents lblDescContasNaoPagas As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''Controle divContratosAVencer.
+    '''</summary>
+    Protected WithEvents divContratosAVencer As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+
+    '''<summary>
+    '''Controle btnContratosAVencerFull.
+    '''</summary>
+    Protected WithEvents btnContratosAVencerFull As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''Controle lnkContratosAVencer.
+    '''</summary>
+    Protected WithEvents lnkContratosAVencer As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
+    '''Controle iconContratosAVencer.
+    '''</summary>
+    Protected WithEvents iconContratosAVencer As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+
+    '''<summary>
+    '''Controle lblTotalContratosAVencer.
+    '''</summary>
+    Protected WithEvents lblTotalContratosAVencer As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''Controle lblDescContratosAVencer.
+    '''</summary>
+    Protected WithEvents lblDescContratosAVencer As Global.System.Web.UI.WebControls.Label
+    ' [FIM - ICTRL-NF-202509-001 e ICTRL-NF-202509-002]
+
     '''<summary>
     '''Propriedade Master.
     '''</summary>

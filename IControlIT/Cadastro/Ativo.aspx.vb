@@ -8,7 +8,7 @@ Public Class Ativo
         WS_Cadastro.Envia_Log(Session("Conn_Banco"),
                                                       Session("Id_Usuario"),
                                                       DateTime.Now,
-                                                        $"Tela Ativo - Visualização {Request("ID")}",
+                                                        $"Tela Ativo - Visualizaï¿½ï¿½o {Request("ID")}",
                                                         False)
         If Not Page.IsPostBack Then
             WS_Cadastro.Credentials = System.Net.CredentialCache.DefaultCredentials
@@ -41,7 +41,7 @@ Public Class Ativo
                 End If
             Else
                 btConfiguracao.PostBackUrl = "~/Cadastro/Ativo_Parametro.aspx?ID=" & Request("ID")
-                vdataset = WS_Cadastro.Ativo(Session("Conn_Banco"), Request("ID"), Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, "sp_SL_ID", True, Nothing, Nothing, Nothing, Nothing, Nothing)
+                vdataset = WS_Cadastro.Ativo(Session("Conn_Banco"), Request("ID"), Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, "sp_SL_ID", True, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
                 If vdataset.Tables(0).Rows.Count = 0 Then Exit Sub
 
                 Dim fl_Desativado As Int16 = vdataset.Tables(0).Rows(0).Item("Fl_Desativado")
@@ -65,11 +65,14 @@ Public Class Ativo
                 txtVlrContrato.Text = vdataset.Tables(0).Rows(0).Item("Valor_Contrato")
                 txtPlanoContrato.Text = vdataset.Tables(0).Rows(0).Item("Plano_Contrato")
                 txtVelocidade.Text = vdataset.Tables(0).Rows(0).Item("Velocidade")
+                ' INICIO - FRESENIUS - 07112025
+                txtCNPJ.Text = vdataset.Tables(0).Rows(0).Item("CNPJ")
+                ' FIM - FRESENIUS - 07112025
 
                 '-----monta complemento do ativo
                 dtgDadosComplemento.DataSource = WS_Cadastro.Ativo(Session("Conn_Banco"), Request("ID"), Nothing, Nothing, cboAtivoTipo.SelectedValue, Nothing,
                                                                        Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing,
-                                                                       Nothing, "sp_SL_Complemento_Update", True, Nothing, Nothing, Nothing, Nothing, Nothing)
+                                                                       Nothing, "sp_SL_Complemento_Update", True, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
                 dtgDadosComplemento.DataBind()
 
                 '-----monta modelo do ativo
@@ -78,7 +81,7 @@ Public Class Ativo
 
                 '-----retorna relacionamento de ativo comconsumidor
                 vdataset = WS_Cadastro.Ativo(Session("Conn_Banco"), Request("ID"), Nothing, Nothing, cboAtivoTipo.SelectedValue, Nothing, Nothing, Nothing, Nothing,
-                                                    Nothing, Nothing, Nothing, Nothing, Nothing, "sd_SL_RL_Ativo_Consumidor", True, Nothing, Nothing, Nothing, Nothing, Nothing)
+                                                    Nothing, Nothing, Nothing, Nothing, Nothing, "sd_SL_RL_Ativo_Consumidor", True, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
 
                 dtgUsuario.DataSource = vdataset
                 dtgUsuario.DataBind()
@@ -219,7 +222,7 @@ Public Class Ativo
         '-----monta complemento do ativo
         WS_Cadastro.Credentials = System.Net.CredentialCache.DefaultCredentials
         dtgDadosComplemento.DataSource = WS_Cadastro.Ativo(Session("Conn_Banco"), Nothing, Nothing, Nothing, cboAtivoTipo.SelectedValue, Nothing, Nothing, Nothing, Nothing,
-                                                                Nothing, Nothing, Nothing, Nothing, Nothing, "sp_SL_Complemento_Insert", True, Nothing, Nothing, Nothing, Nothing, Nothing)
+                                                                Nothing, Nothing, Nothing, Nothing, Nothing, "sp_SL_Complemento_Insert", True, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
         dtgDadosComplemento.DataBind()
         '-----monta modelo do ativo
         oConfig.CarregaCombo(cboAtivoModelo, WS_Cadastro.DropList_Filtro(Session("Conn_Banco"), "sp_Drop_Filtro_Ativo_Modelo_Id_Ativo_Tipo", cboAtivoTipo.SelectedValue, Nothing))
@@ -260,7 +263,7 @@ Public Class Ativo
         For i = 0 To pGrid.Items.Count - 1
             vLabel = pGrid.Items(i).Cells(0).Controls(1)
             vText = pGrid.Items(i).Cells(0).Controls(3)
-            vRetorno = vRetorno & IIf(Trim(vLabel.Text) = "", " ", vLabel.Text) & "¶" & IIf(Trim(vText.Text) = "", " ", vText.Text) & IIf(pGrid.Items.Count - 1 = i, "", "§")
+            vRetorno = vRetorno & IIf(Trim(vLabel.Text) = "", " ", vLabel.Text) & "ï¿½" & IIf(Trim(vText.Text) = "", " ", vText.Text) & IIf(pGrid.Items.Count - 1 = i, "", "ï¿½")
         Next
         Return vRetorno
     End Function
@@ -364,6 +367,7 @@ Public Class Ativo
 
         '-----nao insere registro quando descricao so for numerica
         WS_Cadastro.Credentials = System.Net.CredentialCache.DefaultCredentials
+        ' INICIO - FRESENIUS - 07112025
         txtIdentificacao.Text = WS_Cadastro.Ativo(Session("Conn_Banco"),
                                                         oConfig.ValidaCampo(txtIdentificacao.Text),
                                                         oConfig.ValidaCampo(txtNumeroAtivo.Text),
@@ -373,7 +377,7 @@ Public Class Ativo
                                                         oConfig.ValidaCampo(cboAtivoModelo.SelectedValue),
                                                         IIf(Not IsDate(txtSuspenssao.Text), Nothing, oConfig.ValidaCampo(txtSuspenssao.Text)),
                                                         IIf(Trim(txtDataAtivacao.Text) = "", Nothing, txtDataAtivacao.Text),
-                                                        oConfig.ValidaCampo(Mid(txtObservacao.Text, 1, 8000) + " | Usuário - " + Session("Nm_Usuario")),
+                                                        oConfig.ValidaCampo(Mid(txtObservacao.Text, 1, 8000) + " | Usuï¿½rio - " + Session("Nm_Usuario")),
                                                         montaComplemento(dtgDadosComplemento),
                                                         oConfig.ValidaCampo(cboAtivoStatus.SelectedValue),
                                                         oConfig.AgrupaDadosAtivos(Session("vDtDragDrop")),
@@ -384,12 +388,14 @@ Public Class Ativo
                                                         oConfig.ValidaCampo(txtSimCard.Text),
                                                         oConfig.ValidaCampo(txtVlrContrato.Text),
                                                         oConfig.ValidaCampo(txtPlanoContrato.Text),
-                                                        oConfig.ValidaCampo(txtVelocidade.Text)).Tables(0).Rows(0).Item(0)
+                                                        oConfig.ValidaCampo(txtVelocidade.Text),
+                                                        oConfig.ValidaCampo(txtCNPJ.Text)).Tables(0).Rows(0).Item(0)
+        ' FIM - FRESENIUS - 07112025
 
         Dim aut = WS_Cadastro.Envia_Log(Session("Conn_Banco"),
                                                       Session("Id_Usuario"),
                                                       DateTime.Now,
-                                                        $"Tela Ativo - Visualização {Request("ID")}",
+                                                        $"Tela Ativo - Visualizaï¿½ï¿½o {Request("ID")}",
                                                         False)
 
         'btConfiguracao.PostBackUrl = "~/Cadastro/Ativo_Parametro.aspx?ID=" & Request("ID")
@@ -413,6 +419,7 @@ Public Class Ativo
                                      Nothing,
                                      Nothing,
                                      Nothing,
+                                     Nothing,
                                      Nothing)
 
         txtObservacao.Text = vdataset.Tables(0).Rows(0).Item("Observacao")
@@ -432,13 +439,13 @@ Public Class Ativo
                                                 Nothing,
                                                 Nothing,
                                                 IIf(Not IsDate(txtSuspenssao.Text), Nothing, oConfig.ValidaCampo(txtSuspenssao.Text)),
-                                                "Suspensão de linha",
+                                                "Suspensï¿½o de linha",
                                                 Nothing,
                                                 Nothing,
                                                 Nothing,
                                                 Session("Id_Usuario"),
                                                 "sd_SM_Ativo_Alerta",
-                                                False, Nothing, Nothing, Nothing, Nothing, Nothing).Tables(0).Rows(0).Item(0)
+                                                False, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing).Tables(0).Rows(0).Item(0)
 
         End If
 
@@ -468,7 +475,7 @@ Public Class Ativo
 
         '-----monta relacionamento de ativo comconsumidor para print do termo
         vdataset = WS_Cadastro.Ativo(Session("Conn_Banco"), txtIdentificacao.Text, Nothing, Nothing, cboAtivoTipo.SelectedValue, Nothing, Nothing, Nothing, Nothing,
-                                            Nothing, Nothing, Nothing, Nothing, Nothing, "sd_SL_RL_Ativo_Consumidor", True, Nothing, Nothing, Nothing, Nothing, Nothing)
+                                            Nothing, Nothing, Nothing, Nothing, Nothing, "sd_SL_RL_Ativo_Consumidor", True, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
 
         dtgUsuario.DataSource = vdataset
         dtgUsuario.DataBind()
@@ -484,7 +491,7 @@ Public Class Ativo
         pnlObservacao.Visible = False
 
         If txtIdentificacao.Text = -1 Then
-            Call Master.Registro_Salvo("Verifique se o login do usuário está cadastrado para funcionar as datas de desativação e ativação.")
+            Call Master.Registro_Salvo("Verifique se o login do usuï¿½rio estï¿½ cadastrado para funcionar as datas de desativaï¿½ï¿½o e ativaï¿½ï¿½o.")
             ScriptManager.RegisterStartupScript(Me, Me.GetType(), "key", "Modal('#myModalRegistroSalvo');", True)
         End If
 
@@ -538,8 +545,8 @@ Public Class Ativo
         WS_Cadastro.Credentials = System.Net.CredentialCache.DefaultCredentials
         WS_Cadastro.Ativo(Session("Conn_Banco"), txtIdentificacao.Text,
                                 Nothing, Nothing, Nothing, Nothing, Nothing, Nothing,
-                                Nothing, " | Usuário - " + Session("Nm_Usuario"), Nothing, Nothing,
-                                Nothing, Session("Id_Usuario"), "sp_SE", False, Nothing, Nothing, Nothing, Nothing, Nothing)
+                                Nothing, " | Usuï¿½rio - " + Session("Nm_Usuario"), Nothing, Nothing,
+                                Nothing, Session("Id_Usuario"), "sp_SE", False, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
         Call limpar()
     End Sub
 
