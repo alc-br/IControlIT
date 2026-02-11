@@ -1,1 +1,0 @@
-﻿<%@ Page Language="VB" AutoEventWireup="false" CodeBehind="Termo_Responsabilidade_Ativo.aspx.vb" Inherits="IControlIT.Termo_Responsabilidade_Ativo" %>
