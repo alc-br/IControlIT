@@ -401,6 +401,15 @@ Partial Public Class Principal
     Protected WithEvents btOrcamento As Global.System.Web.UI.HtmlControls.HtmlAnchor
 
     '''<summary>
+    '''A4 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents A4 As Global.System.Web.UI.HtmlControls.HtmlAnchor
+
+    '''<summary>
     '''A2 control.
     '''</summary>
     '''<remarks>

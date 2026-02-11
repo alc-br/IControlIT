@@ -1,12 +1,13 @@
-## Pasta de configuração do Visual Studio
+## Pasta de configuraï¿½ï¿½o do Visual Studio
 .vs/
 *.user
 *.suo
 
-## Diretórios de build
+## Diretï¿½rios de build
 bin/
 obj/
 out/
+PUBLICADO/*
 
 ## Arquivos de log e caches
 *.log
@@ -16,13 +17,13 @@ out/
 *.pdb
 *.db
 
-## Arquivos temporários
+## Arquivos temporï¿½rios
 *.tmp
 *.temp
 *.bak
 *.old
 
-## Configurações de IDEs e Ferramentas
+## Configuraï¿½ï¿½es de IDEs e Ferramentas
 .idea/
 *.ncrunch*
 _ReSharper*/
@@ -30,10 +31,10 @@ _ReSharper*/
 *.DotSettings.user
 .vscode/
 
-## Arquivos de publicação
+## Arquivos de publicaï¿½ï¿½o
 publish/
 
-## Configurações locais e senhas
+## Configuraï¿½ï¿½es locais e senhas
 secrets.json
 *.config.user
 

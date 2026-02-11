@@ -465,6 +465,15 @@
     <Content Include="Cadastro\Fatura_Parametro_Campo.aspx" />
     <Content Include="Cadastro\Filial.aspx" />
     <Content Include="Cadastro\Holding.aspx" />
+    <Content Include="Cadastro\Integracoes\JScript.js" />
+    <Content Include="Cadastro\Integracoes\Parametros\Cadastro.aspx" />
+    <Content Include="Cadastro\Integracoes\Parametros\Consulta.aspx" />
+    <Content Include="Cadastro\Integracoes\Scripts\bootstrap.min.js" />
+    <Content Include="Cadastro\Integracoes\Scripts\icheck.min.js" />
+    <Content Include="Cadastro\Integracoes\Scripts\jquery-3.5.1.min.js" />
+    <Content Include="Cadastro\Integracoes\Scripts\material-dashboard.js" />
+    <Content Include="Cadastro\Integracoes\Scripts\perfect-scrollbar.jquery.min.js" />
+    <Content Include="Cadastro\Integracoes\Scripts\utils.js" />
     <Content Include="Cadastro\Secao.aspx" />
     <Content Include="Cadastro\Servico.aspx" />
     <Content Include="Cadastro\Setor.aspx" />
@@ -1656,6 +1665,14 @@
     </Compile>
     <Compile Include="Cadastro\Holding.aspx.vb">
       <DependentUpon>Holding.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cadastro\Integracoes\Parametros\Cadastro.aspx.vb">
+      <DependentUpon>Cadastro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cadastro\Integracoes\Parametros\Consulta.aspx.vb">
+      <DependentUpon>Consulta.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Cadastro\Secao.aspx.designer.vb">
