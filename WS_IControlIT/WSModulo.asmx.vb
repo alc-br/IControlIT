@@ -493,4 +493,55 @@ Public Class WSModulo
             Return oBanco.convertRetorno(vParametro(1).Value)
         End If
     End Function
+
+    ' [INÍCIO - ICTRL-NF-202509-001 e ICTRL-NF-202509-002]
+    '-----busca dados para os KPIs da Home
+    <WebMethod()>
+    Public Function Get_Dados_KPI(ByVal pPConn_Banco As System.String,
+                                  ByVal pAcao As System.String) As System.Data.DataSet
+
+        ReDim vParametro(0)
+        oBanco.monta_Parametro(vParametro, pAcao, "@pAcao", False)
+
+        Return oBanco.retorna_Query("dbo.pa_Home_KPI_Get", vParametro, pPConn_Banco)
+    End Function
+
+    '-----executa stored procedure sem parametros
+    <WebMethod()>
+    Public Function Exec_Procedure_Simple(ByVal pPConn_Banco As System.String,
+                                         ByVal pProcedure As System.String) As System.Data.DataSet
+        Return oBanco.retorna_Query(pProcedure, Nothing, pPConn_Banco)
+    End Function
+
+    '-----marca fatura como paga
+    <WebMethod()>
+    Public Function Marcar_Fatura_Paga(ByVal pPConn_Banco As System.String,
+                                       ByVal pId_Fatura As System.Int32,
+                                       ByVal pObservacao As System.String,
+                                       ByVal pFl_Pago As System.Int32) As System.Data.DataSet
+
+        ReDim vParametro(2)
+        oBanco.monta_Parametro(vParametro, pId_Fatura, "@Id_Fatura", False)
+        oBanco.monta_Parametro(vParametro, pObservacao, "@Observacao", False)
+        oBanco.monta_Parametro(vParametro, pFl_Pago, "@Fl_Pago", False)
+
+        oBanco.manutencao_Dados("dbo.sp_Marcar_Fatura_Paga", vParametro, pPConn_Banco)
+        Return Nothing
+    End Function
+    ' [FIM - ICTRL-NF-202509-001 e ICTRL-NF-202509-002]
+
+    ' [INÍCIO - ICTRL-NF-202509-002] - Filtro de Contratos por Status e Vencimento
+    <WebMethod()>
+    Public Function Contrato_Filtro(ByVal pPConn_Banco As System.String,
+                                    ByVal pId_Contrato_Status As System.Int32,
+                                    ByVal pDias_Vencimento As System.Int32) As System.Data.DataSet
+
+        ReDim vParametro(1)
+        oBanco.monta_Parametro(vParametro, pId_Contrato_Status, "@pId_Contrato_Status", False)
+        oBanco.monta_Parametro(vParametro, pDias_Vencimento, "@pDias_Vencimento", False)
+
+        Return oBanco.retorna_Query("dbo.sp_SL_Consulta_Contrato_Filtro", vParametro, pPConn_Banco)
+    End Function
+    ' [FIM - ICTRL-NF-202509-002]
+
 End Class

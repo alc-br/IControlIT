@@ -138,4 +138,40 @@ Public Class WSContrato
             Return Nothing
         End If
     End Function
+
+    ' [INÍCIO - ICTRL-NF-202509-002]
+    <WebMethod()>
+    Public Function Contrato_Filtro(ByVal pPConn_Banco As System.String,
+                                    ByVal pId_Contrato_Status As System.Int32,
+                                    ByVal pDias_Vencimento As System.Int32) As System.Data.DataSet
+        Try
+            ' NOTA: Não usar monta_Parametro aqui porque converte 0 para DBNull
+            ' Criar parâmetros diretamente para preservar o valor 0
+            ReDim vParametro(1)
+
+            vParametro(0) = New SqlClient.SqlParameter()
+            vParametro(0).ParameterName = "@pId_Contrato_Status"
+            vParametro(0).DbType = DbType.Int32
+            vParametro(0).Value = pId_Contrato_Status
+
+            vParametro(1) = New SqlClient.SqlParameter()
+            vParametro(1).ParameterName = "@pDias_Vencimento"
+            vParametro(1).DbType = DbType.Int32
+            vParametro(1).Value = pDias_Vencimento
+
+            Return oBanco.retorna_Query("dbo.sp_SL_Consulta_Contrato_Filtro", vParametro, pPConn_Banco)
+        Catch ex As Exception
+            ' Criar dataset com mensagem de erro para diagnóstico
+            Dim dsError As New DataSet()
+            Dim dtError As New DataTable("Error")
+            dtError.Columns.Add("ErrorMessage", GetType(String))
+            dtError.Columns.Add("StackTrace", GetType(String))
+            dtError.Rows.Add(ex.Message, ex.StackTrace)
+            dsError.Tables.Add(dtError)
+            Return dsError
+        End Try
+    End Function
+
+    ' [FIM - ICTRL-NF-202509-002]
+
 End Class

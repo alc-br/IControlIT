@@ -151,11 +151,19 @@
                             <asp:Label ID="lvlVelocidade" runat="server" CssClass="configlabel" Text="Velocidade"></asp:Label>
                             <asp:TextBox ID="txtVelocidade" runat="server" BorderStyle="Solid" BorderWidth="1px"  Width="100%" CssClass="configtext"  ForeColor="#006600" Font-Bold="False"></asp:TextBox>
                         </div>
+                        <!-- INICIO - FRESENIUS - 07112025 -->
+                        <div class="col-md-6">
+                            <asp:Label ID="lblCNPJ" runat="server" CssClass="configlabel" Text="CNPJ"></asp:Label>
+                            <asp:TextBox ID="txtCNPJ" runat="server" BorderStyle="Solid" BorderWidth="1px"  Width="100%" CssClass="configtext"  ForeColor="#006600" Font-Bold="False" MaxLength="18"></asp:TextBox>
+                        </div>
+                        <!-- FIM - FRESENIUS - 07112025 -->
                     </div>
                     <div style="height: 5px"></div>
                     <div class="row">
                         <div class="col-md-12">
-                            <div id="divGrupo" runat="server" style="width: 100%; height: 105px; overflow: auto" title=" ">
+                            <!-- INICIO - FRESENIUS - 07112025 -->
+                            <div id="divGrupo" runat="server" style="width: 100%; height: 200px; overflow: auto" title=" ">
+                            <!-- FIM - FRESENIUS - 07112025 -->
                                 <asp:DataGrid ID="dtgUsuario" runat="server" EnableTheming="True" Font-Bold="False" Font-Italic="False" Font-Names="Arial" Font-Overline="False" Font-Size="9pt" Font-Strikeout="False" Font-Underline="False" ForeColor="Black" HorizontalAlign="Center" Width="100%" AutoGenerateColumns="False" BorderColor="#CCCCCC" CellPadding="5" CellSpacing="5" BorderWidth="1px" GridLines="Horizontal">
                                     <FooterStyle Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" />
                                     <PagerStyle Mode="NumericPages" />

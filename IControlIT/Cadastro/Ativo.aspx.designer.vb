@@ -500,6 +500,24 @@ Partial Public Class Ativo
     Protected WithEvents txtVelocidade As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
+    '''Controle lblCNPJ.
+    '''</summary>
+    '''<remarks>
+    '''Campo gerado automaticamente.
+    '''Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+    '''</remarks>
+    Protected WithEvents lblCNPJ As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''Controle txtCNPJ.
+    '''</summary>
+    '''<remarks>
+    '''Campo gerado automaticamente.
+    '''Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+    '''</remarks>
+    Protected WithEvents txtCNPJ As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
     '''Controle divGrupo.
     '''</summary>
     '''<remarks>

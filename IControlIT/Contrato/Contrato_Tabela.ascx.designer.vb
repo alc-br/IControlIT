@@ -23,6 +23,16 @@ Partial Public Class Contrato_Tabela
     Protected WithEvents Div1 As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
     '''<summary>
+    '''pnlSemRegistros control.
+    '''</summary>
+    Protected WithEvents pnlSemRegistros As Global.System.Web.UI.WebControls.Panel
+
+    '''<summary>
+    '''lblSemRegistros control.
+    '''</summary>
+    Protected WithEvents lblSemRegistros As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''Controle dtgContrato_Tabela.
     '''</summary>
     '''<remarks>

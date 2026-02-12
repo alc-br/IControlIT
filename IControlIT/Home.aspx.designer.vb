@@ -149,60 +149,6 @@ Partial Public Class Home
     Protected WithEvents divMenuPesquisa As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
     '''<summary>
-    '''Controle divContestacao.
-    '''</summary>
-    '''<remarks>
-    '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-    '''</remarks>
-    Protected WithEvents divContestacao As Global.System.Web.UI.HtmlControls.HtmlGenericControl
-
-    '''<summary>
-    '''Controle imgContestacaoFull.
-    '''</summary>
-    '''<remarks>
-    '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-    '''</remarks>
-    Protected WithEvents imgContestacaoFull As Global.System.Web.UI.WebControls.Button
-
-    '''<summary>
-    '''Controle imgContestacao.
-    '''</summary>
-    '''<remarks>
-    '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-    '''</remarks>
-    Protected WithEvents imgContestacao As Global.System.Web.UI.WebControls.LinkButton
-
-    '''<summary>
-    '''Controle iconeContestacao.
-    '''</summary>
-    '''<remarks>
-    '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-    '''</remarks>
-    Protected WithEvents iconeContestacao As Global.System.Web.UI.HtmlControls.HtmlGenericControl
-
-    '''<summary>
-    '''Controle lblDescricaoContestacao.
-    '''</summary>
-    '''<remarks>
-    '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-    '''</remarks>
-    Protected WithEvents lblDescricaoContestacao As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''Controle lblDescricaoContestacaoSub.
-    '''</summary>
-    '''<remarks>
-    '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-    '''</remarks>
-    Protected WithEvents lblDescricaoContestacaoSub As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
     '''Controle divGestao.
     '''</summary>
     '''<remarks>
@@ -363,60 +309,6 @@ Partial Public Class Home
     '''Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
     '''</remarks>
     Protected WithEvents lblDescricaoCargaSub As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''Controle divCota.
-    '''</summary>
-    '''<remarks>
-    '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-    '''</remarks>
-    Protected WithEvents divCota As Global.System.Web.UI.HtmlControls.HtmlGenericControl
-
-    '''<summary>
-    '''Controle imgCotaFull.
-    '''</summary>
-    '''<remarks>
-    '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-    '''</remarks>
-    Protected WithEvents imgCotaFull As Global.System.Web.UI.WebControls.Button
-
-    '''<summary>
-    '''Controle imgCota.
-    '''</summary>
-    '''<remarks>
-    '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-    '''</remarks>
-    Protected WithEvents imgCota As Global.System.Web.UI.WebControls.LinkButton
-
-    '''<summary>
-    '''Controle iconeCota.
-    '''</summary>
-    '''<remarks>
-    '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-    '''</remarks>
-    Protected WithEvents iconeCota As Global.System.Web.UI.HtmlControls.HtmlGenericControl
-
-    '''<summary>
-    '''Controle lblDescricaoCota.
-    '''</summary>
-    '''<remarks>
-    '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-    '''</remarks>
-    Protected WithEvents lblDescricaoCota As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''Controle lblDescricaoCotaSub.
-    '''</summary>
-    '''<remarks>
-    '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-    '''</remarks>
-    Protected WithEvents lblDescricaoCotaSub As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''Controle divContrato.
@@ -1562,6 +1454,68 @@ Partial Public Class Home
     '''Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
     '''</remarks>
     Protected WithEvents lblBtS20 As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+
+    ' [INÍCIO - ICTRL-NF-202509-001 e ICTRL-NF-202509-002]
+    '''<summary>
+    '''Controle divContasNaoPagas.
+    '''</summary>
+    Protected WithEvents divContasNaoPagas As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+
+    '''<summary>
+    '''Controle btnContasNaoPagasFull.
+    '''</summary>
+    Protected WithEvents btnContasNaoPagasFull As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''Controle lnkContasNaoPagas.
+    '''</summary>
+    Protected WithEvents lnkContasNaoPagas As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
+    '''Controle iconContasNaoPagas.
+    '''</summary>
+    Protected WithEvents iconContasNaoPagas As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+
+    '''<summary>
+    '''Controle lblTotalContasNaoPagas.
+    '''</summary>
+    Protected WithEvents lblTotalContasNaoPagas As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''Controle lblDescContasNaoPagas.
+    '''</summary>
+    Protected WithEvents lblDescContasNaoPagas As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''Controle divContratosAVencer.
+    '''</summary>
+    Protected WithEvents divContratosAVencer As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+
+    '''<summary>
+    '''Controle btnContratosAVencerFull.
+    '''</summary>
+    Protected WithEvents btnContratosAVencerFull As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''Controle lnkContratosAVencer.
+    '''</summary>
+    Protected WithEvents lnkContratosAVencer As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
+    '''Controle iconContratosAVencer.
+    '''</summary>
+    Protected WithEvents iconContratosAVencer As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+
+    '''<summary>
+    '''Controle lblTotalContratosAVencer.
+    '''</summary>
+    Protected WithEvents lblTotalContratosAVencer As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''Controle lblDescContratosAVencer.
+    '''</summary>
+    Protected WithEvents lblDescContratosAVencer As Global.System.Web.UI.WebControls.Label
+    ' [FIM - ICTRL-NF-202509-001 e ICTRL-NF-202509-002]
 
     '''<summary>
     '''Propriedade Master.

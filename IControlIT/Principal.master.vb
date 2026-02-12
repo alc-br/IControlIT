@@ -31,18 +31,18 @@ Public Class Principal
             If Session("Menu") Is Nothing Then Session("Menu") = WS_Modulo.Validacao(Session("Conn_Banco"), "Sd_Menu", Session("Nm_Usuario"), Nothing, Nothing, Nothing, Session("Id_Idioma"))
             v_dataSet = Session("Menu")
 
-            ' [INÕCIO - ICTRL2025029] - Preenche o label de debug com as permissıes da sess„o
-            ' Este bloco verifica se as vari·veis de sess„o existem antes de tentar lÍ-las.
+            ' [INÔøΩCIO - ICTRL2025029] - Preenche o label de debug com as permissÔøΩes da sessÔøΩo
+            ' Este bloco verifica se as variÔøΩveis de sessÔøΩo existem antes de tentar lÔøΩ-las.
             If Session("Modulos_Permitidos") IsNot Nothing Or Session("Torres_Permitidas") IsNot Nothing Then
 
-                ' LÍ o valor da sess„o para MÛdulos. Se for nulo ou vazio no banco, exibe "Nenhuma".
+                ' LÔøΩ o valor da sessÔøΩo para MÔøΩdulos. Se for nulo ou vazio no banco, exibe "Nenhuma".
                 Dim modulos As String = If(Session("Modulos_Permitidos") IsNot DBNull.Value AndAlso Not String.IsNullOrEmpty(Session("Modulos_Permitidos").ToString()), Session("Modulos_Permitidos").ToString(), "Nenhuma")
 
-                ' LÍ o valor da sess„o para Torres. Se for nulo ou vazio no banco, exibe "Nenhuma".
+                ' LÔøΩ o valor da sessÔøΩo para Torres. Se for nulo ou vazio no banco, exibe "Nenhuma".
                 Dim torres As String = If(Session("Torres_Permitidas") IsNot DBNull.Value AndAlso Not String.IsNullOrEmpty(Session("Torres_Permitidas").ToString()), Session("Torres_Permitidas").ToString(), "Nenhuma")
 
                 ' Preenche o texto do label.
-                lblDebugPermissions.Text = String.Format("DEBUG | MÛdulos: {0} | Torres: {1}", modulos, torres)
+                lblDebugPermissions.Text = String.Format("DEBUG | MÔøΩdulos: {0} | Torres: {1}", modulos, torres)
 
             End If
             ' [FIM - ICTRL2025029]
@@ -270,6 +270,14 @@ Public Class Principal
         End If
 
     End Sub
+
+    ' [IN√çCIO - ICTRL-NF-202509-002] - Rebindar grid de contratos com dados da Session
+    Public Sub RebindContrato_Tabela()
+        ' Garantir que o painel est√° vis√≠vel e rebindar o grid
+        pnlContrato_Tabela.Visible = True
+        Contrato_Tabela1.RebindGrid()
+    End Sub
+    ' [FIM - ICTRL-NF-202509-002]
 
     Protected Sub btnClose_Click(sender As Object, e As EventArgs)
         pnlLocalizar.Visible = False

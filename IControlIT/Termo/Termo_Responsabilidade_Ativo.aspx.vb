@@ -97,7 +97,8 @@ Partial Public Class Termo_Responsabilidade_Ativo
                     Nothing,             ' pNumero_Sim_Card
                     Nothing,             ' pValor_Contrato
                     Nothing,             ' pPlano_Contrato
-                    Nothing              ' pVelocidade
+                    Nothing,             ' pVelocidade
+                    Nothing              ' pCNPJ
                 )
 
                     Dim dv As New DataView(dsAtivo.Tables(0), "Id_Consumidor = " & consumidores(i), Nothing, DataViewRowState.OriginalRows)
@@ -172,7 +173,8 @@ Partial Public Class Termo_Responsabilidade_Ativo
             Nothing,             ' pNumero_Sim_Card
             Nothing,             ' pValor_Contrato
             Nothing,             ' pPlano_Contrato
-            Nothing              ' pVelocidade
+            Nothing,             ' pVelocidade
+            Nothing              ' pCNPJ
         )
 
             Dim dv As New Data.DataView(dsAtivo.Tables(0), "Id_Consumidor = " & termo.IdConsumidor, Nothing, DataViewRowState.OriginalRows)
@@ -451,7 +453,7 @@ Partial Public Class Termo_Responsabilidade_Ativo
         Dim pPConn_Banco As String = Session("Conn_Banco")
 
         ' --- Busca de Dados Unificada ---
-        Dim dsDadosTermo = WS_Cadastro.Ativo(pPConn_Banco, idAtivo, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, "sd_SL_Termo", True, Nothing, Nothing, Nothing, Nothing, Nothing)
+        Dim dsDadosTermo = WS_Cadastro.Ativo(pPConn_Banco, idAtivo, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, "sd_SL_Termo", True, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
         If dsDadosTermo Is Nothing OrElse dsDadosTermo.Tables.Count = 0 OrElse dsDadosTermo.Tables(0).Rows.Count = 0 Then
             Response.Write("Erro: Não foi possível obter os dados do ativo para gerar o link.")
             Response.End()

@@ -44,7 +44,7 @@
 
     <script type="text/javascript">
 
-        // hack do Marcio para manter a sess�o vida
+        // hack do Marcio para manter a sessão vida
         setInterval("keepSessionAlive()", 5 * 60 * 1000);
         function keepSessionAlive() {
             var img = new Image(1, 1);
@@ -201,7 +201,7 @@
                     visibility: visible;
                 }
 
-        /*tooltip dos bot�es do menu*/
+        /*tooltip dos botões do menu*/
         .speech-bubble {
             position: absolute;
             top: -35px;
@@ -591,7 +591,7 @@
                         <!-- your sidebar here -->
                         <div class="sidebar-wrapper">
                             
-                            <!-- sidebar do usu�rio -->
+                            <!-- sidebar do usuário -->
                             <ul id="sidebarAdm" runat="server" class="nav">
                                 <li id="navHomeMenu" runat="server" class="nav-item active">
                                     <a id="btHome" runat="server" class="nav-link" href="Home.aspx">
@@ -602,13 +602,13 @@
                                 <li id="navRelatorio" runat="server" class="nav-item">
                                     <a id="btRelatorio" runat="server" class="nav-link" href="~/Home.aspx?Pagina=relatorio">
                                         <i class="fas fa-chart-bar"></i>
-                                        <p>Relat�rio</p>
+                                        <p>Relatório</p>
                                     </a>
                                 </li>
                                 <li id="navMarcacao" runat="server" class="nav-item">
                                     <a id="btMarcacao" runat="server" class="nav-link" href="~/Marcacao/Lote.aspx?Pagina=contaUsuario">
                                         <i class="fas fa-id-card"></i>
-                                        <p>Conta Usu�rio</p>
+                                        <p>Conta Usuário</p>
                                     </a>
                                 </li>
                                 <li id="navConfig" runat="server" class="nav-item">
@@ -650,7 +650,7 @@
                                 <li id="navContestacao" runat="server" class="nav-item">
                                     <a id="btContestacao" runat="server" class="nav-link" href="~/Auditoria/Auditoria_Consulta.aspx?Pagina=contestacao">
                                         <i class="fas fa-search-dollar"></i>
-                                        <p>Contesta��o</p>
+                                        <p>Contestação</p>
                                     </a>
                                 </li>
                                 <li id="navContrato" runat="server" class="nav-item">
@@ -682,7 +682,7 @@
                                                 <li class="nav-item">
                                                     <a id="A6" runat="server" class="nav-link" style="opacity: 0.3">
                                                         <i class="fas fa-user"></i>
-                                                        <p>Usu�rio</p>
+                                                        <p>Usuário</p>
                                                     </a>
                                                 </li>
                                                 <li class="nav-item">
@@ -698,7 +698,13 @@
                                 <li id="navOrcamento" runat="server" class="nav-item">
                                     <a id="btOrcamento" runat="server" class="nav-link" href="~/Politica/Politica_Consumidor.aspx?Pagina=orcamento">
                                         <i class="fas fa-file-signature"></i>
-                                        <p>Or�amento</p>
+                                        <p>Orçamento</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a id="A4" runat="server" class="nav-link" href="~/Cadastro/Integracoes/Parametros/Consulta.aspx">
+                                        <i class="fas fa-cogs"></i>
+                                        <p>Automação</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
@@ -710,7 +716,7 @@
                                 <li class="nav-item">
                                     <a id="A2" runat="server" class="nav-link" href="~/PDF/View_PDF.aspx?Manual=1">
                                         <i class="fas fa-file-pdf"></i>
-                                        <p>Guia do Usu�rio</p>
+                                        <p>Guia do Usuário</p>
                                     </a>
                                 </li>
                                 <li id="Li2" runat="server" class="nav-item">
@@ -764,7 +770,7 @@
                                                 <li class="nav-item">
                                                     <a id="btRequisicaoUsuario" runat="server" class="nav-link" visible="false" href="~/Chamado/Solicitacao.aspx">
                                                         <i class="fas fa-user"></i>
-                                                        <p>Usu�rio</p>
+                                                        <p>Usuário</p>
                                                     </a>
                                                 </li>
                                                 <li class="nav-item">
@@ -794,7 +800,7 @@
                                                 <li id="liRelatorio" runat="server" class="nav-item">
                                                     <asp:LinkButton ID="btRelatorioFacilidades" runat="server" CssClass="nav-link" href="/CockPit_Menu.aspx?Pagina=Relatorio">
                                                         <i class="far fa-chart-bar"></i>
-                                                        <p>Relat�rios</p>
+                                                        <p>Relatórios</p>
                                                     </asp:LinkButton>
                                                 </li>
                                                 <li class="nav-item">
@@ -828,7 +834,7 @@
                                 <li class="nav-item">
                                     <a id="A1" runat="server" class="nav-link" href="~/PDF/View_PDF.aspx?Manual=1">
                                         <i class="fas fa-file-pdf"></i>
-                                        <p>Guia do Usu�rio</p>
+                                        <p>Guia do Usuário</p>
                                     </a>
                                 </li>
                                 <li id="navSair" runat="server" class="nav-item">
@@ -945,7 +951,7 @@
                                     </ul>
                                 </nav>
                                 <div class="copyright float-right" style="font-size: 14px">
-                                     <%-- [IN�CIO - ICTRL2025029] - Label tempor�rio para debug de permiss�es --%>
+                                     <%-- [INÍCIO - ICTRL2025029] - Label temporário para debug de permissões --%>
                                      TESTE SEGREGACAO DE ACESSO: <asp:Label ID="lblDebugPermissions" runat="server" ForeColor="Yellow" Font-Size="Small" /><br /><br />
                                      <%-- [FIM - ICTRL2025029] --%>
                                     K2A IControlIT &copy; 2022, todos os direitos reservados (v22.06.06.2242)

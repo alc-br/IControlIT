@@ -218,7 +218,7 @@
         '------lista meus ativos
         vdataSet = WS_Cadastro.Ativo(Session("Conn_Banco"), Session("Id_Usuario"), Nothing, Nothing, Nothing, Nothing,
                                  Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing,
-                                 Nothing, "sd_SL_Modelo", True, Nothing, Nothing, Nothing, Nothing, Nothing)
+                                 Nothing, "sd_SL_Modelo", True, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
 
         dtgModeloAtivo.DataSource = vdataSet
         dtgModeloAtivo.DataBind()

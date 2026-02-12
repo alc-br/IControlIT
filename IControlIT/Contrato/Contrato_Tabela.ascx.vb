@@ -43,6 +43,27 @@ Public Class Contrato_Tabela
         dtgContrato_Tabela.DataBind()
     End Sub
 
+    ' [INÍCIO - ICTRL-NF-202509-002] - Método público para rebindar a grid com dados da Session
+    Public Sub RebindGrid()
+        Dim ds As DataSet = TryCast(Session("DataSet"), DataSet)
+
+        ' Verifica se há dados para exibir
+        If ds IsNot Nothing AndAlso ds.Tables.Count > 0 AndAlso ds.Tables(0).Rows.Count > 0 Then
+            dtgContrato_Tabela.CurrentPageIndex = 0
+            dtgContrato_Tabela.DataSource = ds
+            dtgContrato_Tabela.DataBind()
+            dtgContrato_Tabela.Visible = True
+            pnlSemRegistros.Visible = False
+        Else
+            ' Não há registros - esconde a grid e mostra mensagem
+            dtgContrato_Tabela.DataSource = Nothing
+            dtgContrato_Tabela.DataBind()
+            dtgContrato_Tabela.Visible = False
+            pnlSemRegistros.Visible = True
+        End If
+    End Sub
+    ' [FIM - ICTRL-NF-202509-002]
+
     Protected Sub dtgContrato_Tabela_PageIndexChanged(source As Object, e As System.Web.UI.WebControls.DataGridPageChangedEventArgs) Handles dtgContrato_Tabela.PageIndexChanged
         dtgContrato_Tabela.CurrentPageIndex = e.NewPageIndex
         dtgContrato_Tabela.DataSource = Session("DataSet")

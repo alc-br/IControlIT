@@ -555,6 +555,82 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="Get_Dados_KPI">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pAcao" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Dados_KPIResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_Dados_KPIResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Exec_Procedure_Simple">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pProcedure" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Exec_Procedure_SimpleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Exec_Procedure_SimpleResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Marcar_Fatura_Paga">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Fatura" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pObservacao" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pFl_Pago" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Marcar_Fatura_PagaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Marcar_Fatura_PagaResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DataSet" nillable="true">
+        <s:complexType>
+          <s:sequence>
+            <s:element ref="s:schema" />
+            <s:any />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="Conn_BancoSoapIn">
@@ -683,6 +759,550 @@
   <wsdl:message name="Monitoramento_DadosSoapOut">
     <wsdl:part name="parameters" element="tns:Monitoramento_DadosResponse" />
   </wsdl:message>
+  <wsdl:message name="Get_Dados_KPISoapIn">
+    <wsdl:part name="parameters" element="tns:Get_Dados_KPI" />
+  </wsdl:message>
+  <wsdl:message name="Get_Dados_KPISoapOut">
+    <wsdl:part name="parameters" element="tns:Get_Dados_KPIResponse" />
+  </wsdl:message>
+  <wsdl:message name="Exec_Procedure_SimpleSoapIn">
+    <wsdl:part name="parameters" element="tns:Exec_Procedure_Simple" />
+  </wsdl:message>
+  <wsdl:message name="Exec_Procedure_SimpleSoapOut">
+    <wsdl:part name="parameters" element="tns:Exec_Procedure_SimpleResponse" />
+  </wsdl:message>
+  <wsdl:message name="Marcar_Fatura_PagaSoapIn">
+    <wsdl:part name="parameters" element="tns:Marcar_Fatura_Paga" />
+  </wsdl:message>
+  <wsdl:message name="Marcar_Fatura_PagaSoapOut">
+    <wsdl:part name="parameters" element="tns:Marcar_Fatura_PagaResponse" />
+  </wsdl:message>
+  <wsdl:message name="Conn_BancoHttpGetIn" />
+  <wsdl:message name="Conn_BancoHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Validacao_GlobalHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pNm_Usuario" type="s:string" />
+    <wsdl:part name="pSenha" type="s:string" />
+    <wsdl:part name="pNova_Senha" type="s:string" />
+    <wsdl:part name="pEmail_Corporativo" type="s:string" />
+    <wsdl:part name="pId_Facebook" type="s:string" />
+    <wsdl:part name="pChave_Validacao" type="s:string" />
+    <wsdl:part name="pFl_Automatico" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Validacao_GlobalHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="ValidacaoHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pNm_Usuario" type="s:string" />
+    <wsdl:part name="pId_Menu" type="s:string" />
+    <wsdl:part name="pSenha" type="s:string" />
+    <wsdl:part name="pLink" type="s:string" />
+    <wsdl:part name="pId_Idioma" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ValidacaoHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Status_AcordoHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pNm_Usuario" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Status_AcordoHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Validacao_RelatorioHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pId_Template" type="s:string" />
+    <wsdl:part name="pId_Usuario" type="s:string" />
+    <wsdl:part name="pId_Ativo_Tipo_Grupo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Validacao_RelatorioHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="DeskboardHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pGrupoTipoAtivo" type="s:string" />
+    <wsdl:part name="pId_Usuario" type="s:string" />
+    <wsdl:part name="pMes" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DeskboardHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Carga_BilheteHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pId_Arquivo" type="s:string" />
+    <wsdl:part name="pId_Ativo_Tipo" type="s:string" />
+    <wsdl:part name="pId_Conglomerado" type="s:string" />
+    <wsdl:part name="pDt_Lote" type="s:string" />
+    <wsdl:part name="pDt_Liberacao_Lote" type="s:string" />
+    <wsdl:part name="pNumero_Nota_Fiscal" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Carga_BilheteHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Valida_BilheteHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pId_Arquivo" type="s:string" />
+    <wsdl:part name="pId_Ativo_Tipo" type="s:string" />
+    <wsdl:part name="pId_Conglomerado" type="s:string" />
+    <wsdl:part name="pDt_Lote" type="s:string" />
+    <wsdl:part name="pDt_Liberacao_Lote" type="s:string" />
+    <wsdl:part name="pNumero_Nota_Fiscal" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Valida_BilheteHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Carga_UsuarioHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pId_Campo" type="s:string" />
+    <wsdl:part name="pCampo_Arquivo" type="s:string" />
+    <wsdl:part name="pColuna_Fixo" type="s:string" />
+    <wsdl:part name="pImportacao" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Carga_UsuarioHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="ConsumidorUsuarioHttpGetIn">
+    <wsdl:part name="pPconn_Banco" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConsumidorUsuarioHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Carga_InventarioHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pId_Arquivo" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Carga_InventarioHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Bilhete_ManualHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pNr_Ativo" type="s:string" />
+    <wsdl:part name="pValor" type="s:string" />
+    <wsdl:part name="pDataLote" type="s:string" />
+    <wsdl:part name="pData" type="s:string" />
+    <wsdl:part name="pNotaFiscal" type="s:string" />
+    <wsdl:part name="pIdTipoBilhete" type="s:string" />
+    <wsdl:part name="pIdBilhete" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Bilhete_ManualHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Bilhete_Tipo_ManualHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Bilhete_Tipo" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Bilhete_Tipo_ManualHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Alerta_SistemaHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pFiltro_1" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Alerta_SistemaHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Arquivo_PastaHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pPasta" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Arquivo_PastaHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Monta_CargaHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pPasta" type="s:string" />
+    <wsdl:part name="pOperadora" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Monta_CargaHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Monta_Texto_TermoHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pEmpresa" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Monta_Texto_TermoHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="SolicitacaoHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Solicitacao" type="s:string" />
+    <wsdl:part name="pNm_Solicitacao" type="s:string" />
+    <wsdl:part name="pId_Usuario" type="s:string" />
+    <wsdl:part name="pNm_Usuario" type="s:string" />
+    <wsdl:part name="pId_Ativo_Tipo" type="s:string" />
+    <wsdl:part name="pId_Solicitacao_Tipo" type="s:string" />
+    <wsdl:part name="pId_Solicitacao_Item" type="s:string" />
+    <wsdl:part name="pNm_Solicitacao_Item" type="s:string" />
+    <wsdl:part name="pFl_Status" type="s:string" />
+    <wsdl:part name="pExcedente_SLA" type="s:string" />
+    <wsdl:part name="pDt_LoteDe" type="s:string" />
+    <wsdl:part name="pDt_LoteAte" type="s:string" />
+    <wsdl:part name="pId_Solicitacao_Solucao" type="s:string" />
+    <wsdl:part name="pId_Consumidor_Unidade" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SolicitacaoHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Solicitacao_AvaliacaoHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Solicitacao" type="s:string" />
+    <wsdl:part name="pId_Solicitacao_Avaliacao" type="s:string" />
+    <wsdl:part name="pDt_Avaliacao" type="s:string" />
+    <wsdl:part name="pAvaliacao" type="s:string" />
+    <wsdl:part name="pDescricao" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Solicitacao_AvaliacaoHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Ativo_App_TrafegoHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pNumero_Linha" type="s:string" />
+    <wsdl:part name="pId_Ativo" type="s:string" />
+    <wsdl:part name="pString_Dados" type="s:string" />
+    <wsdl:part name="pMes" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Ativo_App_TrafegoHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Monitoramento_DadosHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pMes" type="s:string" />
+    <wsdl:part name="pId_Conglomerado" type="s:string" />
+    <wsdl:part name="pId_Ativo" type="s:string" />
+    <wsdl:part name="pNr_Ativo" type="s:string" />
+    <wsdl:part name="pCorteDe" type="s:string" />
+    <wsdl:part name="pCorteAte" type="s:string" />
+    <wsdl:part name="pPacoteMB" type="s:string" />
+    <wsdl:part name="pQtdMes" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Monitoramento_DadosHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Get_Dados_KPIHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pAcao" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Get_Dados_KPIHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Exec_Procedure_SimpleHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pProcedure" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Exec_Procedure_SimpleHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Marcar_Fatura_PagaHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Fatura" type="s:string" />
+    <wsdl:part name="pObservacao" type="s:string" />
+    <wsdl:part name="pFl_Pago" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Marcar_Fatura_PagaHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Conn_BancoHttpPostIn" />
+  <wsdl:message name="Conn_BancoHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Validacao_GlobalHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pNm_Usuario" type="s:string" />
+    <wsdl:part name="pSenha" type="s:string" />
+    <wsdl:part name="pNova_Senha" type="s:string" />
+    <wsdl:part name="pEmail_Corporativo" type="s:string" />
+    <wsdl:part name="pId_Facebook" type="s:string" />
+    <wsdl:part name="pChave_Validacao" type="s:string" />
+    <wsdl:part name="pFl_Automatico" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Validacao_GlobalHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="ValidacaoHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pNm_Usuario" type="s:string" />
+    <wsdl:part name="pId_Menu" type="s:string" />
+    <wsdl:part name="pSenha" type="s:string" />
+    <wsdl:part name="pLink" type="s:string" />
+    <wsdl:part name="pId_Idioma" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ValidacaoHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Status_AcordoHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pNm_Usuario" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Status_AcordoHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Validacao_RelatorioHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pId_Template" type="s:string" />
+    <wsdl:part name="pId_Usuario" type="s:string" />
+    <wsdl:part name="pId_Ativo_Tipo_Grupo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Validacao_RelatorioHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="DeskboardHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pGrupoTipoAtivo" type="s:string" />
+    <wsdl:part name="pId_Usuario" type="s:string" />
+    <wsdl:part name="pMes" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DeskboardHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Carga_BilheteHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pId_Arquivo" type="s:string" />
+    <wsdl:part name="pId_Ativo_Tipo" type="s:string" />
+    <wsdl:part name="pId_Conglomerado" type="s:string" />
+    <wsdl:part name="pDt_Lote" type="s:string" />
+    <wsdl:part name="pDt_Liberacao_Lote" type="s:string" />
+    <wsdl:part name="pNumero_Nota_Fiscal" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Carga_BilheteHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Valida_BilheteHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pId_Arquivo" type="s:string" />
+    <wsdl:part name="pId_Ativo_Tipo" type="s:string" />
+    <wsdl:part name="pId_Conglomerado" type="s:string" />
+    <wsdl:part name="pDt_Lote" type="s:string" />
+    <wsdl:part name="pDt_Liberacao_Lote" type="s:string" />
+    <wsdl:part name="pNumero_Nota_Fiscal" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Valida_BilheteHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Carga_UsuarioHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pId_Campo" type="s:string" />
+    <wsdl:part name="pCampo_Arquivo" type="s:string" />
+    <wsdl:part name="pColuna_Fixo" type="s:string" />
+    <wsdl:part name="pImportacao" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Carga_UsuarioHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="ConsumidorUsuarioHttpPostIn">
+    <wsdl:part name="pPconn_Banco" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConsumidorUsuarioHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Carga_InventarioHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pId_Arquivo" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Carga_InventarioHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Bilhete_ManualHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pNr_Ativo" type="s:string" />
+    <wsdl:part name="pValor" type="s:string" />
+    <wsdl:part name="pDataLote" type="s:string" />
+    <wsdl:part name="pData" type="s:string" />
+    <wsdl:part name="pNotaFiscal" type="s:string" />
+    <wsdl:part name="pIdTipoBilhete" type="s:string" />
+    <wsdl:part name="pIdBilhete" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Bilhete_ManualHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Bilhete_Tipo_ManualHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Bilhete_Tipo" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Bilhete_Tipo_ManualHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Alerta_SistemaHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pFiltro_1" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Alerta_SistemaHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Arquivo_PastaHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pPasta" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Arquivo_PastaHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Monta_CargaHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pPasta" type="s:string" />
+    <wsdl:part name="pOperadora" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Monta_CargaHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Monta_Texto_TermoHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pEmpresa" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Monta_Texto_TermoHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="SolicitacaoHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Solicitacao" type="s:string" />
+    <wsdl:part name="pNm_Solicitacao" type="s:string" />
+    <wsdl:part name="pId_Usuario" type="s:string" />
+    <wsdl:part name="pNm_Usuario" type="s:string" />
+    <wsdl:part name="pId_Ativo_Tipo" type="s:string" />
+    <wsdl:part name="pId_Solicitacao_Tipo" type="s:string" />
+    <wsdl:part name="pId_Solicitacao_Item" type="s:string" />
+    <wsdl:part name="pNm_Solicitacao_Item" type="s:string" />
+    <wsdl:part name="pFl_Status" type="s:string" />
+    <wsdl:part name="pExcedente_SLA" type="s:string" />
+    <wsdl:part name="pDt_LoteDe" type="s:string" />
+    <wsdl:part name="pDt_LoteAte" type="s:string" />
+    <wsdl:part name="pId_Solicitacao_Solucao" type="s:string" />
+    <wsdl:part name="pId_Consumidor_Unidade" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SolicitacaoHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Solicitacao_AvaliacaoHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Solicitacao" type="s:string" />
+    <wsdl:part name="pId_Solicitacao_Avaliacao" type="s:string" />
+    <wsdl:part name="pDt_Avaliacao" type="s:string" />
+    <wsdl:part name="pAvaliacao" type="s:string" />
+    <wsdl:part name="pDescricao" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Solicitacao_AvaliacaoHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Ativo_App_TrafegoHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pNumero_Linha" type="s:string" />
+    <wsdl:part name="pId_Ativo" type="s:string" />
+    <wsdl:part name="pString_Dados" type="s:string" />
+    <wsdl:part name="pMes" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Ativo_App_TrafegoHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Monitoramento_DadosHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pMes" type="s:string" />
+    <wsdl:part name="pId_Conglomerado" type="s:string" />
+    <wsdl:part name="pId_Ativo" type="s:string" />
+    <wsdl:part name="pNr_Ativo" type="s:string" />
+    <wsdl:part name="pCorteDe" type="s:string" />
+    <wsdl:part name="pCorteAte" type="s:string" />
+    <wsdl:part name="pPacoteMB" type="s:string" />
+    <wsdl:part name="pQtdMes" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Monitoramento_DadosHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Get_Dados_KPIHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pAcao" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Get_Dados_KPIHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Exec_Procedure_SimpleHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pProcedure" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Exec_Procedure_SimpleHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Marcar_Fatura_PagaHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Fatura" type="s:string" />
+    <wsdl:part name="pObservacao" type="s:string" />
+    <wsdl:part name="pFl_Pago" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Marcar_Fatura_PagaHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
   <wsdl:portType name="WSModuloSoap">
     <wsdl:operation name="Conn_Banco">
       <wsdl:input message="tns:Conn_BancoSoapIn" />
@@ -767,6 +1387,214 @@
     <wsdl:operation name="Monitoramento_Dados">
       <wsdl:input message="tns:Monitoramento_DadosSoapIn" />
       <wsdl:output message="tns:Monitoramento_DadosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Dados_KPI">
+      <wsdl:input message="tns:Get_Dados_KPISoapIn" />
+      <wsdl:output message="tns:Get_Dados_KPISoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Exec_Procedure_Simple">
+      <wsdl:input message="tns:Exec_Procedure_SimpleSoapIn" />
+      <wsdl:output message="tns:Exec_Procedure_SimpleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Marcar_Fatura_Paga">
+      <wsdl:input message="tns:Marcar_Fatura_PagaSoapIn" />
+      <wsdl:output message="tns:Marcar_Fatura_PagaSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WSModuloHttpGet">
+    <wsdl:operation name="Conn_Banco">
+      <wsdl:input message="tns:Conn_BancoHttpGetIn" />
+      <wsdl:output message="tns:Conn_BancoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Validacao_Global">
+      <wsdl:input message="tns:Validacao_GlobalHttpGetIn" />
+      <wsdl:output message="tns:Validacao_GlobalHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Validacao">
+      <wsdl:input message="tns:ValidacaoHttpGetIn" />
+      <wsdl:output message="tns:ValidacaoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Status_Acordo">
+      <wsdl:input message="tns:Status_AcordoHttpGetIn" />
+      <wsdl:output message="tns:Status_AcordoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Validacao_Relatorio">
+      <wsdl:input message="tns:Validacao_RelatorioHttpGetIn" />
+      <wsdl:output message="tns:Validacao_RelatorioHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Deskboard">
+      <wsdl:input message="tns:DeskboardHttpGetIn" />
+      <wsdl:output message="tns:DeskboardHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Carga_Bilhete">
+      <wsdl:input message="tns:Carga_BilheteHttpGetIn" />
+      <wsdl:output message="tns:Carga_BilheteHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Valida_Bilhete">
+      <wsdl:input message="tns:Valida_BilheteHttpGetIn" />
+      <wsdl:output message="tns:Valida_BilheteHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Carga_Usuario">
+      <wsdl:input message="tns:Carga_UsuarioHttpGetIn" />
+      <wsdl:output message="tns:Carga_UsuarioHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsumidorUsuario">
+      <wsdl:input message="tns:ConsumidorUsuarioHttpGetIn" />
+      <wsdl:output message="tns:ConsumidorUsuarioHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Carga_Inventario">
+      <wsdl:input message="tns:Carga_InventarioHttpGetIn" />
+      <wsdl:output message="tns:Carga_InventarioHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Bilhete_Manual">
+      <wsdl:input message="tns:Bilhete_ManualHttpGetIn" />
+      <wsdl:output message="tns:Bilhete_ManualHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Bilhete_Tipo_Manual">
+      <wsdl:input message="tns:Bilhete_Tipo_ManualHttpGetIn" />
+      <wsdl:output message="tns:Bilhete_Tipo_ManualHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Alerta_Sistema">
+      <wsdl:input message="tns:Alerta_SistemaHttpGetIn" />
+      <wsdl:output message="tns:Alerta_SistemaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Arquivo_Pasta">
+      <wsdl:input message="tns:Arquivo_PastaHttpGetIn" />
+      <wsdl:output message="tns:Arquivo_PastaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Monta_Carga">
+      <wsdl:input message="tns:Monta_CargaHttpGetIn" />
+      <wsdl:output message="tns:Monta_CargaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Monta_Texto_Termo">
+      <wsdl:input message="tns:Monta_Texto_TermoHttpGetIn" />
+      <wsdl:output message="tns:Monta_Texto_TermoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Solicitacao">
+      <wsdl:input message="tns:SolicitacaoHttpGetIn" />
+      <wsdl:output message="tns:SolicitacaoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Solicitacao_Avaliacao">
+      <wsdl:input message="tns:Solicitacao_AvaliacaoHttpGetIn" />
+      <wsdl:output message="tns:Solicitacao_AvaliacaoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_App_Trafego">
+      <wsdl:input message="tns:Ativo_App_TrafegoHttpGetIn" />
+      <wsdl:output message="tns:Ativo_App_TrafegoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Monitoramento_Dados">
+      <wsdl:input message="tns:Monitoramento_DadosHttpGetIn" />
+      <wsdl:output message="tns:Monitoramento_DadosHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Dados_KPI">
+      <wsdl:input message="tns:Get_Dados_KPIHttpGetIn" />
+      <wsdl:output message="tns:Get_Dados_KPIHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Exec_Procedure_Simple">
+      <wsdl:input message="tns:Exec_Procedure_SimpleHttpGetIn" />
+      <wsdl:output message="tns:Exec_Procedure_SimpleHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Marcar_Fatura_Paga">
+      <wsdl:input message="tns:Marcar_Fatura_PagaHttpGetIn" />
+      <wsdl:output message="tns:Marcar_Fatura_PagaHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WSModuloHttpPost">
+    <wsdl:operation name="Conn_Banco">
+      <wsdl:input message="tns:Conn_BancoHttpPostIn" />
+      <wsdl:output message="tns:Conn_BancoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Validacao_Global">
+      <wsdl:input message="tns:Validacao_GlobalHttpPostIn" />
+      <wsdl:output message="tns:Validacao_GlobalHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Validacao">
+      <wsdl:input message="tns:ValidacaoHttpPostIn" />
+      <wsdl:output message="tns:ValidacaoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Status_Acordo">
+      <wsdl:input message="tns:Status_AcordoHttpPostIn" />
+      <wsdl:output message="tns:Status_AcordoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Validacao_Relatorio">
+      <wsdl:input message="tns:Validacao_RelatorioHttpPostIn" />
+      <wsdl:output message="tns:Validacao_RelatorioHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Deskboard">
+      <wsdl:input message="tns:DeskboardHttpPostIn" />
+      <wsdl:output message="tns:DeskboardHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Carga_Bilhete">
+      <wsdl:input message="tns:Carga_BilheteHttpPostIn" />
+      <wsdl:output message="tns:Carga_BilheteHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Valida_Bilhete">
+      <wsdl:input message="tns:Valida_BilheteHttpPostIn" />
+      <wsdl:output message="tns:Valida_BilheteHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Carga_Usuario">
+      <wsdl:input message="tns:Carga_UsuarioHttpPostIn" />
+      <wsdl:output message="tns:Carga_UsuarioHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsumidorUsuario">
+      <wsdl:input message="tns:ConsumidorUsuarioHttpPostIn" />
+      <wsdl:output message="tns:ConsumidorUsuarioHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Carga_Inventario">
+      <wsdl:input message="tns:Carga_InventarioHttpPostIn" />
+      <wsdl:output message="tns:Carga_InventarioHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Bilhete_Manual">
+      <wsdl:input message="tns:Bilhete_ManualHttpPostIn" />
+      <wsdl:output message="tns:Bilhete_ManualHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Bilhete_Tipo_Manual">
+      <wsdl:input message="tns:Bilhete_Tipo_ManualHttpPostIn" />
+      <wsdl:output message="tns:Bilhete_Tipo_ManualHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Alerta_Sistema">
+      <wsdl:input message="tns:Alerta_SistemaHttpPostIn" />
+      <wsdl:output message="tns:Alerta_SistemaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Arquivo_Pasta">
+      <wsdl:input message="tns:Arquivo_PastaHttpPostIn" />
+      <wsdl:output message="tns:Arquivo_PastaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Monta_Carga">
+      <wsdl:input message="tns:Monta_CargaHttpPostIn" />
+      <wsdl:output message="tns:Monta_CargaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Monta_Texto_Termo">
+      <wsdl:input message="tns:Monta_Texto_TermoHttpPostIn" />
+      <wsdl:output message="tns:Monta_Texto_TermoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Solicitacao">
+      <wsdl:input message="tns:SolicitacaoHttpPostIn" />
+      <wsdl:output message="tns:SolicitacaoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Solicitacao_Avaliacao">
+      <wsdl:input message="tns:Solicitacao_AvaliacaoHttpPostIn" />
+      <wsdl:output message="tns:Solicitacao_AvaliacaoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_App_Trafego">
+      <wsdl:input message="tns:Ativo_App_TrafegoHttpPostIn" />
+      <wsdl:output message="tns:Ativo_App_TrafegoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Monitoramento_Dados">
+      <wsdl:input message="tns:Monitoramento_DadosHttpPostIn" />
+      <wsdl:output message="tns:Monitoramento_DadosHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Dados_KPI">
+      <wsdl:input message="tns:Get_Dados_KPIHttpPostIn" />
+      <wsdl:output message="tns:Get_Dados_KPIHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Exec_Procedure_Simple">
+      <wsdl:input message="tns:Exec_Procedure_SimpleHttpPostIn" />
+      <wsdl:output message="tns:Exec_Procedure_SimpleHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Marcar_Fatura_Paga">
+      <wsdl:input message="tns:Marcar_Fatura_PagaHttpPostIn" />
+      <wsdl:output message="tns:Marcar_Fatura_PagaHttpPostOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WSModuloSoap" type="tns:WSModuloSoap">
@@ -953,6 +1781,33 @@
     </wsdl:operation>
     <wsdl:operation name="Monitoramento_Dados">
       <soap:operation soapAction="http://tempuri.org/Monitoramento_Dados" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Dados_KPI">
+      <soap:operation soapAction="http://tempuri.org/Get_Dados_KPI" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Exec_Procedure_Simple">
+      <soap:operation soapAction="http://tempuri.org/Exec_Procedure_Simple" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Marcar_Fatura_Paga">
+      <soap:operation soapAction="http://tempuri.org/Marcar_Fatura_Paga" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1152,6 +2007,471 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="Get_Dados_KPI">
+      <soap12:operation soapAction="http://tempuri.org/Get_Dados_KPI" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Exec_Procedure_Simple">
+      <soap12:operation soapAction="http://tempuri.org/Exec_Procedure_Simple" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Marcar_Fatura_Paga">
+      <soap12:operation soapAction="http://tempuri.org/Marcar_Fatura_Paga" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WSModuloHttpGet" type="tns:WSModuloHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="Conn_Banco">
+      <http:operation location="/Conn_Banco" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Validacao_Global">
+      <http:operation location="/Validacao_Global" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Validacao">
+      <http:operation location="/Validacao" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Status_Acordo">
+      <http:operation location="/Status_Acordo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Validacao_Relatorio">
+      <http:operation location="/Validacao_Relatorio" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Deskboard">
+      <http:operation location="/Deskboard" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Carga_Bilhete">
+      <http:operation location="/Carga_Bilhete" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Valida_Bilhete">
+      <http:operation location="/Valida_Bilhete" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Carga_Usuario">
+      <http:operation location="/Carga_Usuario" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsumidorUsuario">
+      <http:operation location="/ConsumidorUsuario" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Carga_Inventario">
+      <http:operation location="/Carga_Inventario" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Bilhete_Manual">
+      <http:operation location="/Bilhete_Manual" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Bilhete_Tipo_Manual">
+      <http:operation location="/Bilhete_Tipo_Manual" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Alerta_Sistema">
+      <http:operation location="/Alerta_Sistema" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Arquivo_Pasta">
+      <http:operation location="/Arquivo_Pasta" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Monta_Carga">
+      <http:operation location="/Monta_Carga" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Monta_Texto_Termo">
+      <http:operation location="/Monta_Texto_Termo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Solicitacao">
+      <http:operation location="/Solicitacao" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Solicitacao_Avaliacao">
+      <http:operation location="/Solicitacao_Avaliacao" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_App_Trafego">
+      <http:operation location="/Ativo_App_Trafego" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Monitoramento_Dados">
+      <http:operation location="/Monitoramento_Dados" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Dados_KPI">
+      <http:operation location="/Get_Dados_KPI" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Exec_Procedure_Simple">
+      <http:operation location="/Exec_Procedure_Simple" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Marcar_Fatura_Paga">
+      <http:operation location="/Marcar_Fatura_Paga" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WSModuloHttpPost" type="tns:WSModuloHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="Conn_Banco">
+      <http:operation location="/Conn_Banco" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Validacao_Global">
+      <http:operation location="/Validacao_Global" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Validacao">
+      <http:operation location="/Validacao" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Status_Acordo">
+      <http:operation location="/Status_Acordo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Validacao_Relatorio">
+      <http:operation location="/Validacao_Relatorio" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Deskboard">
+      <http:operation location="/Deskboard" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Carga_Bilhete">
+      <http:operation location="/Carga_Bilhete" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Valida_Bilhete">
+      <http:operation location="/Valida_Bilhete" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Carga_Usuario">
+      <http:operation location="/Carga_Usuario" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsumidorUsuario">
+      <http:operation location="/ConsumidorUsuario" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Carga_Inventario">
+      <http:operation location="/Carga_Inventario" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Bilhete_Manual">
+      <http:operation location="/Bilhete_Manual" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Bilhete_Tipo_Manual">
+      <http:operation location="/Bilhete_Tipo_Manual" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Alerta_Sistema">
+      <http:operation location="/Alerta_Sistema" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Arquivo_Pasta">
+      <http:operation location="/Arquivo_Pasta" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Monta_Carga">
+      <http:operation location="/Monta_Carga" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Monta_Texto_Termo">
+      <http:operation location="/Monta_Texto_Termo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Solicitacao">
+      <http:operation location="/Solicitacao" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Solicitacao_Avaliacao">
+      <http:operation location="/Solicitacao_Avaliacao" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_App_Trafego">
+      <http:operation location="/Ativo_App_Trafego" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Monitoramento_Dados">
+      <http:operation location="/Monitoramento_Dados" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Dados_KPI">
+      <http:operation location="/Get_Dados_KPI" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Exec_Procedure_Simple">
+      <http:operation location="/Exec_Procedure_Simple" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Marcar_Fatura_Paga">
+      <http:operation location="/Marcar_Fatura_Paga" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="WSModulo">
     <wsdl:port name="WSModuloSoap" binding="tns:WSModuloSoap">
@@ -1159,6 +2479,12 @@
     </wsdl:port>
     <wsdl:port name="WSModuloSoap12" binding="tns:WSModuloSoap12">
       <soap12:address location="http://localhost:8080/WSModulo.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WSModuloHttpGet" binding="tns:WSModuloHttpGet">
+      <http:address location="http://localhost:8080/WSModulo.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WSModuloHttpPost" binding="tns:WSModuloHttpPost">
+      <http:address location="http://localhost:8080/WSModulo.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

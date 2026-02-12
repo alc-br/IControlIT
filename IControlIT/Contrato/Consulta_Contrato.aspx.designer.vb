@@ -1,9 +1,9 @@
 '------------------------------------------------------------------------------
 ' <gerado automaticamente>
-'     Esse cÛdigo foi gerado por uma ferramenta.
+'     Esse cÔøΩdigo foi gerado por uma ferramenta.
 '
-'     As alteraÁıes ao arquivo poder„o causar comportamento incorreto e ser„o perdidas se
-'     o cÛdigo for recriado
+'     As alteraÔøΩÔøΩes ao arquivo poderÔøΩo causar comportamento incorreto e serÔøΩo perdidas se
+'     o cÔøΩdigo for recriado
 ' </gerado automaticamente>
 '------------------------------------------------------------------------------
 
@@ -13,12 +13,41 @@ Option Explicit On
 
 Partial Public Class Consulta_Contrato
 
+    ' [IN√çCIO - ICTRL-NF-202509-002] - Filtros
+    '''<summary>
+    '''Controle ddlStatusContrato.
+    '''</summary>
+    '''<remarks>
+    '''Campo gerado automaticamente.
+    '''Para modificar, mova a declaraÔøΩÔøΩo de campo do arquivo de designer a um arquivo code-behind.
+    '''</remarks>
+    Protected WithEvents ddlStatusContrato As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
+    '''Controle ddlVenceEm.
+    '''</summary>
+    '''<remarks>
+    '''Campo gerado automaticamente.
+    '''Para modificar, mova a declaraÔøΩÔøΩo de campo do arquivo de designer a um arquivo code-behind.
+    '''</remarks>
+    Protected WithEvents ddlVenceEm As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
+    '''Controle btnExportar.
+    '''</summary>
+    '''<remarks>
+    '''Campo gerado automaticamente.
+    '''Para modificar, mova a declaraÔøΩÔøΩo de campo do arquivo de designer a um arquivo code-behind.
+    '''</remarks>
+    Protected WithEvents btnExportar As Global.System.Web.UI.WebControls.Button
+    ' [FIM - ICTRL-NF-202509-002]
+
     '''<summary>
     '''Controle pnlMsg.
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaraÁ„o de campo do arquivo de designer a um arquivo code-behind.
+    '''Para modificar, mova a declaraÔøΩÔøΩo de campo do arquivo de designer a um arquivo code-behind.
     '''</remarks>
     Protected WithEvents pnlMsg As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
@@ -27,7 +56,7 @@ Partial Public Class Consulta_Contrato
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaraÁ„o de campo do arquivo de designer a um arquivo code-behind.
+    '''Para modificar, mova a declaraÔøΩÔøΩo de campo do arquivo de designer a um arquivo code-behind.
     '''</remarks>
     Protected WithEvents lblDLinhaConta As Global.System.Web.UI.WebControls.Label
 
@@ -36,7 +65,7 @@ Partial Public Class Consulta_Contrato
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaraÁ„o de campo do arquivo de designer a um arquivo code-behind.
+    '''Para modificar, mova a declaraÔøΩÔøΩo de campo do arquivo de designer a um arquivo code-behind.
     '''</remarks>
     Protected WithEvents DivCustoFixo As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
@@ -45,7 +74,7 @@ Partial Public Class Consulta_Contrato
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaraÁ„o de campo do arquivo de designer a um arquivo code-behind.
+    '''Para modificar, mova a declaraÔøΩÔøΩo de campo do arquivo de designer a um arquivo code-behind.
     '''</remarks>
     Protected WithEvents dtgLista As Global.System.Web.UI.WebControls.DataGrid
 
@@ -54,7 +83,7 @@ Partial Public Class Consulta_Contrato
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaraÁ„o de campo do arquivo de designer a um arquivo code-behind.
+    '''Para modificar, mova a declaraÔøΩÔøΩo de campo do arquivo de designer a um arquivo code-behind.
     '''</remarks>
     Protected WithEvents btDFechar As Global.System.Web.UI.WebControls.Button
 
@@ -63,7 +92,7 @@ Partial Public Class Consulta_Contrato
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaraÁ„o de campo do arquivo de designer a um arquivo code-behind.
+    '''Para modificar, mova a declaraÔøΩÔøΩo de campo do arquivo de designer a um arquivo code-behind.
     '''</remarks>
     Protected WithEvents btnHome As Global.System.Web.UI.WebControls.Button
 
@@ -72,7 +101,7 @@ Partial Public Class Consulta_Contrato
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaraÁ„o de campo do arquivo de designer a um arquivo code-behind.
+    '''Para modificar, mova a declaraÔøΩÔøΩo de campo do arquivo de designer a um arquivo code-behind.
     '''</remarks>
     Protected WithEvents btnProduto As Global.System.Web.UI.WebControls.Button
 
@@ -81,7 +110,7 @@ Partial Public Class Consulta_Contrato
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaraÁ„o de campo do arquivo de designer a um arquivo code-behind.
+    '''Para modificar, mova a declaraÔøΩÔøΩo de campo do arquivo de designer a um arquivo code-behind.
     '''</remarks>
     Protected WithEvents btnSla As Global.System.Web.UI.WebControls.Button
 
@@ -90,7 +119,7 @@ Partial Public Class Consulta_Contrato
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaraÁ„o de campo do arquivo de designer a um arquivo code-behind.
+    '''Para modificar, mova a declaraÔøΩÔøΩo de campo do arquivo de designer a um arquivo code-behind.
     '''</remarks>
     Protected WithEvents btnAditivo As Global.System.Web.UI.WebControls.Button
 
@@ -99,7 +128,7 @@ Partial Public Class Consulta_Contrato
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaraÁ„o de campo do arquivo de designer a um arquivo code-behind.
+    '''Para modificar, mova a declaraÔøΩÔøΩo de campo do arquivo de designer a um arquivo code-behind.
     '''</remarks>
     Protected WithEvents btnContas As Global.System.Web.UI.WebControls.Button
 
@@ -108,7 +137,7 @@ Partial Public Class Consulta_Contrato
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaraÁ„o de campo do arquivo de designer a um arquivo code-behind.
+    '''Para modificar, mova a declaraÔøΩÔøΩo de campo do arquivo de designer a um arquivo code-behind.
     '''</remarks>
     Protected WithEvents divCapa As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
@@ -117,7 +146,7 @@ Partial Public Class Consulta_Contrato
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaraÁ„o de campo do arquivo de designer a um arquivo code-behind.
+    '''Para modificar, mova a declaraÔøΩÔøΩo de campo do arquivo de designer a um arquivo code-behind.
     '''</remarks>
     Protected WithEvents btCapa As Global.System.Web.UI.WebControls.LinkButton
 
@@ -126,7 +155,7 @@ Partial Public Class Consulta_Contrato
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaraÁ„o de campo do arquivo de designer a um arquivo code-behind.
+    '''Para modificar, mova a declaraÔøΩÔøΩo de campo do arquivo de designer a um arquivo code-behind.
     '''</remarks>
     Protected WithEvents hfdID As Global.System.Web.UI.WebControls.HiddenField
 
@@ -135,7 +164,7 @@ Partial Public Class Consulta_Contrato
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaraÁ„o de campo do arquivo de designer a um arquivo code-behind.
+    '''Para modificar, mova a declaraÔøΩÔøΩo de campo do arquivo de designer a um arquivo code-behind.
     '''</remarks>
     Protected WithEvents lblCapaContrato As Global.System.Web.UI.WebControls.Label
 
@@ -144,7 +173,7 @@ Partial Public Class Consulta_Contrato
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaraÁ„o de campo do arquivo de designer a um arquivo code-behind.
+    '''Para modificar, mova a declaraÔøΩÔøΩo de campo do arquivo de designer a um arquivo code-behind.
     '''</remarks>
     Protected WithEvents lblSServico As Global.System.Web.UI.WebControls.Label
 
@@ -153,7 +182,7 @@ Partial Public Class Consulta_Contrato
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaraÁ„o de campo do arquivo de designer a um arquivo code-behind.
+    '''Para modificar, mova a declaraÔøΩÔøΩo de campo do arquivo de designer a um arquivo code-behind.
     '''</remarks>
     Protected WithEvents lblContrato As Global.System.Web.UI.WebControls.Label
 
@@ -162,7 +191,7 @@ Partial Public Class Consulta_Contrato
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaraÁ„o de campo do arquivo de designer a um arquivo code-behind.
+    '''Para modificar, mova a declaraÔøΩÔøΩo de campo do arquivo de designer a um arquivo code-behind.
     '''</remarks>
     Protected WithEvents txtNumeroContrato As Global.System.Web.UI.WebControls.Label
 
@@ -171,7 +200,7 @@ Partial Public Class Consulta_Contrato
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaraÁ„o de campo do arquivo de designer a um arquivo code-behind.
+    '''Para modificar, mova a declaraÔøΩÔøΩo de campo do arquivo de designer a um arquivo code-behind.
     '''</remarks>
     Protected WithEvents lblContratada As Global.System.Web.UI.WebControls.Label
 
@@ -180,7 +209,7 @@ Partial Public Class Consulta_Contrato
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaraÁ„o de campo do arquivo de designer a um arquivo code-behind.
+    '''Para modificar, mova a declaraÔøΩÔøΩo de campo do arquivo de designer a um arquivo code-behind.
     '''</remarks>
     Protected WithEvents txtSEmpresa As Global.System.Web.UI.WebControls.Label
 
@@ -189,7 +218,7 @@ Partial Public Class Consulta_Contrato
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaraÁ„o de campo do arquivo de designer a um arquivo code-behind.
+    '''Para modificar, mova a declaraÔøΩÔøΩo de campo do arquivo de designer a um arquivo code-behind.
     '''</remarks>
     Protected WithEvents lblContratante As Global.System.Web.UI.WebControls.Label
 
@@ -198,7 +227,7 @@ Partial Public Class Consulta_Contrato
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaraÁ„o de campo do arquivo de designer a um arquivo code-behind.
+    '''Para modificar, mova a declaraÔøΩÔøΩo de campo do arquivo de designer a um arquivo code-behind.
     '''</remarks>
     Protected WithEvents txtSContratante As Global.System.Web.UI.WebControls.Label
 
@@ -207,7 +236,7 @@ Partial Public Class Consulta_Contrato
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaraÁ„o de campo do arquivo de designer a um arquivo code-behind.
+    '''Para modificar, mova a declaraÔøΩÔøΩo de campo do arquivo de designer a um arquivo code-behind.
     '''</remarks>
     Protected WithEvents lblFilial As Global.System.Web.UI.WebControls.Label
 
@@ -216,7 +245,7 @@ Partial Public Class Consulta_Contrato
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaraÁ„o de campo do arquivo de designer a um arquivo code-behind.
+    '''Para modificar, mova a declaraÔøΩÔøΩo de campo do arquivo de designer a um arquivo code-behind.
     '''</remarks>
     Protected WithEvents txtSFilial As Global.System.Web.UI.WebControls.Label
 
@@ -225,7 +254,7 @@ Partial Public Class Consulta_Contrato
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaraÁ„o de campo do arquivo de designer a um arquivo code-behind.
+    '''Para modificar, mova a declaraÔøΩÔøΩo de campo do arquivo de designer a um arquivo code-behind.
     '''</remarks>
     Protected WithEvents lblInformacao As Global.System.Web.UI.WebControls.Label
 
@@ -234,7 +263,7 @@ Partial Public Class Consulta_Contrato
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaraÁ„o de campo do arquivo de designer a um arquivo code-behind.
+    '''Para modificar, mova a declaraÔøΩÔøΩo de campo do arquivo de designer a um arquivo code-behind.
     '''</remarks>
     Protected WithEvents lblStatus As Global.System.Web.UI.WebControls.Label
 
@@ -243,7 +272,7 @@ Partial Public Class Consulta_Contrato
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaraÁ„o de campo do arquivo de designer a um arquivo code-behind.
+    '''Para modificar, mova a declaraÔøΩÔøΩo de campo do arquivo de designer a um arquivo code-behind.
     '''</remarks>
     Protected WithEvents txtSStatus As Global.System.Web.UI.WebControls.Label
 
@@ -252,7 +281,7 @@ Partial Public Class Consulta_Contrato
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaraÁ„o de campo do arquivo de designer a um arquivo code-behind.
+    '''Para modificar, mova a declaraÔøΩÔøΩo de campo do arquivo de designer a um arquivo code-behind.
     '''</remarks>
     Protected WithEvents lblDataInicioVigencia As Global.System.Web.UI.WebControls.Label
 
@@ -261,7 +290,7 @@ Partial Public Class Consulta_Contrato
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaraÁ„o de campo do arquivo de designer a um arquivo code-behind.
+    '''Para modificar, mova a declaraÔøΩÔøΩo de campo do arquivo de designer a um arquivo code-behind.
     '''</remarks>
     Protected WithEvents txtSInicioVigencia As Global.System.Web.UI.WebControls.Label
 
@@ -270,7 +299,7 @@ Partial Public Class Consulta_Contrato
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaraÁ„o de campo do arquivo de designer a um arquivo code-behind.
+    '''Para modificar, mova a declaraÔøΩÔøΩo de campo do arquivo de designer a um arquivo code-behind.
     '''</remarks>
     Protected WithEvents lblDataFimVigencia As Global.System.Web.UI.WebControls.Label
 
@@ -279,7 +308,7 @@ Partial Public Class Consulta_Contrato
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaraÁ„o de campo do arquivo de designer a um arquivo code-behind.
+    '''Para modificar, mova a declaraÔøΩÔøΩo de campo do arquivo de designer a um arquivo code-behind.
     '''</remarks>
     Protected WithEvents txtSFimVigencia As Global.System.Web.UI.WebControls.Label
 
@@ -288,7 +317,7 @@ Partial Public Class Consulta_Contrato
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaraÁ„o de campo do arquivo de designer a um arquivo code-behind.
+    '''Para modificar, mova a declaraÔøΩÔøΩo de campo do arquivo de designer a um arquivo code-behind.
     '''</remarks>
     Protected WithEvents lblObjetoContrato As Global.System.Web.UI.WebControls.Label
 
@@ -297,7 +326,7 @@ Partial Public Class Consulta_Contrato
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaraÁ„o de campo do arquivo de designer a um arquivo code-behind.
+    '''Para modificar, mova a declaraÔøΩÔøΩo de campo do arquivo de designer a um arquivo code-behind.
     '''</remarks>
     Protected WithEvents txtDescricao As Global.System.Web.UI.WebControls.Label
 
@@ -306,7 +335,7 @@ Partial Public Class Consulta_Contrato
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaraÁ„o de campo do arquivo de designer a um arquivo code-behind.
+    '''Para modificar, mova a declaraÔøΩÔøΩo de campo do arquivo de designer a um arquivo code-behind.
     '''</remarks>
     Protected WithEvents txtsObjeto As Global.System.Web.UI.WebControls.Label
 
@@ -315,7 +344,7 @@ Partial Public Class Consulta_Contrato
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaraÁ„o de campo do arquivo de designer a um arquivo code-behind.
+    '''Para modificar, mova a declaraÔøΩÔøΩo de campo do arquivo de designer a um arquivo code-behind.
     '''</remarks>
     Protected WithEvents divServico As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
@@ -324,7 +353,7 @@ Partial Public Class Consulta_Contrato
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaraÁ„o de campo do arquivo de designer a um arquivo code-behind.
+    '''Para modificar, mova a declaraÔøΩÔøΩo de campo do arquivo de designer a um arquivo code-behind.
     '''</remarks>
     Protected WithEvents btProduto As Global.System.Web.UI.WebControls.LinkButton
 
@@ -333,7 +362,7 @@ Partial Public Class Consulta_Contrato
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaraÁ„o de campo do arquivo de designer a um arquivo code-behind.
+    '''Para modificar, mova a declaraÔøΩÔøΩo de campo do arquivo de designer a um arquivo code-behind.
     '''</remarks>
     Protected WithEvents lblProduto As Global.System.Web.UI.WebControls.Label
 
@@ -342,7 +371,7 @@ Partial Public Class Consulta_Contrato
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaraÁ„o de campo do arquivo de designer a um arquivo code-behind.
+    '''Para modificar, mova a declaraÔøΩÔøΩo de campo do arquivo de designer a um arquivo code-behind.
     '''</remarks>
     Protected WithEvents dtgProduto As Global.System.Web.UI.WebControls.DataGrid
 
@@ -351,7 +380,7 @@ Partial Public Class Consulta_Contrato
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaraÁ„o de campo do arquivo de designer a um arquivo code-behind.
+    '''Para modificar, mova a declaraÔøΩÔøΩo de campo do arquivo de designer a um arquivo code-behind.
     '''</remarks>
     Protected WithEvents divSla As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
@@ -360,7 +389,7 @@ Partial Public Class Consulta_Contrato
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaraÁ„o de campo do arquivo de designer a um arquivo code-behind.
+    '''Para modificar, mova a declaraÔøΩÔøΩo de campo do arquivo de designer a um arquivo code-behind.
     '''</remarks>
     Protected WithEvents btSLA As Global.System.Web.UI.WebControls.LinkButton
 
@@ -369,7 +398,7 @@ Partial Public Class Consulta_Contrato
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaraÁ„o de campo do arquivo de designer a um arquivo code-behind.
+    '''Para modificar, mova a declaraÔøΩÔøΩo de campo do arquivo de designer a um arquivo code-behind.
     '''</remarks>
     Protected WithEvents lblSLA As Global.System.Web.UI.WebControls.Label
 
@@ -378,7 +407,7 @@ Partial Public Class Consulta_Contrato
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaraÁ„o de campo do arquivo de designer a um arquivo code-behind.
+    '''Para modificar, mova a declaraÔøΩÔøΩo de campo do arquivo de designer a um arquivo code-behind.
     '''</remarks>
     Protected WithEvents dtgSLA As Global.System.Web.UI.WebControls.DataGrid
 
@@ -387,7 +416,7 @@ Partial Public Class Consulta_Contrato
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaraÁ„o de campo do arquivo de designer a um arquivo code-behind.
+    '''Para modificar, mova a declaraÔøΩÔøΩo de campo do arquivo de designer a um arquivo code-behind.
     '''</remarks>
     Protected WithEvents divAditivo As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
@@ -396,7 +425,7 @@ Partial Public Class Consulta_Contrato
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaraÁ„o de campo do arquivo de designer a um arquivo code-behind.
+    '''Para modificar, mova a declaraÔøΩÔøΩo de campo do arquivo de designer a um arquivo code-behind.
     '''</remarks>
     Protected WithEvents btAditivo As Global.System.Web.UI.WebControls.LinkButton
 
@@ -405,7 +434,7 @@ Partial Public Class Consulta_Contrato
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaraÁ„o de campo do arquivo de designer a um arquivo code-behind.
+    '''Para modificar, mova a declaraÔøΩÔøΩo de campo do arquivo de designer a um arquivo code-behind.
     '''</remarks>
     Protected WithEvents lblAditivo As Global.System.Web.UI.WebControls.Label
 
@@ -414,7 +443,7 @@ Partial Public Class Consulta_Contrato
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaraÁ„o de campo do arquivo de designer a um arquivo code-behind.
+    '''Para modificar, mova a declaraÔøΩÔøΩo de campo do arquivo de designer a um arquivo code-behind.
     '''</remarks>
     Protected WithEvents dtgAditivo As Global.System.Web.UI.WebControls.DataGrid
 
@@ -423,7 +452,7 @@ Partial Public Class Consulta_Contrato
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaraÁ„o de campo do arquivo de designer a um arquivo code-behind.
+    '''Para modificar, mova a declaraÔøΩÔøΩo de campo do arquivo de designer a um arquivo code-behind.
     '''</remarks>
     Protected WithEvents divContas As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
@@ -432,7 +461,7 @@ Partial Public Class Consulta_Contrato
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaraÁ„o de campo do arquivo de designer a um arquivo code-behind.
+    '''Para modificar, mova a declaraÔøΩÔøΩo de campo do arquivo de designer a um arquivo code-behind.
     '''</remarks>
     Protected WithEvents lblConta As Global.System.Web.UI.WebControls.Label
 
@@ -441,7 +470,7 @@ Partial Public Class Consulta_Contrato
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaraÁ„o de campo do arquivo de designer a um arquivo code-behind.
+    '''Para modificar, mova a declaraÔøΩÔøΩo de campo do arquivo de designer a um arquivo code-behind.
     '''</remarks>
     Protected WithEvents dtgConta As Global.System.Web.UI.WebControls.DataGrid
 
@@ -450,7 +479,7 @@ Partial Public Class Consulta_Contrato
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaraÁ„o de campo do arquivo de designer a um arquivo code-behind.
+    '''Para modificar, mova a declaraÔøΩÔøΩo de campo do arquivo de designer a um arquivo code-behind.
     '''</remarks>
     Protected WithEvents tbBotao As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
@@ -459,7 +488,7 @@ Partial Public Class Consulta_Contrato
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaraÁ„o de campo do arquivo de designer a um arquivo code-behind.
+    '''Para modificar, mova a declaraÔøΩÔøΩo de campo do arquivo de designer a um arquivo code-behind.
     '''</remarks>
     Protected WithEvents btVoltar As Global.System.Web.UI.WebControls.LinkButton
 
@@ -468,7 +497,7 @@ Partial Public Class Consulta_Contrato
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaraÁ„o de campo do arquivo de designer a um arquivo code-behind.
+    '''Para modificar, mova a declaraÔøΩÔøΩo de campo do arquivo de designer a um arquivo code-behind.
     '''</remarks>
     Protected WithEvents btPDF As Global.System.Web.UI.WebControls.LinkButton
 
@@ -477,7 +506,7 @@ Partial Public Class Consulta_Contrato
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaraÁ„o de campo do arquivo de designer a um arquivo code-behind.
+    '''Para modificar, mova a declaraÔøΩÔøΩo de campo do arquivo de designer a um arquivo code-behind.
     '''</remarks>
     Protected WithEvents btAlerta As Global.System.Web.UI.WebControls.LinkButton
 

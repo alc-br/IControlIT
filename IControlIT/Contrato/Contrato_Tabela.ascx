@@ -4,6 +4,11 @@
 
 <div class="row">
     <div class="col-md-12">
+        <%-- [INÍCIO - ICTRL-NF-202509-002] - Mensagem quando não há registros --%>
+        <asp:Panel ID="pnlSemRegistros" runat="server" Visible="false" CssClass="alert alert-info" style="margin: 20px 15px; text-align: center;">
+            <asp:Label ID="lblSemRegistros" runat="server" Text="Nenhum contrato encontrado com os filtros selecionados." Font-Size="12pt"></asp:Label>
+        </asp:Panel>
+        <%-- [FIM - ICTRL-NF-202509-002] --%>
         <div class="col-md-12 overflow-auto">
             <asp:DataGrid ID="dtgContrato_Tabela" runat="server" AutoGenerateColumns="False" CellPadding="5" CellSpacing="5" EnableTheming="True" Font-Bold="False" Font-Italic="False"
                 Font-Overline="False" Font-Strikeout="False" Font-Underline="False" HorizontalAlign="Left" Font-Size="9pt" Width="100%"
