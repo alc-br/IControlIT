@@ -1,0 +1,1 @@
+Atenção: Os bancos de dados dessa pasta são apenas exemplos e não podem ser usados como referências oficiais. Os bancos oficiais são armazenados em D:\SQLData\
