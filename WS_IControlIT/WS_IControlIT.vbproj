@@ -111,9 +111,29 @@
     <Content Include="WSPolitica.asmx" />
     <Content Include="WSSincronizacao.asmx" />
     <Content Include="WSRateio.asmx" />
+    <Content Include="api\parameter\get.asmx" />
+    <Content Include="api\parameter\put.asmx" />
+    <Content Include="api\parameter\updatestatusrobo.asmx" />
+    <Content Include="api\parameter\get_file.asmx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Code\cls_Banco.vb" />
+    <Compile Include="api\parameter\get.asmx.vb">
+      <DependentUpon>get.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="api\parameter\put.asmx.vb">
+      <DependentUpon>put.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="api\parameter\updatestatusrobo.asmx.vb">
+      <DependentUpon>updatestatusrobo.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="api\parameter\get_file.asmx.vb">
+      <DependentUpon>get_file.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Connect\ServiceNow\Handlers\Handler.asmx.vb">
       <DependentUpon>Handler.asmx</DependentUpon>
       <SubType>Component</SubType>
