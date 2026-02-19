@@ -193,16 +193,18 @@ Partial Public Class Termo_Responsabilidade_Ativo
 
             ' Cabeçalho com imagem
             Try
-                Dim imgHeader As iTextSharp.text.Image = iTextSharp.text.Image.GetInstance(Server.MapPath("~/Img_Sistema/Ass_Termo/k2a.png"))
+                If Not String.IsNullOrEmpty(vLogoUrl) Then
+                    ' Cria a imagem a partir do caminho dinâmico da logo
+                    Dim imgHeader As iTextSharp.text.Image = iTextSharp.text.Image.GetInstance(Server.MapPath(vLogoUrl))
 
-                imgHeader.ScaleToFit(doc.PageSize.Width / 1.5, 30.0F) ' altura ajustável
-                imgHeader.SetAbsolutePosition(50, doc.PageSize.Height - imgHeader.ScaledHeight - 40) ' posiciona no topo
+                    imgHeader.ScaleToFit(doc.PageSize.Width / 1.5, 30.0F) ' altura ajustável
+                    imgHeader.SetAbsolutePosition(50, doc.PageSize.Height - imgHeader.ScaledHeight - 40) ' posiciona no topo
 
-                writer.DirectContent.AddImage(imgHeader)
+                    writer.DirectContent.AddImage(imgHeader)
 
-                ' Ajusta o topo do conteúdo textual para ficar abaixo da imagem
-                doc.SetMargins(doc.LeftMargin, doc.RightMargin, imgHeader.ScaledHeight + 40, doc.BottomMargin)
-
+                    ' Ajusta o topo do conteúdo textual para ficar abaixo da imagem
+                    doc.SetMargins(doc.LeftMargin, doc.RightMargin, imgHeader.ScaledHeight + 40, doc.BottomMargin)
+                End If
             Catch ex As Exception
                 ' erro silencioso
             End Try
@@ -467,15 +469,17 @@ Partial Public Class Termo_Responsabilidade_Ativo
             Return
         End If
 
-        ' Dim emailPara As String = dv(0)("EMail").ToString()
-        Dim emailPara As String = "calegarichipak@gmail.com"
+        Dim emailPara As String = dv(0)("EMail").ToString()
 
-        ' Validação original comentada, pois estamos usando um valor fixo.
-        ' If String.IsNullOrEmpty(emailPara) Then
-        '     Response.Write("Erro: O consumidor encontrado não possui um e-mail cadastrado no sistema.")
-        '     Response.End()
-        '     Return
-        ' End If
+
+        'Validação original comentada, pois estamos usando um valor fixo.
+        If String.IsNullOrEmpty(emailPara) Then
+            Response.Write("Erro: O consumidor encontrado não possui um e-mail cadastrado no sistema.")
+            Response.End()
+            Return
+        End If
+
+        'emailPara = "calegarichipak@gmail.com" ''''''''' COMENTAR
 
         ' --- Lógica de Geração de Link e Agendamento de E-mail (Chamada Única) ---
         Dim baseUrl As String = Request.Url.GetLeftPart(UriPartial.Authority)

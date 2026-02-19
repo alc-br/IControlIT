@@ -708,12 +708,6 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a id="A4" runat="server" class="nav-link" href="~/Cadastro/Integracoes/Parametros/Consulta.aspx">
-                                        <i class="fas fa-cogs"></i>
-                                        <p>Automação</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
                                     <a id="A2" runat="server" class="nav-link" href="~/PDF/View_PDF.aspx?Manual=1">
                                         <i class="fas fa-file-pdf"></i>
                                         <p>Guia do UsuÃ¡rio</p>
@@ -912,6 +906,7 @@
                                                             </asp:LinkButton>
                                                         </div>
                                                     </div>
+                                                    <asp:ContentPlaceHolder ID="ContentPlaceHolderFiltrosContrato" runat="server"></asp:ContentPlaceHolder>
                                                     <uc2:Contrato_Tabela ID="Contrato_Tabela1" runat="server" />
                                                 </div>
                                             </div>

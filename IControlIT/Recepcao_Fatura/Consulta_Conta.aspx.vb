@@ -100,6 +100,7 @@ Public Class Consulta_Conta
                 If Linha("Download_Boleto") = "RED" Then Linha("Download_Boleto") = "RED_BLOCK"
                 If Linha("Download_NF") = "RED" Then Linha("Download_NF") = "RED_BLOCK"
                 If Linha("Download_Rateio") = "RED" Then Linha("Download_Rateio") = "RED_BLOCK"
+                If Linha("Download_Comprovante") = "RED" Then Linha("Download_Comprovante") = "RED_BLOCK"
             End If
         Next
 
@@ -167,6 +168,25 @@ Public Class Consulta_Conta
         dtgConsultaConta.DataSource = dt.Tables(0).DefaultView
         dtgConsultaConta.DataBind()
     End Sub
+
+    ' [INICIO - ICTRL-NF-202512-002] - Colorir Dt.Canc e Dia Venc baseado em Fl_Pago
+    Protected Sub dtgConsultaConta_ItemDataBound(sender As Object, e As DataGridItemEventArgs)
+        If e.Item.ItemType = ListItemType.Item OrElse e.Item.ItemType = ListItemType.AlternatingItem Then
+            Try
+                Dim flPago As Integer = Convert.ToInt32(DataBinder.Eval(e.Item.DataItem, "Fl_Pago"))
+                Dim cor As System.Drawing.Color = If(flPago = 1, System.Drawing.Color.Green, System.Drawing.Color.Red)
+
+                ' Coluna 2 = Dt. Canc., Coluna 3 = Dia Venc.
+                e.Item.Cells(2).ForeColor = cor
+                e.Item.Cells(3).ForeColor = cor
+            Catch
+                ' Se Fl_Pago não existir no DataSet (procedure não atualizada), manter vermelho
+                e.Item.Cells(2).ForeColor = System.Drawing.Color.Red
+                e.Item.Cells(3).ForeColor = System.Drawing.Color.Red
+            End Try
+        End If
+    End Sub
+    ' [FIM - ICTRL-NF-202512-002]
 
     Protected Sub btFatura_Click(sender As Object, e As System.Web.UI.ImageClickEventArgs)
         Dim v_bt As ImageButton = sender
@@ -306,6 +326,42 @@ Public Class Consulta_Conta
 
         If vDataSet.Tables(0).Rows(0).Item("Id_Rateio") <> 0 Then v_bt.CssClass = "GREEN"
     End Sub
+
+    ' [INÍCIO - ICTRL-NF-202512-002] - Botão Comprovante de Pagamento
+    Protected Sub btComprovante_Click(sender As Object, e As System.Web.UI.ImageClickEventArgs)
+        Dim v_bt As ImageButton = sender
+
+        ' Busca o Id_Fatura real via sp_Retorna_Id_Dw (mesmo padrão dos outros botões)
+        Dim vDataSet As New System.Data.DataSet
+        vDataSet = WS_Rateio.Plano_Conta(Session("Conn_Banco"),
+                                                        Nothing,
+                                                        v_bt.CommandArgument,
+                                                        Nothing,
+                                                        Nothing,
+                                                        Nothing,
+                                                        Nothing,
+                                                        Nothing,
+                                                        Nothing,
+                                                        cboDataLote.SelectedValue,
+                                                        Nothing,
+                                                        cboServico.SelectedValue,
+                                                        "sp_Retorna_Id_Dw",
+                                                        True)
+
+        ' Se Id_Fatura = 0, não existe fatura para esta conta neste mês
+        If vDataSet.Tables(0).Rows(0).Item("Id_Fatura") = 0 Then
+            ScriptManager.RegisterStartupScript(Me, Me.GetType(), "key",
+                "alert('Nenhuma fatura encontrada para esta conta neste período.');",
+                True)
+            Exit Sub
+        End If
+
+        ' Abrir popup com a lista de anexos de comprovantes de pagamento
+        ScriptManager.RegisterStartupScript(Me, Me.GetType(), "key",
+            "window.open('../PDF/Lista_PDF.aspx?pRegistro=" & vDataSet.Tables(0).Rows(0).Item("Id_Fatura") & "&pTabela=Fatura_Comprovante','_blank','resizable=yes, menubar=yes, scrollbars=no, height=700, width=1200, top=0, left=0');",
+            True)
+    End Sub
+    ' [FIM - ICTRL-NF-202512-002]
 
     Protected Sub btExportar_Click(sender As Object, e As EventArgs)
         '-----comentado = todos ou posso selecionar um tipo de modelo por vez

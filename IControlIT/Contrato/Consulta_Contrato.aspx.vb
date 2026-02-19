@@ -94,6 +94,9 @@ Public Class Consulta_Contrato
                 dtgConta.DataBind()
             Else
                 ' [INÍCIO - ICTRL-NF-202509-002]
+                ' Popula os dropdowns de filtro
+                Call PopularFiltros()
+
                 ' Quando não tem ID, verifica se veio com filtro de vencimento
                 If Not String.IsNullOrEmpty(Request.QueryString("vencimento")) Then
                     ' O dropdown já foi selecionado em PopularFiltros()
@@ -225,6 +228,16 @@ Public Class Consulta_Contrato
     ' [INÍCIO - ICTRL-NF-202509-002]
     Private Sub PopularFiltros()
         Try
+            ' Popula dropdown de Status do Contrato
+            Dim dsStatus As DataSet = WS_Modulo.Exec_Procedure_Simple(Session("Conn_Banco"), "sp_Drop_Contrato_Status")
+            If dsStatus IsNot Nothing AndAlso dsStatus.Tables.Count > 0 Then
+                ddlStatusContrato.DataSource = dsStatus
+                ddlStatusContrato.DataTextField = "Descricao"
+                ddlStatusContrato.DataValueField = "ID"
+                ddlStatusContrato.DataBind()
+                ddlStatusContrato.Items.Insert(0, New ListItem("Todos", "0"))
+            End If
+
             ' Popula dropdown de Vencimento
             Dim dsVencimento As DataSet = WS_Contrato.Contrato(Session("Conn_Banco"), 0, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, "sp_Drop_Contrato_Vencimento", True)
             If dsVencimento IsNot Nothing AndAlso dsVencimento.Tables.Count > 0 Then

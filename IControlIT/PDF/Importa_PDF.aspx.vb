@@ -12,11 +12,10 @@ Public Class Importa_PDF
 
     ' [INÍCIO - ICTRL-NF-202512-002]
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        If Not Page.IsPostBack Then
-            ' Exibe campo de observação apenas se for anexo de comprovante de pagamento
-            If Request("pTabela") = "Fatura_Comprovante" Then
-                trObservacao.Visible = True
-            End If
+        ' Exibe campo de observação sempre que for comprovante (inclusive no PostBack,
+        ' para que o txtObservacao participe do ViewState e o valor digitado seja preservado)
+        If Request("pTabela") = "Fatura_Comprovante" Then
+            trObservacao.Visible = True
         End If
     End Sub
     ' [FIM - ICTRL-NF-202512-002]
@@ -46,10 +45,10 @@ Public Class Importa_PDF
                                                     False)
 
             ' [INÍCIO - ICTRL-NF-202512-002] - Marcar fatura como paga ao anexar comprovante
-            ' Sempre marca como pago ao anexar comprovante, observação é opcional
+            ' Ao anexar comprovante, observação é obrigatória e marca como pago
             If Request("pTabela") = "Fatura_Comprovante" Then
                 Dim idFatura As Integer = Convert.ToInt32(Request("pRegistro"))
-                Dim observacao As String = If(String.IsNullOrWhiteSpace(txtObservacao.Text), "", txtObservacao.Text.Trim())
+                Dim observacao As String = txtObservacao.Text.Trim()
 
                 ' Chama a stored procedure sp_Marcar_Fatura_Paga via WebService
                 WS_Modulo.Credentials = System.Net.CredentialCache.DefaultCredentials

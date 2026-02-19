@@ -13,7 +13,7 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-5">
-                            <asp:Label ID="lblServico" runat="server" CssClass="configlabel" Text="Serviço:" Style="float: left" Font-Names="Segoe UI Semibold" Font-Size="12pt"></asp:Label>
+                            <asp:Label ID="lblServico" runat="server" CssClass="configlabel" Text="Serviï¿½o:" Style="float: left" Font-Names="Segoe UI Semibold" Font-Size="12pt"></asp:Label>
                             <asp:DropDownList ID="cboServico" runat="server" Width="100%" TabIndex="2" CssClass="configCombo"></asp:DropDownList>
                         </div>
                         <div class="col-md-5">
@@ -53,7 +53,7 @@
                         <%--<div class="col-md-6 mb-5">
                             <div style="width: 100%; height: 100%; position: relative;">
                                 <asp:Button ID="btDwZip" class="btn btn-info" runat="server" Visible="false" Style="position: absolute; right: 0; bottom: -5px" Text="Preparar baixa de todas faturas" CausesValidation="False" />--%>
-                                <%--<asp:Label ID="blBtDwZip" runat="server" CssClass="configlabel" Visible="false" Text="Arquivos disponíveis em [ C:\tempIControlIt ]" Style="left: 9px; top: 13px; float: left;" ForeColor="#C1C1C1"></asp:Label>--%>
+                                <%--<asp:Label ID="blBtDwZip" runat="server" CssClass="configlabel" Visible="false" Text="Arquivos disponï¿½veis em [ C:\tempIControlIt ]" Style="left: 9px; top: 13px; float: left;" ForeColor="#C1C1C1"></asp:Label>--%>
                             <%--</div>--%>
                         </div>	
                     </div>
@@ -61,7 +61,8 @@
                         <div class="col-md-12 overflow-auto">
                             <asp:DataGrid ID="dtgConsultaConta" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="5" CellSpacing="5"
                                 EnableTheming="True" Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False"
-                                HorizontalAlign="Left" Font-Size="9pt" Width="100%" ForeColor="Black" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" AllowSorting="True">
+                                HorizontalAlign="Left" Font-Size="9pt" Width="100%" ForeColor="Black" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" AllowSorting="True"
+                                OnItemDataBound="dtgConsultaConta_ItemDataBound">
                                 
                                 <Columns>
 
@@ -74,11 +75,11 @@
                                     </asp:BoundColumn>
 
                                     <asp:BoundColumn SortExpression="Data_Cancelamento" DataField="Data_Cancelamento" HeaderText="Dt. Canc." Visible="True" DataFormatString="{0:dd/MM/yyyy}">
-                                        <ItemStyle Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" Wrap="False" ForeColor="Red" />
+                                        <ItemStyle Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" Wrap="False" />
                                     </asp:BoundColumn>
 
                                     <asp:BoundColumn SortExpression="Data_Vencimento" DataField="Data_Vencimento" HeaderText="Dia Venc." Visible="True">
-                                        <ItemStyle Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" Wrap="False" ForeColor="Red" />
+                                        <ItemStyle Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" Wrap="False" />
                                     </asp:BoundColumn>
 
                                     <asp:BoundColumn SortExpression="Cadastrada" DataField="Cadastrada" HeaderText="Cad." DataFormatString="&lt;img src=&quot;../Img_Sistema/Botao/Grid/{0}&quot; border=&quot;0&quot; height=&quot;18px&quot;&gt;" Visible="true">
@@ -89,7 +90,7 @@
                                         <ItemStyle Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" />
                                     </asp:BoundColumn>
 
-                                    <asp:BoundColumn SortExpression="Dt_Emissao" DataField="Dt_Emissao" HeaderText="Dt. Emissão" Visible="True" DataFormatString="{0:dd/MM/yyyy}">
+                                    <asp:BoundColumn SortExpression="Dt_Emissao" DataField="Dt_Emissao" HeaderText="Dt. Emissï¿½o" Visible="True" DataFormatString="{0:dd/MM/yyyy}">
                                         <ItemStyle Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" Wrap="False" />
                                     </asp:BoundColumn>
 
@@ -131,10 +132,10 @@
                                     </asp:BoundColumn>
 
 
-                                    <%--<asp:BoundColumn SortExpression="Observação" DataField="Observacao" HeaderText="Observação" Visible="True">
+                                    <%--<asp:BoundColumn SortExpression="Observaï¿½ï¿½o" DataField="Observacao" HeaderText="Observaï¿½ï¿½o" Visible="True">
                                         <ItemStyle Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" />
                                     </asp:BoundColumn>--%>
-                                    <asp:TemplateColumn HeaderText="Observação">
+                                    <asp:TemplateColumn HeaderText="Observaï¿½ï¿½o">
                                         <ItemTemplate>
                                             <asp:Label ID="lblObservacao" runat="server"
                                                 Text='<%# Left(Eval("Observacao").ToString(), 20) & IIf(Len(Eval("Observacao").ToString()) > 20, "...", "") %>'
@@ -143,14 +144,14 @@
                                         <ItemStyle Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" />
                                     </asp:TemplateColumn>
 
-                                    <%--<asp:BoundColumn SortExpression="Provisão" DataField="Provisao" HeaderText="Provisão" Visible="True">--%>
-                                    <asp:TemplateColumn HeaderText="Provisão">
+                                    <%--<asp:BoundColumn SortExpression="Provisï¿½o" DataField="Provisao" HeaderText="Provisï¿½o" Visible="True">--%>
+                                    <asp:TemplateColumn HeaderText="Provisï¿½o">
                                         <%--<ItemStyle Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" />--%>
                                          <ItemTemplate>
                                              <div  style="display: flex;justify-content: center;align-items: center;">
                                                 <asp:Image ID="imgProvisao" runat="server"  style="width: 30px;"
                                                     ImageUrl='<%# IIf(Convert.ToInt32(Eval("Provisao")) = 1, "~/Img_Sistema/Botao/Grid/Provisaocheck.png", "~/Img_Sistema/Botao/Grid/ProvisaoNaoCheck-box.png") %>' 
-                                                    AlternateText='<%# IIf(Convert.ToInt32(Eval("Provisao")) = 1, "Com previsão", "Sem previsão") %>' />
+                                                    AlternateText='<%# IIf(Convert.ToInt32(Eval("Provisao")) = 1, "Com previsï¿½o", "Sem previsï¿½o") %>' />
                                               </div>
                                         </ItemTemplate>
                                         <ItemStyle Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" />
@@ -203,6 +204,14 @@
                                         </ItemTemplate>
                                     </asp:TemplateColumn>
 
+                                    <%-- [INÃCIO - ICTRL-NF-202512-002] - BotÃ£o Comprovante de Pagamento --%>
+                                    <asp:TemplateColumn HeaderText="Pag.">
+                                        <ItemTemplate>
+                                            <asp:ImageButton ID="btComprovante" runat="server" ImageUrl="~/Img_Sistema/Botao/Grid/Grid_Check.png" CssClass="<%# Bind('Download_Comprovante')%>" CausesValidation="False" OnClick="btComprovante_Click" CommandArgument="<%# Bind('Fatura')%>" ToolTip="Comprovante de Pagamento" />
+                                        </ItemTemplate>
+                                    </asp:TemplateColumn>
+                                    <%-- [FIM - ICTRL-NF-202512-002] --%>
+
                                     <asp:TemplateColumn>
                                         <ItemTemplate>
                                             <asp:ImageButton ID="btFatura" runat="server" ImageUrl="~/Img_Sistema/Botao/Grid/Grid_View.png" Style="height: 25px" CausesValidation="False" OnClick="btFatura_Click" Visible="<%# Bind('Visible_LINK') %>" CommandArgument="<%# Bind('Id_Fatura')%>" />
@@ -249,7 +258,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <asp:Label ID="lblDLinhaConta" runat="server" CssClass="configlabel" Text="Download" Style="float: left" Font-Names="Segoe UI Semibold" Font-Size="18pt"></asp:Label>
-                    <asp:Label ID="Label2" runat="server" CssClass="configlabel" Text="Todas faturas estão disponíveis e preparadas para baixar!" Style="float: left" Font-Names="Segoe UI Semibold" Font-Size="18pt"></asp:Label>
+                    <asp:Label ID="Label2" runat="server" CssClass="configlabel" Text="Todas faturas estï¿½o disponï¿½veis e preparadas para baixar!" Style="float: left" Font-Names="Segoe UI Semibold" Font-Size="18pt"></asp:Label>
                     <asp:Label ID="lbPainelObservacaoDownload" runat="server" CssClass="configlabel" Text="" Visible="false" Style="float: left" Font-Names="Segoe UI Semibold" Font-Size="18pt"></asp:Label>
                     
                 </div>

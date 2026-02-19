@@ -45,7 +45,8 @@
     <Ciente></Ciente>
     <DadosAparelho></DadosAparelho>
 
-    <linha>Linha: </linha>
+	**<TextoAceite>Assinado digitalmente por</TextoAceite>**
+	<linha>Linha: </linha>
 	<Operadora>Operadora: </Operadora>	  
     <Login>Login: </Login>
     <Filial>Unidade: </Filial>

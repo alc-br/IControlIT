@@ -95,15 +95,6 @@ Partial Public Class Consulta_Chamado
     Protected WithEvents hfIdChamado As Global.System.Web.UI.HtmlControls.HtmlInputText
 
     '''<summary>
-    '''hfEmailEnviado control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents hfEmailEnviado As Global.System.Web.UI.HtmlControls.HtmlInputText
-
-    '''<summary>
     '''hfTipoSolicitacao control.
     '''</summary>
     '''<remarks>
@@ -284,87 +275,6 @@ Partial Public Class Consulta_Chamado
     Protected WithEvents hfDesignationProduct As Global.System.Web.UI.HtmlControls.HtmlInputText
 
     '''<summary>
-    '''hfNovoSimCard control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents hfNovoSimCard As Global.System.Web.UI.HtmlControls.HtmlInputText
-
-    '''<summary>
-    '''hfCancellationComment control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents hfCancellationComment As Global.System.Web.UI.HtmlControls.HtmlInputText
-
-    '''<summary>
-    '''hfNovoPlanoMigracao control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents hfNovoPlanoMigracao As Global.System.Web.UI.HtmlControls.HtmlInputText
-
-    '''<summary>
-    '''hfOriginalFlManual control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents hfOriginalFlManual As Global.System.Web.UI.HtmlControls.HtmlInputText
-
-    '''<summary>
-    '''hfObservacaoCompleta control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents hfObservacaoCompleta As Global.System.Web.UI.HtmlControls.HtmlInputText
-
-    '''<summary>
-    '''hfMultiplosAtivos control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents hfMultiplosAtivos As Global.System.Web.UI.HtmlControls.HtmlInputText
-
-    '''<summary>
-    '''txtBusca control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents txtBusca As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''btnBusca control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents btnBusca As Global.System.Web.UI.WebControls.Button
-
-    '''<summary>
-    '''btnLimparBusca control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents btnLimparBusca As Global.System.Web.UI.WebControls.Button
-
-    '''<summary>
     '''rptChamados control.
     '''</summary>
     '''<remarks>
@@ -471,33 +381,6 @@ Partial Public Class Consulta_Chamado
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents btnExecutar As Global.System.Web.UI.WebControls.Button
-
-    '''<summary>
-    '''btnCancelar control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents btnCancelar As Global.System.Web.UI.WebControls.Button
-
-    '''<summary>
-    '''txtMotivoCancelamento control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents txtMotivoCancelamento As Global.System.Web.UI.HtmlControls.HtmlTextArea
-
-    '''<summary>
-    '''btnConfirmarCancelamento control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents btnConfirmarCancelamento As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
     '''rightColumn control.
