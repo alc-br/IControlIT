@@ -125,7 +125,8 @@ Namespace Api
                 pCodigoInvoice:=Nothing,
                 pObservacao:=Nothing,
                 pUsuario:=HttpContext.Current?.User?.Identity?.Name,
-                pFl_Ativo:=True
+                pFl_Ativo:=True,
+                pProcessamento_Manual:=False
             )
 
             If resultado.Tables.Count = 0 Then

@@ -14,7 +14,7 @@ Namespace Api
     <WebService(Namespace:="https://www.icontrolit.com.br/api/parameter/get.asmx")>
     <WebServiceBinding()>
     <ScriptService()>
-    Public Class [Base]
+    Public Class GetService
         Inherits WebService
 
         Private ReadOnly _wsCadastro As New WSCadastro()

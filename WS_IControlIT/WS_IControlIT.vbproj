@@ -93,6 +93,10 @@
     <Import Include="System.Web.UI.HtmlControls" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="api\base.asmx" />
+    <Content Include="api\parameter\get.asmx" />
+    <Content Include="api\parameter\put.asmx" />
+    <Content Include="api\parameter\updatestatusrobo.asmx" />
     <Content Include="Connect\ServiceNow\Handlers\Handler.asmx" />
     <Content Include="Connect\ServiceNow\Models\MobileActionsRequestModel.vb" />
     <Content Include="Connect\ServiceNow\Models\ProfileActionsRequestModel.vb" />
@@ -113,6 +117,22 @@
     <Content Include="WSRateio.asmx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="api\base.asmx.vb">
+      <DependentUpon>base.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="api\parameter\get.asmx.vb">
+      <DependentUpon>get.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="api\parameter\put.asmx.vb">
+      <DependentUpon>put.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="api\parameter\updatestatusrobo.asmx.vb">
+      <DependentUpon>updatestatusrobo.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="App_Code\cls_Banco.vb" />
     <Compile Include="Connect\ServiceNow\Handlers\Handler.asmx.vb">
       <DependentUpon>Handler.asmx</DependentUpon>
@@ -205,6 +225,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="api\Web.config" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
