@@ -10,7 +10,7 @@
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
 
-    <!--ConfirmaÁ„o-->
+    <!--ConfirmaÔøΩÔøΩo-->
     <div id="pnlConfirmacao" runat="server" class="bgModal" visible="false">
         <div class="modalPopup">
             <div class="row">
@@ -18,12 +18,12 @@
                     <asp:Label ID="lblTitulo" runat="server" CssClass="configlabel" Text="Lixeira" Style="float: left" Font-Names="Segoe UI Semibold" Font-Size="18pt"></asp:Label>
                 </div>
                 <div class="col-md-12">
-                    <asp:Label ID="lblMenssagem" runat="server" CssClass="configlabel" Text="Este Consumidor est· desativado. Deseja restaurar antes de continuar?" Style="float: left" Font-Names="Segoe UI Semibold" Font-Size="12pt"></asp:Label>
+                    <asp:Label ID="lblMenssagem" runat="server" CssClass="configlabel" Text="Este Consumidor estÔøΩ desativado. Deseja restaurar antes de continuar?" Style="float: left" Font-Names="Segoe UI Semibold" Font-Size="12pt"></asp:Label>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12 text-right">
-                    <asp:Button ID="btContinuar" class="btn btn-default" runat="server" Text="N„o" CausesValidation="False" />
+                    <asp:Button ID="btContinuar" class="btn btn-default" runat="server" Text="NÔøΩo" CausesValidation="False" />
                     <asp:Button ID="btRestaurar" class="btn btn-success" runat="server" Text="Sim" CausesValidation="False" />
                     <asp:HiddenField ID="HiddenField1" runat="server" />
                 </div>
@@ -36,7 +36,7 @@
         <div class="modalPopup">
             <div class="row">
                 <div class="col-md-12">
-                    <asp:Label ID="lblDLinhaConta" runat="server" CssClass="configlabel" Text="ObservaÁ„o" Style="float: left" Font-Names="Segoe UI Semibold" Font-Size="18pt"></asp:Label>
+                    <asp:Label ID="lblDLinhaConta" runat="server" CssClass="configlabel" Text="ObservaÔøΩÔøΩo" Style="float: left" Font-Names="Segoe UI Semibold" Font-Size="18pt"></asp:Label>
                     <asp:TextBox ID="txtObservacaoObrigatoria" runat="server" CssClass="configtext" MaxLength="300" Style="float: left; border-radius: 6px 6px;" TextMode="MultiLine" Width="100%" Height="350px" TabIndex="7"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="rfvObservacao" runat="server" ControlToValidate="txtObservacaoObrigatoria" Font-Names="Arial" Font-Size="10pt" Style="left: 445px; top: 38px; float: left;" ForeColor="Red">*</asp:RequiredFieldValidator>
                 </div>
@@ -62,7 +62,7 @@
             <div style="height: 5px"></div>
             <div class="row">
                 <div class="col-md-12">
-                    <asp:Label ID="lblObservacao" runat="server" CssClass="configlabel" Text="ObservaÁ„o" Style="float: left" Font-Names="Segoe UI" Font-Size="12pt"></asp:Label>
+                    <asp:Label ID="lblObservacao" runat="server" CssClass="configlabel" Text="ObservaÔøΩÔøΩo" Style="float: left" Font-Names="Segoe UI" Font-Size="12pt"></asp:Label>
                     <asp:TextBox ID="txtObservacao" runat="server" Style="width: 100%; min-height: 150px; font-size: 9pt" TextMode="MultiLine" TabIndex="8" ForeColor="#FF9900" ReadOnly="True"></asp:TextBox>
                 </div>
             </div>
@@ -110,7 +110,7 @@
                             <asp:RequiredFieldValidator ID="rfvEMail" runat="server" ControlToValidate="txtEMail" Display="None" SetFocusOnError="True" Style="left: 534px; top: 37px; float: left;"></asp:RequiredFieldValidator>
                         </div>
                         <div class="col-md-6">
-                            <asp:Label ID="lblEmailCopia" runat="server" CssClass="configlabel" Text="e-mail CÛpia"></asp:Label>
+                            <asp:Label ID="lblEmailCopia" runat="server" CssClass="configlabel" Text="e-mail CÔøΩpia"></asp:Label>
                             <asp:TextBox ID="txtEmailCopia" runat="server" BorderStyle="Solid" BorderWidth="1px" MaxLength="50" Width="100%" CssClass="configtext" TabIndex="4"></asp:TextBox>
                         </div>
                     </div>
@@ -121,7 +121,7 @@
                             <cc1:MaskedEditValidator ID="mevValorPolitica" runat="server" ControlExtender="meeValorPolitica" ControlToValidate="txtValorPolitica" Display="Dynamic" EmptyValueBlurredText="*" ErrorMessage="mevValorPolitica" InvalidValueBlurredMessage="*" Style="left: 211px; top: 199px; z-index: 117; float: left;" ValidationGroup="MKE"> </cc1:MaskedEditValidator>
                         </div>
                         <div class="col-md-6">
-                            <asp:Label ID="lblMatricula_Chefia" runat="server" CssClass="configlabel" Text="MatrÌcula chefia"></asp:Label>
+                            <asp:Label ID="lblMatricula_Chefia" runat="server" CssClass="configlabel" Text="MatrÔøΩcula chefia"></asp:Label>
                             <asp:TextBox ID="txtMatricula_Chefia" runat="server" BorderStyle="Solid" BorderWidth="1px" MaxLength="120" Width="100%" CssClass="configtext" TabIndex="6"></asp:TextBox>
                         </div>
                     </div>
@@ -164,17 +164,17 @@
                             <asp:DropDownList ID="cboSetor" AutoPostBack="True" runat="server" CssClass="configCombo" EnableTheming="True" TabIndex="13" Width="100%"></asp:DropDownList>
                         </div>
                         <div class="col-md-6">
-                            <asp:Label ID="lblSecao" runat="server" CssClass="configlabel" Text="SeÁ„o"></asp:Label>
+                            <asp:Label ID="lblSecao" runat="server" CssClass="configlabel" Text="SeÔøΩÔøΩo"></asp:Label>
                             <asp:DropDownList ID="cboSecao" runat="server" CssClass="configCombo" EnableTheming="True" TabIndex="14" Width="100%"></asp:DropDownList>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6">
-                            <asp:Label ID="lblStatus" runat="server" CssClass="configlabel" Text="SituaÁ„o cadastral"></asp:Label>
+                            <asp:Label ID="lblStatus" runat="server" CssClass="configlabel" Text="SituaÔøΩÔøΩo cadastral"></asp:Label>
                             <asp:DropDownList ID="cboConsumidorStatus" runat="server" CssClass="configCombo" EnableTheming="True" TabIndex="15" Width="100%"></asp:DropDownList>
                         </div>
                         <div class="col-md-6">
-                            <asp:CheckBox ID="chkFl_Nao_Enviar_Email" runat="server" Style="float: right" Font-Names="Arial" Font-Size="8pt" Text="N„o divulgar telefone" ForeColor="Black" />
+                            <asp:CheckBox ID="chkFl_Nao_Enviar_Email" runat="server" Style="float: right" Font-Names="Arial" Font-Size="8pt" Text="NÔøΩo divulgar telefone" ForeColor="Black" />
                             <div id="DivAtivo" runat="server" style="border: 1px solid #CCCCCC; overflow: auto; width: 100%; height: 81px" title=" ">
                                 <asp:DataGrid ID="dtgAtivo" runat="server" AutoGenerateColumns="False" BorderColor="Black" CellPadding="5" CellSpacing="5" Font-Bold="False" HorizontalAlign="Center" Font-Italic="False" BackColor="Transparent" Font-Names="Arial"
                                     Font-Overline="False" Font-Size="9pt" Font-Strikeout="False" Font-Underline="False" ForeColor="Black" Width="100%" BorderStyle="Solid" BorderWidth="1px">
@@ -196,23 +196,33 @@
                                         <asp:TemplateColumn>
                                             <HeaderTemplate>
                                                 <div style="display: flex; align-items: center; justify-content: center;">
-                                                    <a href="javascript:void(0);" onclick="baixarTodosTermos()" title="Baixar todos os termos">
-                                                        <span style="margin-right: 5px;color: #ccc;font-size: 15px;">Termo</span>
-                                                        <i class="fas fa-download" style="color: white; font-size: 10px;"></i>
+                                                    <span style="margin-right: 15px;color: #ccc;font-size: 15px;">Termo</span>
+                                                    <a href="javascript:void(0);" onclick="baixarTodosTermos()" title="Baixar todos os termos" style="margin-right: 10px;">
+                                                        <i class="fas fa-download" style="color: white; font-size: 12px;"></i>
+                                                    </a>
+                                                    <a href="javascript:void(0);" onclick="enviarTodosTermos()" title="Enviar todos os termos para aceite">
+                                                        <i class="fas fa-paper-plane" style="color: white; font-size: 12px;"></i>
                                                     </a>
                                                 </div>
                                             </HeaderTemplate>
                                             <HeaderStyle HorizontalAlign="Center" />
                                             <ItemStyle HorizontalAlign="Center" />
                                             <ItemTemplate>
-                                                <a href='<%# "/Termo/Termo_Responsabilidade_Fortlev.aspx?Id_Ativo=" & Eval("Id_Ativo") & "&Id_Consumidor=" & Request("ID") & "&Nm_Ativo_Tipo_Grupo=" & Eval("Nm_Ativo_Tipo_Grupo") %>'
-                                                   class="termo-download"
-                                                   data-idativo='<%# Eval("Id_Ativo") %>'
-                                                   data-nmgrupo='<%# Eval("Nm_Ativo_Tipo_Grupo") %>'
-                                                   target="_blank"
-                                                   title="Abrir Termo">
-                                                    <i class="fas fa-download" style="color: #444; font-size: 14px;"></i>
-                                                </a>
+                                                <div style="display: flex; justify-content: center; gap: 15px;">
+                                                    <a href='<%# "/Termo/Termo_Responsabilidade_Ativo.aspx?Id_Ativo=" & Eval("Id_Ativo") & "&Id_Consumidor=" & Request("ID") & "&Nm_Ativo_Tipo_Grupo=" & Eval("Nm_Ativo_Tipo_Grupo") %>'
+                                                       class="termo-download"
+                                                       data-idativo='<%# Eval("Id_Ativo") %>'
+                                                       data-nmgrupo='<%# Eval("Nm_Ativo_Tipo_Grupo") %>'
+                                                       target="_blank"
+                                                       title="Baixar Termo">
+                                                        <i class="fas fa-download" style="color: #444; font-size: 14px;"></i>
+                                                    </a>
+                                                    <a href="javascript:void(0);"
+                                                       onclick='<%# "enviarTermoUnico(" & Eval("Id_Ativo") & ", " & Request("ID") & ")" %>'
+                                                       title="Enviar termo para aceite">
+                                                        <i class="fas fa-paper-plane" style="color: #007bff; font-size: 14px;"></i>
+                                                    </a>
+                                                </div>
                                             </ItemTemplate>
                                         </asp:TemplateColumn>
 
@@ -235,7 +245,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-6">
-                            <asp:Label ID="lblUsuario" runat="server" CssClass="configlabel" Text="Usu·rio"></asp:Label>
+                            <asp:Label ID="lblUsuario" runat="server" CssClass="configlabel" Text="UsuÔøΩrio"></asp:Label>
                             <asp:TextBox ID="txtIdUsuario" runat="server" CssClass="configtext" Width="100%" Visible="False"></asp:TextBox>
                             <asp:TextBox ID="txtNmUsuario" runat="server" CssClass="configtext" MaxLength="50" ReadOnly="True" Width="100%" ForeColor="#FF9900"></asp:TextBox>
                         </div>
@@ -281,7 +291,7 @@
             <br />
             <span>Salvar</span>
         </asp:LinkButton>
-        <asp:LinkButton ID="btDesativar" runat="server" CssClass="btn-menu-toolbar" OnClientClick="return confirm('VocÍ deseja desativa o registro?');" OnClick="btDesativar_Click">
+        <asp:LinkButton ID="btDesativar" runat="server" CssClass="btn-menu-toolbar" OnClientClick="return confirm('VocÔøΩ deseja desativa o registro?');" OnClick="btDesativar_Click">
             <i class="fas fa-recycle"></i>
             <br />
             <span id="lblEncerrar" runat="server">Excluir</span>
@@ -327,27 +337,67 @@
         window.open(url, "_blank");
     }
    </script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const links = document.querySelectorAll("a.termo-download");
+    <%-- [IN√çCIO - ICTRL-NF-202506-026] --%>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const links = document.querySelectorAll("a.termo-download");
 
-            links.forEach(link => {
-                const href = link.getAttribute("href");
-                const checkUrl = href + "&check=1";
+        links.forEach(link => {
+            const href = link.getAttribute("href");
+            const checkUrl = href + "&check=1";
 
-                fetch(checkUrl, { method: "GET" })
-                    .then(response => {
-                        if (response.status === 204) {
-                            link.style.display = "none";
+            fetch(checkUrl, { method: "GET" })
+                .then(response => {
+                    if (response.status === 204) {
+                        // CORRE√á√ÉO: Oculta o elemento PAI (a div) que cont√©m os dois √≠cones.
+                        if (link.parentElement) {
+                            link.parentElement.style.display = "none";
                         }
-                    })
-                    .catch(error => {
-                        console.error("Erro ao verificar termo:", error);
-                        link.style.display = "none";
-                    });
-            });
+                    }
+                })
+                .catch(error => {
+                    console.error("Erro ao verificar termo:", error);
+                    // Oculta o elemento PAI tamb√©m em caso de erro.
+                    if (link.parentElement) {
+                        link.parentElement.style.display = "none";
+                    }
+                });
         });
+    });
+</script>
+<%-- [FIM - ICTRL-NF-202506-026] --%>
+    <%-- [IN√çCIO - ICTRL-NF-202506-026] --%>
+    <script>
+        // Fun√ß√£o para enviar um √∫nico termo
+        function enviarTermoUnico(idAtivo, idConsumidor) {
+            const empresa = '<%= NomeEmpresaCliente %>';
+            const url = `/Termo/Termo_Responsabilidade_Fortlev.aspx?action=send_link&Id_Ativo=${idAtivo}&Id_Consumidor=${idConsumidor}&c=${empresa}`;
+
+            window.open(url, 'envio_termo', 'width=600,height=200');
+        }
+
+        // Fun√ß√£o para enviar todos os termos
+        function enviarTodosTermos() {
+            const termos = document.querySelectorAll(".termo-download");
+            if (termos.length === 0) {
+                alert("Nenhum ativo com termo dispon√≠vel para envio.");
+                return;
+            }
+
+            const empresa = '<%= NomeEmpresaCliente %>';
+            const consumidorId = new URLSearchParams(window.location.search).get("ID");
+
+            termos.forEach(link => {
+                const idAtivo = link.getAttribute("data-idativo");
+                const url = `/Termo/Termo_Responsabilidade_Fortlev.aspx?action=send_link&Id_Ativo=${idAtivo}&Id_Consumidor=${consumidorId}&c=${empresa}`;
+
+                window.open(url, `envio_${idAtivo}`, 'width=600,height=200,left=200,top=200');
+            });
+
+            alert(termos.length + " solicita√ß√£o(√µes) de aceite enviada(s).");
+        }
     </script>
+    <%-- [FIM - ICTRL-NF-202506-026] --%>
 
 
 

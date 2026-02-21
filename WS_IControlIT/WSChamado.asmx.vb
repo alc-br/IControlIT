@@ -5,9 +5,6 @@
 ' Descrição: Web Service para os Chamados, com funcionalidade para buscar
 ' e atualizar chamados e suas relações.
 ' -----------------------------------------------------------------------
-' Histórico de Modificações
-' ICTRL-NF-202506-012 - 2025-06-22 - Anderson Chipak
-' -----------------------------------------------------------------------
 
 Imports System.Web
 Imports System.Web.Services
@@ -128,7 +125,6 @@ Public Class WSChamado
                             ByVal managerNumber As String,
                             ByVal additionalInformation As String,
                             ByVal name As String,
-                            ByVal pTermoBusca As String, ' [ICTRL-NF-202506-012]
                             ByVal pRetorno As Boolean) As DataSet
         Try
 
@@ -201,10 +197,6 @@ Public Class WSChamado
             If Not String.IsNullOrEmpty(managerNumber) Then
                 parametros.Add(New SqlClient.SqlParameter("@managerNumber", managerNumber))
             End If
-
-            ' [INÍCIO - ICTRL-NF-202506-012]
-            parametros.Add(New SqlClient.SqlParameter("@pTermoBusca", pTermoBusca))
-            ' [FIM - ICTRL-NF-202506-012]
 
             ' Converte a lista para array e retorna o resultado da query
             Return oBanco.retorna_Query("dbo.pa_Chamado", parametros.ToArray(), pPConn_Banco)
@@ -362,31 +354,5 @@ Public Class WSChamado
 
     End Function
 
-    ' [INÍCIO - ICTRL-NF-202506-017]
-    <WebMethod()>
-    Public Function AtualizarFlagManualChamado(ByVal pPConn_Banco As String, ByVal pId_Chamado As Integer, ByVal pFl_Manual As Boolean) As String
-        Try
-            If String.IsNullOrEmpty(pPConn_Banco) Then Throw New Exception("pPConn_Banco está vazio.")
-
-            Dim parametros As New List(Of SqlClient.SqlParameter)()
-            parametros.Add(New SqlClient.SqlParameter("@pAcao", "atualizar_flag_manual"))
-            parametros.Add(New SqlClient.SqlParameter("@pId_Chamado", pId_Chamado))
-            parametros.Add(New SqlClient.SqlParameter("@pFl_Manual", pFl_Manual))
-
-            ' Chama a procedure auxiliar com a nova ação
-            Dim ds As DataSet = oBanco.retorna_Query("dbo.pa_ChamadoAuxiliar", parametros.ToArray(), pPConn_Banco)
-
-            If ds IsNot Nothing AndAlso ds.Tables.Count > 0 AndAlso ds.Tables(0).Rows.Count > 0 Then
-                Return ds.Tables(0).Rows(0)("Mensagem").ToString()
-            Else
-                Return "Operação concluída, mas sem retorno específico do banco de dados."
-            End If
-
-        Catch ex As Exception
-            EscreveLog($"(WSChamado.AtualizarFlagManualChamado) Erro: {ex.Message}")
-            Throw New Exception(ex.Message)
-        End Try
-    End Function
-    ' [FIM - ICTRL-NF-202506-017]
 
 End Class

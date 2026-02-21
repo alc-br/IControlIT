@@ -1,4 +1,14 @@
-﻿<%@ Page Language="VB" Async="true" MasterPageFile="~/Principal.master" AutoEventWireup="false" CodeBehind="Consulta_Chamado.aspx.vb" Inherits="IControlIT.Consulta_Chamado" %>
+﻿<%-- 
+/*
+* HISTÓRICO DE MODIFICAÇÕES
+* [ICTRL-NF-202506-006 | 2025-06-22 | Anderson Chipak]
+* [ICTRL-NF-202506-012 | 2025-06-22 | Anderson Chipak]
+* [ICTRL-NF-202506-001 | 2025-06-21 | Anderson Chipak]
+* [ICTRL-NF-202506-002 | 2025-06-22 | Anderson Chipak]
+* [SISTEMA-TIPO-AAAAMM-SEQ | AAAA-MM-DD | NOME AUTOR ]
+*/
+--%>
+<%@ Page Language="VB" Async="true" MasterPageFile="~/Principal.master" AutoEventWireup="false" CodeBehind="Consulta_Chamado.aspx.vb" Inherits="IControlIT.Consulta_Chamado" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <!-- INICIO PÁGINA -->
@@ -395,6 +405,8 @@
     <input type="text" id="hfAlterarLinha" class="esconde" runat="server" />
     <input type="text" id="hfFaturaDropdown" class="esconde" runat="server" />
     <input type="text" id="hfDesignationProduct" class="esconde" runat="server" />
+    <input type="text" id="hfNovoSimCard" class="esconde" runat="server" /> <%-- [ICTRL-NF-202506-001] --%>
+    <input type="text" id="hfCancellationComment" class="esconde" runat="server" /> <%-- [ICTRL-NF-202506-006] --%>
     
     
     
@@ -403,11 +415,24 @@
     <div>
         <div class="row">
             <div class="col-md-12">
-                <div class="d-flex justify-content-between align-items-center activity">
+                <%-- [INÍCIO - ICTRL-NF-202506-012] --%>
+                <div class="d-flex justify-content-between align-items-center activity" style="margin-bottom: 20px;">
                     <div>
                         <span class="ml-2" style="font-size: 24px; font-weight: bold;">Chamados Recentes</span>
                     </div>
+
+                    <%-- Formulário de busca simplificado para alinhar corretamente com flexbox --%>
+                    <div class="input-group" style="max-width: 700px;align-items: center;gap: 10px;">
+                        <asp:TextBox ID="txtBusca" runat="server" CssClass="form-control" placeholder="Buscar por Request, Work Order, Usuário ou Linha..."></asp:TextBox>
+                        <div class="input-group-append">
+                            <asp:Button ID="btnBusca" runat="server" Text="Buscar" CssClass="btn btn-primary" OnClick="btnBusca_Click" />
+            
+                            <%-- Adicionamos a classe ml-2 para criar uma margem à esquerda --%>
+                            <asp:Button ID="btnLimparBusca" runat="server" Text="Limpar" CssClass="btn btn-light ml-2" OnClick="btnLimparBusca_Click" CausesValidation="false" />
+                        </div>
+                    </div>
                 </div>
+                <%-- [FIM - ICTRL-NF-202506-012] --%>
                 <div class="mt-3">
                     <ul class="list list-inline">
                         <asp:Repeater ID="rptChamados" runat="server">
@@ -476,36 +501,38 @@
                                         <span runat="server" Visible='<%# Eval("Estado").ToString().ToLower() <> "cancelado" %>'>
                                             <i class="fa fa-bars" style="cursor: pointer; font-size: 20px; margin-right: 10px; margin-left: 20px;" 
                                                onclick="abrirModalChamado(
-                                                   '<%# Eval("Id_Chamado") %>',
-                                                   '<%# Eval("RequestNumber") %>',
-                                                   '<%# Eval("WorkOrderNumber") %>',
-                                                   '<%# Eval("Estado") %>',
-                                                   '<%# Eval("AdditionalInformation") %>',
-                                                   '<%# Eval("UserName") %>',
-                                                   '<%# Eval("TransactionID") %>',
-                                                   '<%# Eval("Tipo_Solicitacao") %>',
-                                                   '<%# Eval("UserNumber") %>',
-                                                   '<%# Eval("TelecomProvider") %>',
-                                                   '<%# Eval("NewAreaCode") %>',
-                                                   '<%# Eval("NewUserNumber") %>',
-                                                   '<%# Eval("FramingPlan") %>',
-                                                   '<%# Eval("ServicePack") %>',
-                                                   '<%# Eval("PlanoContratoAtual") %>',
-                                                   '<%# Eval("Id_Ativo") %>',
-                                                   '<%# Eval("Id_Conglomerado") %>',
-                                                   '<%# Eval("NrAtivo") %>',
-                                                   '<%# Eval("MigrationDevice") %>',
-                                                   '<%# Eval("Email_Enviado") %>',
-                                                   '<%# Eval("DesignationProduct") %>',
-                                                   '<%# Eval("newTelecomProvider") %>',
-                                                   '<%# Eval("Campo1") %>',
-                                                   '<%# Eval("Campo2") %>',
-                                                   '<%# Eval("Campo3") %>',
-                                                   '<%# Eval("Campo4") %>',
-                                                   '<%# Eval("Campo5") %>',
-                                                   '<%# Eval("Campo6") %>',
-                                                   '<%# Eval("ErroSistema") %>'
-                                               )">
+                                                    '<%# Eval("Id_Chamado") %>',
+                                                    '<%# Eval("RequestNumber") %>',
+                                                    '<%# Eval("WorkOrderNumber") %>',
+                                                    '<%# Eval("Estado") %>',
+                                                    '<%# Eval("Comentarios") %>',
+                                                    '<%# Eval("UserName") %>',
+                                                    '<%# Eval("TransactionID") %>',
+                                                    '<%# Eval("Tipo_Solicitacao") %>',
+                                                    '<%# Eval("UserNumber") %>',
+                                                    '<%# Eval("TelecomProvider") %>',
+                                                    '<%# Eval("NewAreaCode") %>',
+                                                    '<%# Eval("NewUserNumber") %>',
+                                                    '<%# Eval("FramingPlan") %>',
+                                                    '<%# Eval("ServicePack") %>',
+                                                    '<%# Eval("PlanoContratoAtual") %>',
+                                                    '<%# Eval("Id_Ativo") %>',
+                                                    '<%# Eval("Id_Conglomerado") %>',
+                                                    '<%# Eval("NrAtivo") %>',
+                                                    '<%# Eval("MigrationDevice") %>',
+                                                    '<%# Eval("Email_Enviado") %>',
+                                                    '<%# Eval("DesignationProduct") %>',
+                                                    '<%# Eval("newTelecomProvider") %>',
+                                                    '<%# Eval("Campo1") %>',
+                                                    '<%# Eval("Campo2") %>',
+                                                    '<%# Eval("Campo3") %>',
+                                                    '<%# Eval("Campo4") %>',
+                                                    '<%# Eval("Campo5") %>',
+                                                    '<%# Eval("Campo6") %>',
+                                                    '<%# Eval("ErroSistema") %>',
+                                                    '<%# Eval("AdditionalInformation") %>',
+                                                    '<%# Eval("CountryDateForRoaming") %>'
+                                                )">
                                             </i>
                                         </span>
                                     </div>
@@ -573,7 +600,7 @@
     }
 
     //Acoes do modal
-    function abrirModalChamado(idChamado, requestNumber, workOrderNumber, estado, comentarios, userName, transactionID, tipoSolicitacao, userNumber, telecomProvider, newAreaCode, newUserNumber, framingPlan, servicePack, planoContratoAtual, idAtivo, idConglomerado, nrAtivo, migrationDevice, emailEnviado, designationProduct, newTelecomProvider, Campo1, Campo2, Campo3, Campo4, Campo5, Campo6, ErroSistema) {
+    function abrirModalChamado(idChamado, requestNumber, workOrderNumber, estado, comentarios, userName, transactionID, tipoSolicitacao, userNumber, telecomProvider, newAreaCode, newUserNumber, framingPlan, servicePack, planoContratoAtual, idAtivo, idConglomerado, nrAtivo, migrationDevice, emailEnviado, designationProduct, newTelecomProvider, Campo1, Campo2, Campo3, Campo4, Campo5, Campo6, ErroSistema, additionalInformation, countryDateForRoaming) { /* [ICTRL-NF-202506-002] - Assinatura corrigida */
 
         document.querySelector('#ContentPlaceHolder1_hfDesignationProduct').value = designationProduct;
 
@@ -583,7 +610,7 @@
             function setElementVisibility(elementId, value) {
                 var element = document.getElementById(elementId);
                 if (element) {
-                    if (value && value.trim() !== "") {
+                    if (value && value.trim() !== "" && value.trim() !== "0") {
                         element.style.display = "block";
                         element.querySelector('span').innerText = value;
                     } else {
@@ -634,37 +661,26 @@
                 var btnExecutar = document.getElementById('ContentPlaceHolder2_btnExecutar');
                 btnExecutar.classList.remove('desativado');
                 btnExecutar.classList.remove('esconde');
-                // Converte o estado para minúsculas e verifica se é 'concluído'
                 if (estado.toLowerCase() === 'concluído') {
-                    // Adiciona a classe "desativado" e altera o texto do botão
                     var btnExecutar = document.getElementById('ContentPlaceHolder2_btnExecutar');
                     btnExecutar.classList.add('desativado');
                     btnExecutar.classList.add('esconde');
                     btnExecutar.value = 'Chamado Concluído';
-
-
-                    // Impede que o botão seja clicável e altera o cursor para "não permitido"
                     btnExecutar.disabled = true;
                     btnExecutar.style.cursor = 'not-allowed';
                 } else {
-                    // Remove a classe "desativado", volta o texto original e permite o clique
                     var btnExecutar = document.getElementById('ContentPlaceHolder2_btnExecutar');
                     btnExecutar.classList.remove('desativado');
                     btnExecutar.value = 'Executar';
-
-                    // Permite o clique novamente e altera o cursor para "pointer"
                     btnExecutar.disabled = false;
                     btnExecutar.style.cursor = 'pointer';
                 }
             }
 
             if (tipoSolicitacao === "ALTERAR PROPRIETARIO") {
-                // Remove a classe "desativado", volta o texto original e permite o clique
                 var btnExecutar = document.getElementById('ContentPlaceHolder2_btnExecutar');
                 btnExecutar.classList.remove('desativado');
                 btnExecutar.value = 'Executar';
-
-                // Permite o clique novamente e altera o cursor para "pointer"
                 btnExecutar.disabled = false;
                 btnExecutar.style.cursor = 'pointer';
             }
@@ -674,18 +690,27 @@
             setElementVisibility('modalRequestNumberContainer', requestNumber);
             setElementVisibility('modalWorkOrderNumberContainer', workOrderNumber);
             setElementVisibility('modalEstadoContainer', estado);
-            setElementVisibility('modalComentariosContainer', comentarios);
             setElementVisibility('modalUserNameContainer', userName);
             setElementVisibility('modalTransactionIDContainer', transactionID);
             setElementVisibility('modalTipoSolicitacaoContainer', tipoSolicitacao);
             setElementVisibility('modalPlanoContratoAtualContainer', planoContratoAtual);
             setElementVisibility('modalNumeroLinhaContainer', designationProduct);
             setElementVisibility('modalOperadoraContainer', telecomProvider);
+            setElementVisibility('modalComentariosContainer', comentarios);
+
+            // Exibe todos os campos recebidos se tiverem valor
+            setElementVisibility('modalFramingPlanContainer', framingPlan);
+            setElementVisibility('modalServicePackContainer', servicePack);
+            setElementVisibility('modalAdditionalInformationContainer', additionalInformation);
+            setElementVisibility('modalNewUserNumberContainer', newUserNumber);
+            setElementVisibility('modalNewAreaCodeContainer', newAreaCode);
+            setElementVisibility('modalNewTelecomProviderContainer', newTelecomProvider);
+            setElementVisibility('modalMigrationDeviceContainer', migrationDevice);
+            setElementVisibility('modalCountryDateForRoamingContainer', countryDateForRoaming);
 
             // Limpar campos condicionais
             var camposCondicionaisContainer = document.getElementById('ContentPlaceHolder2_camposCondicionaisContainer');
             camposCondicionaisContainer.innerHTML = "";
-
         }
 
         // Função para aplicar a máscara "dd/mm/aaaa" nos campos de data
@@ -711,9 +736,12 @@
 
             // Limpar campos condicionais
             var camposCondicionaisContainer = document.getElementById('ContentPlaceHolder2_camposCondicionaisContainer');
-
             // Exibir campos condicionais
-            switch (solicitacao) {
+            {
+                /* [INÍCIO - ICTRL-NF-202506-001 | 2025-06-21 | Parceiro IControlIT] - Correção */
+            }
+            switch (solicitacao.toUpperCase()) {
+                /* [FIM - ICTRL-NF-202506-001] */
                 case 'ALTERAR DDD':
                     camposCondicionaisContainer.innerHTML = '<p><strong>Novo DDD solicitado:</strong> <span>' + newAreaCode + '</span></p>';
                     if (estado === 'Concluído') {
@@ -864,7 +892,7 @@
                         camposCondicionaisContainer.innerHTML += `
                                 <p>
                                     <input type="number" id="novaLinha" class="form-control" placeholder="Informe a nova linha"
-                                    maxlength="11" oninput="if(this.value.length > 11) this.value = this.value.slice(0, 11);" />
+                                       maxlength="11" oninput="if(this.value.length > 11) this.value = this.value.slice(0, 11);" />
                                 </p>
                                 <p>
                                     <select id="nomePlanoMigracaoNL" class="form-control">
@@ -872,7 +900,6 @@
                                     </select>
                                 </p>
                             `;
-
                         var nomePlanoMigracaoNL = document.querySelector('#nomePlanoMigracaoNL');
                         if (nomePlanoMigracaoNL) {
                             nomePlanoMigracaoNL.addEventListener('change', function () {
@@ -890,8 +917,80 @@
                         }
                     }
                     break;
+                <%-- [INÍCIO - ICTRL-NF-202506-001 | 2025-06-21 | Parceiro IControlIT] --%>
+                case 'E-SIM TROCA DE CHIP VIRTUAL':
+                    if (estado === 'Concluído') {
+                        camposCondicionaisContainer.innerHTML = '<p><strong>Novo SIM Card:</strong> <span>' + Campo1 + '</span></p>';
+                    } else {
+                        camposCondicionaisContainer.innerHTML += `
+                            <p>
+                                <label for="novoSimCard">Novo SIM Card</label>
+                                <input type="text" id="novoSimCard" class="form-control" placeholder="Informe o novo número do SIM Card" maxlength="22" />
+                            </p>
+                        `;
+                        var novoSimCardInput = document.querySelector('#novoSimCard');
+                        if (novoSimCardInput) {
+                            novoSimCardInput.addEventListener('blur', function () {
+                                document.querySelector('#ContentPlaceHolder1_hfNovoSimCard').value = this.value;
+                            });
+                        }
+                    }
+                    break;
+                <%-- [FIM - ICTRL-NF-202506-001] --%>
+                <%-- [INÍCIO - ICTRL-NF-202506-002] --%>
+                case 'SIMCARD M2M - NOVA LINHA':
+                    // A exibição dos campos pPacoteDados e pAPN agora é feita pela função setElementVisibility,
+                    // chamada no loadFields(). Esta seção agora apenas replica a funcionalidade de entrada.
+
+                    // Replica a funcionalidade de entrada da "NOVA LINHA" normal
+                    if (estado.toUpperCase() !== 'CONCLUÍDO') {
+                        if (framingPlan) camposCondicionaisContainer.innerHTML += '<p><strong>Plano de referência:</strong> <span>' + framingPlan + '</span></p>';
+                        camposCondicionaisContainer.innerHTML += `
+                                <p>
+                                    <input type="number" id="novaLinha" class="form-control" placeholder="Informe a nova linha"
+                                       maxlength="11" oninput="if(this.value.length > 11) this.value = this.value.slice(0, 11);" />
+                                </p>
+                                <p>
+                                    <select id="nomePlanoMigracaoNL" class="form-control">
+                                        <option value="1">Selecione um plano</option>
+                                    </select>
+                                </p>
+                            `;
+                        // Adiciona os listeners para capturar os valores dos novos campos
+                        var nomePlanoMigracaoNL = document.querySelector('#nomePlanoMigracaoNL');
+                        if (nomePlanoMigracaoNL) {
+                            nomePlanoMigracaoNL.addEventListener('change', function () {
+                                var textoSelecionado = nomePlanoMigracaoNL.options[nomePlanoMigracaoNL.selectedIndex].text;
+                                document.querySelector('#ContentPlaceHolder1_hfnomePlanoMigracaoNL').value = textoSelecionado;
+                            });
+                        }
+
+                        var novaLinhaInput = document.querySelector('#novaLinha');
+                        if (novaLinhaInput) {
+                            novaLinhaInput.addEventListener('blur', function () {
+                                document.querySelector('#ContentPlaceHolder1_hfNovaLinha').value = this.value;
+                            });
+                        }
+                    }
+                    break;
+
+                case 'SIMCARD M2M - ALTERAR PROPRIETARIO':
+                    // Replica a lógica de exibição do 'ALTERAR PROPRIETARIO' padrão.
+                    if (newUserNumber && newUserNumber.trim() !== '') {
+                        camposCondicionaisContainer.innerHTML += '<p><strong>NOVO PROPRIETÁRIO:</strong> <span>' + newUserNumber + '</span></p>';
+                    }
+                    break;
+
+                case 'SIMCARD M2M - CANCELAR LINHA':
+                    // Replica a lógica de exibição do 'CANCELAR LINHA' padrão.
+                    if (comentarios && comentarios.trim() !== '') {
+                        camposCondicionaisContainer.innerHTML += '<p><strong>MOTIVO:</strong> <span>' + comentarios + '</span></p>';
+                    }
+                    break;
+                <%-- [FIM - ICTRL-NF-202506-002] --%>
+
                 default:
-                    console.error('Tipo de solicitação desconhecido.');
+                    console.error('Tipo de solicitação desconhecido: ' + solicitacao);
                     break;
             }
 
@@ -1245,6 +1344,12 @@
     });
 
     // Fecha o dropdown se clicar fora, mas não ao clicar dentro
+    // [INÍCIO - ICTRL-NF-202506-006]
+    function mostrarCampoCancelamento() {
+        document.getElementById('cancelamentoContainer').style.display = 'block';
+    }
+    // [FIM - ICTRL-NF-202506-006]
+
     document.addEventListener('click', function (e) {
         if (!document.getElementById('operadoraEmails').contains(e.target) && !document.getElementById('emailDropdown').contains(e.target)) {
             document.getElementById('emailDropdown').style.display = 'none';
@@ -1319,19 +1424,57 @@
                         <strong class="label-chamado">Operadora:</strong> <span id="modalOperadora"></span>
                     </p>
                     <p id="modalPlanoContratoAtualContainer">
-                        <strong class="label-chamado">Plano atual:</strong> <span id="modalPlanoContratoAtual"></span>
+                        <strong class="label-chamado">PLANO ATUAL:</strong> <span id="modalPlanoContratoAtual"></span>
+                    </p>
+                    
+                    <%-- [INÍCIO - ICTRL-NF-202506-002] - Contêineres para todos os campos do SOAP --%>
+                    <p id="modalFramingPlanContainer" style="display:none;">
+                        <strong class="label-chamado">PLANO DE REFERÊNCIA:</strong> <span id="modalFramingPlan"></span>
+                    </p>
+                    <p id="modalServicePackContainer" style="display:none;">
+                        <strong class="label-chamado">PACOTE DE DADOS:</strong> <span id="modalServicePack"></span>
+                    </p>
+                    <p id="modalAdditionalInformationContainer" style="display:none;">
+                        <strong class="label-chamado">APN:</strong> <span id="modalAdditionalInformation"></span>
                     </p>
                     <p id="modalComentariosContainer">
-                        <strong class="label-chamado">Comentários:</strong> <span id="modalComentarios"></span>
+                        <strong class="label-chamado">COMENTÁRIOS:</strong> <span id="modalComentarios"></span>
                     </p>
+                    <p id="modalNewUserNumberContainer" style="display:none;">
+                        <strong class="label-chamado">NOVO PROPRIETÁRIO:</strong> <span id="modalNewUserNumber"></span>
+                    </p>
+                    <p id="modalNewAreaCodeContainer" style="display:none;">
+                        <strong class="label-chamado">NewAreaCode:</strong> <span id="modalNewAreaCode"></span>
+                    </p>
+                    <p id="modalNewTelecomProviderContainer" style="display:none;">
+                        <strong class="label-chamado">NewTelecomProvider:</strong> <span id="modalNewTelecomProvider"></span>
+                    </p>
+                     <p id="modalMigrationDeviceContainer" style="display:none;">
+                        <strong class="label-chamado">MigrationDevice:</strong> <span id="modalMigrationDevice"></span>
+                    </p>
+                    <p id="modalCountryDateForRoamingContainer" style="display:none;">
+                        <strong class="label-chamado">CountryDateForRoaming:</strong> <span id="modalCountryDateForRoaming"></span>
+                    </p>
+                    <%-- [FIM - ICTRL-NF-202506-002] --%>
                     <br />
                     <div id="camposCondicionaisContainer" runat="server"></div>
                 </div>
 
                 <!-- Botão Alinhado ao Final -->
+                <%-- [INÍCIO - ICTRL-NF-202506-006] --%>
                 <div class="button-bottom mt-auto">
-                    <asp:Button ID="btnExecutar" runat="server" CssClass="btn btn-primary verde" Text="Executar" OnClick="btnExecutar_Click" />
+                    <asp:Button ID="btnExecutar" runat="server" CssClass="btn btn-primary verde" Text="Executar" OnClick="btnExecutar_Click" OnClientClick="preSalvarDadosDoModal(); document.getElementById('ContentPlaceHolder1_hfSNComment').value = document.getElementById('ContentPlaceHolder2_txtSNComment').value; return true;" />
+                    <asp:Button ID="btnCancelar" runat="server" CssClass="btn btn-secondary ml-2" Text="Cancelar Chamado" OnClientClick="mostrarCampoCancelamento(); return false;" />
                 </div>
+
+                <div id="cancelamentoContainer" class="mt-3" style="display: none; border-top: 1px solid #ddd; padding-top: 15px;">
+                    <div class="form-group">
+                        <label for="txtMotivoCancelamento">Motivo do Cancelamento (será enviado ao ServiceNow):</label>
+                        <textarea id="txtMotivoCancelamento" class="form-control" rows="3" runat="server"></textarea>
+                    </div>
+                    <asp:Button ID="btnConfirmarCancelamento" runat="server" CssClass="btn btn-danger" Text="Confirmar Cancelamento" OnClick="btnConfirmarCancelamento_Click" OnClientClick="document.getElementById('ContentPlaceHolder1_hfCancellationComment').value = document.getElementById('ContentPlaceHolder2_txtMotivoCancelamento').value; return true;" />
+                </div>
+                <%-- [FIM - ICTRL-NF-202506-006] --%>
 
             </div>
 

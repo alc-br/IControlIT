@@ -4,11 +4,6 @@
 ' Data: 05/09/2024
 ' Descrição:Faz o processamento dos dados
 ' -----------------------------------------------------------------------
-' Histórico de Modificações
-' TICKET - DATA - NOME COMPLETO
-' [ICTRL-NF-202506-012 | 2025-06-22 | Anderson Chipak]
-' [ICTRL-NF-202506-014 | 2025-07-04 | Anderson Chipak]
-' -----------------------------------------------------------------------
 Imports WS_IControlIT.Connect.ServiceNow.Models
 Imports System.Web.Services.Protocols
 Imports System.IO
@@ -79,73 +74,46 @@ Namespace Connect.ServiceNow.Processors
 
                 ' Executar o método WSChamado.Chamado e obter o Id_Chamado retornado
                 Dim result As DataSet = WSChamado.Chamado(pPConn_Banco,
-                                          pPakage,
-                                          Nothing,
-                                          Nothing,
-                                          pId_Chamado,
-                                          request.RequestNumber,
-                                          request.WorkOrderNumber,
-                                          "Pendente", ' Estado inicial
-                                          Nothing, ' Comentários podem ser nulos
-                                          "MobileActions", ' Atribuído para
-                                          request.Action,
-                                          request.TransactionID,
-                                          Nothing, ' Id_Consumidor
-                                          Nothing, ' Id_Ativo
-                                          Nothing, ' Id_Conglomerado
-                                          request.UserName,
-                                          request.UserNumber,
-                                          request.DesignationProduct,
-                                          request.TelecomProvider,
-                                          request.FramingPlan,
-                                          request.MigrationDevice,
-                                          request.ServicePack,
-                                          request.NewAreaCode,
-                                          request.NewUserNumber,
-                                          request.NewTelecomProvider,
-                                          request.CountryDateForRoaming,
-                                          Nothing, ' ManagerOrAdm
-                                          Nothing, ' ViewProfile
-                                          Nothing, ' ManagerNumber
-                                          cleanedAdditionalInfo,
-                                          Nothing, ' Name
-                                          Nothing, ' pTermoBusca
-                                          pRetorno)
+                                                  pPakage,
+                                                  Nothing,
+                                                  Nothing,
+                                                  pId_Chamado,
+                                                  request.RequestNumber,
+                                                  request.WorkOrderNumber,
+                                                  "Pendente", ' Estado inicial
+                                                  Nothing, ' Comentários podem ser nulos
+                                                  "MobileActions", ' Atribuído para
+                                                  request.Action,
+                                                  request.TransactionID,
+                                                  Nothing, ' Id_Consumidor
+                                                  Nothing, ' Id_Ativo
+                                                  Nothing, ' Id_Conglomerado
+                                                  request.UserName,
+                                                  request.UserNumber,
+                                                  request.DesignationProduct,
+                                                  request.TelecomProvider,
+                                                  request.FramingPlan,
+                                                  request.MigrationDevice,
+                                                  request.ServicePack,
+                                                  request.NewAreaCode,
+                                                  request.NewUserNumber,
+                                                  request.NewTelecomProvider,
+                                                  request.CountryDateForRoaming,
+                                                  Nothing, ' ManagerOrAdm
+                                                  Nothing, ' ViewProfile
+                                                  Nothing, ' ManagerNumber
+                                                  cleanedAdditionalInfo,
+                                                  Nothing, ' Name
+                                                  pRetorno)
 
-                ' [INÍCIO - ICTRL-NF-202506-014]
                 ' Extrair o Id_Chamado do DataSet retornado
                 If result IsNot Nothing AndAlso result.Tables(0).Rows.Count > 0 Then
                     Dim idChamado As Integer = Convert.ToInt32(result.Tables(0).Rows(0)("Id_Chamado"))
-                    EscreveLog($"(ServiceProcessor) Id_Chamado criado: {idChamado}")
-
-                    ' Se a ação for "ALTERAR PROPRIETARIO", executa o chamado automaticamente
-                    If request.Action.ToUpper() = "ALTERAR PROPRIETARIO" Then
-                        Try
-                            EscreveLog($"(ServiceProcessor) Executando automaticamente o chamado {idChamado} de Alteração de Proprietário.")
-                            Dim comentariosExecucao As String = "Execução automática via integração ServiceNow."
-
-                            Dim resultadoExecucao As String = WSChamado.ExecutarAcaoAtivo(pPConn_Banco,
-                                                                              "dbo.pa_Ativo_Chamado",
-                                                                              "alterar-proprietario",
-                                                                              idChamado,
-                                                                              comentariosExecucao,
-                                                                              Nothing, Nothing, Nothing, Nothing, Nothing, Nothing,
-                                                                              True)
-
-                            EscreveLog($"(ServiceProcessor) Resultado da execução automática para o chamado {idChamado}: {resultadoExecucao}")
-
-                        Catch exExecucao As Exception
-                            ' Loga o erro mas não impede o fluxo de retorno do ID do chamado.
-                            ' O chamado foi criado, mas a execução automática falhou.
-                            EscreveLog($"(ServiceProcessor) ERRO na execução automática do chamado {idChamado}: {exExecucao.Message}")
-                        End Try
-                    End If
-
+                    EscreveLog($"(ServiceProcessor) Id_Chamado retornado: {idChamado}")
                     Return idChamado
                 Else
                     Throw New Exception("Erro: Nenhum dado retornado da chamada WSChamado.Chamado.")
                 End If
-                ' [FIM - ICTRL-NF-202506-014]
 
             Catch ex As SoapException
                 ' Log de exceção SOAP
@@ -208,8 +176,7 @@ Namespace Connect.ServiceNow.Processors
                                                   request.ViewProfile,
                                                   request.ManagerNumber,
                                                   Nothing, ' AdditionalInformation
-                                                  Nothing, ' Name,
-                                                  Nothing, ' pTermoBusca
+                                                  Nothing, ' Name
                                                   pRetorno)
 
                 ' Extrair o Id_Chamado do DataSet retornado
