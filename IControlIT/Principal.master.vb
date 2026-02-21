@@ -34,7 +34,7 @@ Public Class Principal
             ' [INICIO - ICTRL2025029] - Logica de Segregacao de Modulos (Sidebar)
             Dim modulosPermitidosObj As Object = Session("Modulos_Permitidos")
 
-            If modulosPermitidosObj IsNot Nothing Then
+            If modulosPermitidosObj IsNot Nothing AndAlso Not IsDBNull(modulosPermitidosObj) Then
                 Dim modulosPermitidos As String = CStr(modulosPermitidosObj)
                 Dim listaModulosPermitidos As List(Of String) = If(String.IsNullOrEmpty(modulosPermitidos), New List(Of String)(), modulosPermitidos.Split(","c).Select(Function(m) m.Trim().ToLower()).ToList())
 
