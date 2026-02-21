@@ -153,17 +153,17 @@ Namespace WS_GUA_Cadastro
         Private Termo_Aceite_AgendarComEmailOperationCompleted As System.Threading.SendOrPostCallback
         
         Private Termo_Aceite_ValidarOperationCompleted As System.Threading.SendOrPostCallback
-
+        
         Private Parametros_AnimaOperationCompleted As System.Threading.SendOrPostCallback
-
+        
         Private Anima_Detalhamento_FaturaOperationCompleted As System.Threading.SendOrPostCallback
-
+        
         Private AtualizarCamposComprasOperationCompleted As System.Threading.SendOrPostCallback
-
+        
         Private AtualizarStatusDescricaoOperationCompleted As System.Threading.SendOrPostCallback
-
+        
         Private Parametros_AnimaLegacyOperationCompleted As System.Threading.SendOrPostCallback
-
+        
         Private useDefaultCredentialsSetExplicitly As Boolean
         
         '''<remarks/>
@@ -384,22 +384,22 @@ Namespace WS_GUA_Cadastro
         
         '''<remarks/>
         Public Event Termo_Aceite_ValidarCompleted As Termo_Aceite_ValidarCompletedEventHandler
-
+        
         '''<remarks/>
         Public Event Parametros_AnimaCompleted As Parametros_AnimaCompletedEventHandler
-
+        
         '''<remarks/>
         Public Event Anima_Detalhamento_FaturaCompleted As Anima_Detalhamento_FaturaCompletedEventHandler
-
+        
         '''<remarks/>
         Public Event AtualizarCamposComprasCompleted As AtualizarCamposComprasCompletedEventHandler
-
+        
         '''<remarks/>
         Public Event AtualizarStatusDescricaoCompleted As AtualizarStatusDescricaoCompletedEventHandler
-
+        
         '''<remarks/>
         Public Event Parametros_AnimaLegacyCompleted As Parametros_AnimaLegacyCompletedEventHandler
-
+        
         '''<remarks/>
         <System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Lixeira", RequestNamespace:="http://tempuri.org/", ResponseNamespace:="http://tempuri.org/", Use:=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle:=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)>  _
         Public Function Lixeira(ByVal pPConn_Banco As String, ByVal pId As Integer, ByVal pId_Usuario_Permissao As Integer, ByVal pPakage As String) As System.Data.DataSet
@@ -1099,7 +1099,7 @@ Namespace WS_GUA_Cadastro
                     ByVal pValor_Contrato As String,  _
                     ByVal pPlano_Contrato As String,  _
                     ByVal pVelocidade As String,  _
-                    ByVal pCNPJ As String) As System.Data.DataSet
+                    Optional ByVal pCNPJ As String = Nothing) As System.Data.DataSet
             Dim results() As Object = Me.Invoke("Ativo", New Object() {pPConn_Banco, pId_Ativo, pNr_Ativo, pFinalidade, pId_Ativo_Tipo, pId_Conglomerado, pId_Ativo_Modelo, pLocalidade, pDt_Ativacao, pObservacao, pAtivo_Complemento, pId_Ativo_Status, pArray_Consumidor, pId_Usuario_Permissao, pPakage, pRetorno, pEndereco, pNumero_Sim_Card, pValor_Contrato, pPlano_Contrato, pVelocidade, pCNPJ})
             Return CType(results(0),System.Data.DataSet)
         End Function
@@ -1127,7 +1127,7 @@ Namespace WS_GUA_Cadastro
                     ByVal pValor_Contrato As String,  _
                     ByVal pPlano_Contrato As String,  _
                     ByVal pVelocidade As String,  _
-                    ByVal pCNPJ As String)
+                    Optional ByVal pCNPJ As String = Nothing)
             Me.AtivoAsync(pPConn_Banco, pId_Ativo, pNr_Ativo, pFinalidade, pId_Ativo_Tipo, pId_Conglomerado, pId_Ativo_Modelo, pLocalidade, pDt_Ativacao, pObservacao, pAtivo_Complemento, pId_Ativo_Status, pArray_Consumidor, pId_Usuario_Permissao, pPakage, pRetorno, pEndereco, pNumero_Sim_Card, pValor_Contrato, pPlano_Contrato, pVelocidade, pCNPJ, Nothing)
         End Sub
 
@@ -1154,8 +1154,8 @@ Namespace WS_GUA_Cadastro
                     ByVal pValor_Contrato As String,  _
                     ByVal pPlano_Contrato As String,  _
                     ByVal pVelocidade As String,  _
-                    ByVal pCNPJ As String,  _
-                    ByVal userState As Object)
+                    Optional ByVal pCNPJ As String = Nothing,  _
+                    Optional ByVal userState As Object = Nothing)
             If (Me.AtivoOperationCompleted Is Nothing) Then
                 Me.AtivoOperationCompleted = AddressOf Me.OnAtivoOperationCompleted
             End If
@@ -2401,72 +2401,196 @@ Namespace WS_GUA_Cadastro
                 RaiseEvent Termo_Aceite_ValidarCompleted(Me, New Termo_Aceite_ValidarCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState))
             End If
         End Sub
-
+        
         '''<remarks/>
         <System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Parametros_Anima", RequestNamespace:="http://tempuri.org/", ResponseNamespace:="http://tempuri.org/", Use:=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle:=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)>  _
-        Public Function Parametros_Anima(ByVal pPConn_Banco As String, ByVal pAcao As String, ByVal pId_Parametro As Integer, ByVal pCodigo_Referencia As String, ByVal pTipo As String, ByVal pCNPJ_Anima As String, ByVal pConta As String, ByVal pDescricaoServico As String, ByVal pMesEmissao As String, ByVal pRequisitioningBUId As String, ByVal pRequisitioningBUName As String, ByVal pDescription As String, ByVal pJustification As String, ByVal pPreparerEmail As String, ByVal pApproverEmail As String, ByVal pDocumentStatusCode As String, ByVal pRequisitionType As String, ByVal pSourceUniqueId As String, ByVal pCategoryName As String, ByVal pDeliverToLocationCode As String, ByVal pDeliverToOrganizationCode As String, ByVal pProcurementBUName As String, ByVal pItemDescription As String, ByVal pItemNumber As String, ByVal pRequesterEmail As String, ByVal pSupplierName As String, ByVal pSupplierContactName As String, ByVal pSupplierSiteName As String, ByVal pCentroDeCusto As String, ByVal pEstabelecimento As String, ByVal pUnidadeNegocio As String, ByVal pFinalidade As String, ByVal pProjeto As String, ByVal pInterCompany As String, ByVal pCodigoRequisicaoCompra As String, ByVal pCodigoOrdemCompra As String, ByVal pCodigoInvoice As String, ByVal pObservacao As String, ByVal pUsuario As String, ByVal pFl_Ativo As Boolean, ByVal pProcessamento_Manual As Boolean) As System.Data.DataSet
+        Public Function Parametros_Anima( _
+                    ByVal pPConn_Banco As String,  _
+                    ByVal pAcao As String,  _
+                    ByVal pId_Parametro As Integer,  _
+                    ByVal pCodigo_Referencia As String,  _
+                    ByVal pTipo As String,  _
+                    ByVal pCNPJ_Anima As String,  _
+                    ByVal pConta As String,  _
+                    ByVal pDescricaoServico As String,  _
+                    ByVal pMesEmissao As String,  _
+                    ByVal pRequisitioningBUId As String,  _
+                    ByVal pRequisitioningBUName As String,  _
+                    ByVal pDescription As String,  _
+                    ByVal pJustification As String,  _
+                    ByVal pPreparerEmail As String,  _
+                    ByVal pApproverEmail As String,  _
+                    ByVal pDocumentStatusCode As String,  _
+                    ByVal pRequisitionType As String,  _
+                    ByVal pSourceUniqueId As String,  _
+                    ByVal pCategoryName As String,  _
+                    ByVal pDeliverToLocationCode As String,  _
+                    ByVal pDeliverToOrganizationCode As String,  _
+                    ByVal pProcurementBUName As String,  _
+                    ByVal pItemDescription As String,  _
+                    ByVal pItemNumber As String,  _
+                    ByVal pRequesterEmail As String,  _
+                    ByVal pSupplierName As String,  _
+                    ByVal pSupplierContactName As String,  _
+                    ByVal pSupplierSiteName As String,  _
+                    ByVal pCentroDeCusto As String,  _
+                    ByVal pEstabelecimento As String,  _
+                    ByVal pUnidadeNegocio As String,  _
+                    ByVal pFinalidade As String,  _
+                    ByVal pProjeto As String,  _
+                    ByVal pInterCompany As String,  _
+                    ByVal pCodigoRequisicaoCompra As String,  _
+                    ByVal pCodigoOrdemCompra As String,  _
+                    ByVal pCodigoInvoice As String,  _
+                    ByVal pObservacao As String,  _
+                    ByVal pUsuario As String,  _
+                    ByVal pFl_Ativo As Boolean,  _
+                    ByVal pProcessamento_Manual As Boolean) As System.Data.DataSet
             Dim results() As Object = Me.Invoke("Parametros_Anima", New Object() {pPConn_Banco, pAcao, pId_Parametro, pCodigo_Referencia, pTipo, pCNPJ_Anima, pConta, pDescricaoServico, pMesEmissao, pRequisitioningBUId, pRequisitioningBUName, pDescription, pJustification, pPreparerEmail, pApproverEmail, pDocumentStatusCode, pRequisitionType, pSourceUniqueId, pCategoryName, pDeliverToLocationCode, pDeliverToOrganizationCode, pProcurementBUName, pItemDescription, pItemNumber, pRequesterEmail, pSupplierName, pSupplierContactName, pSupplierSiteName, pCentroDeCusto, pEstabelecimento, pUnidadeNegocio, pFinalidade, pProjeto, pInterCompany, pCodigoRequisicaoCompra, pCodigoOrdemCompra, pCodigoInvoice, pObservacao, pUsuario, pFl_Ativo, pProcessamento_Manual})
             Return CType(results(0),System.Data.DataSet)
         End Function
-
+        
         '''<remarks/>
-        Public Overloads Sub Parametros_AnimaAsync(ByVal pPConn_Banco As String, ByVal pAcao As String, ByVal pId_Parametro As Integer, ByVal pCodigo_Referencia As String, ByVal pTipo As String, ByVal pCNPJ_Anima As String, ByVal pConta As String, ByVal pDescricaoServico As String, ByVal pMesEmissao As String, ByVal pRequisitioningBUId As String, ByVal pRequisitioningBUName As String, ByVal pDescription As String, ByVal pJustification As String, ByVal pPreparerEmail As String, ByVal pApproverEmail As String, ByVal pDocumentStatusCode As String, ByVal pRequisitionType As String, ByVal pSourceUniqueId As String, ByVal pCategoryName As String, ByVal pDeliverToLocationCode As String, ByVal pDeliverToOrganizationCode As String, ByVal pProcurementBUName As String, ByVal pItemDescription As String, ByVal pItemNumber As String, ByVal pRequesterEmail As String, ByVal pSupplierName As String, ByVal pSupplierContactName As String, ByVal pSupplierSiteName As String, ByVal pCentroDeCusto As String, ByVal pEstabelecimento As String, ByVal pUnidadeNegocio As String, ByVal pFinalidade As String, ByVal pProjeto As String, ByVal pInterCompany As String, ByVal pCodigoRequisicaoCompra As String, ByVal pCodigoOrdemCompra As String, ByVal pCodigoInvoice As String, ByVal pObservacao As String, ByVal pUsuario As String, ByVal pFl_Ativo As Boolean, ByVal pProcessamento_Manual As Boolean)
+        Public Overloads Sub Parametros_AnimaAsync( _
+                    ByVal pPConn_Banco As String,  _
+                    ByVal pAcao As String,  _
+                    ByVal pId_Parametro As Integer,  _
+                    ByVal pCodigo_Referencia As String,  _
+                    ByVal pTipo As String,  _
+                    ByVal pCNPJ_Anima As String,  _
+                    ByVal pConta As String,  _
+                    ByVal pDescricaoServico As String,  _
+                    ByVal pMesEmissao As String,  _
+                    ByVal pRequisitioningBUId As String,  _
+                    ByVal pRequisitioningBUName As String,  _
+                    ByVal pDescription As String,  _
+                    ByVal pJustification As String,  _
+                    ByVal pPreparerEmail As String,  _
+                    ByVal pApproverEmail As String,  _
+                    ByVal pDocumentStatusCode As String,  _
+                    ByVal pRequisitionType As String,  _
+                    ByVal pSourceUniqueId As String,  _
+                    ByVal pCategoryName As String,  _
+                    ByVal pDeliverToLocationCode As String,  _
+                    ByVal pDeliverToOrganizationCode As String,  _
+                    ByVal pProcurementBUName As String,  _
+                    ByVal pItemDescription As String,  _
+                    ByVal pItemNumber As String,  _
+                    ByVal pRequesterEmail As String,  _
+                    ByVal pSupplierName As String,  _
+                    ByVal pSupplierContactName As String,  _
+                    ByVal pSupplierSiteName As String,  _
+                    ByVal pCentroDeCusto As String,  _
+                    ByVal pEstabelecimento As String,  _
+                    ByVal pUnidadeNegocio As String,  _
+                    ByVal pFinalidade As String,  _
+                    ByVal pProjeto As String,  _
+                    ByVal pInterCompany As String,  _
+                    ByVal pCodigoRequisicaoCompra As String,  _
+                    ByVal pCodigoOrdemCompra As String,  _
+                    ByVal pCodigoInvoice As String,  _
+                    ByVal pObservacao As String,  _
+                    ByVal pUsuario As String,  _
+                    ByVal pFl_Ativo As Boolean,  _
+                    ByVal pProcessamento_Manual As Boolean)
             Me.Parametros_AnimaAsync(pPConn_Banco, pAcao, pId_Parametro, pCodigo_Referencia, pTipo, pCNPJ_Anima, pConta, pDescricaoServico, pMesEmissao, pRequisitioningBUId, pRequisitioningBUName, pDescription, pJustification, pPreparerEmail, pApproverEmail, pDocumentStatusCode, pRequisitionType, pSourceUniqueId, pCategoryName, pDeliverToLocationCode, pDeliverToOrganizationCode, pProcurementBUName, pItemDescription, pItemNumber, pRequesterEmail, pSupplierName, pSupplierContactName, pSupplierSiteName, pCentroDeCusto, pEstabelecimento, pUnidadeNegocio, pFinalidade, pProjeto, pInterCompany, pCodigoRequisicaoCompra, pCodigoOrdemCompra, pCodigoInvoice, pObservacao, pUsuario, pFl_Ativo, pProcessamento_Manual, Nothing)
         End Sub
-
+        
         '''<remarks/>
-        Public Overloads Sub Parametros_AnimaAsync(ByVal pPConn_Banco As String, ByVal pAcao As String, ByVal pId_Parametro As Integer, ByVal pCodigo_Referencia As String, ByVal pTipo As String, ByVal pCNPJ_Anima As String, ByVal pConta As String, ByVal pDescricaoServico As String, ByVal pMesEmissao As String, ByVal pRequisitioningBUId As String, ByVal pRequisitioningBUName As String, ByVal pDescription As String, ByVal pJustification As String, ByVal pPreparerEmail As String, ByVal pApproverEmail As String, ByVal pDocumentStatusCode As String, ByVal pRequisitionType As String, ByVal pSourceUniqueId As String, ByVal pCategoryName As String, ByVal pDeliverToLocationCode As String, ByVal pDeliverToOrganizationCode As String, ByVal pProcurementBUName As String, ByVal pItemDescription As String, ByVal pItemNumber As String, ByVal pRequesterEmail As String, ByVal pSupplierName As String, ByVal pSupplierContactName As String, ByVal pSupplierSiteName As String, ByVal pCentroDeCusto As String, ByVal pEstabelecimento As String, ByVal pUnidadeNegocio As String, ByVal pFinalidade As String, ByVal pProjeto As String, ByVal pInterCompany As String, ByVal pCodigoRequisicaoCompra As String, ByVal pCodigoOrdemCompra As String, ByVal pCodigoInvoice As String, ByVal pObservacao As String, ByVal pUsuario As String, ByVal pFl_Ativo As Boolean, ByVal pProcessamento_Manual As Boolean, ByVal userState As Object)
+        Public Overloads Sub Parametros_AnimaAsync( _
+                    ByVal pPConn_Banco As String,  _
+                    ByVal pAcao As String,  _
+                    ByVal pId_Parametro As Integer,  _
+                    ByVal pCodigo_Referencia As String,  _
+                    ByVal pTipo As String,  _
+                    ByVal pCNPJ_Anima As String,  _
+                    ByVal pConta As String,  _
+                    ByVal pDescricaoServico As String,  _
+                    ByVal pMesEmissao As String,  _
+                    ByVal pRequisitioningBUId As String,  _
+                    ByVal pRequisitioningBUName As String,  _
+                    ByVal pDescription As String,  _
+                    ByVal pJustification As String,  _
+                    ByVal pPreparerEmail As String,  _
+                    ByVal pApproverEmail As String,  _
+                    ByVal pDocumentStatusCode As String,  _
+                    ByVal pRequisitionType As String,  _
+                    ByVal pSourceUniqueId As String,  _
+                    ByVal pCategoryName As String,  _
+                    ByVal pDeliverToLocationCode As String,  _
+                    ByVal pDeliverToOrganizationCode As String,  _
+                    ByVal pProcurementBUName As String,  _
+                    ByVal pItemDescription As String,  _
+                    ByVal pItemNumber As String,  _
+                    ByVal pRequesterEmail As String,  _
+                    ByVal pSupplierName As String,  _
+                    ByVal pSupplierContactName As String,  _
+                    ByVal pSupplierSiteName As String,  _
+                    ByVal pCentroDeCusto As String,  _
+                    ByVal pEstabelecimento As String,  _
+                    ByVal pUnidadeNegocio As String,  _
+                    ByVal pFinalidade As String,  _
+                    ByVal pProjeto As String,  _
+                    ByVal pInterCompany As String,  _
+                    ByVal pCodigoRequisicaoCompra As String,  _
+                    ByVal pCodigoOrdemCompra As String,  _
+                    ByVal pCodigoInvoice As String,  _
+                    ByVal pObservacao As String,  _
+                    ByVal pUsuario As String,  _
+                    ByVal pFl_Ativo As Boolean,  _
+                    ByVal pProcessamento_Manual As Boolean,  _
+                    ByVal userState As Object)
             If (Me.Parametros_AnimaOperationCompleted Is Nothing) Then
                 Me.Parametros_AnimaOperationCompleted = AddressOf Me.OnParametros_AnimaOperationCompleted
             End If
             Me.InvokeAsync("Parametros_Anima", New Object() {pPConn_Banco, pAcao, pId_Parametro, pCodigo_Referencia, pTipo, pCNPJ_Anima, pConta, pDescricaoServico, pMesEmissao, pRequisitioningBUId, pRequisitioningBUName, pDescription, pJustification, pPreparerEmail, pApproverEmail, pDocumentStatusCode, pRequisitionType, pSourceUniqueId, pCategoryName, pDeliverToLocationCode, pDeliverToOrganizationCode, pProcurementBUName, pItemDescription, pItemNumber, pRequesterEmail, pSupplierName, pSupplierContactName, pSupplierSiteName, pCentroDeCusto, pEstabelecimento, pUnidadeNegocio, pFinalidade, pProjeto, pInterCompany, pCodigoRequisicaoCompra, pCodigoOrdemCompra, pCodigoInvoice, pObservacao, pUsuario, pFl_Ativo, pProcessamento_Manual}, Me.Parametros_AnimaOperationCompleted, userState)
         End Sub
-
+        
         Private Sub OnParametros_AnimaOperationCompleted(ByVal arg As Object)
             If (Not (Me.Parametros_AnimaCompletedEvent) Is Nothing) Then
                 Dim invokeArgs As System.Web.Services.Protocols.InvokeCompletedEventArgs = CType(arg,System.Web.Services.Protocols.InvokeCompletedEventArgs)
                 RaiseEvent Parametros_AnimaCompleted(Me, New Parametros_AnimaCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState))
             End If
         End Sub
-
+        
         '''<remarks/>
-        <System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Anima_Detalhamento_Fatura_Method", RequestNamespace:="http://tempuri.org/", ResponseNamespace:="http://tempuri.org/", Use:=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle:=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)>  _
-        Public Function Anima_Detalhamento_Fatura(ByVal pPConn_Banco As String, ByVal pNr_Fatura As String, ByVal pDt_Lote As String) As System.Data.DataSet
-            Dim results() As Object = Me.Invoke("Anima_Detalhamento_Fatura_Method", New Object() {pPConn_Banco, pNr_Fatura, pDt_Lote})
+        <System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Anima_Detalhamento_Fatura_Method", RequestElementName:="Anima_Detalhamento_Fatura_Method", RequestNamespace:="http://tempuri.org/", ResponseElementName:="Anima_Detalhamento_Fatura_MethodResponse", ResponseNamespace:="http://tempuri.org/", Use:=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle:=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)>  _
+        Public Function Anima_Detalhamento_Fatura(ByVal pPConn_Banco As String, ByVal pNr_Fatura As String, ByVal pDt_Lote As String) As <System.Xml.Serialization.XmlElementAttribute("Anima_Detalhamento_Fatura_MethodResult")> System.Data.DataSet
+            Dim results() As Object = Me.Invoke("Anima_Detalhamento_Fatura", New Object() {pPConn_Banco, pNr_Fatura, pDt_Lote})
             Return CType(results(0),System.Data.DataSet)
         End Function
-
+        
         '''<remarks/>
         Public Overloads Sub Anima_Detalhamento_FaturaAsync(ByVal pPConn_Banco As String, ByVal pNr_Fatura As String, ByVal pDt_Lote As String)
             Me.Anima_Detalhamento_FaturaAsync(pPConn_Banco, pNr_Fatura, pDt_Lote, Nothing)
         End Sub
-
+        
         '''<remarks/>
         Public Overloads Sub Anima_Detalhamento_FaturaAsync(ByVal pPConn_Banco As String, ByVal pNr_Fatura As String, ByVal pDt_Lote As String, ByVal userState As Object)
             If (Me.Anima_Detalhamento_FaturaOperationCompleted Is Nothing) Then
                 Me.Anima_Detalhamento_FaturaOperationCompleted = AddressOf Me.OnAnima_Detalhamento_FaturaOperationCompleted
             End If
-            Me.InvokeAsync("Anima_Detalhamento_Fatura_Method", New Object() {pPConn_Banco, pNr_Fatura, pDt_Lote}, Me.Anima_Detalhamento_FaturaOperationCompleted, userState)
+            Me.InvokeAsync("Anima_Detalhamento_Fatura", New Object() {pPConn_Banco, pNr_Fatura, pDt_Lote}, Me.Anima_Detalhamento_FaturaOperationCompleted, userState)
         End Sub
-
+        
         Private Sub OnAnima_Detalhamento_FaturaOperationCompleted(ByVal arg As Object)
             If (Not (Me.Anima_Detalhamento_FaturaCompletedEvent) Is Nothing) Then
                 Dim invokeArgs As System.Web.Services.Protocols.InvokeCompletedEventArgs = CType(arg,System.Web.Services.Protocols.InvokeCompletedEventArgs)
                 RaiseEvent Anima_Detalhamento_FaturaCompleted(Me, New Anima_Detalhamento_FaturaCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState))
             End If
         End Sub
-
+        
         '''<remarks/>
         <System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/AtualizarCamposCompras", RequestNamespace:="http://tempuri.org/", ResponseNamespace:="http://tempuri.org/", Use:=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle:=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)>  _
         Public Sub AtualizarCamposCompras(ByVal pPConn_Banco As String, ByVal pId_Parametro As Integer, ByVal pRequisicao_Compra As String, ByVal pOrdem_Compra As String, ByVal pInvoice As String, ByVal pObservacoes As String, ByVal pUsuario As String)
             Me.Invoke("AtualizarCamposCompras", New Object() {pPConn_Banco, pId_Parametro, pRequisicao_Compra, pOrdem_Compra, pInvoice, pObservacoes, pUsuario})
         End Sub
-
+        
         '''<remarks/>
         Public Overloads Sub AtualizarCamposComprasAsync(ByVal pPConn_Banco As String, ByVal pId_Parametro As Integer, ByVal pRequisicao_Compra As String, ByVal pOrdem_Compra As String, ByVal pInvoice As String, ByVal pObservacoes As String, ByVal pUsuario As String)
             Me.AtualizarCamposComprasAsync(pPConn_Banco, pId_Parametro, pRequisicao_Compra, pOrdem_Compra, pInvoice, pObservacoes, pUsuario, Nothing)
         End Sub
-
+        
         '''<remarks/>
         Public Overloads Sub AtualizarCamposComprasAsync(ByVal pPConn_Banco As String, ByVal pId_Parametro As Integer, ByVal pRequisicao_Compra As String, ByVal pOrdem_Compra As String, ByVal pInvoice As String, ByVal pObservacoes As String, ByVal pUsuario As String, ByVal userState As Object)
             If (Me.AtualizarCamposComprasOperationCompleted Is Nothing) Then
@@ -2474,25 +2598,25 @@ Namespace WS_GUA_Cadastro
             End If
             Me.InvokeAsync("AtualizarCamposCompras", New Object() {pPConn_Banco, pId_Parametro, pRequisicao_Compra, pOrdem_Compra, pInvoice, pObservacoes, pUsuario}, Me.AtualizarCamposComprasOperationCompleted, userState)
         End Sub
-
+        
         Private Sub OnAtualizarCamposComprasOperationCompleted(ByVal arg As Object)
             If (Not (Me.AtualizarCamposComprasCompletedEvent) Is Nothing) Then
                 Dim invokeArgs As System.Web.Services.Protocols.InvokeCompletedEventArgs = CType(arg,System.Web.Services.Protocols.InvokeCompletedEventArgs)
-                RaiseEvent AtualizarCamposComprasCompleted(Me, New AtualizarCamposComprasCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState))
+                RaiseEvent AtualizarCamposComprasCompleted(Me, New System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState))
             End If
         End Sub
-
+        
         '''<remarks/>
         <System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/AtualizarStatusDescricao", RequestNamespace:="http://tempuri.org/", ResponseNamespace:="http://tempuri.org/", Use:=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle:=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)>  _
         Public Sub AtualizarStatusDescricao(ByVal pPConn_Banco As String, ByVal pId_Parametro As Integer, ByVal pStatus As String, ByVal pDescricao As String, ByVal pUsuario As String)
             Me.Invoke("AtualizarStatusDescricao", New Object() {pPConn_Banco, pId_Parametro, pStatus, pDescricao, pUsuario})
         End Sub
-
+        
         '''<remarks/>
         Public Overloads Sub AtualizarStatusDescricaoAsync(ByVal pPConn_Banco As String, ByVal pId_Parametro As Integer, ByVal pStatus As String, ByVal pDescricao As String, ByVal pUsuario As String)
             Me.AtualizarStatusDescricaoAsync(pPConn_Banco, pId_Parametro, pStatus, pDescricao, pUsuario, Nothing)
         End Sub
-
+        
         '''<remarks/>
         Public Overloads Sub AtualizarStatusDescricaoAsync(ByVal pPConn_Banco As String, ByVal pId_Parametro As Integer, ByVal pStatus As String, ByVal pDescricao As String, ByVal pUsuario As String, ByVal userState As Object)
             If (Me.AtualizarStatusDescricaoOperationCompleted Is Nothing) Then
@@ -2500,41 +2624,162 @@ Namespace WS_GUA_Cadastro
             End If
             Me.InvokeAsync("AtualizarStatusDescricao", New Object() {pPConn_Banco, pId_Parametro, pStatus, pDescricao, pUsuario}, Me.AtualizarStatusDescricaoOperationCompleted, userState)
         End Sub
-
+        
         Private Sub OnAtualizarStatusDescricaoOperationCompleted(ByVal arg As Object)
             If (Not (Me.AtualizarStatusDescricaoCompletedEvent) Is Nothing) Then
                 Dim invokeArgs As System.Web.Services.Protocols.InvokeCompletedEventArgs = CType(arg,System.Web.Services.Protocols.InvokeCompletedEventArgs)
-                RaiseEvent AtualizarStatusDescricaoCompleted(Me, New AtualizarStatusDescricaoCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState))
+                RaiseEvent AtualizarStatusDescricaoCompleted(Me, New System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState))
             End If
         End Sub
-
+        
         '''<remarks/>
         <System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Parametros_AnimaLegacy", RequestNamespace:="http://tempuri.org/", ResponseNamespace:="http://tempuri.org/", Use:=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle:=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)>  _
-        Public Function Parametros_AnimaLegacy(ByVal pPConn_Banco As String, ByVal pAcao As String, ByVal pId_Parametro As Integer, ByVal pCodigo_Referencia As String, ByVal pTipo As String, ByVal pCNPJ_Anima As String, ByVal pConta As String, ByVal pDescricaoServico As String, ByVal pMesEmissao As String, ByVal pRequisitioningBUId As String, ByVal pRequisitioningBUName As String, ByVal pDescription As String, ByVal pJustification As String, ByVal pPreparerEmail As String, ByVal pApproverEmail As String, ByVal pDocumentStatusCode As String, ByVal pRequisitionType As String, ByVal pSourceUniqueId As String, ByVal pCategoryName As String, ByVal pDeliverToLocationCode As String, ByVal pDeliverToOrganizationCode As String, ByVal pProcurementBUName As String, ByVal pItemDescription As String, ByVal pItemNumber As String, ByVal pRequesterEmail As String, ByVal pSupplierName As String, ByVal pSupplierContactName As String, ByVal pSupplierSiteName As String, ByVal pCentroDeCusto As String, ByVal pEstabelecimento As String, ByVal pUnidadeNegocio As String, ByVal pFinalidade As String, ByVal pProjeto As String, ByVal pInterCompany As String, ByVal pCodigoRequisicaoCompra As String, ByVal pCodigoOrdemCompra As String, ByVal pCodigoInvoice As String, ByVal pObservacao As String, ByVal pUsuario As String, ByVal pFl_Ativo As Boolean) As System.Data.DataSet
+        Public Function Parametros_AnimaLegacy( _
+                    ByVal pPConn_Banco As String,  _
+                    ByVal pAcao As String,  _
+                    ByVal pId_Parametro As Integer,  _
+                    ByVal pCodigo_Referencia As String,  _
+                    ByVal pTipo As String,  _
+                    ByVal pCNPJ_Anima As String,  _
+                    ByVal pConta As String,  _
+                    ByVal pDescricaoServico As String,  _
+                    ByVal pMesEmissao As String,  _
+                    ByVal pRequisitioningBUId As String,  _
+                    ByVal pRequisitioningBUName As String,  _
+                    ByVal pDescription As String,  _
+                    ByVal pJustification As String,  _
+                    ByVal pPreparerEmail As String,  _
+                    ByVal pApproverEmail As String,  _
+                    ByVal pDocumentStatusCode As String,  _
+                    ByVal pRequisitionType As String,  _
+                    ByVal pSourceUniqueId As String,  _
+                    ByVal pCategoryName As String,  _
+                    ByVal pDeliverToLocationCode As String,  _
+                    ByVal pDeliverToOrganizationCode As String,  _
+                    ByVal pProcurementBUName As String,  _
+                    ByVal pItemDescription As String,  _
+                    ByVal pItemNumber As String,  _
+                    ByVal pRequesterEmail As String,  _
+                    ByVal pSupplierName As String,  _
+                    ByVal pSupplierContactName As String,  _
+                    ByVal pSupplierSiteName As String,  _
+                    ByVal pCentroDeCusto As String,  _
+                    ByVal pEstabelecimento As String,  _
+                    ByVal pUnidadeNegocio As String,  _
+                    ByVal pFinalidade As String,  _
+                    ByVal pProjeto As String,  _
+                    ByVal pInterCompany As String,  _
+                    ByVal pCodigoRequisicaoCompra As String,  _
+                    ByVal pCodigoOrdemCompra As String,  _
+                    ByVal pCodigoInvoice As String,  _
+                    ByVal pObservacao As String,  _
+                    ByVal pUsuario As String,  _
+                    ByVal pFl_Ativo As Boolean) As System.Data.DataSet
             Dim results() As Object = Me.Invoke("Parametros_AnimaLegacy", New Object() {pPConn_Banco, pAcao, pId_Parametro, pCodigo_Referencia, pTipo, pCNPJ_Anima, pConta, pDescricaoServico, pMesEmissao, pRequisitioningBUId, pRequisitioningBUName, pDescription, pJustification, pPreparerEmail, pApproverEmail, pDocumentStatusCode, pRequisitionType, pSourceUniqueId, pCategoryName, pDeliverToLocationCode, pDeliverToOrganizationCode, pProcurementBUName, pItemDescription, pItemNumber, pRequesterEmail, pSupplierName, pSupplierContactName, pSupplierSiteName, pCentroDeCusto, pEstabelecimento, pUnidadeNegocio, pFinalidade, pProjeto, pInterCompany, pCodigoRequisicaoCompra, pCodigoOrdemCompra, pCodigoInvoice, pObservacao, pUsuario, pFl_Ativo})
             Return CType(results(0),System.Data.DataSet)
         End Function
-
+        
         '''<remarks/>
-        Public Overloads Sub Parametros_AnimaLegacyAsync(ByVal pPConn_Banco As String, ByVal pAcao As String, ByVal pId_Parametro As Integer, ByVal pCodigo_Referencia As String, ByVal pTipo As String, ByVal pCNPJ_Anima As String, ByVal pConta As String, ByVal pDescricaoServico As String, ByVal pMesEmissao As String, ByVal pRequisitioningBUId As String, ByVal pRequisitioningBUName As String, ByVal pDescription As String, ByVal pJustification As String, ByVal pPreparerEmail As String, ByVal pApproverEmail As String, ByVal pDocumentStatusCode As String, ByVal pRequisitionType As String, ByVal pSourceUniqueId As String, ByVal pCategoryName As String, ByVal pDeliverToLocationCode As String, ByVal pDeliverToOrganizationCode As String, ByVal pProcurementBUName As String, ByVal pItemDescription As String, ByVal pItemNumber As String, ByVal pRequesterEmail As String, ByVal pSupplierName As String, ByVal pSupplierContactName As String, ByVal pSupplierSiteName As String, ByVal pCentroDeCusto As String, ByVal pEstabelecimento As String, ByVal pUnidadeNegocio As String, ByVal pFinalidade As String, ByVal pProjeto As String, ByVal pInterCompany As String, ByVal pCodigoRequisicaoCompra As String, ByVal pCodigoOrdemCompra As String, ByVal pCodigoInvoice As String, ByVal pObservacao As String, ByVal pUsuario As String, ByVal pFl_Ativo As Boolean)
+        Public Overloads Sub Parametros_AnimaLegacyAsync( _
+                    ByVal pPConn_Banco As String,  _
+                    ByVal pAcao As String,  _
+                    ByVal pId_Parametro As Integer,  _
+                    ByVal pCodigo_Referencia As String,  _
+                    ByVal pTipo As String,  _
+                    ByVal pCNPJ_Anima As String,  _
+                    ByVal pConta As String,  _
+                    ByVal pDescricaoServico As String,  _
+                    ByVal pMesEmissao As String,  _
+                    ByVal pRequisitioningBUId As String,  _
+                    ByVal pRequisitioningBUName As String,  _
+                    ByVal pDescription As String,  _
+                    ByVal pJustification As String,  _
+                    ByVal pPreparerEmail As String,  _
+                    ByVal pApproverEmail As String,  _
+                    ByVal pDocumentStatusCode As String,  _
+                    ByVal pRequisitionType As String,  _
+                    ByVal pSourceUniqueId As String,  _
+                    ByVal pCategoryName As String,  _
+                    ByVal pDeliverToLocationCode As String,  _
+                    ByVal pDeliverToOrganizationCode As String,  _
+                    ByVal pProcurementBUName As String,  _
+                    ByVal pItemDescription As String,  _
+                    ByVal pItemNumber As String,  _
+                    ByVal pRequesterEmail As String,  _
+                    ByVal pSupplierName As String,  _
+                    ByVal pSupplierContactName As String,  _
+                    ByVal pSupplierSiteName As String,  _
+                    ByVal pCentroDeCusto As String,  _
+                    ByVal pEstabelecimento As String,  _
+                    ByVal pUnidadeNegocio As String,  _
+                    ByVal pFinalidade As String,  _
+                    ByVal pProjeto As String,  _
+                    ByVal pInterCompany As String,  _
+                    ByVal pCodigoRequisicaoCompra As String,  _
+                    ByVal pCodigoOrdemCompra As String,  _
+                    ByVal pCodigoInvoice As String,  _
+                    ByVal pObservacao As String,  _
+                    ByVal pUsuario As String,  _
+                    ByVal pFl_Ativo As Boolean)
             Me.Parametros_AnimaLegacyAsync(pPConn_Banco, pAcao, pId_Parametro, pCodigo_Referencia, pTipo, pCNPJ_Anima, pConta, pDescricaoServico, pMesEmissao, pRequisitioningBUId, pRequisitioningBUName, pDescription, pJustification, pPreparerEmail, pApproverEmail, pDocumentStatusCode, pRequisitionType, pSourceUniqueId, pCategoryName, pDeliverToLocationCode, pDeliverToOrganizationCode, pProcurementBUName, pItemDescription, pItemNumber, pRequesterEmail, pSupplierName, pSupplierContactName, pSupplierSiteName, pCentroDeCusto, pEstabelecimento, pUnidadeNegocio, pFinalidade, pProjeto, pInterCompany, pCodigoRequisicaoCompra, pCodigoOrdemCompra, pCodigoInvoice, pObservacao, pUsuario, pFl_Ativo, Nothing)
         End Sub
-
+        
         '''<remarks/>
-        Public Overloads Sub Parametros_AnimaLegacyAsync(ByVal pPConn_Banco As String, ByVal pAcao As String, ByVal pId_Parametro As Integer, ByVal pCodigo_Referencia As String, ByVal pTipo As String, ByVal pCNPJ_Anima As String, ByVal pConta As String, ByVal pDescricaoServico As String, ByVal pMesEmissao As String, ByVal pRequisitioningBUId As String, ByVal pRequisitioningBUName As String, ByVal pDescription As String, ByVal pJustification As String, ByVal pPreparerEmail As String, ByVal pApproverEmail As String, ByVal pDocumentStatusCode As String, ByVal pRequisitionType As String, ByVal pSourceUniqueId As String, ByVal pCategoryName As String, ByVal pDeliverToLocationCode As String, ByVal pDeliverToOrganizationCode As String, ByVal pProcurementBUName As String, ByVal pItemDescription As String, ByVal pItemNumber As String, ByVal pRequesterEmail As String, ByVal pSupplierName As String, ByVal pSupplierContactName As String, ByVal pSupplierSiteName As String, ByVal pCentroDeCusto As String, ByVal pEstabelecimento As String, ByVal pUnidadeNegocio As String, ByVal pFinalidade As String, ByVal pProjeto As String, ByVal pInterCompany As String, ByVal pCodigoRequisicaoCompra As String, ByVal pCodigoOrdemCompra As String, ByVal pCodigoInvoice As String, ByVal pObservacao As String, ByVal pUsuario As String, ByVal pFl_Ativo As Boolean, ByVal userState As Object)
+        Public Overloads Sub Parametros_AnimaLegacyAsync( _
+                    ByVal pPConn_Banco As String,  _
+                    ByVal pAcao As String,  _
+                    ByVal pId_Parametro As Integer,  _
+                    ByVal pCodigo_Referencia As String,  _
+                    ByVal pTipo As String,  _
+                    ByVal pCNPJ_Anima As String,  _
+                    ByVal pConta As String,  _
+                    ByVal pDescricaoServico As String,  _
+                    ByVal pMesEmissao As String,  _
+                    ByVal pRequisitioningBUId As String,  _
+                    ByVal pRequisitioningBUName As String,  _
+                    ByVal pDescription As String,  _
+                    ByVal pJustification As String,  _
+                    ByVal pPreparerEmail As String,  _
+                    ByVal pApproverEmail As String,  _
+                    ByVal pDocumentStatusCode As String,  _
+                    ByVal pRequisitionType As String,  _
+                    ByVal pSourceUniqueId As String,  _
+                    ByVal pCategoryName As String,  _
+                    ByVal pDeliverToLocationCode As String,  _
+                    ByVal pDeliverToOrganizationCode As String,  _
+                    ByVal pProcurementBUName As String,  _
+                    ByVal pItemDescription As String,  _
+                    ByVal pItemNumber As String,  _
+                    ByVal pRequesterEmail As String,  _
+                    ByVal pSupplierName As String,  _
+                    ByVal pSupplierContactName As String,  _
+                    ByVal pSupplierSiteName As String,  _
+                    ByVal pCentroDeCusto As String,  _
+                    ByVal pEstabelecimento As String,  _
+                    ByVal pUnidadeNegocio As String,  _
+                    ByVal pFinalidade As String,  _
+                    ByVal pProjeto As String,  _
+                    ByVal pInterCompany As String,  _
+                    ByVal pCodigoRequisicaoCompra As String,  _
+                    ByVal pCodigoOrdemCompra As String,  _
+                    ByVal pCodigoInvoice As String,  _
+                    ByVal pObservacao As String,  _
+                    ByVal pUsuario As String,  _
+                    ByVal pFl_Ativo As Boolean,  _
+                    ByVal userState As Object)
             If (Me.Parametros_AnimaLegacyOperationCompleted Is Nothing) Then
                 Me.Parametros_AnimaLegacyOperationCompleted = AddressOf Me.OnParametros_AnimaLegacyOperationCompleted
             End If
             Me.InvokeAsync("Parametros_AnimaLegacy", New Object() {pPConn_Banco, pAcao, pId_Parametro, pCodigo_Referencia, pTipo, pCNPJ_Anima, pConta, pDescricaoServico, pMesEmissao, pRequisitioningBUId, pRequisitioningBUName, pDescription, pJustification, pPreparerEmail, pApproverEmail, pDocumentStatusCode, pRequisitionType, pSourceUniqueId, pCategoryName, pDeliverToLocationCode, pDeliverToOrganizationCode, pProcurementBUName, pItemDescription, pItemNumber, pRequesterEmail, pSupplierName, pSupplierContactName, pSupplierSiteName, pCentroDeCusto, pEstabelecimento, pUnidadeNegocio, pFinalidade, pProjeto, pInterCompany, pCodigoRequisicaoCompra, pCodigoOrdemCompra, pCodigoInvoice, pObservacao, pUsuario, pFl_Ativo}, Me.Parametros_AnimaLegacyOperationCompleted, userState)
         End Sub
-
+        
         Private Sub OnParametros_AnimaLegacyOperationCompleted(ByVal arg As Object)
             If (Not (Me.Parametros_AnimaLegacyCompletedEvent) Is Nothing) Then
                 Dim invokeArgs As System.Web.Services.Protocols.InvokeCompletedEventArgs = CType(arg,System.Web.Services.Protocols.InvokeCompletedEventArgs)
                 RaiseEvent Parametros_AnimaLegacyCompleted(Me, New Parametros_AnimaLegacyCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState))
             End If
         End Sub
-
+        
         '''<remarks/>
         Public Shadows Sub CancelAsync(ByVal userState As Object)
             MyBase.CancelAsync(userState)
@@ -4177,25 +4422,25 @@ Namespace WS_GUA_Cadastro
             End Get
         End Property
     End Class
-
+    
     '''<remarks/>
     <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3761.0")>  _
     Public Delegate Sub Parametros_AnimaCompletedEventHandler(ByVal sender As Object, ByVal e As Parametros_AnimaCompletedEventArgs)
-
+    
     '''<remarks/>
     <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3761.0"),  _
      System.Diagnostics.DebuggerStepThroughAttribute(),  _
      System.ComponentModel.DesignerCategoryAttribute("code")>  _
     Partial Public Class Parametros_AnimaCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-
+        
         Private results() As Object
-
+        
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-
+        
         '''<remarks/>
         Public ReadOnly Property Result() As System.Data.DataSet
             Get
@@ -4204,25 +4449,25 @@ Namespace WS_GUA_Cadastro
             End Get
         End Property
     End Class
-
+    
     '''<remarks/>
     <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3761.0")>  _
     Public Delegate Sub Anima_Detalhamento_FaturaCompletedEventHandler(ByVal sender As Object, ByVal e As Anima_Detalhamento_FaturaCompletedEventArgs)
-
+    
     '''<remarks/>
     <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3761.0"),  _
      System.Diagnostics.DebuggerStepThroughAttribute(),  _
      System.ComponentModel.DesignerCategoryAttribute("code")>  _
     Partial Public Class Anima_Detalhamento_FaturaCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-
+        
         Private results() As Object
-
+        
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-
+        
         '''<remarks/>
         Public ReadOnly Property Result() As System.Data.DataSet
             Get
@@ -4231,57 +4476,33 @@ Namespace WS_GUA_Cadastro
             End Get
         End Property
     End Class
-
+    
     '''<remarks/>
     <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3761.0")>  _
     Public Delegate Sub AtualizarCamposComprasCompletedEventHandler(ByVal sender As Object, ByVal e As System.ComponentModel.AsyncCompletedEventArgs)
-
-    '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3761.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
-    Partial Public Class AtualizarCamposComprasCompletedEventArgs
-        Inherits System.ComponentModel.AsyncCompletedEventArgs
-
-        Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
-            MyBase.New(exception, cancelled, userState)
-        End Sub
-    End Class
-
+    
     '''<remarks/>
     <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3761.0")>  _
     Public Delegate Sub AtualizarStatusDescricaoCompletedEventHandler(ByVal sender As Object, ByVal e As System.ComponentModel.AsyncCompletedEventArgs)
-
-    '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3761.0"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
-    Partial Public Class AtualizarStatusDescricaoCompletedEventArgs
-        Inherits System.ComponentModel.AsyncCompletedEventArgs
-
-        Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
-            MyBase.New(exception, cancelled, userState)
-        End Sub
-    End Class
-
+    
     '''<remarks/>
     <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3761.0")>  _
     Public Delegate Sub Parametros_AnimaLegacyCompletedEventHandler(ByVal sender As Object, ByVal e As Parametros_AnimaLegacyCompletedEventArgs)
-
+    
     '''<remarks/>
     <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3761.0"),  _
      System.Diagnostics.DebuggerStepThroughAttribute(),  _
      System.ComponentModel.DesignerCategoryAttribute("code")>  _
     Partial Public Class Parametros_AnimaLegacyCompletedEventArgs
         Inherits System.ComponentModel.AsyncCompletedEventArgs
-
+        
         Private results() As Object
-
+        
         Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
             MyBase.New(exception, cancelled, userState)
             Me.results = results
         End Sub
-
+        
         '''<remarks/>
         Public ReadOnly Property Result() As System.Data.DataSet
             Get

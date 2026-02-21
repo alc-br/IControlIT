@@ -60,80 +60,13 @@
                         <div class="col-md-12">
                             <div style="width: 100%; overflow: auto">
                                 <asp:DataGrid ID="dtgLocaliza" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="5" EnableTheming="True" Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" HorizontalAlign="Left"
-                                    Font-Size="9pt" Width="100%" ForeColor="Black" BorderColor="Silver" BorderStyle="Solid" BorderWidth="1px" PageSize="30" OnItemDataBound="dtgLocaliza_ItemDataBound">
+                                    Font-Size="9pt" Width="100%" ForeColor="Black" BorderColor="Silver" BorderStyle="Solid" BorderWidth="1px" PageSize="30">
 
                                     <Columns>
-                                        <%-- [INÍCIO - ICTRL-NF-202509-001] --%>
-                                        <%-- Coluna: Operadora --%>
-                                        <asp:BoundColumn DataField="Nm_Operadora" HeaderText="Operadora">
-                                            <ItemStyle Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" />
-                                        </asp:BoundColumn>
-
-                                        <%-- Coluna: Número da Conta --%>
-                                        <asp:BoundColumn DataField="Nr_Conta" HeaderText="Nr. Conta">
-                                            <ItemStyle Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" />
-                                        </asp:BoundColumn>
-
-                                        <%-- Coluna: Data de Emissão --%>
-                                        <asp:BoundColumn DataField="Dt_Emissao" HeaderText="Dt. Emissão" DataFormatString="{0:dd/MM/yyyy}">
-                                            <ItemStyle Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" />
-                                        </asp:BoundColumn>
-
-                                        <%-- Coluna: Data de Vencimento --%>
-                                        <asp:BoundColumn DataField="Dt_Vencimento" HeaderText="Dt. Vencimento" DataFormatString="{0:dd/MM/yyyy}">
-                                            <ItemStyle Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" />
-                                        </asp:BoundColumn>
-
-                                        <%-- Coluna: Valor Total --%>
-                                        <asp:BoundColumn DataField="Vr_Total" HeaderText="Valor Total" DataFormatString="{0:c}">
-                                            <ItemStyle Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" />
-                                        </asp:BoundColumn>
-
-                                        <%-- Coluna: Observação (truncada a 30 caracteres) --%>
-                                        <asp:TemplateColumn HeaderText="Observação">
-                                            <ItemTemplate>
-                                                <asp:Label ID="lblObservacao" runat="server"
-                                                    Text='<%# IIf(Eval("Observacao") IsNot Nothing AndAlso Len(Eval("Observacao").ToString()) > 30, Left(Eval("Observacao").ToString(), 30) & "...", IIf(Eval("Observacao") IsNot Nothing, Eval("Observacao").ToString(), "")) %>'
-                                                    ToolTip='<%# IIf(Eval("Observacao") IsNot Nothing, Eval("Observacao").ToString(), "") %>' />
-                                            </ItemTemplate>
-                                        </asp:TemplateColumn>
-
-                                        <%-- Coluna: Status (Pago/Pendente) --%>
-                                        <asp:BoundColumn DataField="Fl_Pago" HeaderText="Status">
-                                            <ItemStyle Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" />
-                                        </asp:BoundColumn>
-
-                                        <%-- Coluna: Id_Fatura (Hidden) --%>
-                                        <asp:BoundColumn DataField="Id_Fatura" HeaderText="Id_Fatura" Visible="False">
-                                            <ItemStyle Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" />
-                                        </asp:BoundColumn>
-
-                                        <%-- Coluna: Botão Comprovante de Pagamento --%>
-                                        <asp:TemplateColumn HeaderText="Pag.">
-                                            <ItemTemplate>
-                                                <asp:ImageButton ID="btComprovante" runat="server"
-                                                    ImageUrl="~/Img_Sistema/Botao/Grid/Grid_Check.png"
-                                                    Style="height: 25px"
-                                                    CausesValidation="False"
-                                                    OnClick="btComprovante_Click"
-                                                    CommandArgument='<%# Eval("Id_Fatura") %>'
-                                                    ToolTip="Comprovante de Pagamento" />
-                                            </ItemTemplate>
-                                        </asp:TemplateColumn>
-
-                                        <%-- Coluna: Botão Visualizar Fatura --%>
-                                        <asp:TemplateColumn HeaderText="Fatura">
-                                            <ItemTemplate>
-                                                <asp:ImageButton ID="btFatura" runat="server"
-                                                    ImageUrl="~/Img_Sistema/Botao/Grid/Grid_View.png"
-                                                    Style="height: 25px"
-                                                    CausesValidation="False"
-                                                    OnClick="btFatura_Click"
-                                                    CommandArgument='<%# Eval("Id_Fatura") %>'
-                                                    ToolTip="Visualizar Fatura" />
-                                            </ItemTemplate>
-                                        </asp:TemplateColumn>
-                                        <%-- [FIM - ICTRL-NF-202512-002] --%>
+                                        <asp:BoundColumn DataField="Nr_Ativo" HeaderText="Ativo"></asp:BoundColumn>
+                                        <asp:BoundColumn DataField="Nm_Ativo_Tipo" HeaderText="Tipo"></asp:BoundColumn>
+                                        <asp:BoundColumn DataField="Nm_Conglomerado" HeaderText="Fornecedor"></asp:BoundColumn>
+                                        <asp:BoundColumn DataField="Demitido" HeaderText="Observa��o"></asp:BoundColumn>
                                     </Columns>
 
                                     <EditItemStyle Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" Wrap="False" />

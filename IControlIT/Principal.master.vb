@@ -31,22 +31,53 @@ Public Class Principal
             If Session("Menu") Is Nothing Then Session("Menu") = WS_Modulo.Validacao(Session("Conn_Banco"), "Sd_Menu", Session("Nm_Usuario"), Nothing, Nothing, Nothing, Session("Id_Idioma"))
             v_dataSet = Session("Menu")
 
-            ' [IN�CIO - ICTRL2025029] - Preenche o label de debug com as permiss�es da sess�o
-            ' Este bloco verifica se as vari�veis de sess�o existem antes de tentar l�-las.
-            If Session("Modulos_Permitidos") IsNot Nothing Or Session("Torres_Permitidas") IsNot Nothing Then
+            ' [INICIO - ICTRL2025029] - Logica de Segregacao de Modulos (Sidebar)
+            Dim modulosPermitidosObj As Object = Session("Modulos_Permitidos")
 
-                ' L� o valor da sess�o para M�dulos. Se for nulo ou vazio no banco, exibe "Nenhuma".
-                Dim modulos As String = If(Session("Modulos_Permitidos") IsNot DBNull.Value AndAlso Not String.IsNullOrEmpty(Session("Modulos_Permitidos").ToString()), Session("Modulos_Permitidos").ToString(), "Nenhuma")
+            If modulosPermitidosObj IsNot Nothing Then
+                Dim modulosPermitidos As String = CStr(modulosPermitidosObj)
+                Dim listaModulosPermitidos As List(Of String) = If(String.IsNullOrEmpty(modulosPermitidos), New List(Of String)(), modulosPermitidos.Split(","c).Select(Function(m) m.Trim().ToLower()).ToList())
 
-                ' L� o valor da sess�o para Torres. Se for nulo ou vazio no banco, exibe "Nenhuma".
-                Dim torres As String = If(Session("Torres_Permitidas") IsNot DBNull.Value AndAlso Not String.IsNullOrEmpty(Session("Torres_Permitidas").ToString()), Session("Torres_Permitidas").ToString(), "Nenhuma")
+                Dim OcultarSeNaoPermitido As Action(Of HtmlControl, String, String) =
+           Sub(controle As HtmlControl, nomeModulo As String, idControle As String)
+               Dim nomeModuloLower = nomeModulo.ToLower()
+               Dim permitido As Boolean = listaModulosPermitidos.Contains(nomeModuloLower)
 
-                ' Preenche o texto do label.
-                lblDebugPermissions.Text = String.Format("DEBUG | M�dulos: {0} | Torres: {1}", modulos, torres)
+               If controle Is Nothing Then
+                   Return
+               End If
+
+               If Not permitido Then
+                   controle.Visible = False
+               End If
+           End Sub
+
+                ' --- Menu Administrador (sidebarAdm) ---
+                OcultarSeNaoPermitido(navHomeMenu, "Home", "navHomeMenu")
+                OcultarSeNaoPermitido(navRelatorio, "Relatorio", "navRelatorio")
+                OcultarSeNaoPermitido(navMarcacao, "Conta Usuario", "navMarcacao")
+                OcultarSeNaoPermitido(navConfig, "Cadastro", "navConfig")
+                OcultarSeNaoPermitido(navEstoque, "Estoque", "navEstoque")
+                OcultarSeNaoPermitido(navConta, "Conta", "navConta")
+                OcultarSeNaoPermitido(navFatura, "Fatura", "navFatura")
+                OcultarSeNaoPermitido(navRateio, "Rateio", "navRateio")
+                OcultarSeNaoPermitido(navAuditoria, "Auditoria", "navAuditoria")
+                OcultarSeNaoPermitido(navContestacao, "Contestacao", "navContestacao")
+                OcultarSeNaoPermitido(navContrato, "Contrato", "navContrato")
+                OcultarSeNaoPermitido(navChamadoAdm, "Suporte", "navChamadoAdm")
+                OcultarSeNaoPermitido(navOrcamento, "Orcamento", "navOrcamento")
+                OcultarSeNaoPermitido(A2, "Guia do Usuario", "A2")
+
+                ' --- Menu Usuario (sidebarUsuario) ---
+                OcultarSeNaoPermitido(navHome, "Home", "navHome")
+                OcultarSeNaoPermitido(navMeusAtivos, "Contas", "navMeusAtivos")
+                OcultarSeNaoPermitido(navMinhasAreas, "KPIs por Torre", "navMinhasAreas")
+                OcultarSeNaoPermitido(navChamado, "Suporte", "navChamado")
+                OcultarSeNaoPermitido(navFerramenta, "Facilidades", "navFerramenta")
+                OcultarSeNaoPermitido(A1, "Guia do Usuario", "A1")
 
             End If
             ' [FIM - ICTRL2025029]
-
 
             If v_dataSet.Tables(0).Rows.Count > 0 Then
                 '-----monta menu
