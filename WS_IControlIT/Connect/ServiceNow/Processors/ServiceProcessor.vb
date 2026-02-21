@@ -104,6 +104,7 @@ Namespace Connect.ServiceNow.Processors
                                                   Nothing, ' ManagerNumber
                                                   cleanedAdditionalInfo,
                                                   Nothing, ' Name
+                                                  Nothing, ' pTermoBusca
                                                   pRetorno)
 
                 ' Extrair o Id_Chamado do DataSet retornado
@@ -176,7 +177,8 @@ Namespace Connect.ServiceNow.Processors
                                                   request.ViewProfile,
                                                   request.ManagerNumber,
                                                   Nothing, ' AdditionalInformation
-                                                  Nothing, ' Name
+                                                  Nothing, ' Name,
+                                                  Nothing, ' pTermoBusca
                                                   pRetorno)
 
                 ' Extrair o Id_Chamado do DataSet retornado
