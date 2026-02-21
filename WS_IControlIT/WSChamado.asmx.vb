@@ -125,6 +125,7 @@ Public Class WSChamado
                             ByVal managerNumber As String,
                             ByVal additionalInformation As String,
                             ByVal name As String,
+                            ByVal pTermoBusca As String,
                             ByVal pRetorno As Boolean) As DataSet
         Try
 
@@ -197,6 +198,10 @@ Public Class WSChamado
             If Not String.IsNullOrEmpty(managerNumber) Then
                 parametros.Add(New SqlClient.SqlParameter("@managerNumber", managerNumber))
             End If
+
+            ' [INÍCIO - ICTRL-NF-202506-012]
+            parametros.Add(New SqlClient.SqlParameter("@pTermoBusca", pTermoBusca))
+            ' [FIM - ICTRL-NF-202506-012]
 
             ' Converte a lista para array e retorna o resultado da query
             Return oBanco.retorna_Query("dbo.pa_Chamado", parametros.ToArray(), pPConn_Banco)
