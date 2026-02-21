@@ -271,6 +271,26 @@
                 btMonitoramentoDados.Enabled = True
             End If
 
+            ' [INICIO - ICTRL2025029] Aplicar segregacao de torres nos botoes de KPI
+            Dim torresPermitidas As String = Session("Torres_Permitidas")
+            If torresPermitidas IsNot Nothing AndAlso Not String.IsNullOrEmpty(torresPermitidas) Then
+                Dim torres() As String = torresPermitidas.Split(","c)
+                btMovel.Visible = torres.Contains("1")
+                btFixa.Visible = torres.Contains("2")
+                btDados.Visible = torres.Contains("3")
+                btDesktop.Visible = torres.Contains("4")
+                btImpressao.Visible = torres.Contains("5")
+                btRelatorioGeral.Visible = False
+            Else
+                btMovel.Visible = True
+                btFixa.Visible = True
+                btDados.Visible = True
+                btDesktop.Visible = True
+                btImpressao.Visible = True
+                btRelatorioGeral.Visible = True
+            End If
+            ' [FIM - ICTRL2025029]
+
             Call Filtro(9)
         End If
 
@@ -284,7 +304,11 @@
     Private Sub Pesquisar()
         lblMsg.Visible = False
         WS_Consulta.Credentials = System.Net.CredentialCache.DefaultCredentials
-        Session("DataSet") = WS_Consulta.Pesquisar(Session("Conn_Banco"), "sp_Pesquisar", oConfig.ValidaCampo(txtPesquisar.Text))
+        ' [INICIO - ICTRL2025029] Aplicar segregacao de torres na pesquisa
+        Dim vDataSetOriginal As Data.DataSet = WS_Consulta.Pesquisar(Session("Conn_Banco"), "sp_Pesquisar", oConfig.ValidaCampo(txtPesquisar.Text))
+        Dim vDataSetFiltrado As Data.DataSet = oConfig.FiltrarAtivosPorTorre(vDataSetOriginal, Session("Torres_Permitidas"))
+        Session("DataSet") = vDataSetFiltrado
+        ' [FIM - ICTRL2025029]
 
         dtgLocaliza.CurrentPageIndex = Nothing
         dtgLocaliza.DataSource = Session("DataSet")

@@ -19,7 +19,7 @@ Public Class Conferencia_Fatura
             '-----traduz e passa titulo para master page
             Call Master.Titulo(
                 IIf(vTraduzir.Traduzir(Session("Conn_Banco"), Master.FindControl("ContentPlaceHolder1"), Page.Request.Path, Session("Id_Idioma")) = Nothing,
-                "Recepção de Fatura ",
+                "Recepï¿½ï¿½o de Fatura ",
                 vTraduzir.Traduzir(Session("Conn_Banco"), Master.FindControl("ContentPlaceHolder1"), Page.Request.Path, Session("Id_Idioma"))))
 
             btConfiguracao.PostBackUrl = "~/Recepcao_Fatura/Fatura.aspx"
@@ -31,7 +31,11 @@ Public Class Conferencia_Fatura
             Call Master.Localizar(Nothing, Nothing)
 
             oConfig.CarregaCombo(cboConglomerado, WS_Cadastro.DropList(Session("Conn_Banco"), "sp_Drop_Conglomerado", Nothing))
-            oConfig.CarregaCombo(cboFaturaParametro, WS_Cadastro.DropList(Session("Conn_Banco"), "sp_Drop_Fatura_Parametro", Nothing))
+            ' [INICIO - ICTRL2025029] Aplicar segregacao de torres no dropdown de fatura parametro
+            Dim dsFaturaParametro As Data.DataSet = WS_Cadastro.DropList(Session("Conn_Banco"), "sp_Drop_Fatura_Parametro", Nothing)
+            dsFaturaParametro = oConfig.FiltrarServicosPorTorre(dsFaturaParametro, Session("Torres_Permitidas"), Session("Conn_Banco"))
+            oConfig.CarregaCombo(cboFaturaParametro, dsFaturaParametro)
+            ' [FIM - ICTRL2025029]
 
             '-----gera data lote
             Dim vDataSet As New Data.DataSet
@@ -68,7 +72,7 @@ Public Class Conferencia_Fatura
 
             '-----msg quando fatura ja foi criada 
             If dtgFatura.Items.Count = 0 Then
-                Call Master.Registro_Salvo("* Fatura importada ou carga não realizada")
+                Call Master.Registro_Salvo("* Fatura importada ou carga nï¿½o realizada")
                 ScriptManager.RegisterStartupScript(Me, Me.GetType(), "key", "Modal('#myModalRegistroSalvo');", True)
             End If
         End If

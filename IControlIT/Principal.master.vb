@@ -66,6 +66,7 @@ Public Class Principal
                 OcultarSeNaoPermitido(navContrato, "Contrato", "navContrato")
                 OcultarSeNaoPermitido(navChamadoAdm, "Suporte", "navChamadoAdm")
                 OcultarSeNaoPermitido(navOrcamento, "Orcamento", "navOrcamento")
+                OcultarSeNaoPermitido(A222, "Automacao", "A222")
                 OcultarSeNaoPermitido(A2, "Guia do Usuario", "A2")
 
                 ' --- Menu Usuario (sidebarUsuario) ---
@@ -74,6 +75,7 @@ Public Class Principal
                 OcultarSeNaoPermitido(navMinhasAreas, "KPIs por Torre", "navMinhasAreas")
                 OcultarSeNaoPermitido(navChamado, "Suporte", "navChamado")
                 OcultarSeNaoPermitido(navFerramenta, "Facilidades", "navFerramenta")
+                OcultarSeNaoPermitido(A4, "Automacao", "A4")
                 OcultarSeNaoPermitido(A1, "Guia do Usuario", "A1")
 
             End If

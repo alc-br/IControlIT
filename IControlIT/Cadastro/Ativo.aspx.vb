@@ -28,7 +28,11 @@ Public Class Ativo
             Page.SetFocus(txtNumeroAtivo)
             Call Master.Localizar("sp_Drop_Ativo", Page.AppRelativeVirtualPath.ToString)
 
-            oConfig.CarregaCombo(cboAtivoTipo, WS_Cadastro.DropList(Session("Conn_Banco"), "sp_Drop_Ativo_Tipo", Nothing))
+            ' [INICIO - ICTRL2025029] Aplicar segregacao de torres no dropdown de tipo de ativo
+            Dim dsAtivoTipo As Data.DataSet = WS_Cadastro.DropList(Session("Conn_Banco"), "sp_Drop_Ativo_Tipo", Nothing)
+            dsAtivoTipo = oConfig.FiltrarTorresPorPermissao(dsAtivoTipo, Session("Torres_Permitidas"))
+            oConfig.CarregaCombo(cboAtivoTipo, dsAtivoTipo)
+            ' [FIM - ICTRL2025029]
             oConfig.CarregaCombo(cboConglomerado, WS_Cadastro.DropList(Session("Conn_Banco"), "sp_Drop_Conglomerado", Nothing))
             oConfig.CarregaCombo(cboAtivoStatus, WS_Cadastro.DropList(Session("Conn_Banco"), "sp_Drop_Ativo_Status", Nothing))
 

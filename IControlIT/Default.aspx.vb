@@ -820,12 +820,13 @@ Public Class _Default
                 ' [INÍCIO - ICTRL2025029] - Carrega as novas permissões na sessão do usuário (versão segura)
                 ' Primeiro, verifica se a coluna de permissão de módulos existe antes de tentar ler.
                 If vdataSet.Tables(0).Columns.Contains("Modulos_Permitidos") Then
-                    Session("Modulos_Permitidos") = vdataSet.Tables(0).Rows(0).Item("Modulos_Permitidos")
+                    Dim modulos As Object = vdataSet.Tables(0).Rows(0).Item("Modulos_Permitidos")
+                    Session("Modulos_Permitidos") = If((modulos Is DBNull.Value), Nothing, CStr(modulos))
                 End If
 
-                ' Faz a mesma verificação para a coluna de permissão de torres.
                 If vdataSet.Tables(0).Columns.Contains("Torres_Permitidas") Then
-                    Session("Torres_Permitidas") = vdataSet.Tables(0).Rows(0).Item("Torres_Permitidas")
+                    Dim torres As Object = vdataSet.Tables(0).Rows(0).Item("Torres_Permitidas")
+                    Session("Torres_Permitidas") = If((torres Is DBNull.Value), Nothing, CStr(torres))
                 End If
                 ' [FIM - ICTRL2025029]
 

@@ -23,7 +23,12 @@ Public Class Contrato
             Call Master.Localizar("sp_Drop_Contrato_Corpo", Page.AppRelativeVirtualPath.ToString)
 
             oConfig.CarregaCombo(cboStatus, WS_Cadastro.DropList(Session("Conn_Banco"), "sp_Drop_Contrato_Status", Nothing))
-            oConfig.CarregaCombo(cboServico, WS_Cadastro.DropList(Session("Conn_Banco"), "sp_Drop_Servico", Nothing))
+            ' [INICIO - ICTRL2025029] Aplicar segregacao de torres no dropdown de servico
+            Dim dsServicosPermitidos As Data.DataSet = oConfig.BuscarServicosPorTorres(Session("Torres_Permitidas"), Session("Conn_Banco"))
+            Dim dsServico As Data.DataSet = WS_Cadastro.DropList(Session("Conn_Banco"), "sp_Drop_Servico", Nothing)
+            dsServico = oConfig.FiltrarContratosPorServicos(dsServico, dsServicosPermitidos)
+            oConfig.CarregaCombo(cboServico, dsServico)
+            ' [FIM - ICTRL2025029]
             oConfig.CarregaCombo(cboFilial, WS_Cadastro.DropList(Session("Conn_Banco"), "sp_Drop_Filial", Nothing))
             oConfig.CarregaCombo(cboIndice, WS_Cadastro.DropList(Session("Conn_Banco"), "sp_Drop_Contrato_Indice", Nothing))
             oConfig.CarregaCombo(cboEmpresaContratada, WS_Cadastro.DropList(Session("Conn_Banco"), "sp_Drop_Empresa_Contratada", Nothing))
