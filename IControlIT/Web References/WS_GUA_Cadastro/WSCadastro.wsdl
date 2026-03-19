@@ -695,6 +695,7 @@
             <s:element minOccurs="0" maxOccurs="1" name="pValor_Contrato" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="pPlano_Contrato" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="pVelocidade" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pCNPJ" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -1735,6 +1736,188 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="Parametros_Anima">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pAcao" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Parametro" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pCodigo_Referencia" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pTipo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pCNPJ_Anima" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pConta" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pDescricaoServico" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pMesEmissao" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pRequisitioningBUId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pRequisitioningBUName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pDescription" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pJustification" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPreparerEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pApproverEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pDocumentStatusCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pRequisitionType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pSourceUniqueId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pCategoryName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pDeliverToLocationCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pDeliverToOrganizationCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pProcurementBUName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pItemDescription" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pItemNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pRequesterEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pSupplierName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pSupplierContactName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pSupplierSiteName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pCentroDeCusto" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pEstabelecimento" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pUnidadeNegocio" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pFinalidade" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pProjeto" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pInterCompany" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pCodigoRequisicaoCompra" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pCodigoOrdemCompra" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pCodigoInvoice" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pObservacao" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pUsuario" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pFl_Ativo" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="pProcessamento_Manual" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Parametros_AnimaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Parametros_AnimaResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Anima_Detalhamento_Fatura_Method">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNr_Fatura" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pDt_Lote" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Anima_Detalhamento_Fatura_MethodResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Anima_Detalhamento_Fatura_MethodResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AtualizarCamposCompras">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Parametro" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pRequisicao_Compra" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pOrdem_Compra" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pInvoice" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pObservacoes" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pUsuario" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AtualizarCamposComprasResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="AtualizarStatusDescricao">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Parametro" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pStatus" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pDescricao" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pUsuario" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AtualizarStatusDescricaoResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="Parametros_AnimaLegacy">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPConn_Banco" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pAcao" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pId_Parametro" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pCodigo_Referencia" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pTipo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pCNPJ_Anima" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pConta" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pDescricaoServico" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pMesEmissao" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pRequisitioningBUId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pRequisitioningBUName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pDescription" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pJustification" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPreparerEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pApproverEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pDocumentStatusCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pRequisitionType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pSourceUniqueId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pCategoryName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pDeliverToLocationCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pDeliverToOrganizationCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pProcurementBUName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pItemDescription" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pItemNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pRequesterEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pSupplierName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pSupplierContactName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pSupplierSiteName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pCentroDeCusto" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pEstabelecimento" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pUnidadeNegocio" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pFinalidade" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pProjeto" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pInterCompany" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pCodigoRequisicaoCompra" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pCodigoOrdemCompra" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pCodigoInvoice" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pObservacao" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pUsuario" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pFl_Ativo" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Parametros_AnimaLegacyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Parametros_AnimaLegacyResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DataSet" nillable="true">
+        <s:complexType>
+          <s:sequence>
+            <s:element ref="s:schema" />
+            <s:any />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="LixeiraSoapIn">
@@ -2103,6 +2286,1924 @@
   <wsdl:message name="Termo_Aceite_ValidarSoapOut">
     <wsdl:part name="parameters" element="tns:Termo_Aceite_ValidarResponse" />
   </wsdl:message>
+  <wsdl:message name="Parametros_AnimaSoapIn">
+    <wsdl:part name="parameters" element="tns:Parametros_Anima" />
+  </wsdl:message>
+  <wsdl:message name="Parametros_AnimaSoapOut">
+    <wsdl:part name="parameters" element="tns:Parametros_AnimaResponse" />
+  </wsdl:message>
+  <wsdl:message name="Anima_Detalhamento_Fatura_MethodSoapIn">
+    <wsdl:part name="parameters" element="tns:Anima_Detalhamento_Fatura_Method" />
+  </wsdl:message>
+  <wsdl:message name="Anima_Detalhamento_Fatura_MethodSoapOut">
+    <wsdl:part name="parameters" element="tns:Anima_Detalhamento_Fatura_MethodResponse" />
+  </wsdl:message>
+  <wsdl:message name="AtualizarCamposComprasSoapIn">
+    <wsdl:part name="parameters" element="tns:AtualizarCamposCompras" />
+  </wsdl:message>
+  <wsdl:message name="AtualizarCamposComprasSoapOut">
+    <wsdl:part name="parameters" element="tns:AtualizarCamposComprasResponse" />
+  </wsdl:message>
+  <wsdl:message name="AtualizarStatusDescricaoSoapIn">
+    <wsdl:part name="parameters" element="tns:AtualizarStatusDescricao" />
+  </wsdl:message>
+  <wsdl:message name="AtualizarStatusDescricaoSoapOut">
+    <wsdl:part name="parameters" element="tns:AtualizarStatusDescricaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="Parametros_AnimaLegacySoapIn">
+    <wsdl:part name="parameters" element="tns:Parametros_AnimaLegacy" />
+  </wsdl:message>
+  <wsdl:message name="Parametros_AnimaLegacySoapOut">
+    <wsdl:part name="parameters" element="tns:Parametros_AnimaLegacyResponse" />
+  </wsdl:message>
+  <wsdl:message name="LixeiraHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LixeiraHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="HierarquiaHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pChave" type="s:string" />
+    <wsdl:part name="pId_Usuario" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="HierarquiaHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="DropListHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pDescricao" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DropListHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="DropList_FiltroHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pFiltro_1" type="s:string" />
+    <wsdl:part name="pFiltro_2" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DropList_FiltroHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="RelacionamentoHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pChave" type="s:string" />
+    <wsdl:part name="pRelacao" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RelacionamentoHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Centro_CustoHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Centro_Custo" type="s:string" />
+    <wsdl:part name="pCd_Centro_Custo" type="s:string" />
+    <wsdl:part name="pNm_Centro_Custo" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Centro_CustoHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="DepartamentoHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Departamento" type="s:string" />
+    <wsdl:part name="pNm_Departamento" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DepartamentoHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="SetorHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Setor" type="s:string" />
+    <wsdl:part name="pNm_Setor" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SetorHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="SecaoHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Secao" type="s:string" />
+    <wsdl:part name="pNm_Secao" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SecaoHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="CargoHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Cargo" type="s:string" />
+    <wsdl:part name="pNm_Cargo" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CargoHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Ativo_Tipo_Sub_GrupoHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Ativo_Tipo_Sub_Grupo" type="s:string" />
+    <wsdl:part name="pNm_Ativo_Tipo_Sub_Grupo" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Ativo_Tipo_Sub_GrupoHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Ativo_Tipo_Grupo_TipoHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Ativo_Tipo_Grupo_Tipo" type="s:string" />
+    <wsdl:part name="pNm_Ativo_Tipo_Grupo_Tipo" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Ativo_Tipo_Grupo_TipoHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Ativo_FabricanteHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Ativo_Fabricante" type="s:string" />
+    <wsdl:part name="pNm_Ativo_Fabricante" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Ativo_FabricanteHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Bilhete_TipoHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Bilhete_Tipo" type="s:string" />
+    <wsdl:part name="pId_Conglomerado" type="s:string" />
+    <wsdl:part name="pNm_Bilhete_Tipo" type="s:string" />
+    <wsdl:part name="pNm_Bilhete_Descricao" type="s:string" />
+    <wsdl:part name="pUnidade" type="s:string" />
+    <wsdl:part name="pTipo_Descricao" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Bilhete_TipoHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Ativo_TipoHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Ativo_Tipo" type="s:string" />
+    <wsdl:part name="pNm_Ativo_Tipo" type="s:string" />
+    <wsdl:part name="pId_Ativo_Tipo_Grupo" type="s:string" />
+    <wsdl:part name="pEstoque_Regulador" type="s:string" />
+    <wsdl:part name="pImagem" type="s:string" />
+    <wsdl:part name="pPhoto" type="s:string" />
+    <wsdl:part name="pId_Ativo_Tipo_Sub_Grupo" type="s:string" />
+    <wsdl:part name="pId_Ativo_Tipo_Grupo_Tipo" type="s:string" />
+    <wsdl:part name="pId_Conglomerado" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Ativo_TipoHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Auditoria_StatusHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Auditoria_Status" type="s:string" />
+    <wsdl:part name="pNm_Auditoria_Status" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Auditoria_StatusHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="HoldingHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Holding" type="s:string" />
+    <wsdl:part name="pNm_Holding" type="s:string" />
+    <wsdl:part name="pLogo" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="HoldingHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Ativo_ModeloHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Ativo_Modelo" type="s:string" />
+    <wsdl:part name="pNm_Ativo_Modelo" type="s:string" />
+    <wsdl:part name="pId_Ativo_Tipo" type="s:string" />
+    <wsdl:part name="pId_Ativo_Fabricante" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Ativo_ModeloHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="EmpresaHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Empresa" type="s:string" />
+    <wsdl:part name="pNm_Empresa" type="s:string" />
+    <wsdl:part name="pId_Holding" type="s:string" />
+    <wsdl:part name="pCNPJ" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="EmpresaHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Empresa_ContratadaHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Empresa_Contratada" type="s:string" />
+    <wsdl:part name="pNm_Empresa_Contratada" type="s:string" />
+    <wsdl:part name="pCNPJ" type="s:string" />
+    <wsdl:part name="pContato" type="s:string" />
+    <wsdl:part name="pTelefone" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Empresa_ContratadaHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="ConglomeradoHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Conglomerado" type="s:string" />
+    <wsdl:part name="pNm_Conglomerado" type="s:string" />
+    <wsdl:part name="pContato" type="s:string" />
+    <wsdl:part name="pTelefone" type="s:string" />
+    <wsdl:part name="pCodigo_Operadora" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConglomeradoHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="FilialHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Filial" type="s:string" />
+    <wsdl:part name="pNm_Filial" type="s:string" />
+    <wsdl:part name="pCNPJ" type="s:string" />
+    <wsdl:part name="pEndereco" type="s:string" />
+    <wsdl:part name="pId_Empresa" type="s:string" />
+    <wsdl:part name="pHi_Departamento" type="s:string" />
+    <wsdl:part name="pHi_Setor" type="s:string" />
+    <wsdl:part name="pHi_Secao" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FilialHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Ativo_Fr_AquisicaoHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Ativo_Fr_Aquisicao" type="s:string" />
+    <wsdl:part name="pNm_Ativo_Fr_Aquisicao" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Ativo_Fr_AquisicaoHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Ativo_ComplementoHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Ativo_Complemento" type="s:string" />
+    <wsdl:part name="pNm_Ativo_Complemento" type="s:string" />
+    <wsdl:part name="pId_Ativo_Tipo" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Ativo_ComplementoHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="ServicoHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Servico" type="s:string" />
+    <wsdl:part name="pNm_Servico" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ServicoHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="AtivoHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Ativo" type="s:string" />
+    <wsdl:part name="pNr_Ativo" type="s:string" />
+    <wsdl:part name="pFinalidade" type="s:string" />
+    <wsdl:part name="pId_Ativo_Tipo" type="s:string" />
+    <wsdl:part name="pId_Conglomerado" type="s:string" />
+    <wsdl:part name="pId_Ativo_Modelo" type="s:string" />
+    <wsdl:part name="pLocalidade" type="s:string" />
+    <wsdl:part name="pDt_Ativacao" type="s:string" />
+    <wsdl:part name="pObservacao" type="s:string" />
+    <wsdl:part name="pAtivo_Complemento" type="s:string" />
+    <wsdl:part name="pId_Ativo_Status" type="s:string" />
+    <wsdl:part name="pArray_Consumidor" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+    <wsdl:part name="pEndereco" type="s:string" />
+    <wsdl:part name="pNumero_Sim_Card" type="s:string" />
+    <wsdl:part name="pValor_Contrato" type="s:string" />
+    <wsdl:part name="pPlano_Contrato" type="s:string" />
+    <wsdl:part name="pVelocidade" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AtivoHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Ativo_ParametroHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Ativo" type="s:string" />
+    <wsdl:part name="pDt_Termino_Garantia" type="s:string" />
+    <wsdl:part name="pId_Ativo_Fr_Aquisicao" type="s:string" />
+    <wsdl:part name="pDt_Ini_Fr_Aquisicao" type="s:string" />
+    <wsdl:part name="pVr_Fr_Aquisicao" type="s:string" />
+    <wsdl:part name="pQtd_Mes_Residuo_Fr_Aquisicao" type="s:string" />
+    <wsdl:part name="pRateio_Conglomerado" type="s:string" />
+    <wsdl:part name="pId_Tronco_Grupo" type="s:string" />
+    <wsdl:part name="pId_Conglomerado" type="s:string" />
+    <wsdl:part name="pId_Contrato" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Ativo_ParametroHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Ativo_Porcentagem_RateioHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Ativo" type="s:string" />
+    <wsdl:part name="pId_Centro_Custo" type="s:string" />
+    <wsdl:part name="pPorcentagem" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Ativo_Porcentagem_RateioHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="InventarioLoteHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Consumidor" type="s:string" />
+    <wsdl:part name="pNm_Consumidor" type="s:string" />
+    <wsdl:part name="pId_Consumidor_Tipo" type="s:string" />
+    <wsdl:part name="pMatricula" type="s:string" />
+    <wsdl:part name="pEMail" type="s:string" />
+    <wsdl:part name="pEMail_Copia" type="s:string" />
+    <wsdl:part name="pFl_Nao_Envia_EMail" type="s:string" />
+    <wsdl:part name="pId_Empresa_Contratada" type="s:string" />
+    <wsdl:part name="pId_Cargo" type="s:string" />
+    <wsdl:part name="pId_Filial" type="s:string" />
+    <wsdl:part name="pId_Centro_Custo" type="s:string" />
+    <wsdl:part name="pId_Departamento" type="s:string" />
+    <wsdl:part name="pId_Setor" type="s:string" />
+    <wsdl:part name="pId_Secao" type="s:string" />
+    <wsdl:part name="pId_Consumidor_Status" type="s:string" />
+    <wsdl:part name="pMatricula_Chefia" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pId_Usuario" type="s:string" />
+    <wsdl:part name="pNm_Usuario" type="s:string" />
+    <wsdl:part name="pSenha" type="s:string" />
+    <wsdl:part name="pId_Idioma" type="s:string" />
+    <wsdl:part name="pId_Usuario_Grupo" type="s:string" />
+    <wsdl:part name="pId_Usuario_Perfil" type="s:string" />
+    <wsdl:part name="pId_Usuario_Perfil_Acesso" type="s:string" />
+    <wsdl:part name="pIncluir" type="s:string" />
+    <wsdl:part name="pAlterar" type="s:string" />
+    <wsdl:part name="pExcluir" type="s:string" />
+    <wsdl:part name="pDetalhamento_Conta" type="s:string" />
+    <wsdl:part name="pDetalhamento_Contato" type="s:string" />
+    <wsdl:part name="pFl_Desativado" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="InventarioLoteHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="ConsumidorHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Consumidor" type="s:string" />
+    <wsdl:part name="pNm_Consumidor" type="s:string" />
+    <wsdl:part name="pId_Consumidor_Tipo" type="s:string" />
+    <wsdl:part name="pMatricula" type="s:string" />
+    <wsdl:part name="pEMail" type="s:string" />
+    <wsdl:part name="pEMail_Copia" type="s:string" />
+    <wsdl:part name="pFl_Nao_Envia_EMail" type="s:string" />
+    <wsdl:part name="pObservacao" type="s:string" />
+    <wsdl:part name="pId_Empresa_Contratada" type="s:string" />
+    <wsdl:part name="pId_Cargo" type="s:string" />
+    <wsdl:part name="pId_Filial" type="s:string" />
+    <wsdl:part name="pId_Centro_Custo" type="s:string" />
+    <wsdl:part name="pId_Departamento" type="s:string" />
+    <wsdl:part name="pId_Setor" type="s:string" />
+    <wsdl:part name="pId_Secao" type="s:string" />
+    <wsdl:part name="pId_Consumidor_Status" type="s:string" />
+    <wsdl:part name="pMatricula_Chefia" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConsumidorHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Consumidor_TipoHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Consumidor_Tipo" type="s:string" />
+    <wsdl:part name="pNm_Consumidor_Tipo" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Consumidor_TipoHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Consumidor_UnidadeHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Consumidor_Unidade" type="s:string" />
+    <wsdl:part name="pId_Consumidor" type="s:string" />
+    <wsdl:part name="pNm_Unidade" type="s:string" />
+    <wsdl:part name="pCNPJ" type="s:string" />
+    <wsdl:part name="pIE" type="s:string" />
+    <wsdl:part name="pData_Ativacao" type="s:string" />
+    <wsdl:part name="pObservacao" type="s:string" />
+    <wsdl:part name="pEntrega_Contato" type="s:string" />
+    <wsdl:part name="pEntrega_Endereco" type="s:string" />
+    <wsdl:part name="pEntrega_Telefone" type="s:string" />
+    <wsdl:part name="pFaturamento_Contato" type="s:string" />
+    <wsdl:part name="pFaturamento_Endereco" type="s:string" />
+    <wsdl:part name="pFaturamento_CNPJ" type="s:string" />
+    <wsdl:part name="pFaturamento_IE" type="s:string" />
+    <wsdl:part name="pFaturamento_Email" type="s:string" />
+    <wsdl:part name="pFaturamento_Telefone" type="s:string" />
+    <wsdl:part name="pMatricula" type="s:string" />
+    <wsdl:part name="pId_Conglomerado" type="s:string" />
+    <wsdl:part name="pArray" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Consumidor_UnidadeHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="UsuarioHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Usuario" type="s:string" />
+    <wsdl:part name="pNm_Usuario" type="s:string" />
+    <wsdl:part name="pSenha" type="s:string" />
+    <wsdl:part name="pId_Consumidor" type="s:string" />
+    <wsdl:part name="pId_Idioma" type="s:string" />
+    <wsdl:part name="pId_Usuario_Grupo" type="s:string" />
+    <wsdl:part name="pId_Usuario_Perfil" type="s:string" />
+    <wsdl:part name="pId_Usuario_Perfil_Acesso" type="s:string" />
+    <wsdl:part name="pIncluir" type="s:string" />
+    <wsdl:part name="pAlterar" type="s:string" />
+    <wsdl:part name="pExcluir" type="s:string" />
+    <wsdl:part name="pDetalhamento_Conta" type="s:string" />
+    <wsdl:part name="pDetalhamento_Contato" type="s:string" />
+    <wsdl:part name="pFl_Desativado" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UsuarioHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Usuario_PerfilHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Usuario" type="s:string" />
+    <wsdl:part name="pId_Consumidor" type="s:string" />
+    <wsdl:part name="pDescricao" type="s:string" />
+    <wsdl:part name="pRelacao" type="s:string" />
+    <wsdl:part name="pId_Ativo" type="s:string" />
+    <wsdl:part name="pDt_Ativacao" type="s:string" />
+    <wsdl:part name="pDt_Desativacao" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Usuario_PerfilHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Usuario_GrupoHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Usuario_Grupo" type="s:string" />
+    <wsdl:part name="pNm_Usuario_Grupo" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Usuario_GrupoHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="MarcacaoHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Lote" type="s:string" />
+    <wsdl:part name="pDB_Destino" type="s:string" />
+    <wsdl:part name="pId_Usuario" type="s:string" />
+    <wsdl:part name="pId_Bilhete" type="s:string" />
+    <wsdl:part name="pDt_Lote" type="s:string" />
+    <wsdl:part name="pId_Bilhete_Split" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="MarcacaoHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Bilhete_Historico_ResumoHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Lote" type="s:string" />
+    <wsdl:part name="pId_Usuario" type="s:string" />
+    <wsdl:part name="pTotal_Ligacao" type="s:string" />
+    <wsdl:part name="pValor_Politica" type="s:string" />
+    <wsdl:part name="pValor_Marcado" type="s:string" />
+    <wsdl:part name="pValor_Particular" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Bilhete_Historico_ResumoHttpGetOut" />
+  <wsdl:message name="Tronco_GrupoHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Tronco_Grupo" type="s:string" />
+    <wsdl:part name="pNm_Tronco_Grupo" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Tronco_GrupoHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="TroncoHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Tronco" type="s:string" />
+    <wsdl:part name="pNm_Tronco" type="s:string" />
+    <wsdl:part name="pId_Conglomerado" type="s:string" />
+    <wsdl:part name="pId_Tronco_Grupo" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TroncoHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Ativo_ReplaceHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Ativo_Tipo" type="s:string" />
+    <wsdl:part name="pId_Ativo_Complemento" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Ativo_ReplaceHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Fatura_Parametro_CampoHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Fatura_Parametro_Campo" type="s:string" />
+    <wsdl:part name="pNm_Fatura_Parametro_Campo" type="s:string" />
+    <wsdl:part name="pId_Fatura_Parametro" type="s:string" />
+    <wsdl:part name="pObservacao" type="s:string" />
+    <wsdl:part name="pSinal" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Fatura_Parametro_CampoHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Fatura_ParametroHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Fatura_Parametro" type="s:string" />
+    <wsdl:part name="pNm_Fatura_Parametro" type="s:string" />
+    <wsdl:part name="pId_Contrato" type="s:string" />
+    <wsdl:part name="pConta_Contabil" type="s:string" />
+    <wsdl:part name="pId_Ativo" type="s:string" />
+    <wsdl:part name="pCd_Centro_Custo" type="s:string" />
+    <wsdl:part name="pId_Fatura_Tipo_Rateio" type="s:string" />
+    <wsdl:part name="pRateia_Ativo_Padrao" type="s:string" />
+    <wsdl:part name="pRateio_Nota" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Fatura_ParametroHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Consumidor_StatusHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Consumidor_Status" type="s:string" />
+    <wsdl:part name="pNm_Consumidor_Status" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Consumidor_StatusHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Ativo_StatusHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Ativo_Status" type="s:string" />
+    <wsdl:part name="pNm_Ativo_Status" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Ativo_StatusHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Agenda_Marcacao_ParticularHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Usuario" type="s:string" />
+    <wsdl:part name="pNr_Destino" type="s:string" />
+    <wsdl:part name="pNm_Destino" type="s:string" />
+    <wsdl:part name="pTipo" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Agenda_Marcacao_ParticularHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Contrato_StatusHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Contrato_Status" type="s:string" />
+    <wsdl:part name="pNm_Contrato_Status" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Contrato_StatusHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Custo_FixoHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Custo_Fixo" type="s:string" />
+    <wsdl:part name="pNm_Custo_Fixo" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Custo_FixoHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Custo_Fixo_ItemHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Custo_Fixo_Item" type="s:string" />
+    <wsdl:part name="pId_Custo_Fixo" type="s:string" />
+    <wsdl:part name="pId_Ativo_Tipo" type="s:string" />
+    <wsdl:part name="pId_Conglomerado" type="s:string" />
+    <wsdl:part name="pValor" type="s:string" />
+    <wsdl:part name="pId_Lote" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Custo_Fixo_ItemHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Ativo_VagoHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Ativo" type="s:string" />
+    <wsdl:part name="pId_Consumidor" type="s:string" />
+    <wsdl:part name="pNr_Ativo" type="s:string" />
+    <wsdl:part name="pDescricao" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Ativo_VagoHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Envia_LogHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Usuario" type="s:string" />
+    <wsdl:part name="pData_Hora" type="s:string" />
+    <wsdl:part name="pAcao_Executada" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Envia_LogHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Excedente_PoliticaHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Lote" type="s:string" />
+    <wsdl:part name="pId_Usuario" type="s:string" />
+    <wsdl:part name="pJustificativa" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Excedente_PoliticaHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Estoque_Aparelho_StatusHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Estoque_Aparelho_Status" type="s:string" />
+    <wsdl:part name="pNm_Estoque_Aparelho_Status" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Estoque_Aparelho_StatusHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Solicitacao_SLAHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Solicitacao_SLA" type="s:string" />
+    <wsdl:part name="pNm_Solicitacao_SLA" type="s:string" />
+    <wsdl:part name="pQTDHoras" type="s:string" />
+    <wsdl:part name="pEMail" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Solicitacao_SLAHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Solicitacao_TipoHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Solicitacao_Tipo" type="s:string" />
+    <wsdl:part name="pNm_Solicitacao_Tipo" type="s:string" />
+    <wsdl:part name="pId_Ativo_Tipo" type="s:string" />
+    <wsdl:part name="pId_Solicitacao_SLA" type="s:string" />
+    <wsdl:part name="pId_Solicitcao_Fila_Atendimento" type="s:string" />
+    <wsdl:part name="pId_Solicitacao_Permissao" type="s:string" />
+    <wsdl:part name="pFl_Config_Caixa_Texto" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Solicitacao_TipoHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Solicitacao_SolucaoHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Solicitacao_Solucao" type="s:string" />
+    <wsdl:part name="pNm_Solicitacao_Solucao" type="s:string" />
+    <wsdl:part name="pId_Ativo_Tipo" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Solicitacao_SolucaoHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Solicitacao_Data_ParadaHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Data_Parada" type="s:string" />
+    <wsdl:part name="pData" type="s:string" />
+    <wsdl:part name="pDescricao" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Solicitacao_Data_ParadaHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Solicitacao_Fila_AtendimentoHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Solicitacao_Fila_Atendimento" type="s:string" />
+    <wsdl:part name="pNm_Solicitacao_Fila_Atendimento" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Solicitacao_Fila_AtendimentoHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Contrato_IndiceHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Contrato_Indice" type="s:string" />
+    <wsdl:part name="pNm_Contrato_Indice" type="s:string" />
+    <wsdl:part name="pObs_Contrato_Indice" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Contrato_IndiceHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Fatura_Nota_FiscalHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pId_Fatura" type="s:string" />
+    <wsdl:part name="pId_Centro_Custo" type="s:string" />
+    <wsdl:part name="pNr_Nota_Fiscal" type="s:string" />
+    <wsdl:part name="pVr_Nota_Fiscal" type="s:string" />
+    <wsdl:part name="pPct_Nota_Fiscal" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Fatura_Nota_FiscalHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Termo_Aceite_AgendarComEmailHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pAcao" type="s:string" />
+    <wsdl:part name="pId_Consumidor" type="s:string" />
+    <wsdl:part name="pId_Ativo" type="s:string" />
+    <wsdl:part name="pHash_Acesso" type="s:string" />
+    <wsdl:part name="pEmail_EnviadoPara" type="s:string" />
+    <wsdl:part name="pAssuntoEmail" type="s:string" />
+    <wsdl:part name="pTextoAdicional" type="s:string" />
+    <wsdl:part name="pNmUsuarioAtual" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Termo_Aceite_AgendarComEmailHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Termo_Aceite_ValidarHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pAcao" type="s:string" />
+    <wsdl:part name="pId_Consumidor" type="s:string" />
+    <wsdl:part name="pId_Ativo" type="s:string" />
+    <wsdl:part name="pHash_Acesso" type="s:string" />
+    <wsdl:part name="pEmail_EnviadoPara" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Termo_Aceite_ValidarHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Parametros_AnimaHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pAcao" type="s:string" />
+    <wsdl:part name="pId_Parametro" type="s:string" />
+    <wsdl:part name="pCodigo_Referencia" type="s:string" />
+    <wsdl:part name="pTipo" type="s:string" />
+    <wsdl:part name="pCNPJ_Anima" type="s:string" />
+    <wsdl:part name="pConta" type="s:string" />
+    <wsdl:part name="pDescricaoServico" type="s:string" />
+    <wsdl:part name="pMesEmissao" type="s:string" />
+    <wsdl:part name="pRequisitioningBUId" type="s:string" />
+    <wsdl:part name="pRequisitioningBUName" type="s:string" />
+    <wsdl:part name="pDescription" type="s:string" />
+    <wsdl:part name="pJustification" type="s:string" />
+    <wsdl:part name="pPreparerEmail" type="s:string" />
+    <wsdl:part name="pApproverEmail" type="s:string" />
+    <wsdl:part name="pDocumentStatusCode" type="s:string" />
+    <wsdl:part name="pRequisitionType" type="s:string" />
+    <wsdl:part name="pSourceUniqueId" type="s:string" />
+    <wsdl:part name="pCategoryName" type="s:string" />
+    <wsdl:part name="pDeliverToLocationCode" type="s:string" />
+    <wsdl:part name="pDeliverToOrganizationCode" type="s:string" />
+    <wsdl:part name="pProcurementBUName" type="s:string" />
+    <wsdl:part name="pItemDescription" type="s:string" />
+    <wsdl:part name="pItemNumber" type="s:string" />
+    <wsdl:part name="pRequesterEmail" type="s:string" />
+    <wsdl:part name="pSupplierName" type="s:string" />
+    <wsdl:part name="pSupplierContactName" type="s:string" />
+    <wsdl:part name="pSupplierSiteName" type="s:string" />
+    <wsdl:part name="pCentroDeCusto" type="s:string" />
+    <wsdl:part name="pEstabelecimento" type="s:string" />
+    <wsdl:part name="pUnidadeNegocio" type="s:string" />
+    <wsdl:part name="pFinalidade" type="s:string" />
+    <wsdl:part name="pProjeto" type="s:string" />
+    <wsdl:part name="pInterCompany" type="s:string" />
+    <wsdl:part name="pCodigoRequisicaoCompra" type="s:string" />
+    <wsdl:part name="pCodigoOrdemCompra" type="s:string" />
+    <wsdl:part name="pCodigoInvoice" type="s:string" />
+    <wsdl:part name="pObservacao" type="s:string" />
+    <wsdl:part name="pUsuario" type="s:string" />
+    <wsdl:part name="pFl_Ativo" type="s:string" />
+    <wsdl:part name="pProcessamento_Manual" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Parametros_AnimaHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Anima_Detalhamento_Fatura_MethodHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pNr_Fatura" type="s:string" />
+    <wsdl:part name="pDt_Lote" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Anima_Detalhamento_Fatura_MethodHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="AtualizarCamposComprasHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Parametro" type="s:string" />
+    <wsdl:part name="pRequisicao_Compra" type="s:string" />
+    <wsdl:part name="pOrdem_Compra" type="s:string" />
+    <wsdl:part name="pInvoice" type="s:string" />
+    <wsdl:part name="pObservacoes" type="s:string" />
+    <wsdl:part name="pUsuario" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AtualizarCamposComprasHttpGetOut" />
+  <wsdl:message name="AtualizarStatusDescricaoHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Parametro" type="s:string" />
+    <wsdl:part name="pStatus" type="s:string" />
+    <wsdl:part name="pDescricao" type="s:string" />
+    <wsdl:part name="pUsuario" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AtualizarStatusDescricaoHttpGetOut" />
+  <wsdl:message name="Parametros_AnimaLegacyHttpGetIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pAcao" type="s:string" />
+    <wsdl:part name="pId_Parametro" type="s:string" />
+    <wsdl:part name="pCodigo_Referencia" type="s:string" />
+    <wsdl:part name="pTipo" type="s:string" />
+    <wsdl:part name="pCNPJ_Anima" type="s:string" />
+    <wsdl:part name="pConta" type="s:string" />
+    <wsdl:part name="pDescricaoServico" type="s:string" />
+    <wsdl:part name="pMesEmissao" type="s:string" />
+    <wsdl:part name="pRequisitioningBUId" type="s:string" />
+    <wsdl:part name="pRequisitioningBUName" type="s:string" />
+    <wsdl:part name="pDescription" type="s:string" />
+    <wsdl:part name="pJustification" type="s:string" />
+    <wsdl:part name="pPreparerEmail" type="s:string" />
+    <wsdl:part name="pApproverEmail" type="s:string" />
+    <wsdl:part name="pDocumentStatusCode" type="s:string" />
+    <wsdl:part name="pRequisitionType" type="s:string" />
+    <wsdl:part name="pSourceUniqueId" type="s:string" />
+    <wsdl:part name="pCategoryName" type="s:string" />
+    <wsdl:part name="pDeliverToLocationCode" type="s:string" />
+    <wsdl:part name="pDeliverToOrganizationCode" type="s:string" />
+    <wsdl:part name="pProcurementBUName" type="s:string" />
+    <wsdl:part name="pItemDescription" type="s:string" />
+    <wsdl:part name="pItemNumber" type="s:string" />
+    <wsdl:part name="pRequesterEmail" type="s:string" />
+    <wsdl:part name="pSupplierName" type="s:string" />
+    <wsdl:part name="pSupplierContactName" type="s:string" />
+    <wsdl:part name="pSupplierSiteName" type="s:string" />
+    <wsdl:part name="pCentroDeCusto" type="s:string" />
+    <wsdl:part name="pEstabelecimento" type="s:string" />
+    <wsdl:part name="pUnidadeNegocio" type="s:string" />
+    <wsdl:part name="pFinalidade" type="s:string" />
+    <wsdl:part name="pProjeto" type="s:string" />
+    <wsdl:part name="pInterCompany" type="s:string" />
+    <wsdl:part name="pCodigoRequisicaoCompra" type="s:string" />
+    <wsdl:part name="pCodigoOrdemCompra" type="s:string" />
+    <wsdl:part name="pCodigoInvoice" type="s:string" />
+    <wsdl:part name="pObservacao" type="s:string" />
+    <wsdl:part name="pUsuario" type="s:string" />
+    <wsdl:part name="pFl_Ativo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Parametros_AnimaLegacyHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="LixeiraHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LixeiraHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="HierarquiaHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pChave" type="s:string" />
+    <wsdl:part name="pId_Usuario" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="HierarquiaHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="DropListHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pDescricao" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DropListHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="DropList_FiltroHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pFiltro_1" type="s:string" />
+    <wsdl:part name="pFiltro_2" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DropList_FiltroHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="RelacionamentoHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pChave" type="s:string" />
+    <wsdl:part name="pRelacao" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RelacionamentoHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Centro_CustoHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Centro_Custo" type="s:string" />
+    <wsdl:part name="pCd_Centro_Custo" type="s:string" />
+    <wsdl:part name="pNm_Centro_Custo" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Centro_CustoHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="DepartamentoHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Departamento" type="s:string" />
+    <wsdl:part name="pNm_Departamento" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DepartamentoHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="SetorHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Setor" type="s:string" />
+    <wsdl:part name="pNm_Setor" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SetorHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="SecaoHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Secao" type="s:string" />
+    <wsdl:part name="pNm_Secao" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SecaoHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="CargoHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Cargo" type="s:string" />
+    <wsdl:part name="pNm_Cargo" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CargoHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Ativo_Tipo_Sub_GrupoHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Ativo_Tipo_Sub_Grupo" type="s:string" />
+    <wsdl:part name="pNm_Ativo_Tipo_Sub_Grupo" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Ativo_Tipo_Sub_GrupoHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Ativo_Tipo_Grupo_TipoHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Ativo_Tipo_Grupo_Tipo" type="s:string" />
+    <wsdl:part name="pNm_Ativo_Tipo_Grupo_Tipo" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Ativo_Tipo_Grupo_TipoHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Ativo_FabricanteHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Ativo_Fabricante" type="s:string" />
+    <wsdl:part name="pNm_Ativo_Fabricante" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Ativo_FabricanteHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Bilhete_TipoHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Bilhete_Tipo" type="s:string" />
+    <wsdl:part name="pId_Conglomerado" type="s:string" />
+    <wsdl:part name="pNm_Bilhete_Tipo" type="s:string" />
+    <wsdl:part name="pNm_Bilhete_Descricao" type="s:string" />
+    <wsdl:part name="pUnidade" type="s:string" />
+    <wsdl:part name="pTipo_Descricao" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Bilhete_TipoHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Ativo_TipoHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Ativo_Tipo" type="s:string" />
+    <wsdl:part name="pNm_Ativo_Tipo" type="s:string" />
+    <wsdl:part name="pId_Ativo_Tipo_Grupo" type="s:string" />
+    <wsdl:part name="pEstoque_Regulador" type="s:string" />
+    <wsdl:part name="pImagem" type="s:string" />
+    <wsdl:part name="pPhoto" type="s:string" />
+    <wsdl:part name="pId_Ativo_Tipo_Sub_Grupo" type="s:string" />
+    <wsdl:part name="pId_Ativo_Tipo_Grupo_Tipo" type="s:string" />
+    <wsdl:part name="pId_Conglomerado" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Ativo_TipoHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Auditoria_StatusHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Auditoria_Status" type="s:string" />
+    <wsdl:part name="pNm_Auditoria_Status" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Auditoria_StatusHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="HoldingHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Holding" type="s:string" />
+    <wsdl:part name="pNm_Holding" type="s:string" />
+    <wsdl:part name="pLogo" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="HoldingHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Ativo_ModeloHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Ativo_Modelo" type="s:string" />
+    <wsdl:part name="pNm_Ativo_Modelo" type="s:string" />
+    <wsdl:part name="pId_Ativo_Tipo" type="s:string" />
+    <wsdl:part name="pId_Ativo_Fabricante" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Ativo_ModeloHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="EmpresaHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Empresa" type="s:string" />
+    <wsdl:part name="pNm_Empresa" type="s:string" />
+    <wsdl:part name="pId_Holding" type="s:string" />
+    <wsdl:part name="pCNPJ" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="EmpresaHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Empresa_ContratadaHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Empresa_Contratada" type="s:string" />
+    <wsdl:part name="pNm_Empresa_Contratada" type="s:string" />
+    <wsdl:part name="pCNPJ" type="s:string" />
+    <wsdl:part name="pContato" type="s:string" />
+    <wsdl:part name="pTelefone" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Empresa_ContratadaHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="ConglomeradoHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Conglomerado" type="s:string" />
+    <wsdl:part name="pNm_Conglomerado" type="s:string" />
+    <wsdl:part name="pContato" type="s:string" />
+    <wsdl:part name="pTelefone" type="s:string" />
+    <wsdl:part name="pCodigo_Operadora" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConglomeradoHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="FilialHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Filial" type="s:string" />
+    <wsdl:part name="pNm_Filial" type="s:string" />
+    <wsdl:part name="pCNPJ" type="s:string" />
+    <wsdl:part name="pEndereco" type="s:string" />
+    <wsdl:part name="pId_Empresa" type="s:string" />
+    <wsdl:part name="pHi_Departamento" type="s:string" />
+    <wsdl:part name="pHi_Setor" type="s:string" />
+    <wsdl:part name="pHi_Secao" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FilialHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Ativo_Fr_AquisicaoHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Ativo_Fr_Aquisicao" type="s:string" />
+    <wsdl:part name="pNm_Ativo_Fr_Aquisicao" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Ativo_Fr_AquisicaoHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Ativo_ComplementoHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Ativo_Complemento" type="s:string" />
+    <wsdl:part name="pNm_Ativo_Complemento" type="s:string" />
+    <wsdl:part name="pId_Ativo_Tipo" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Ativo_ComplementoHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="ServicoHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Servico" type="s:string" />
+    <wsdl:part name="pNm_Servico" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ServicoHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="AtivoHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Ativo" type="s:string" />
+    <wsdl:part name="pNr_Ativo" type="s:string" />
+    <wsdl:part name="pFinalidade" type="s:string" />
+    <wsdl:part name="pId_Ativo_Tipo" type="s:string" />
+    <wsdl:part name="pId_Conglomerado" type="s:string" />
+    <wsdl:part name="pId_Ativo_Modelo" type="s:string" />
+    <wsdl:part name="pLocalidade" type="s:string" />
+    <wsdl:part name="pDt_Ativacao" type="s:string" />
+    <wsdl:part name="pObservacao" type="s:string" />
+    <wsdl:part name="pAtivo_Complemento" type="s:string" />
+    <wsdl:part name="pId_Ativo_Status" type="s:string" />
+    <wsdl:part name="pArray_Consumidor" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+    <wsdl:part name="pEndereco" type="s:string" />
+    <wsdl:part name="pNumero_Sim_Card" type="s:string" />
+    <wsdl:part name="pValor_Contrato" type="s:string" />
+    <wsdl:part name="pPlano_Contrato" type="s:string" />
+    <wsdl:part name="pVelocidade" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AtivoHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Ativo_ParametroHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Ativo" type="s:string" />
+    <wsdl:part name="pDt_Termino_Garantia" type="s:string" />
+    <wsdl:part name="pId_Ativo_Fr_Aquisicao" type="s:string" />
+    <wsdl:part name="pDt_Ini_Fr_Aquisicao" type="s:string" />
+    <wsdl:part name="pVr_Fr_Aquisicao" type="s:string" />
+    <wsdl:part name="pQtd_Mes_Residuo_Fr_Aquisicao" type="s:string" />
+    <wsdl:part name="pRateio_Conglomerado" type="s:string" />
+    <wsdl:part name="pId_Tronco_Grupo" type="s:string" />
+    <wsdl:part name="pId_Conglomerado" type="s:string" />
+    <wsdl:part name="pId_Contrato" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Ativo_ParametroHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Ativo_Porcentagem_RateioHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Ativo" type="s:string" />
+    <wsdl:part name="pId_Centro_Custo" type="s:string" />
+    <wsdl:part name="pPorcentagem" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Ativo_Porcentagem_RateioHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="InventarioLoteHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Consumidor" type="s:string" />
+    <wsdl:part name="pNm_Consumidor" type="s:string" />
+    <wsdl:part name="pId_Consumidor_Tipo" type="s:string" />
+    <wsdl:part name="pMatricula" type="s:string" />
+    <wsdl:part name="pEMail" type="s:string" />
+    <wsdl:part name="pEMail_Copia" type="s:string" />
+    <wsdl:part name="pFl_Nao_Envia_EMail" type="s:string" />
+    <wsdl:part name="pId_Empresa_Contratada" type="s:string" />
+    <wsdl:part name="pId_Cargo" type="s:string" />
+    <wsdl:part name="pId_Filial" type="s:string" />
+    <wsdl:part name="pId_Centro_Custo" type="s:string" />
+    <wsdl:part name="pId_Departamento" type="s:string" />
+    <wsdl:part name="pId_Setor" type="s:string" />
+    <wsdl:part name="pId_Secao" type="s:string" />
+    <wsdl:part name="pId_Consumidor_Status" type="s:string" />
+    <wsdl:part name="pMatricula_Chefia" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pId_Usuario" type="s:string" />
+    <wsdl:part name="pNm_Usuario" type="s:string" />
+    <wsdl:part name="pSenha" type="s:string" />
+    <wsdl:part name="pId_Idioma" type="s:string" />
+    <wsdl:part name="pId_Usuario_Grupo" type="s:string" />
+    <wsdl:part name="pId_Usuario_Perfil" type="s:string" />
+    <wsdl:part name="pId_Usuario_Perfil_Acesso" type="s:string" />
+    <wsdl:part name="pIncluir" type="s:string" />
+    <wsdl:part name="pAlterar" type="s:string" />
+    <wsdl:part name="pExcluir" type="s:string" />
+    <wsdl:part name="pDetalhamento_Conta" type="s:string" />
+    <wsdl:part name="pDetalhamento_Contato" type="s:string" />
+    <wsdl:part name="pFl_Desativado" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="InventarioLoteHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="ConsumidorHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Consumidor" type="s:string" />
+    <wsdl:part name="pNm_Consumidor" type="s:string" />
+    <wsdl:part name="pId_Consumidor_Tipo" type="s:string" />
+    <wsdl:part name="pMatricula" type="s:string" />
+    <wsdl:part name="pEMail" type="s:string" />
+    <wsdl:part name="pEMail_Copia" type="s:string" />
+    <wsdl:part name="pFl_Nao_Envia_EMail" type="s:string" />
+    <wsdl:part name="pObservacao" type="s:string" />
+    <wsdl:part name="pId_Empresa_Contratada" type="s:string" />
+    <wsdl:part name="pId_Cargo" type="s:string" />
+    <wsdl:part name="pId_Filial" type="s:string" />
+    <wsdl:part name="pId_Centro_Custo" type="s:string" />
+    <wsdl:part name="pId_Departamento" type="s:string" />
+    <wsdl:part name="pId_Setor" type="s:string" />
+    <wsdl:part name="pId_Secao" type="s:string" />
+    <wsdl:part name="pId_Consumidor_Status" type="s:string" />
+    <wsdl:part name="pMatricula_Chefia" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConsumidorHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Consumidor_TipoHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Consumidor_Tipo" type="s:string" />
+    <wsdl:part name="pNm_Consumidor_Tipo" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Consumidor_TipoHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Consumidor_UnidadeHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Consumidor_Unidade" type="s:string" />
+    <wsdl:part name="pId_Consumidor" type="s:string" />
+    <wsdl:part name="pNm_Unidade" type="s:string" />
+    <wsdl:part name="pCNPJ" type="s:string" />
+    <wsdl:part name="pIE" type="s:string" />
+    <wsdl:part name="pData_Ativacao" type="s:string" />
+    <wsdl:part name="pObservacao" type="s:string" />
+    <wsdl:part name="pEntrega_Contato" type="s:string" />
+    <wsdl:part name="pEntrega_Endereco" type="s:string" />
+    <wsdl:part name="pEntrega_Telefone" type="s:string" />
+    <wsdl:part name="pFaturamento_Contato" type="s:string" />
+    <wsdl:part name="pFaturamento_Endereco" type="s:string" />
+    <wsdl:part name="pFaturamento_CNPJ" type="s:string" />
+    <wsdl:part name="pFaturamento_IE" type="s:string" />
+    <wsdl:part name="pFaturamento_Email" type="s:string" />
+    <wsdl:part name="pFaturamento_Telefone" type="s:string" />
+    <wsdl:part name="pMatricula" type="s:string" />
+    <wsdl:part name="pId_Conglomerado" type="s:string" />
+    <wsdl:part name="pArray" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Consumidor_UnidadeHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="UsuarioHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Usuario" type="s:string" />
+    <wsdl:part name="pNm_Usuario" type="s:string" />
+    <wsdl:part name="pSenha" type="s:string" />
+    <wsdl:part name="pId_Consumidor" type="s:string" />
+    <wsdl:part name="pId_Idioma" type="s:string" />
+    <wsdl:part name="pId_Usuario_Grupo" type="s:string" />
+    <wsdl:part name="pId_Usuario_Perfil" type="s:string" />
+    <wsdl:part name="pId_Usuario_Perfil_Acesso" type="s:string" />
+    <wsdl:part name="pIncluir" type="s:string" />
+    <wsdl:part name="pAlterar" type="s:string" />
+    <wsdl:part name="pExcluir" type="s:string" />
+    <wsdl:part name="pDetalhamento_Conta" type="s:string" />
+    <wsdl:part name="pDetalhamento_Contato" type="s:string" />
+    <wsdl:part name="pFl_Desativado" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UsuarioHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Usuario_PerfilHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Usuario" type="s:string" />
+    <wsdl:part name="pId_Consumidor" type="s:string" />
+    <wsdl:part name="pDescricao" type="s:string" />
+    <wsdl:part name="pRelacao" type="s:string" />
+    <wsdl:part name="pId_Ativo" type="s:string" />
+    <wsdl:part name="pDt_Ativacao" type="s:string" />
+    <wsdl:part name="pDt_Desativacao" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Usuario_PerfilHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Usuario_GrupoHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Usuario_Grupo" type="s:string" />
+    <wsdl:part name="pNm_Usuario_Grupo" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Usuario_GrupoHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="MarcacaoHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Lote" type="s:string" />
+    <wsdl:part name="pDB_Destino" type="s:string" />
+    <wsdl:part name="pId_Usuario" type="s:string" />
+    <wsdl:part name="pId_Bilhete" type="s:string" />
+    <wsdl:part name="pDt_Lote" type="s:string" />
+    <wsdl:part name="pId_Bilhete_Split" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="MarcacaoHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Bilhete_Historico_ResumoHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Lote" type="s:string" />
+    <wsdl:part name="pId_Usuario" type="s:string" />
+    <wsdl:part name="pTotal_Ligacao" type="s:string" />
+    <wsdl:part name="pValor_Politica" type="s:string" />
+    <wsdl:part name="pValor_Marcado" type="s:string" />
+    <wsdl:part name="pValor_Particular" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Bilhete_Historico_ResumoHttpPostOut" />
+  <wsdl:message name="Tronco_GrupoHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Tronco_Grupo" type="s:string" />
+    <wsdl:part name="pNm_Tronco_Grupo" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Tronco_GrupoHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="TroncoHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Tronco" type="s:string" />
+    <wsdl:part name="pNm_Tronco" type="s:string" />
+    <wsdl:part name="pId_Conglomerado" type="s:string" />
+    <wsdl:part name="pId_Tronco_Grupo" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TroncoHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Ativo_ReplaceHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Ativo_Tipo" type="s:string" />
+    <wsdl:part name="pId_Ativo_Complemento" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Ativo_ReplaceHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Fatura_Parametro_CampoHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Fatura_Parametro_Campo" type="s:string" />
+    <wsdl:part name="pNm_Fatura_Parametro_Campo" type="s:string" />
+    <wsdl:part name="pId_Fatura_Parametro" type="s:string" />
+    <wsdl:part name="pObservacao" type="s:string" />
+    <wsdl:part name="pSinal" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Fatura_Parametro_CampoHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Fatura_ParametroHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Fatura_Parametro" type="s:string" />
+    <wsdl:part name="pNm_Fatura_Parametro" type="s:string" />
+    <wsdl:part name="pId_Contrato" type="s:string" />
+    <wsdl:part name="pConta_Contabil" type="s:string" />
+    <wsdl:part name="pId_Ativo" type="s:string" />
+    <wsdl:part name="pCd_Centro_Custo" type="s:string" />
+    <wsdl:part name="pId_Fatura_Tipo_Rateio" type="s:string" />
+    <wsdl:part name="pRateia_Ativo_Padrao" type="s:string" />
+    <wsdl:part name="pRateio_Nota" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Fatura_ParametroHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Consumidor_StatusHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Consumidor_Status" type="s:string" />
+    <wsdl:part name="pNm_Consumidor_Status" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Consumidor_StatusHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Ativo_StatusHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Ativo_Status" type="s:string" />
+    <wsdl:part name="pNm_Ativo_Status" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Ativo_StatusHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Agenda_Marcacao_ParticularHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Usuario" type="s:string" />
+    <wsdl:part name="pNr_Destino" type="s:string" />
+    <wsdl:part name="pNm_Destino" type="s:string" />
+    <wsdl:part name="pTipo" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Agenda_Marcacao_ParticularHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Contrato_StatusHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Contrato_Status" type="s:string" />
+    <wsdl:part name="pNm_Contrato_Status" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Contrato_StatusHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Custo_FixoHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Custo_Fixo" type="s:string" />
+    <wsdl:part name="pNm_Custo_Fixo" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Custo_FixoHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Custo_Fixo_ItemHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Custo_Fixo_Item" type="s:string" />
+    <wsdl:part name="pId_Custo_Fixo" type="s:string" />
+    <wsdl:part name="pId_Ativo_Tipo" type="s:string" />
+    <wsdl:part name="pId_Conglomerado" type="s:string" />
+    <wsdl:part name="pValor" type="s:string" />
+    <wsdl:part name="pId_Lote" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Custo_Fixo_ItemHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Ativo_VagoHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Ativo" type="s:string" />
+    <wsdl:part name="pId_Consumidor" type="s:string" />
+    <wsdl:part name="pNr_Ativo" type="s:string" />
+    <wsdl:part name="pDescricao" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Ativo_VagoHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Envia_LogHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Usuario" type="s:string" />
+    <wsdl:part name="pData_Hora" type="s:string" />
+    <wsdl:part name="pAcao_Executada" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Envia_LogHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Excedente_PoliticaHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Lote" type="s:string" />
+    <wsdl:part name="pId_Usuario" type="s:string" />
+    <wsdl:part name="pJustificativa" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Excedente_PoliticaHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Estoque_Aparelho_StatusHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Estoque_Aparelho_Status" type="s:string" />
+    <wsdl:part name="pNm_Estoque_Aparelho_Status" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Estoque_Aparelho_StatusHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Solicitacao_SLAHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Solicitacao_SLA" type="s:string" />
+    <wsdl:part name="pNm_Solicitacao_SLA" type="s:string" />
+    <wsdl:part name="pQTDHoras" type="s:string" />
+    <wsdl:part name="pEMail" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Solicitacao_SLAHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Solicitacao_TipoHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Solicitacao_Tipo" type="s:string" />
+    <wsdl:part name="pNm_Solicitacao_Tipo" type="s:string" />
+    <wsdl:part name="pId_Ativo_Tipo" type="s:string" />
+    <wsdl:part name="pId_Solicitacao_SLA" type="s:string" />
+    <wsdl:part name="pId_Solicitcao_Fila_Atendimento" type="s:string" />
+    <wsdl:part name="pId_Solicitacao_Permissao" type="s:string" />
+    <wsdl:part name="pFl_Config_Caixa_Texto" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Solicitacao_TipoHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Solicitacao_SolucaoHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Solicitacao_Solucao" type="s:string" />
+    <wsdl:part name="pNm_Solicitacao_Solucao" type="s:string" />
+    <wsdl:part name="pId_Ativo_Tipo" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Solicitacao_SolucaoHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Solicitacao_Data_ParadaHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Data_Parada" type="s:string" />
+    <wsdl:part name="pData" type="s:string" />
+    <wsdl:part name="pDescricao" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Solicitacao_Data_ParadaHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Solicitacao_Fila_AtendimentoHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Solicitacao_Fila_Atendimento" type="s:string" />
+    <wsdl:part name="pNm_Solicitacao_Fila_Atendimento" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Solicitacao_Fila_AtendimentoHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Contrato_IndiceHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Contrato_Indice" type="s:string" />
+    <wsdl:part name="pNm_Contrato_Indice" type="s:string" />
+    <wsdl:part name="pObs_Contrato_Indice" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Contrato_IndiceHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Fatura_Nota_FiscalHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pPakage" type="s:string" />
+    <wsdl:part name="pId_Fatura" type="s:string" />
+    <wsdl:part name="pId_Centro_Custo" type="s:string" />
+    <wsdl:part name="pNr_Nota_Fiscal" type="s:string" />
+    <wsdl:part name="pVr_Nota_Fiscal" type="s:string" />
+    <wsdl:part name="pPct_Nota_Fiscal" type="s:string" />
+    <wsdl:part name="pId_Usuario_Permissao" type="s:string" />
+    <wsdl:part name="pRetorno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Fatura_Nota_FiscalHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Termo_Aceite_AgendarComEmailHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pAcao" type="s:string" />
+    <wsdl:part name="pId_Consumidor" type="s:string" />
+    <wsdl:part name="pId_Ativo" type="s:string" />
+    <wsdl:part name="pHash_Acesso" type="s:string" />
+    <wsdl:part name="pEmail_EnviadoPara" type="s:string" />
+    <wsdl:part name="pAssuntoEmail" type="s:string" />
+    <wsdl:part name="pTextoAdicional" type="s:string" />
+    <wsdl:part name="pNmUsuarioAtual" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Termo_Aceite_AgendarComEmailHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Termo_Aceite_ValidarHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pAcao" type="s:string" />
+    <wsdl:part name="pId_Consumidor" type="s:string" />
+    <wsdl:part name="pId_Ativo" type="s:string" />
+    <wsdl:part name="pHash_Acesso" type="s:string" />
+    <wsdl:part name="pEmail_EnviadoPara" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Termo_Aceite_ValidarHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Parametros_AnimaHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pAcao" type="s:string" />
+    <wsdl:part name="pId_Parametro" type="s:string" />
+    <wsdl:part name="pCodigo_Referencia" type="s:string" />
+    <wsdl:part name="pTipo" type="s:string" />
+    <wsdl:part name="pCNPJ_Anima" type="s:string" />
+    <wsdl:part name="pConta" type="s:string" />
+    <wsdl:part name="pDescricaoServico" type="s:string" />
+    <wsdl:part name="pMesEmissao" type="s:string" />
+    <wsdl:part name="pRequisitioningBUId" type="s:string" />
+    <wsdl:part name="pRequisitioningBUName" type="s:string" />
+    <wsdl:part name="pDescription" type="s:string" />
+    <wsdl:part name="pJustification" type="s:string" />
+    <wsdl:part name="pPreparerEmail" type="s:string" />
+    <wsdl:part name="pApproverEmail" type="s:string" />
+    <wsdl:part name="pDocumentStatusCode" type="s:string" />
+    <wsdl:part name="pRequisitionType" type="s:string" />
+    <wsdl:part name="pSourceUniqueId" type="s:string" />
+    <wsdl:part name="pCategoryName" type="s:string" />
+    <wsdl:part name="pDeliverToLocationCode" type="s:string" />
+    <wsdl:part name="pDeliverToOrganizationCode" type="s:string" />
+    <wsdl:part name="pProcurementBUName" type="s:string" />
+    <wsdl:part name="pItemDescription" type="s:string" />
+    <wsdl:part name="pItemNumber" type="s:string" />
+    <wsdl:part name="pRequesterEmail" type="s:string" />
+    <wsdl:part name="pSupplierName" type="s:string" />
+    <wsdl:part name="pSupplierContactName" type="s:string" />
+    <wsdl:part name="pSupplierSiteName" type="s:string" />
+    <wsdl:part name="pCentroDeCusto" type="s:string" />
+    <wsdl:part name="pEstabelecimento" type="s:string" />
+    <wsdl:part name="pUnidadeNegocio" type="s:string" />
+    <wsdl:part name="pFinalidade" type="s:string" />
+    <wsdl:part name="pProjeto" type="s:string" />
+    <wsdl:part name="pInterCompany" type="s:string" />
+    <wsdl:part name="pCodigoRequisicaoCompra" type="s:string" />
+    <wsdl:part name="pCodigoOrdemCompra" type="s:string" />
+    <wsdl:part name="pCodigoInvoice" type="s:string" />
+    <wsdl:part name="pObservacao" type="s:string" />
+    <wsdl:part name="pUsuario" type="s:string" />
+    <wsdl:part name="pFl_Ativo" type="s:string" />
+    <wsdl:part name="pProcessamento_Manual" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Parametros_AnimaHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Anima_Detalhamento_Fatura_MethodHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pNr_Fatura" type="s:string" />
+    <wsdl:part name="pDt_Lote" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Anima_Detalhamento_Fatura_MethodHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="AtualizarCamposComprasHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Parametro" type="s:string" />
+    <wsdl:part name="pRequisicao_Compra" type="s:string" />
+    <wsdl:part name="pOrdem_Compra" type="s:string" />
+    <wsdl:part name="pInvoice" type="s:string" />
+    <wsdl:part name="pObservacoes" type="s:string" />
+    <wsdl:part name="pUsuario" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AtualizarCamposComprasHttpPostOut" />
+  <wsdl:message name="AtualizarStatusDescricaoHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pId_Parametro" type="s:string" />
+    <wsdl:part name="pStatus" type="s:string" />
+    <wsdl:part name="pDescricao" type="s:string" />
+    <wsdl:part name="pUsuario" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AtualizarStatusDescricaoHttpPostOut" />
+  <wsdl:message name="Parametros_AnimaLegacyHttpPostIn">
+    <wsdl:part name="pPConn_Banco" type="s:string" />
+    <wsdl:part name="pAcao" type="s:string" />
+    <wsdl:part name="pId_Parametro" type="s:string" />
+    <wsdl:part name="pCodigo_Referencia" type="s:string" />
+    <wsdl:part name="pTipo" type="s:string" />
+    <wsdl:part name="pCNPJ_Anima" type="s:string" />
+    <wsdl:part name="pConta" type="s:string" />
+    <wsdl:part name="pDescricaoServico" type="s:string" />
+    <wsdl:part name="pMesEmissao" type="s:string" />
+    <wsdl:part name="pRequisitioningBUId" type="s:string" />
+    <wsdl:part name="pRequisitioningBUName" type="s:string" />
+    <wsdl:part name="pDescription" type="s:string" />
+    <wsdl:part name="pJustification" type="s:string" />
+    <wsdl:part name="pPreparerEmail" type="s:string" />
+    <wsdl:part name="pApproverEmail" type="s:string" />
+    <wsdl:part name="pDocumentStatusCode" type="s:string" />
+    <wsdl:part name="pRequisitionType" type="s:string" />
+    <wsdl:part name="pSourceUniqueId" type="s:string" />
+    <wsdl:part name="pCategoryName" type="s:string" />
+    <wsdl:part name="pDeliverToLocationCode" type="s:string" />
+    <wsdl:part name="pDeliverToOrganizationCode" type="s:string" />
+    <wsdl:part name="pProcurementBUName" type="s:string" />
+    <wsdl:part name="pItemDescription" type="s:string" />
+    <wsdl:part name="pItemNumber" type="s:string" />
+    <wsdl:part name="pRequesterEmail" type="s:string" />
+    <wsdl:part name="pSupplierName" type="s:string" />
+    <wsdl:part name="pSupplierContactName" type="s:string" />
+    <wsdl:part name="pSupplierSiteName" type="s:string" />
+    <wsdl:part name="pCentroDeCusto" type="s:string" />
+    <wsdl:part name="pEstabelecimento" type="s:string" />
+    <wsdl:part name="pUnidadeNegocio" type="s:string" />
+    <wsdl:part name="pFinalidade" type="s:string" />
+    <wsdl:part name="pProjeto" type="s:string" />
+    <wsdl:part name="pInterCompany" type="s:string" />
+    <wsdl:part name="pCodigoRequisicaoCompra" type="s:string" />
+    <wsdl:part name="pCodigoOrdemCompra" type="s:string" />
+    <wsdl:part name="pCodigoInvoice" type="s:string" />
+    <wsdl:part name="pObservacao" type="s:string" />
+    <wsdl:part name="pUsuario" type="s:string" />
+    <wsdl:part name="pFl_Ativo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Parametros_AnimaLegacyHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
   <wsdl:portType name="WSCadastroSoap">
     <wsdl:operation name="Lixeira">
       <wsdl:input message="tns:LixeiraSoapIn" />
@@ -2347,6 +4448,558 @@
     <wsdl:operation name="Termo_Aceite_Validar">
       <wsdl:input message="tns:Termo_Aceite_ValidarSoapIn" />
       <wsdl:output message="tns:Termo_Aceite_ValidarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Parametros_Anima">
+      <wsdl:input message="tns:Parametros_AnimaSoapIn" />
+      <wsdl:output message="tns:Parametros_AnimaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Anima_Detalhamento_Fatura">
+      <wsdl:input name="Anima_Detalhamento_Fatura_Method" message="tns:Anima_Detalhamento_Fatura_MethodSoapIn" />
+      <wsdl:output name="Anima_Detalhamento_Fatura_Method" message="tns:Anima_Detalhamento_Fatura_MethodSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AtualizarCamposCompras">
+      <wsdl:input message="tns:AtualizarCamposComprasSoapIn" />
+      <wsdl:output message="tns:AtualizarCamposComprasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AtualizarStatusDescricao">
+      <wsdl:input message="tns:AtualizarStatusDescricaoSoapIn" />
+      <wsdl:output message="tns:AtualizarStatusDescricaoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Parametros_AnimaLegacy">
+      <wsdl:input message="tns:Parametros_AnimaLegacySoapIn" />
+      <wsdl:output message="tns:Parametros_AnimaLegacySoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WSCadastroHttpGet">
+    <wsdl:operation name="Lixeira">
+      <wsdl:input message="tns:LixeiraHttpGetIn" />
+      <wsdl:output message="tns:LixeiraHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Hierarquia">
+      <wsdl:input message="tns:HierarquiaHttpGetIn" />
+      <wsdl:output message="tns:HierarquiaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DropList">
+      <wsdl:input message="tns:DropListHttpGetIn" />
+      <wsdl:output message="tns:DropListHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DropList_Filtro">
+      <wsdl:input message="tns:DropList_FiltroHttpGetIn" />
+      <wsdl:output message="tns:DropList_FiltroHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Relacionamento">
+      <wsdl:input message="tns:RelacionamentoHttpGetIn" />
+      <wsdl:output message="tns:RelacionamentoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Centro_Custo">
+      <wsdl:input message="tns:Centro_CustoHttpGetIn" />
+      <wsdl:output message="tns:Centro_CustoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Departamento">
+      <wsdl:input message="tns:DepartamentoHttpGetIn" />
+      <wsdl:output message="tns:DepartamentoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Setor">
+      <wsdl:input message="tns:SetorHttpGetIn" />
+      <wsdl:output message="tns:SetorHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Secao">
+      <wsdl:input message="tns:SecaoHttpGetIn" />
+      <wsdl:output message="tns:SecaoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Cargo">
+      <wsdl:input message="tns:CargoHttpGetIn" />
+      <wsdl:output message="tns:CargoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Tipo_Sub_Grupo">
+      <wsdl:input message="tns:Ativo_Tipo_Sub_GrupoHttpGetIn" />
+      <wsdl:output message="tns:Ativo_Tipo_Sub_GrupoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Tipo_Grupo_Tipo">
+      <wsdl:input message="tns:Ativo_Tipo_Grupo_TipoHttpGetIn" />
+      <wsdl:output message="tns:Ativo_Tipo_Grupo_TipoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Fabricante">
+      <wsdl:input message="tns:Ativo_FabricanteHttpGetIn" />
+      <wsdl:output message="tns:Ativo_FabricanteHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Bilhete_Tipo">
+      <wsdl:input message="tns:Bilhete_TipoHttpGetIn" />
+      <wsdl:output message="tns:Bilhete_TipoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Tipo">
+      <wsdl:input message="tns:Ativo_TipoHttpGetIn" />
+      <wsdl:output message="tns:Ativo_TipoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Auditoria_Status">
+      <wsdl:input message="tns:Auditoria_StatusHttpGetIn" />
+      <wsdl:output message="tns:Auditoria_StatusHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Holding">
+      <wsdl:input message="tns:HoldingHttpGetIn" />
+      <wsdl:output message="tns:HoldingHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Modelo">
+      <wsdl:input message="tns:Ativo_ModeloHttpGetIn" />
+      <wsdl:output message="tns:Ativo_ModeloHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Empresa">
+      <wsdl:input message="tns:EmpresaHttpGetIn" />
+      <wsdl:output message="tns:EmpresaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Empresa_Contratada">
+      <wsdl:input message="tns:Empresa_ContratadaHttpGetIn" />
+      <wsdl:output message="tns:Empresa_ContratadaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Conglomerado">
+      <wsdl:input message="tns:ConglomeradoHttpGetIn" />
+      <wsdl:output message="tns:ConglomeradoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Filial">
+      <wsdl:input message="tns:FilialHttpGetIn" />
+      <wsdl:output message="tns:FilialHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Fr_Aquisicao">
+      <wsdl:input message="tns:Ativo_Fr_AquisicaoHttpGetIn" />
+      <wsdl:output message="tns:Ativo_Fr_AquisicaoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Complemento">
+      <wsdl:input message="tns:Ativo_ComplementoHttpGetIn" />
+      <wsdl:output message="tns:Ativo_ComplementoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Servico">
+      <wsdl:input message="tns:ServicoHttpGetIn" />
+      <wsdl:output message="tns:ServicoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Ativo">
+      <wsdl:input message="tns:AtivoHttpGetIn" />
+      <wsdl:output message="tns:AtivoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Parametro">
+      <wsdl:input message="tns:Ativo_ParametroHttpGetIn" />
+      <wsdl:output message="tns:Ativo_ParametroHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Porcentagem_Rateio">
+      <wsdl:input message="tns:Ativo_Porcentagem_RateioHttpGetIn" />
+      <wsdl:output message="tns:Ativo_Porcentagem_RateioHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InventarioLote">
+      <wsdl:input message="tns:InventarioLoteHttpGetIn" />
+      <wsdl:output message="tns:InventarioLoteHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Consumidor">
+      <wsdl:input message="tns:ConsumidorHttpGetIn" />
+      <wsdl:output message="tns:ConsumidorHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Consumidor_Tipo">
+      <wsdl:input message="tns:Consumidor_TipoHttpGetIn" />
+      <wsdl:output message="tns:Consumidor_TipoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Consumidor_Unidade">
+      <wsdl:input message="tns:Consumidor_UnidadeHttpGetIn" />
+      <wsdl:output message="tns:Consumidor_UnidadeHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Usuario">
+      <wsdl:input message="tns:UsuarioHttpGetIn" />
+      <wsdl:output message="tns:UsuarioHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Usuario_Perfil">
+      <wsdl:input message="tns:Usuario_PerfilHttpGetIn" />
+      <wsdl:output message="tns:Usuario_PerfilHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Usuario_Grupo">
+      <wsdl:input message="tns:Usuario_GrupoHttpGetIn" />
+      <wsdl:output message="tns:Usuario_GrupoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Marcacao">
+      <wsdl:input message="tns:MarcacaoHttpGetIn" />
+      <wsdl:output message="tns:MarcacaoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Bilhete_Historico_Resumo">
+      <wsdl:input message="tns:Bilhete_Historico_ResumoHttpGetIn" />
+      <wsdl:output message="tns:Bilhete_Historico_ResumoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Tronco_Grupo">
+      <wsdl:input message="tns:Tronco_GrupoHttpGetIn" />
+      <wsdl:output message="tns:Tronco_GrupoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Tronco">
+      <wsdl:input message="tns:TroncoHttpGetIn" />
+      <wsdl:output message="tns:TroncoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Replace">
+      <wsdl:input message="tns:Ativo_ReplaceHttpGetIn" />
+      <wsdl:output message="tns:Ativo_ReplaceHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Fatura_Parametro_Campo">
+      <wsdl:input message="tns:Fatura_Parametro_CampoHttpGetIn" />
+      <wsdl:output message="tns:Fatura_Parametro_CampoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Fatura_Parametro">
+      <wsdl:input message="tns:Fatura_ParametroHttpGetIn" />
+      <wsdl:output message="tns:Fatura_ParametroHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Consumidor_Status">
+      <wsdl:input message="tns:Consumidor_StatusHttpGetIn" />
+      <wsdl:output message="tns:Consumidor_StatusHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Status">
+      <wsdl:input message="tns:Ativo_StatusHttpGetIn" />
+      <wsdl:output message="tns:Ativo_StatusHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Agenda_Marcacao_Particular">
+      <wsdl:input message="tns:Agenda_Marcacao_ParticularHttpGetIn" />
+      <wsdl:output message="tns:Agenda_Marcacao_ParticularHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Contrato_Status">
+      <wsdl:input message="tns:Contrato_StatusHttpGetIn" />
+      <wsdl:output message="tns:Contrato_StatusHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Custo_Fixo">
+      <wsdl:input message="tns:Custo_FixoHttpGetIn" />
+      <wsdl:output message="tns:Custo_FixoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Custo_Fixo_Item">
+      <wsdl:input message="tns:Custo_Fixo_ItemHttpGetIn" />
+      <wsdl:output message="tns:Custo_Fixo_ItemHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Vago">
+      <wsdl:input message="tns:Ativo_VagoHttpGetIn" />
+      <wsdl:output message="tns:Ativo_VagoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Envia_Log">
+      <wsdl:input message="tns:Envia_LogHttpGetIn" />
+      <wsdl:output message="tns:Envia_LogHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Excedente_Politica">
+      <wsdl:input message="tns:Excedente_PoliticaHttpGetIn" />
+      <wsdl:output message="tns:Excedente_PoliticaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Estoque_Aparelho_Status">
+      <wsdl:input message="tns:Estoque_Aparelho_StatusHttpGetIn" />
+      <wsdl:output message="tns:Estoque_Aparelho_StatusHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Solicitacao_SLA">
+      <wsdl:input message="tns:Solicitacao_SLAHttpGetIn" />
+      <wsdl:output message="tns:Solicitacao_SLAHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Solicitacao_Tipo">
+      <wsdl:input message="tns:Solicitacao_TipoHttpGetIn" />
+      <wsdl:output message="tns:Solicitacao_TipoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Solicitacao_Solucao">
+      <wsdl:input message="tns:Solicitacao_SolucaoHttpGetIn" />
+      <wsdl:output message="tns:Solicitacao_SolucaoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Solicitacao_Data_Parada">
+      <wsdl:input message="tns:Solicitacao_Data_ParadaHttpGetIn" />
+      <wsdl:output message="tns:Solicitacao_Data_ParadaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Solicitacao_Fila_Atendimento">
+      <wsdl:input message="tns:Solicitacao_Fila_AtendimentoHttpGetIn" />
+      <wsdl:output message="tns:Solicitacao_Fila_AtendimentoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Contrato_Indice">
+      <wsdl:input message="tns:Contrato_IndiceHttpGetIn" />
+      <wsdl:output message="tns:Contrato_IndiceHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Fatura_Nota_Fiscal">
+      <wsdl:input message="tns:Fatura_Nota_FiscalHttpGetIn" />
+      <wsdl:output message="tns:Fatura_Nota_FiscalHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Termo_Aceite_AgendarComEmail">
+      <wsdl:input message="tns:Termo_Aceite_AgendarComEmailHttpGetIn" />
+      <wsdl:output message="tns:Termo_Aceite_AgendarComEmailHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Termo_Aceite_Validar">
+      <wsdl:input message="tns:Termo_Aceite_ValidarHttpGetIn" />
+      <wsdl:output message="tns:Termo_Aceite_ValidarHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Parametros_Anima">
+      <wsdl:input message="tns:Parametros_AnimaHttpGetIn" />
+      <wsdl:output message="tns:Parametros_AnimaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Anima_Detalhamento_Fatura">
+      <wsdl:input name="Anima_Detalhamento_Fatura_Method" message="tns:Anima_Detalhamento_Fatura_MethodHttpGetIn" />
+      <wsdl:output name="Anima_Detalhamento_Fatura_Method" message="tns:Anima_Detalhamento_Fatura_MethodHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AtualizarCamposCompras">
+      <wsdl:input message="tns:AtualizarCamposComprasHttpGetIn" />
+      <wsdl:output message="tns:AtualizarCamposComprasHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AtualizarStatusDescricao">
+      <wsdl:input message="tns:AtualizarStatusDescricaoHttpGetIn" />
+      <wsdl:output message="tns:AtualizarStatusDescricaoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Parametros_AnimaLegacy">
+      <wsdl:input message="tns:Parametros_AnimaLegacyHttpGetIn" />
+      <wsdl:output message="tns:Parametros_AnimaLegacyHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WSCadastroHttpPost">
+    <wsdl:operation name="Lixeira">
+      <wsdl:input message="tns:LixeiraHttpPostIn" />
+      <wsdl:output message="tns:LixeiraHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Hierarquia">
+      <wsdl:input message="tns:HierarquiaHttpPostIn" />
+      <wsdl:output message="tns:HierarquiaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DropList">
+      <wsdl:input message="tns:DropListHttpPostIn" />
+      <wsdl:output message="tns:DropListHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DropList_Filtro">
+      <wsdl:input message="tns:DropList_FiltroHttpPostIn" />
+      <wsdl:output message="tns:DropList_FiltroHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Relacionamento">
+      <wsdl:input message="tns:RelacionamentoHttpPostIn" />
+      <wsdl:output message="tns:RelacionamentoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Centro_Custo">
+      <wsdl:input message="tns:Centro_CustoHttpPostIn" />
+      <wsdl:output message="tns:Centro_CustoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Departamento">
+      <wsdl:input message="tns:DepartamentoHttpPostIn" />
+      <wsdl:output message="tns:DepartamentoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Setor">
+      <wsdl:input message="tns:SetorHttpPostIn" />
+      <wsdl:output message="tns:SetorHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Secao">
+      <wsdl:input message="tns:SecaoHttpPostIn" />
+      <wsdl:output message="tns:SecaoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Cargo">
+      <wsdl:input message="tns:CargoHttpPostIn" />
+      <wsdl:output message="tns:CargoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Tipo_Sub_Grupo">
+      <wsdl:input message="tns:Ativo_Tipo_Sub_GrupoHttpPostIn" />
+      <wsdl:output message="tns:Ativo_Tipo_Sub_GrupoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Tipo_Grupo_Tipo">
+      <wsdl:input message="tns:Ativo_Tipo_Grupo_TipoHttpPostIn" />
+      <wsdl:output message="tns:Ativo_Tipo_Grupo_TipoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Fabricante">
+      <wsdl:input message="tns:Ativo_FabricanteHttpPostIn" />
+      <wsdl:output message="tns:Ativo_FabricanteHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Bilhete_Tipo">
+      <wsdl:input message="tns:Bilhete_TipoHttpPostIn" />
+      <wsdl:output message="tns:Bilhete_TipoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Tipo">
+      <wsdl:input message="tns:Ativo_TipoHttpPostIn" />
+      <wsdl:output message="tns:Ativo_TipoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Auditoria_Status">
+      <wsdl:input message="tns:Auditoria_StatusHttpPostIn" />
+      <wsdl:output message="tns:Auditoria_StatusHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Holding">
+      <wsdl:input message="tns:HoldingHttpPostIn" />
+      <wsdl:output message="tns:HoldingHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Modelo">
+      <wsdl:input message="tns:Ativo_ModeloHttpPostIn" />
+      <wsdl:output message="tns:Ativo_ModeloHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Empresa">
+      <wsdl:input message="tns:EmpresaHttpPostIn" />
+      <wsdl:output message="tns:EmpresaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Empresa_Contratada">
+      <wsdl:input message="tns:Empresa_ContratadaHttpPostIn" />
+      <wsdl:output message="tns:Empresa_ContratadaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Conglomerado">
+      <wsdl:input message="tns:ConglomeradoHttpPostIn" />
+      <wsdl:output message="tns:ConglomeradoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Filial">
+      <wsdl:input message="tns:FilialHttpPostIn" />
+      <wsdl:output message="tns:FilialHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Fr_Aquisicao">
+      <wsdl:input message="tns:Ativo_Fr_AquisicaoHttpPostIn" />
+      <wsdl:output message="tns:Ativo_Fr_AquisicaoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Complemento">
+      <wsdl:input message="tns:Ativo_ComplementoHttpPostIn" />
+      <wsdl:output message="tns:Ativo_ComplementoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Servico">
+      <wsdl:input message="tns:ServicoHttpPostIn" />
+      <wsdl:output message="tns:ServicoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Ativo">
+      <wsdl:input message="tns:AtivoHttpPostIn" />
+      <wsdl:output message="tns:AtivoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Parametro">
+      <wsdl:input message="tns:Ativo_ParametroHttpPostIn" />
+      <wsdl:output message="tns:Ativo_ParametroHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Porcentagem_Rateio">
+      <wsdl:input message="tns:Ativo_Porcentagem_RateioHttpPostIn" />
+      <wsdl:output message="tns:Ativo_Porcentagem_RateioHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InventarioLote">
+      <wsdl:input message="tns:InventarioLoteHttpPostIn" />
+      <wsdl:output message="tns:InventarioLoteHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Consumidor">
+      <wsdl:input message="tns:ConsumidorHttpPostIn" />
+      <wsdl:output message="tns:ConsumidorHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Consumidor_Tipo">
+      <wsdl:input message="tns:Consumidor_TipoHttpPostIn" />
+      <wsdl:output message="tns:Consumidor_TipoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Consumidor_Unidade">
+      <wsdl:input message="tns:Consumidor_UnidadeHttpPostIn" />
+      <wsdl:output message="tns:Consumidor_UnidadeHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Usuario">
+      <wsdl:input message="tns:UsuarioHttpPostIn" />
+      <wsdl:output message="tns:UsuarioHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Usuario_Perfil">
+      <wsdl:input message="tns:Usuario_PerfilHttpPostIn" />
+      <wsdl:output message="tns:Usuario_PerfilHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Usuario_Grupo">
+      <wsdl:input message="tns:Usuario_GrupoHttpPostIn" />
+      <wsdl:output message="tns:Usuario_GrupoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Marcacao">
+      <wsdl:input message="tns:MarcacaoHttpPostIn" />
+      <wsdl:output message="tns:MarcacaoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Bilhete_Historico_Resumo">
+      <wsdl:input message="tns:Bilhete_Historico_ResumoHttpPostIn" />
+      <wsdl:output message="tns:Bilhete_Historico_ResumoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Tronco_Grupo">
+      <wsdl:input message="tns:Tronco_GrupoHttpPostIn" />
+      <wsdl:output message="tns:Tronco_GrupoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Tronco">
+      <wsdl:input message="tns:TroncoHttpPostIn" />
+      <wsdl:output message="tns:TroncoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Replace">
+      <wsdl:input message="tns:Ativo_ReplaceHttpPostIn" />
+      <wsdl:output message="tns:Ativo_ReplaceHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Fatura_Parametro_Campo">
+      <wsdl:input message="tns:Fatura_Parametro_CampoHttpPostIn" />
+      <wsdl:output message="tns:Fatura_Parametro_CampoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Fatura_Parametro">
+      <wsdl:input message="tns:Fatura_ParametroHttpPostIn" />
+      <wsdl:output message="tns:Fatura_ParametroHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Consumidor_Status">
+      <wsdl:input message="tns:Consumidor_StatusHttpPostIn" />
+      <wsdl:output message="tns:Consumidor_StatusHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Status">
+      <wsdl:input message="tns:Ativo_StatusHttpPostIn" />
+      <wsdl:output message="tns:Ativo_StatusHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Agenda_Marcacao_Particular">
+      <wsdl:input message="tns:Agenda_Marcacao_ParticularHttpPostIn" />
+      <wsdl:output message="tns:Agenda_Marcacao_ParticularHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Contrato_Status">
+      <wsdl:input message="tns:Contrato_StatusHttpPostIn" />
+      <wsdl:output message="tns:Contrato_StatusHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Custo_Fixo">
+      <wsdl:input message="tns:Custo_FixoHttpPostIn" />
+      <wsdl:output message="tns:Custo_FixoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Custo_Fixo_Item">
+      <wsdl:input message="tns:Custo_Fixo_ItemHttpPostIn" />
+      <wsdl:output message="tns:Custo_Fixo_ItemHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Vago">
+      <wsdl:input message="tns:Ativo_VagoHttpPostIn" />
+      <wsdl:output message="tns:Ativo_VagoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Envia_Log">
+      <wsdl:input message="tns:Envia_LogHttpPostIn" />
+      <wsdl:output message="tns:Envia_LogHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Excedente_Politica">
+      <wsdl:input message="tns:Excedente_PoliticaHttpPostIn" />
+      <wsdl:output message="tns:Excedente_PoliticaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Estoque_Aparelho_Status">
+      <wsdl:input message="tns:Estoque_Aparelho_StatusHttpPostIn" />
+      <wsdl:output message="tns:Estoque_Aparelho_StatusHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Solicitacao_SLA">
+      <wsdl:input message="tns:Solicitacao_SLAHttpPostIn" />
+      <wsdl:output message="tns:Solicitacao_SLAHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Solicitacao_Tipo">
+      <wsdl:input message="tns:Solicitacao_TipoHttpPostIn" />
+      <wsdl:output message="tns:Solicitacao_TipoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Solicitacao_Solucao">
+      <wsdl:input message="tns:Solicitacao_SolucaoHttpPostIn" />
+      <wsdl:output message="tns:Solicitacao_SolucaoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Solicitacao_Data_Parada">
+      <wsdl:input message="tns:Solicitacao_Data_ParadaHttpPostIn" />
+      <wsdl:output message="tns:Solicitacao_Data_ParadaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Solicitacao_Fila_Atendimento">
+      <wsdl:input message="tns:Solicitacao_Fila_AtendimentoHttpPostIn" />
+      <wsdl:output message="tns:Solicitacao_Fila_AtendimentoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Contrato_Indice">
+      <wsdl:input message="tns:Contrato_IndiceHttpPostIn" />
+      <wsdl:output message="tns:Contrato_IndiceHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Fatura_Nota_Fiscal">
+      <wsdl:input message="tns:Fatura_Nota_FiscalHttpPostIn" />
+      <wsdl:output message="tns:Fatura_Nota_FiscalHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Termo_Aceite_AgendarComEmail">
+      <wsdl:input message="tns:Termo_Aceite_AgendarComEmailHttpPostIn" />
+      <wsdl:output message="tns:Termo_Aceite_AgendarComEmailHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Termo_Aceite_Validar">
+      <wsdl:input message="tns:Termo_Aceite_ValidarHttpPostIn" />
+      <wsdl:output message="tns:Termo_Aceite_ValidarHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Parametros_Anima">
+      <wsdl:input message="tns:Parametros_AnimaHttpPostIn" />
+      <wsdl:output message="tns:Parametros_AnimaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Anima_Detalhamento_Fatura">
+      <wsdl:input name="Anima_Detalhamento_Fatura_Method" message="tns:Anima_Detalhamento_Fatura_MethodHttpPostIn" />
+      <wsdl:output name="Anima_Detalhamento_Fatura_Method" message="tns:Anima_Detalhamento_Fatura_MethodHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AtualizarCamposCompras">
+      <wsdl:input message="tns:AtualizarCamposComprasHttpPostIn" />
+      <wsdl:output message="tns:AtualizarCamposComprasHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AtualizarStatusDescricao">
+      <wsdl:input message="tns:AtualizarStatusDescricaoHttpPostIn" />
+      <wsdl:output message="tns:AtualizarStatusDescricaoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Parametros_AnimaLegacy">
+      <wsdl:input message="tns:Parametros_AnimaLegacyHttpPostIn" />
+      <wsdl:output message="tns:Parametros_AnimaLegacyHttpPostOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WSCadastroSoap" type="tns:WSCadastroSoap">
@@ -2893,6 +5546,51 @@
     </wsdl:operation>
     <wsdl:operation name="Termo_Aceite_Validar">
       <soap:operation soapAction="http://tempuri.org/Termo_Aceite_Validar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Parametros_Anima">
+      <soap:operation soapAction="http://tempuri.org/Parametros_Anima" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Anima_Detalhamento_Fatura">
+      <soap:operation soapAction="http://tempuri.org/Anima_Detalhamento_Fatura_Method" style="document" />
+      <wsdl:input name="Anima_Detalhamento_Fatura_Method">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="Anima_Detalhamento_Fatura_Method">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AtualizarCamposCompras">
+      <soap:operation soapAction="http://tempuri.org/AtualizarCamposCompras" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AtualizarStatusDescricao">
+      <soap:operation soapAction="http://tempuri.org/AtualizarStatusDescricao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Parametros_AnimaLegacy">
+      <soap:operation soapAction="http://tempuri.org/Parametros_AnimaLegacy" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -3452,6 +6150,1233 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="Parametros_Anima">
+      <soap12:operation soapAction="http://tempuri.org/Parametros_Anima" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Anima_Detalhamento_Fatura">
+      <soap12:operation soapAction="http://tempuri.org/Anima_Detalhamento_Fatura_Method" style="document" />
+      <wsdl:input name="Anima_Detalhamento_Fatura_Method">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="Anima_Detalhamento_Fatura_Method">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AtualizarCamposCompras">
+      <soap12:operation soapAction="http://tempuri.org/AtualizarCamposCompras" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AtualizarStatusDescricao">
+      <soap12:operation soapAction="http://tempuri.org/AtualizarStatusDescricao" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Parametros_AnimaLegacy">
+      <soap12:operation soapAction="http://tempuri.org/Parametros_AnimaLegacy" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WSCadastroHttpGet" type="tns:WSCadastroHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="Lixeira">
+      <http:operation location="/Lixeira" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Hierarquia">
+      <http:operation location="/Hierarquia" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DropList">
+      <http:operation location="/DropList" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DropList_Filtro">
+      <http:operation location="/DropList_Filtro" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Relacionamento">
+      <http:operation location="/Relacionamento" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Centro_Custo">
+      <http:operation location="/Centro_Custo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Departamento">
+      <http:operation location="/Departamento" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Setor">
+      <http:operation location="/Setor" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Secao">
+      <http:operation location="/Secao" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Cargo">
+      <http:operation location="/Cargo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Tipo_Sub_Grupo">
+      <http:operation location="/Ativo_Tipo_Sub_Grupo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Tipo_Grupo_Tipo">
+      <http:operation location="/Ativo_Tipo_Grupo_Tipo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Fabricante">
+      <http:operation location="/Ativo_Fabricante" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Bilhete_Tipo">
+      <http:operation location="/Bilhete_Tipo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Tipo">
+      <http:operation location="/Ativo_Tipo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Auditoria_Status">
+      <http:operation location="/Auditoria_Status" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Holding">
+      <http:operation location="/Holding" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Modelo">
+      <http:operation location="/Ativo_Modelo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Empresa">
+      <http:operation location="/Empresa" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Empresa_Contratada">
+      <http:operation location="/Empresa_Contratada" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Conglomerado">
+      <http:operation location="/Conglomerado" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Filial">
+      <http:operation location="/Filial" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Fr_Aquisicao">
+      <http:operation location="/Ativo_Fr_Aquisicao" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Complemento">
+      <http:operation location="/Ativo_Complemento" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Servico">
+      <http:operation location="/Servico" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ativo">
+      <http:operation location="/Ativo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Parametro">
+      <http:operation location="/Ativo_Parametro" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Porcentagem_Rateio">
+      <http:operation location="/Ativo_Porcentagem_Rateio" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InventarioLote">
+      <http:operation location="/InventarioLote" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Consumidor">
+      <http:operation location="/Consumidor" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Consumidor_Tipo">
+      <http:operation location="/Consumidor_Tipo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Consumidor_Unidade">
+      <http:operation location="/Consumidor_Unidade" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Usuario">
+      <http:operation location="/Usuario" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Usuario_Perfil">
+      <http:operation location="/Usuario_Perfil" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Usuario_Grupo">
+      <http:operation location="/Usuario_Grupo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Marcacao">
+      <http:operation location="/Marcacao" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Bilhete_Historico_Resumo">
+      <http:operation location="/Bilhete_Historico_Resumo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="Tronco_Grupo">
+      <http:operation location="/Tronco_Grupo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tronco">
+      <http:operation location="/Tronco" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Replace">
+      <http:operation location="/Ativo_Replace" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Fatura_Parametro_Campo">
+      <http:operation location="/Fatura_Parametro_Campo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Fatura_Parametro">
+      <http:operation location="/Fatura_Parametro" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Consumidor_Status">
+      <http:operation location="/Consumidor_Status" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Status">
+      <http:operation location="/Ativo_Status" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Agenda_Marcacao_Particular">
+      <http:operation location="/Agenda_Marcacao_Particular" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Contrato_Status">
+      <http:operation location="/Contrato_Status" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Custo_Fixo">
+      <http:operation location="/Custo_Fixo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Custo_Fixo_Item">
+      <http:operation location="/Custo_Fixo_Item" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Vago">
+      <http:operation location="/Ativo_Vago" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Envia_Log">
+      <http:operation location="/Envia_Log" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Excedente_Politica">
+      <http:operation location="/Excedente_Politica" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Estoque_Aparelho_Status">
+      <http:operation location="/Estoque_Aparelho_Status" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Solicitacao_SLA">
+      <http:operation location="/Solicitacao_SLA" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Solicitacao_Tipo">
+      <http:operation location="/Solicitacao_Tipo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Solicitacao_Solucao">
+      <http:operation location="/Solicitacao_Solucao" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Solicitacao_Data_Parada">
+      <http:operation location="/Solicitacao_Data_Parada" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Solicitacao_Fila_Atendimento">
+      <http:operation location="/Solicitacao_Fila_Atendimento" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Contrato_Indice">
+      <http:operation location="/Contrato_Indice" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Fatura_Nota_Fiscal">
+      <http:operation location="/Fatura_Nota_Fiscal" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Termo_Aceite_AgendarComEmail">
+      <http:operation location="/Termo_Aceite_AgendarComEmail" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Termo_Aceite_Validar">
+      <http:operation location="/Termo_Aceite_Validar" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Parametros_Anima">
+      <http:operation location="/Parametros_Anima" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Anima_Detalhamento_Fatura">
+      <http:operation location="/Anima_Detalhamento_Fatura_Method" />
+      <wsdl:input name="Anima_Detalhamento_Fatura_Method">
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output name="Anima_Detalhamento_Fatura_Method">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AtualizarCamposCompras">
+      <http:operation location="/AtualizarCamposCompras" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="AtualizarStatusDescricao">
+      <http:operation location="/AtualizarStatusDescricao" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="Parametros_AnimaLegacy">
+      <http:operation location="/Parametros_AnimaLegacy" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WSCadastroHttpPost" type="tns:WSCadastroHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="Lixeira">
+      <http:operation location="/Lixeira" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Hierarquia">
+      <http:operation location="/Hierarquia" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DropList">
+      <http:operation location="/DropList" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DropList_Filtro">
+      <http:operation location="/DropList_Filtro" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Relacionamento">
+      <http:operation location="/Relacionamento" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Centro_Custo">
+      <http:operation location="/Centro_Custo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Departamento">
+      <http:operation location="/Departamento" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Setor">
+      <http:operation location="/Setor" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Secao">
+      <http:operation location="/Secao" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Cargo">
+      <http:operation location="/Cargo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Tipo_Sub_Grupo">
+      <http:operation location="/Ativo_Tipo_Sub_Grupo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Tipo_Grupo_Tipo">
+      <http:operation location="/Ativo_Tipo_Grupo_Tipo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Fabricante">
+      <http:operation location="/Ativo_Fabricante" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Bilhete_Tipo">
+      <http:operation location="/Bilhete_Tipo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Tipo">
+      <http:operation location="/Ativo_Tipo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Auditoria_Status">
+      <http:operation location="/Auditoria_Status" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Holding">
+      <http:operation location="/Holding" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Modelo">
+      <http:operation location="/Ativo_Modelo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Empresa">
+      <http:operation location="/Empresa" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Empresa_Contratada">
+      <http:operation location="/Empresa_Contratada" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Conglomerado">
+      <http:operation location="/Conglomerado" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Filial">
+      <http:operation location="/Filial" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Fr_Aquisicao">
+      <http:operation location="/Ativo_Fr_Aquisicao" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Complemento">
+      <http:operation location="/Ativo_Complemento" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Servico">
+      <http:operation location="/Servico" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ativo">
+      <http:operation location="/Ativo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Parametro">
+      <http:operation location="/Ativo_Parametro" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Porcentagem_Rateio">
+      <http:operation location="/Ativo_Porcentagem_Rateio" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InventarioLote">
+      <http:operation location="/InventarioLote" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Consumidor">
+      <http:operation location="/Consumidor" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Consumidor_Tipo">
+      <http:operation location="/Consumidor_Tipo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Consumidor_Unidade">
+      <http:operation location="/Consumidor_Unidade" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Usuario">
+      <http:operation location="/Usuario" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Usuario_Perfil">
+      <http:operation location="/Usuario_Perfil" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Usuario_Grupo">
+      <http:operation location="/Usuario_Grupo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Marcacao">
+      <http:operation location="/Marcacao" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Bilhete_Historico_Resumo">
+      <http:operation location="/Bilhete_Historico_Resumo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="Tronco_Grupo">
+      <http:operation location="/Tronco_Grupo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tronco">
+      <http:operation location="/Tronco" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Replace">
+      <http:operation location="/Ativo_Replace" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Fatura_Parametro_Campo">
+      <http:operation location="/Fatura_Parametro_Campo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Fatura_Parametro">
+      <http:operation location="/Fatura_Parametro" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Consumidor_Status">
+      <http:operation location="/Consumidor_Status" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Status">
+      <http:operation location="/Ativo_Status" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Agenda_Marcacao_Particular">
+      <http:operation location="/Agenda_Marcacao_Particular" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Contrato_Status">
+      <http:operation location="/Contrato_Status" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Custo_Fixo">
+      <http:operation location="/Custo_Fixo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Custo_Fixo_Item">
+      <http:operation location="/Custo_Fixo_Item" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ativo_Vago">
+      <http:operation location="/Ativo_Vago" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Envia_Log">
+      <http:operation location="/Envia_Log" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Excedente_Politica">
+      <http:operation location="/Excedente_Politica" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Estoque_Aparelho_Status">
+      <http:operation location="/Estoque_Aparelho_Status" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Solicitacao_SLA">
+      <http:operation location="/Solicitacao_SLA" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Solicitacao_Tipo">
+      <http:operation location="/Solicitacao_Tipo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Solicitacao_Solucao">
+      <http:operation location="/Solicitacao_Solucao" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Solicitacao_Data_Parada">
+      <http:operation location="/Solicitacao_Data_Parada" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Solicitacao_Fila_Atendimento">
+      <http:operation location="/Solicitacao_Fila_Atendimento" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Contrato_Indice">
+      <http:operation location="/Contrato_Indice" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Fatura_Nota_Fiscal">
+      <http:operation location="/Fatura_Nota_Fiscal" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Termo_Aceite_AgendarComEmail">
+      <http:operation location="/Termo_Aceite_AgendarComEmail" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Termo_Aceite_Validar">
+      <http:operation location="/Termo_Aceite_Validar" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Parametros_Anima">
+      <http:operation location="/Parametros_Anima" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Anima_Detalhamento_Fatura">
+      <http:operation location="/Anima_Detalhamento_Fatura_Method" />
+      <wsdl:input name="Anima_Detalhamento_Fatura_Method">
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output name="Anima_Detalhamento_Fatura_Method">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AtualizarCamposCompras">
+      <http:operation location="/AtualizarCamposCompras" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="AtualizarStatusDescricao">
+      <http:operation location="/AtualizarStatusDescricao" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="Parametros_AnimaLegacy">
+      <http:operation location="/Parametros_AnimaLegacy" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="WSCadastro">
     <wsdl:port name="WSCadastroSoap" binding="tns:WSCadastroSoap">
@@ -3459,6 +7384,12 @@
     </wsdl:port>
     <wsdl:port name="WSCadastroSoap12" binding="tns:WSCadastroSoap12">
       <soap12:address location="http://localhost:8080/WSCadastro.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WSCadastroHttpGet" binding="tns:WSCadastroHttpGet">
+      <http:address location="http://localhost:8080/WSCadastro.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WSCadastroHttpPost" binding="tns:WSCadastroHttpPost">
+      <http:address location="http://localhost:8080/WSCadastro.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

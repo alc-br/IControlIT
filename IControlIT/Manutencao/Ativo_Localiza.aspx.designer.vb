@@ -1,9 +1,9 @@
 '------------------------------------------------------------------------------
 ' <gerado automaticamente>
-'     Esse código foi gerado por uma ferramenta.
+'     Esse cï¿½digo foi gerado por uma ferramenta.
 '
-'     As alterações ao arquivo poderão causar comportamento incorreto e serão perdidas se
-'     o código for recriado
+'     As alteraï¿½ï¿½es ao arquivo poderï¿½o causar comportamento incorreto e serï¿½o perdidas se
+'     o cï¿½digo for recriado
 ' </gerado automaticamente>
 '------------------------------------------------------------------------------
 
@@ -18,7 +18,7 @@ Partial Public Class Ativo_Localiza
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+    '''Para modificar, mova a declaraï¿½ï¿½o de campo do arquivo de designer a um arquivo code-behind.
     '''</remarks>
     Protected WithEvents pnlMsg As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
@@ -27,7 +27,7 @@ Partial Public Class Ativo_Localiza
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+    '''Para modificar, mova a declaraï¿½ï¿½o de campo do arquivo de designer a um arquivo code-behind.
     '''</remarks>
     Protected WithEvents lblDLinhaConta As Global.System.Web.UI.WebControls.Label
 
@@ -36,7 +36,7 @@ Partial Public Class Ativo_Localiza
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+    '''Para modificar, mova a declaraï¿½ï¿½o de campo do arquivo de designer a um arquivo code-behind.
     '''</remarks>
     Protected WithEvents DivCustoFixo As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
@@ -45,7 +45,7 @@ Partial Public Class Ativo_Localiza
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+    '''Para modificar, mova a declaraï¿½ï¿½o de campo do arquivo de designer a um arquivo code-behind.
     '''</remarks>
     Protected WithEvents dtgLista As Global.System.Web.UI.WebControls.DataGrid
 
@@ -54,7 +54,7 @@ Partial Public Class Ativo_Localiza
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+    '''Para modificar, mova a declaraï¿½ï¿½o de campo do arquivo de designer a um arquivo code-behind.
     '''</remarks>
     Protected WithEvents btFechar As Global.System.Web.UI.WebControls.Button
 
@@ -63,7 +63,7 @@ Partial Public Class Ativo_Localiza
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+    '''Para modificar, mova a declaraï¿½ï¿½o de campo do arquivo de designer a um arquivo code-behind.
     '''</remarks>
     Protected WithEvents lblDescricaoVagos As Global.System.Web.UI.WebControls.Label
 
@@ -72,16 +72,25 @@ Partial Public Class Ativo_Localiza
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+    '''Para modificar, mova a declaraï¿½ï¿½o de campo do arquivo de designer a um arquivo code-behind.
     '''</remarks>
     Protected WithEvents dtgLocaliza As Global.System.Web.UI.WebControls.DataGrid
+
+    '''<summary>
+    '''Controle dtgContasNaoPagas.
+    '''</summary>
+    '''<remarks>
+    '''Campo gerado automaticamente.
+    '''Para modificar, mova a declara&#231;&#227;o de campo do arquivo de designer a um arquivo code-behind.
+    '''</remarks>
+    Protected WithEvents dtgContasNaoPagas As Global.System.Web.UI.WebControls.DataGrid
 
     '''<summary>
     '''Controle tbBotao.
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+    '''Para modificar, mova a declaraï¿½ï¿½o de campo do arquivo de designer a um arquivo code-behind.
     '''</remarks>
     Protected WithEvents tbBotao As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
@@ -90,7 +99,7 @@ Partial Public Class Ativo_Localiza
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+    '''Para modificar, mova a declaraï¿½ï¿½o de campo do arquivo de designer a um arquivo code-behind.
     '''</remarks>
     Protected WithEvents btVoltar As Global.System.Web.UI.WebControls.LinkButton
 
@@ -99,7 +108,7 @@ Partial Public Class Ativo_Localiza
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+    '''Para modificar, mova a declaraï¿½ï¿½o de campo do arquivo de designer a um arquivo code-behind.
     '''</remarks>
     Protected WithEvents btAlerta As Global.System.Web.UI.WebControls.LinkButton
 
@@ -108,7 +117,7 @@ Partial Public Class Ativo_Localiza
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
-    '''Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+    '''Para modificar, mova a declaraï¿½ï¿½o de campo do arquivo de designer a um arquivo code-behind.
     '''</remarks>
     Protected WithEvents btExportar As Global.System.Web.UI.WebControls.LinkButton
 

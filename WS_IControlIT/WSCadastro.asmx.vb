@@ -610,11 +610,12 @@ Public Class WSCadastro
                             pNumero_Sim_Card As String,
                             pValor_Contrato As String,
                             pPlano_Contrato As String,
-                            pVelocidade As String
+                            pVelocidade As String,
+                            pCNPJ As String
                             ) As System.Data.DataSet
 
 
-        ReDim vParametro(18)
+        ReDim vParametro(19)
         oBanco.monta_Parametro(vParametro, pPakage, "@pPakage", False)
         oBanco.monta_Parametro(vParametro, pId_Ativo, "@pId_Ativo", True)
         oBanco.monta_Parametro(vParametro, pNr_Ativo, "@pNr_Ativo", False)
@@ -634,6 +635,7 @@ Public Class WSCadastro
         oBanco.monta_Parametro(vParametro, pValor_Contrato, "@pValor_Contrato", False)
         oBanco.monta_Parametro(vParametro, pVelocidade, "@pVelocidade", False)
         oBanco.monta_Parametro(vParametro, pPlano_Contrato, "@pPlano_Contrato", False)
+        oBanco.monta_Parametro(vParametro, pCNPJ, "@pCNPJ", False)
 
         If pRetorno = True Then
             Return oBanco.retorna_Query("dbo.pa_Ativo", vParametro, pPConn_Banco)
@@ -1983,21 +1985,6 @@ Public Class WSCadastro
     '  ANIMA - INICIO DO CODIGO ESPECIFICO
     '===============================================================================
 
-    '-----ANIMA - Consulta detalhamento de fatura por Nr_Fatura (Conta)
-    '-----Usa cn_Detalhamento_Bilhete_API com sp_Detalhamento, filtrando por DC_Nr_Nota_Fiscal
-    <WebMethod()>
-    Public Function Anima_Detalhamento_Fatura(ByVal pPConn_Banco As System.String,
-                                              ByVal pNr_Fatura As System.String) As System.Data.DataSet
-        ReDim vParametro(4)
-        oBanco.monta_Parametro(vParametro, "sp_Detalhamento", "@pPakage", False)
-        oBanco.monta_Parametro(vParametro, pNr_Fatura, "@pNr_Fatura", False)
-        oBanco.monta_Parametro(vParametro, Nothing, "@pAtivo_Tipo_Grupo", False)
-        oBanco.monta_Parametro(vParametro, Nothing, "@pId_Conglomerado", False)
-        oBanco.monta_Parametro(vParametro, Nothing, "@pDt_LoteDe", False)
-        oBanco.monta_Parametro(vParametro, Nothing, "@pDt_LoteAte", False)
-
-        Return oBanco.retorna_Query("dbo.cn_Detalhamento_Bilhete_API", vParametro, pPConn_Banco)
-    End Function
 
     '===============================================================================
     '  ANIMA - FIM DO CODIGO ESPECIFICO

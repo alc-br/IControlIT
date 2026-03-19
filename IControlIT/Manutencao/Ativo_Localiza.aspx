@@ -59,37 +59,51 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div style="width: 100%; overflow: auto">
+                                <%-- Grid padrão (Inventario, Custo_Cancelada, Sem_lote, etc.) --%>
                                 <asp:DataGrid ID="dtgLocaliza" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="5" EnableTheming="True" Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" HorizontalAlign="Left"
-                                    Font-Size="9pt" Width="100%" ForeColor="Black" BorderColor="Silver" BorderStyle="Solid" BorderWidth="1px" PageSize="30" OnItemDataBound="dtgLocaliza_ItemDataBound">
+                                    Font-Size="9pt" Width="100%" ForeColor="Black" BorderColor="Silver" BorderStyle="Solid" BorderWidth="1px" PageSize="30">
 
                                     <Columns>
-                                        <%-- [INÍCIO - ICTRL-NF-202509-001] --%>
-                                        <%-- Coluna: Operadora --%>
+                                        <asp:BoundColumn DataField="Nr_Ativo" HeaderText="Ativo"></asp:BoundColumn>
+                                        <asp:BoundColumn DataField="Nm_Ativo_Tipo" HeaderText="Tipo"></asp:BoundColumn>
+                                        <asp:BoundColumn DataField="Nm_Conglomerado" HeaderText="Fornecedor"></asp:BoundColumn>
+                                        <asp:BoundColumn DataField="Demitido" HeaderText="Observa&#231;&#227;o"></asp:BoundColumn>
+                                    </Columns>
+
+                                    <EditItemStyle Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" Wrap="False" />
+                                    <FooterStyle Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" Wrap="False" />
+                                    <HeaderStyle Font-Bold="False" Height="30px" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" ForeColor="#CCCCCC" BackColor="Black" BorderColor="Black" Font-Names="Calibri Light" Font-Size="12pt" HorizontalAlign="Center" Wrap="true" />
+                                    <ItemStyle Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" Wrap="False" />
+                                    <PagerStyle Mode="NumericPages" />
+                                    <SelectedItemStyle Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" Wrap="False" />
+                                    <AlternatingItemStyle BackColor="#E6E6E6" />
+                                </asp:DataGrid>
+
+                                <%-- [INÍCIO - ICTRL-NF-202509-001] Grid específico para ContasNaoPagas --%>
+                                <asp:DataGrid ID="dtgContasNaoPagas" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="5" EnableTheming="True" Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" HorizontalAlign="Left"
+                                    Font-Size="9pt" Width="100%" ForeColor="Black" BorderColor="Silver" BorderStyle="Solid" BorderWidth="1px" PageSize="30" Visible="False" OnItemDataBound="dtgContasNaoPagas_ItemDataBound" OnPageIndexChanged="dtgContasNaoPagas_PageIndexChanged">
+
+                                    <Columns>
                                         <asp:BoundColumn DataField="Nm_Operadora" HeaderText="Operadora">
                                             <ItemStyle Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" />
                                         </asp:BoundColumn>
 
-                                        <%-- Coluna: Número da Conta --%>
                                         <asp:BoundColumn DataField="Nr_Conta" HeaderText="Nr. Conta">
                                             <ItemStyle Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" />
                                         </asp:BoundColumn>
 
-                                        <%-- Coluna: Data de Emissão --%>
                                         <asp:BoundColumn DataField="Dt_Emissao" HeaderText="Dt. Emissão" DataFormatString="{0:dd/MM/yyyy}">
                                             <ItemStyle Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" />
                                         </asp:BoundColumn>
 
-                                        <%-- Coluna: Data de Vencimento --%>
                                         <asp:BoundColumn DataField="Dt_Vencimento" HeaderText="Dt. Vencimento" DataFormatString="{0:dd/MM/yyyy}">
                                             <ItemStyle Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" />
                                         </asp:BoundColumn>
 
-                                        <%-- Coluna: Valor Total --%>
                                         <asp:BoundColumn DataField="Vr_Total" HeaderText="Valor Total" DataFormatString="{0:c}">
                                             <ItemStyle Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" />
                                         </asp:BoundColumn>
 
-                                        <%-- Coluna: Observação (truncada a 30 caracteres) --%>
                                         <asp:TemplateColumn HeaderText="Observação">
                                             <ItemTemplate>
                                                 <asp:Label ID="lblObservacao" runat="server"
@@ -98,17 +112,14 @@
                                             </ItemTemplate>
                                         </asp:TemplateColumn>
 
-                                        <%-- Coluna: Status (Pago/Pendente) --%>
                                         <asp:BoundColumn DataField="Fl_Pago" HeaderText="Status">
                                             <ItemStyle Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" />
                                         </asp:BoundColumn>
 
-                                        <%-- Coluna: Id_Fatura (Hidden) --%>
                                         <asp:BoundColumn DataField="Id_Fatura" HeaderText="Id_Fatura" Visible="False">
                                             <ItemStyle Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" />
                                         </asp:BoundColumn>
 
-                                        <%-- Coluna: Botão Comprovante de Pagamento --%>
                                         <asp:TemplateColumn HeaderText="Pag.">
                                             <ItemTemplate>
                                                 <asp:ImageButton ID="btComprovante" runat="server"
@@ -121,7 +132,6 @@
                                             </ItemTemplate>
                                         </asp:TemplateColumn>
 
-                                        <%-- Coluna: Botão Visualizar Fatura --%>
                                         <asp:TemplateColumn HeaderText="Fatura">
                                             <ItemTemplate>
                                                 <asp:ImageButton ID="btFatura" runat="server"
@@ -133,7 +143,6 @@
                                                     ToolTip="Visualizar Fatura" />
                                             </ItemTemplate>
                                         </asp:TemplateColumn>
-                                        <%-- [FIM - ICTRL-NF-202512-002] --%>
                                     </Columns>
 
                                     <EditItemStyle Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" Wrap="False" />
@@ -144,6 +153,7 @@
                                     <SelectedItemStyle Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" Wrap="False" />
                                     <AlternatingItemStyle BackColor="#E6E6E6" />
                                 </asp:DataGrid>
+                                <%-- [FIM - ICTRL-NF-202509-001] --%>
                             </div>
                         </div>
                     </div>
