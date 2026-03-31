@@ -88,14 +88,17 @@ Public Class Ativo_Localiza
             If Request("ID") = "ContasNaoPagas" Then
                 Session("DataSet") = WS_Modulo.Exec_Procedure_Simple(Session("Conn_Banco"), "sp_SL_ContasNaoPagas")
 
+                dtgLocaliza.Visible = False
+                dtgContasNaoPagas.Visible = True
+
                 If Session("DataSet") IsNot Nothing AndAlso _
                    CType(Session("DataSet"), DataSet).Tables.Count > 0 AndAlso _
                    CType(Session("DataSet"), DataSet).Tables(0).Rows.Count > 0 Then
-                    dtgLocaliza.DataSource = Session("DataSet")
-                    dtgLocaliza.DataBind()
+                    dtgContasNaoPagas.DataSource = Session("DataSet")
+                    dtgContasNaoPagas.DataBind()
                 Else
-                    dtgLocaliza.DataSource = Nothing
-                    dtgLocaliza.DataBind()
+                    dtgContasNaoPagas.DataSource = Nothing
+                    dtgContasNaoPagas.DataBind()
                 End If
 
                 lblDescricaoVagos.Text = "Contas com Pagamento Pendente (Mês Vigente)"
@@ -117,31 +120,35 @@ Public Class Ativo_Localiza
     End Sub
 
     ' [INÍCIO - ICTRL-NF-202512-002 - KPI Contas Não Pagas]
-    Protected Sub dtgLocaliza_ItemDataBound(sender As Object, e As DataGridItemEventArgs) Handles dtgLocaliza.ItemDataBound
+    Protected Sub dtgContasNaoPagas_ItemDataBound(sender As Object, e As DataGridItemEventArgs)
         If e.Item.ItemType = ListItemType.Item OrElse e.Item.ItemType = ListItemType.AlternatingItem Then
-            If Request("ID") = "ContasNaoPagas" Then
-                ' A coluna Status (Fl_Pago) é a 7ª (índice 6)
-                Dim statusCell As TableCell = e.Item.Cells(6)
-                Dim statusValue As String = ""
+            ' A coluna Status (Fl_Pago) é a 7ª (índice 6)
+            Dim statusCell As TableCell = e.Item.Cells(6)
+            Dim statusValue As String = ""
 
-                ' A stored procedure retorna Fl_Pago como string ('Pago' ou 'Pendente')
-                If Not IsDBNull(DataBinder.Eval(e.Item.DataItem, "Fl_Pago")) Then
-                    statusValue = DataBinder.Eval(e.Item.DataItem, "Fl_Pago").ToString().Trim()
-                End If
+            ' A stored procedure retorna Fl_Pago como string ('Pago' ou 'Pendente')
+            If Not IsDBNull(DataBinder.Eval(e.Item.DataItem, "Fl_Pago")) Then
+                statusValue = DataBinder.Eval(e.Item.DataItem, "Fl_Pago").ToString().Trim()
+            End If
 
-                If statusValue = "Pendente" OrElse statusValue = "" Then
-                    ' Fatura NÃO PAGA - Células vermelhas
-                    e.Item.BackColor = System.Drawing.Color.FromArgb(255, 235, 238) ' Vermelho claro (#FFEBEE)
-                    statusCell.ForeColor = System.Drawing.Color.DarkRed
-                    statusCell.Font.Bold = True
-                Else
-                    ' Fatura PAGA - Células verdes
-                    e.Item.BackColor = System.Drawing.Color.FromArgb(232, 245, 233) ' Verde claro (#E8F5E9)
-                    statusCell.ForeColor = System.Drawing.Color.DarkGreen
-                    statusCell.Font.Bold = True
-                End If
+            If statusValue = "Pendente" OrElse statusValue = "" Then
+                ' Fatura NÃO PAGA - Células vermelhas
+                e.Item.BackColor = System.Drawing.Color.FromArgb(255, 235, 238) ' Vermelho claro (#FFEBEE)
+                statusCell.ForeColor = System.Drawing.Color.DarkRed
+                statusCell.Font.Bold = True
+            Else
+                ' Fatura PAGA - Células verdes
+                e.Item.BackColor = System.Drawing.Color.FromArgb(232, 245, 233) ' Verde claro (#E8F5E9)
+                statusCell.ForeColor = System.Drawing.Color.DarkGreen
+                statusCell.Font.Bold = True
             End If
         End If
+    End Sub
+
+    Protected Sub dtgContasNaoPagas_PageIndexChanged(source As Object, e As System.Web.UI.WebControls.DataGridPageChangedEventArgs)
+        dtgContasNaoPagas.CurrentPageIndex = e.NewPageIndex
+        dtgContasNaoPagas.DataSource = Session("DataSet")
+        dtgContasNaoPagas.DataBind()
     End Sub
 
     Protected Sub btComprovante_Click(sender As Object, e As ImageClickEventArgs)
