@@ -11,6 +11,7 @@ Imports System.Web.Services
 Imports System.Web.Services.Protocols
 Imports System.Data
 Imports System.IO ' Para o log em arquivo de texto
+Imports System.Diagnostics ' [DIAG-042026] Stopwatch
 
 <WebService(Namespace:="WSChamado", Name:="WSChamado")>
 <WebServiceBinding(ConformsTo:=WsiProfiles.BasicProfile1_1)>
@@ -22,6 +23,23 @@ Public Class WSChamado
 
     ' Diretório e arquivo de log
     Private logFilePath As String = "C:\Temp\Log.txt"
+
+    ' [INICIO - DIAG-042026] Log diagnostico unificado
+    Private diagLogPath As String = "C:\Temp\Log042026.txt"
+
+    Private Sub LogDiag(ByVal etapa As String, ByVal correlationId As String, ByVal mensagem As String)
+        Try
+            Dim dir As String = Path.GetDirectoryName(diagLogPath)
+            If Not Directory.Exists(dir) Then Directory.CreateDirectory(dir)
+            Dim linha As String = $"{DateTime.Now:yyyy-MM-dd HH:mm:ss.fff} | [WSChamado] | {etapa} | CID={If(correlationId, "-")} | {mensagem}"
+            Using sw As StreamWriter = New StreamWriter(diagLogPath, True)
+                sw.WriteLine(linha)
+            End Using
+        Catch
+            ' Engole - log diagnostico nunca pode lancar
+        End Try
+    End Sub
+    ' [FIM - DIAG-042026]
 
     ' Construtor para inicializar o banco de dados
     Public Sub New()
@@ -127,16 +145,28 @@ Public Class WSChamado
                             ByVal name As String,
                             ByVal pTermoBusca As String,
                             ByVal pRetorno As Boolean) As DataSet
+        ' [DIAG-042026] Usa transactionID como correlation ID quando disponivel
+        Dim cid As String = If(String.IsNullOrEmpty(transactionID), $"req-{requestNumber}", transactionID)
+        LogDiag("Chamado.INICIO", cid, $"tipoSolicitacao={tipoSolicitacao} | pPakage={pPakage} | requestNumber={requestNumber} | workOrderNumber={workOrderNumber} | idChamado={idChamado}")
+
         Try
 
             VerificaOBanco()
+            LogDiag("Chamado.OBANCO_OK", cid, "")
 
             ' Log de início da operação
             EscreveLog($"(WSChamado) Action: {tipoSolicitacao}, Chamado ID: {idChamado}, pPakage: {pPakage}")
 
             If String.IsNullOrEmpty(pPConn_Banco) Then Throw New Exception("pPConn_Banco está vazio.")
+
             ' Carregar a lista de ações permitidas a partir do web.config
+            ' [DIAG-042026] Hipotese D: AcoesPermitidas pode estar Nothing
             Dim acoesPermitidasConfig As String = ConfigurationManager.AppSettings("AcoesPermitidas")
+            LogDiag("Chamado.ACOES_CONFIG", cid, $"AcoesPermitidas_IsNothing={acoesPermitidasConfig Is Nothing} | Tamanho={If(acoesPermitidasConfig, "").Length}")
+            If acoesPermitidasConfig Is Nothing Then
+                Throw New Exception("AppSetting 'AcoesPermitidas' nao encontrada no Web.config")
+            End If
+
             Dim acoesValidas As List(Of String) = acoesPermitidasConfig.Split(","c).Select(Function(a) a.Trim().ToUpper()).ToList()
             ' Verificações de parâmetros
             If pPakage.Trim().ToLower() <> "busca_todos_dados" Then
@@ -204,15 +234,27 @@ Public Class WSChamado
             ' [FIM - ICTRL-NF-202506-012]
 
             ' Converte a lista para array e retorna o resultado da query
-            Return oBanco.retorna_Query("dbo.pa_Chamado", parametros.ToArray(), pPConn_Banco)
+            ' [DIAG-042026] Mede tempo da chamada ao banco para detectar timeouts/lentidao
+            LogDiag("Chamado.PRE_QUERY", cid, $"Procedure=dbo.pa_Chamado | TotalParametros={parametros.Count}")
+            Dim sw As Stopwatch = Stopwatch.StartNew()
+            Dim resultado As DataSet = oBanco.retorna_Query("dbo.pa_Chamado", parametros.ToArray(), pPConn_Banco)
+            sw.Stop()
+            LogDiag("Chamado.POS_QUERY", cid,
+                $"DuracaoMs={sw.ElapsedMilliseconds} | " &
+                $"ResultIsNothing={resultado Is Nothing} | " &
+                $"TableCount={If(resultado Is Nothing, -1, resultado.Tables.Count)} | " &
+                $"RowCount={If(resultado Is Nothing OrElse resultado.Tables.Count = 0, -1, resultado.Tables(0).Rows.Count)}")
+            Return resultado
 
         Catch ex As SqlClient.SqlException
             EscreveLog(ex.Message)
+            LogDiag("Chamado.ERRO_SQL", cid, $"Number={ex.Number} | State={ex.State} | Class={ex.Class} | LineNumber={ex.LineNumber} | Procedure={ex.Procedure} | Server={ex.Server} | Msg={ex.Message}")
             Throw New Exception(ex.Message)
 
         Catch ex As Exception
             ' Log do erro detalhado
             EscreveLog("(WSChamado) Erro em Chamado: " & ex.Message & vbCrLf & ex.StackTrace)
+            LogDiag("Chamado.ERRO", cid, $"Tipo={ex.GetType().FullName} | Msg={ex.Message} | InnerType={If(ex.InnerException Is Nothing, "-", ex.InnerException.GetType().FullName)} | InnerMsg={If(ex.InnerException Is Nothing, "-", ex.InnerException.Message)} | Stack={ex.StackTrace}")
             Throw New Exception(ex.Message)
         End Try
     End Function

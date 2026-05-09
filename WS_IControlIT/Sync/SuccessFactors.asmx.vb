@@ -507,9 +507,15 @@ Namespace Sync
                 Dim Cd_Centro_Custo As String = EncodeXml(GetValue("cost_center", "PENDENTE"))
                 Dim matriculaChefia As String = EncodeXml(GetValue("manager_id", "PENDENTE"))
                 Dim Cd_Departamento As String = EncodeXml(GetValue("department", "PENDENTE"))
+                Dim Cd_Cargo As String = EncodeXml(GetValue("job_code", "PENDENTE"))
                 Dim Cd_Setor As String = "PENDENTE"
                 Dim flDesativado As Integer = If(statusConsumidor = "false", 1, 0)
-                Dim idConsumidorStatus As Integer = If(statusConsumidor = "true", 1, 2)
+                ' Status do consumidor: derivado de logon_user_is_active. "A" (Active) mapeia
+                ' para Id_Consumidor_Status = 1 e "T" (Terminated) para 2, via JOIN na proc.
+                ' Nao usamos emplStatus do SF porque ele reflete o ultimo evento do vinculo
+                ' (inclusive licencas temporarias como "P"), nao o status efetivo esperado
+                ' pelo negocio (Ativo/Inativo).
+                Dim cdConsumidorStatus As String = If(statusConsumidor = "true", "A", "T")
 
                 Dim dtDesativacao As String = ""
                 Dim end_date As String = GetValue("end_date", "")
@@ -540,7 +546,7 @@ Namespace Sync
                 sb.AppendLine($"    <Nm_Consumidor>{nmConsumidor}</Nm_Consumidor>")
                 sb.AppendLine($"    <Matricula>{matricula}</Matricula>")
                 sb.AppendLine($"    <EMail>{email}</EMail>")
-                sb.AppendLine($"    <Id_Consumidor_Status>{idConsumidorStatus}</Id_Consumidor_Status>")
+                sb.AppendLine($"    <Cd_Consumidor_Status>{cdConsumidorStatus}</Cd_Consumidor_Status>")
                 sb.AppendLine($"    <Matricula_Chefia>{matriculaChefia}</Matricula_Chefia>")
                 sb.AppendLine($"    <Fl_Desativado>{flDesativado}</Fl_Desativado>")
                 sb.AppendLine($"    <Nm_Cidade>{nmCidade}</Nm_Cidade>")
@@ -550,6 +556,7 @@ Namespace Sync
                 sb.AppendLine($"    <Cd_Centro_Custo>{Cd_Centro_Custo}</Cd_Centro_Custo>")
                 sb.AppendLine($"    <Cd_Departamento>{Cd_Departamento}</Cd_Departamento>")
                 sb.AppendLine($"    <Cd_Filial>{Cd_Filial}</Cd_Filial>")
+                sb.AppendLine($"    <Cd_Cargo>{Cd_Cargo}</Cd_Cargo>")
                 sb.AppendLine("  </Consumidor>")
             Next
             sb.AppendLine("</Root>")
@@ -862,10 +869,24 @@ Namespace Sync
                         empData("person_id_external") = "PENDENTE"
                     End If
 
-                    ' 2. Extrair <formal_name>
-                    Dim formalNameNode = sfobjNode.SelectSingleNode("sf:person/sf:personal_information/sf:formal_name", nsMgr)
-                    If formalNameNode IsNot Nothing Then
-                        empData("formal_name") = formalNameNode.InnerText
+                    ' 2. Extrair <first_name>, <middle_name>, <last_name> e concatenar
+                    Dim firstNameNode = sfobjNode.SelectSingleNode("sf:person/sf:personal_information/sf:first_name", nsMgr)
+                    Dim middleNameNode = sfobjNode.SelectSingleNode("sf:person/sf:personal_information/sf:middle_name", nsMgr)
+                    Dim lastNameNode = sfobjNode.SelectSingleNode("sf:person/sf:personal_information/sf:last_name", nsMgr)
+
+                    Dim partesNome As New List(Of String)()
+                    If firstNameNode IsNot Nothing AndAlso Not String.IsNullOrWhiteSpace(firstNameNode.InnerText) Then
+                        partesNome.Add(firstNameNode.InnerText.Trim())
+                    End If
+                    If middleNameNode IsNot Nothing AndAlso Not String.IsNullOrWhiteSpace(middleNameNode.InnerText) Then
+                        partesNome.Add(middleNameNode.InnerText.Trim())
+                    End If
+                    If lastNameNode IsNot Nothing AndAlso Not String.IsNullOrWhiteSpace(lastNameNode.InnerText) Then
+                        partesNome.Add(lastNameNode.InnerText.Trim())
+                    End If
+
+                    If partesNome.Count > 0 Then
+                        empData("formal_name") = String.Join(" ", partesNome)
                     Else
                         empData("formal_name") = "PENDENTE"
                     End If
@@ -932,6 +953,14 @@ Namespace Sync
                         empData("department") = departmentNode.InnerText
                     Else
                         empData("department") = "PENDENTE"
+                    End If
+
+                    ' 11. Extrair <job_code> (cargo)
+                    Dim jobCodeNode = sfobjNode.SelectSingleNode("sf:person/sf:employment_information/sf:job_information/sf:job_code", nsMgr)
+                    If jobCodeNode IsNot Nothing Then
+                        empData("job_code") = jobCodeNode.InnerText
+                    Else
+                        empData("job_code") = "PENDENTE"
                     End If
 
                     ' Opcional: Extrair <id> como employeeIdentifier (se ainda necessário)

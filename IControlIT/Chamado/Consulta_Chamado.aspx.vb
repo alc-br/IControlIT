@@ -2,10 +2,10 @@
 ' Consulta_Chamado.aspx.vb
 ' Autor: Anderson Luiz Chipak
 ' Data: 05/09/2024
-' Descrição:Code Behind para Consulta de Chamados
+' Descriï¿½ï¿½o:Code Behind para Consulta de Chamados
 ' -----------------------------------------------------------------------
 ' /*
-' * HISTÓRICO DE MODIFICAÇÕES
+' * HISTï¿½RICO DE MODIFICAï¿½ï¿½ES
 ' * [ICTRL-NF-202506-006 | 2025-06-22 | ANDERSON LUIZ CHIPAK]
 ' * [ICTRL-NF-202506-012 | 2025-06-22 | ANDERSON LUIZ CHIPAK]
 ' * [ICTRL-NF-202506-013 | 2025-06-22 | ANDERSON LUIZ CHIPAK]
@@ -36,27 +36,27 @@ Public Class Consulta_Chamado
     Dim vdataset As Data.DataSet
     Private logFilePath As String = "C:\Temp\Log.txt"
 
-    ' Método para garantir que o arquivo de log pode ser criado ou acessado
+    ' Mï¿½todo para garantir que o arquivo de log pode ser criado ou acessado
     Private Sub InicializaLog()
         Try
-            ' Verifica se a pasta existe, senão cria
+            ' Verifica se a pasta existe, senï¿½o cria
             Dim logDirectory As String = Path.GetDirectoryName(logFilePath)
             If Not Directory.Exists(logDirectory) Then
                 Directory.CreateDirectory(logDirectory)
             End If
-            ' Verifica se o arquivo existe, senão cria
+            ' Verifica se o arquivo existe, senï¿½o cria
             If Not File.Exists(logFilePath) Then
                 File.Create(logFilePath).Dispose()
             End If
         Catch ex As Exception
-            ' Caso ocorra um erro ao criar diretório ou arquivo de log
+            ' Caso ocorra um erro ao criar diretï¿½rio ou arquivo de log
             Throw New Exception("Erro ao inicializar o arquivo de log: " & ex.Message)
         End Try
     End Sub
-    ' Método para escrever log em arquivo de texto
+    ' Mï¿½todo para escrever log em arquivo de texto
     Private Sub EscreveLog(ByVal mensagem As String)
         Try
-            ' Inicializa o log (cria pasta/arquivo se necessário)
+            ' Inicializa o log (cria pasta/arquivo se necessï¿½rio)
             InicializaLog()
             ' Escreve a mensagem no arquivo de log
             Using sw As StreamWriter = New StreamWriter(logFilePath, True)
@@ -70,17 +70,17 @@ Public Class Consulta_Chamado
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Load
         ' Verifica se o postback foi acionado pelo BtnExecutar
         If IsPostBack AndAlso Request("__EVENTTARGET") = "BtnExecutar" Then
-            ' Chama o método assíncrono BtnExecutar_Click usando um handler assíncrono
+            ' Chama o mï¿½todo assï¿½ncrono BtnExecutar_Click usando um handler assï¿½ncrono
             Dim task As Task = BtnExecutar_Click(Nothing, EventArgs.Empty)
-            task.Wait() ' Aguarda a conclusão da tarefa assíncrona
-            Return ' Evita a execução do restante do Page_Load
+            task.Wait() ' Aguarda a conclusï¿½o da tarefa assï¿½ncrona
+            Return ' Evita a execuï¿½ï¿½o do restante do Page_Load
         End If
-        ' Executa o carregamento inicial de dados se não for um postback
+        ' Executa o carregamento inicial de dados se nï¿½o for um postback
         If Not IsPostBack Then
             Dim itemsPerPage As Integer = Convert.ToInt32(ddlItemsPerPage.SelectedValue)
             Dim connBancoValue = Session("Conn_Banco")
             If String.IsNullOrEmpty(connBancoValue) Then
-                ScriptManager.RegisterStartupScript(Me, Me.GetType(), "alertMessage", "alert('A string de conexão está vazia.');", True)
+                ScriptManager.RegisterStartupScript(Me, Me.GetType(), "alertMessage", "alert('A string de conexï¿½o estï¿½ vazia.');", True)
             Else
                 BindChamados(1, itemsPerPage)
                 BindEmpresaContratante()
@@ -89,16 +89,16 @@ Public Class Consulta_Chamado
     End Sub
     Private Sub BindChamados(ByVal pageNumber As Integer, ByVal pageSize As Integer)
         Try
-            ' Inicialização da conexão com o banco de dados
+            ' Inicializaï¿½ï¿½o da conexï¿½o com o banco de dados
             Dim pPConn_Banco As String = Session("Conn_Banco")
             If String.IsNullOrEmpty(pPConn_Banco) Then
-                Throw New InvalidOperationException("A conexão com o banco de dados não foi encontrada.")
+                Throw New InvalidOperationException("A conexï¿½o com o banco de dados nï¿½o foi encontrada.")
             End If
             EscreveLog("pRetorno: True")
             ' Chamada inicial para buscar dados do Chamado
             Dim vdataset As DataSet = WS_Chamado.Chamado(pPConn_Banco, "busca_todos_dados", pageNumber, pageSize, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Me.TermoBusca, True)
 
-            ' Verifica se o DataSet contém informações
+            ' Verifica se o DataSet contï¿½m informaï¿½ï¿½es
             If vdataset IsNot Nothing AndAlso vdataset.Tables.Count > 0 Then
                 ' Log para exibir nomes de colunas e dados do DataSet
                 For Each table As DataTable In vdataset.Tables
@@ -120,13 +120,13 @@ Public Class Consulta_Chamado
         Catch ex As Exception
             Dim mensagemErro As String = ex.Message
             If mensagemErro.Contains("( ") AndAlso mensagemErro.Contains(" )") Then
-                ' Esse trecho indica que o erro pode estar vindo do SQL Server com o conteúdo de @MsgErro
+                ' Esse trecho indica que o erro pode estar vindo do SQL Server com o conteï¿½do de @MsgErro
                 EscreveLog("===========================================================================================")
                 EscreveLog("(Consulta_Chamado.aspx.vb) Erro do SQL Server: " & mensagemErro & vbCrLf & ex.StackTrace)
             Else
-                ' Captura qualquer outra exceção
+                ' Captura qualquer outra exceï¿½ï¿½o
                 EscreveLog("===========================================================================================")
-                EscreveLog("(Consulta_Chamado.aspx.vb) Erro Genérico: " & mensagemErro & vbCrLf & ex.StackTrace)
+                EscreveLog("(Consulta_Chamado.aspx.vb) Erro Genï¿½rico: " & mensagemErro & vbCrLf & ex.StackTrace)
             End If
         End Try
     End Sub
@@ -155,41 +155,41 @@ Public Class Consulta_Chamado
     Protected Async Function BtnExecutar_Click(sender As Object, e As EventArgs) As Task
         Dim itemsPerPage As Integer = Convert.ToInt32(ddlItemsPerPage.SelectedValue)
         Try
-            ' Chame seu método de ação do chamado e capture a mensagem de retorno
+            ' Chame seu mï¿½todo de aï¿½ï¿½o do chamado e capture a mensagem de retorno
             Dim mensagem As String = ExecutarAcaoChamado()
             Dim mensagemEscapada As String = mensagem.Replace("'", "\'")
             Try
                 ' Aguarde a chamada da API, passando a mensagem de sucesso para DispararRequisicaoSimples
                 DispararRequisicaoSimples("ENCERRADA", mensagem)
             Catch ex As Exception
-                mensagemEscapada = mensagemEscapada & $" ATENÇÂO: Foi relatado um erro no retorno da requisição para o ServiceNow: {ex.Message}"
+                mensagemEscapada = mensagemEscapada & $" ATENï¿½ï¿½O: Foi relatado um erro no retorno da requisiï¿½ï¿½o para o ServiceNow: {ex.Message}"
             End Try
             ' Atualize os dados dos chamados
             BindChamados(CurrentPage, itemsPerPage)
-            ' Exiba a mensagem de sucesso retornada pelo método
+            ' Exiba a mensagem de sucesso retornada pelo mï¿½todo
             ScriptManager.RegisterStartupScript(Me, Me.GetType(), "alert", $"alert('Chamado processado. {mensagemEscapada}');", True)
         Catch ex As Exception
             ' Atualize os dados dos chamados
             BindChamados(CurrentPage, itemsPerPage)
-            EscreveLog("(Consulta_Chamado.BtnExecutar_Click) Erro ao executar a ação: " & ex.Message)
+            EscreveLog("(Consulta_Chamado.BtnExecutar_Click) Erro ao executar a aï¿½ï¿½o: " & ex.Message)
             ScriptManager.RegisterStartupScript(Me, Me.GetType(), "alert", $"alert('{ex.Message}');", True)
         End Try
     End Function
     Public Sub DispararRequisicaoSimples(estadoChamado As String, mensagem As String)
         Try
-            ' Forçar o uso do protocolo TLS 1.2
+            ' Forï¿½ar o uso do protocolo TLS 1.2
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 Or SecurityProtocolType.Tls11 Or SecurityProtocolType.Tls
-            ' Configurar os dados de autenticação e URL
+            ' Configurar os dados de autenticaï¿½ï¿½o e URL
             Dim authSistel As String = ConfigurationManager.AppSettings("auth_sistel")
             Dim apiUrl As String = ConfigurationManager.AppSettings("url_api_sistel")
             Dim assignedTo As String = ConfigurationManager.AppSettings("assigned_to_sistel")
-            ' Montar os dados do corpo da requisição
-            ' [INÍCIO - ICTRL-NF-202506-008]
-            ' Montar os dados do corpo da requisição
+            ' Montar os dados do corpo da requisiï¿½ï¿½o
+            ' [INï¿½CIO - ICTRL-NF-202506-008]
+            ' Montar os dados do corpo da requisiï¿½ï¿½o
             Dim registrationValue As String
 
-            ' Se a solicitação for de uma nova linha e o campo da nova linha estiver preenchido,
-            ' usamos o novo número. Caso contrário, mantém-se o valor original.
+            ' Se a solicitaï¿½ï¿½o for de uma nova linha e o campo da nova linha estiver preenchido,
+            ' usamos o novo nï¿½mero. Caso contrï¿½rio, mantï¿½m-se o valor original.
             If hfTipoSolicitacao.Value.ToUpper() = "NOVA LINHA" AndAlso Not String.IsNullOrEmpty(hfNovaLinha.Value) Then
                 registrationValue = hfNovaLinha.Value
             Else
@@ -209,29 +209,29 @@ Public Class Consulta_Chamado
             ' [FIM - ICTRL-NF-202506-008]
             ' Serializar os dados para JSON
             Dim jsonRequestBody As String = Newtonsoft.Json.JsonConvert.SerializeObject(requestData)
-            ' Gravar no log tudo que está sendo enviado
-            EscreveLog("======= ENVIO DE REQUISIÇÃO SIMPLES =======")
+            ' Gravar no log tudo que estï¿½ sendo enviado
+            EscreveLog("======= ENVIO DE REQUISIï¿½ï¿½O SIMPLES =======")
             EscreveLog($"API URL: {apiUrl}")
             EscreveLog($"Authorization: {authSistel}")
             EscreveLog($"Request Content: {jsonRequestBody}")
             EscreveLog("===========================================")
-            ' Configurar a requisição usando HttpWebRequest
+            ' Configurar a requisiï¿½ï¿½o usando HttpWebRequest
             Dim request As HttpWebRequest = CType(WebRequest.Create(apiUrl), HttpWebRequest)
             request.Method = "PUT"
             request.ContentType = "application/json"
             request.Headers.Add("Authorization", "Basic " & authSistel)
-            ' Enviar os dados no corpo da requisição
+            ' Enviar os dados no corpo da requisiï¿½ï¿½o
             Using streamWriter As New StreamWriter(request.GetRequestStream())
                 streamWriter.Write(jsonRequestBody)
                 streamWriter.Flush()
             End Using
-            ' Disparar a requisição sem esperar resposta
+            ' Disparar a requisiï¿½ï¿½o sem esperar resposta
             request.GetResponse().Close()
-            EscreveLog("Requisição PUT disparada com sucesso (simples).")
+            EscreveLog("Requisiï¿½ï¿½o PUT disparada com sucesso (simples).")
         Catch ex As Exception
             ' Log de erros
-            EscreveLog("======= ERRO AO ENVIAR REQUISIÇÃO SIMPLES =======")
-            EscreveLog($"Erro durante a requisição PUT: {ex.Message}")
+            EscreveLog("======= ERRO AO ENVIAR REQUISIï¿½ï¿½O SIMPLES =======")
+            EscreveLog($"Erro durante a requisiï¿½ï¿½o PUT: {ex.Message}")
             If ex.InnerException IsNot Nothing Then
                 EscreveLog($"Inner Exception: {ex.InnerException.Message}")
             End If
@@ -240,19 +240,19 @@ Public Class Consulta_Chamado
         End Try
     End Sub
     Public Async Function RetornoAPISemEspera(estadoChamado As String) As Task
-        ' Forçar o uso do protocolo TLS 1.2
+        ' Forï¿½ar o uso do protocolo TLS 1.2
         ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
         ' Criar um objeto HttpClient
         Using client As New HttpClient()
             Try
-                ' Lendo usuário e senha do web.config
+                ' Lendo usuï¿½rio e senha do web.config
                 Dim authSistel As String = ConfigurationManager.AppSettings("auth_sistel")
                 Dim apiUrl As String = ConfigurationManager.AppSettings("url_api_sistel")
                 Dim assignedTo As String = ConfigurationManager.AppSettings("assigned_to_sistel")
-                ' Adicionar cabeçalho de autorização
+                ' Adicionar cabeï¿½alho de autorizaï¿½ï¿½o
                 client.DefaultRequestHeaders.Authorization = New AuthenticationHeaderValue("Basic", authSistel)
                 client.DefaultRequestHeaders.Accept.Add(New MediaTypeWithQualityHeaderValue("application/json"))
-                ' Montar os dados do corpo da requisição
+                ' Montar os dados do corpo da requisiï¿½ï¿½o
                 Dim userNumber As String = hfUserNumber.Value
                 Dim requestData As New With {
                 .Action = hfTipoSolicitacao.Value,
@@ -267,21 +267,21 @@ Public Class Consulta_Chamado
                 ' Serializar os dados para JSON
                 Dim jsonRequestBody As String = Newtonsoft.Json.JsonConvert.SerializeObject(requestData)
                 Dim content As New StringContent(jsonRequestBody, Encoding.UTF8, "application/json")
-                ' Gravar no log tudo que está sendo enviado
-                EscreveLog("======= ENVIO DE REQUISIÇÃO =======")
+                ' Gravar no log tudo que estï¿½ sendo enviado
+                EscreveLog("======= ENVIO DE REQUISIï¿½ï¿½O =======")
                 EscreveLog($"API URL: {apiUrl}")
                 EscreveLog($"Authorization: {authSistel}")
                 EscreveLog($"Request Content: {jsonRequestBody}")
                 EscreveLog("===================================")
-                ' Tentar fazer a requisição PUT sem aguardar uma resposta completa
+                ' Tentar fazer a requisiï¿½ï¿½o PUT sem aguardar uma resposta completa
                 Try
-                    ' Apenas dispara a requisição
+                    ' Apenas dispara a requisiï¿½ï¿½o
                     Await client.PutAsync(apiUrl, content).ConfigureAwait(False)
-                    EscreveLog("Requisição PUT enviada com sucesso.")
+                    EscreveLog("Requisiï¿½ï¿½o PUT enviada com sucesso.")
                 Catch ex As Exception
                     ' Logar qualquer erro durante o envio
-                    EscreveLog("======= ERRO AO ENVIAR REQUISIÇÃO =======")
-                    EscreveLog($"Erro durante a requisição PUT: {ex.Message}")
+                    EscreveLog("======= ERRO AO ENVIAR REQUISIï¿½ï¿½O =======")
+                    EscreveLog($"Erro durante a requisiï¿½ï¿½o PUT: {ex.Message}")
                     If ex.InnerException IsNot Nothing Then
                         EscreveLog($"Inner Exception: {ex.InnerException.Message}")
                     End If
@@ -289,7 +289,7 @@ Public Class Consulta_Chamado
                     Throw
                 End Try
             Catch ex As Exception
-                ' Capturar outras exceções
+                ' Capturar outras exceï¿½ï¿½es
                 EscreveLog("======= ERRO GERAL =======")
                 EscreveLog($"Erro ao chamar a API: {ex.Message}")
                 If ex.InnerException IsNot Nothing Then
@@ -301,19 +301,19 @@ Public Class Consulta_Chamado
         End Using
     End Function
     Private Async Function RetornoAPI(estadoChamado As String) As Task
-        ' Forçar o uso do protocolo TLS 1.2
+        ' Forï¿½ar o uso do protocolo TLS 1.2
         ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
         ' Criar um objeto HttpClient
         Using client As New HttpClient()
             Try
-                ' Lendo usuário e senha do web.config
+                ' Lendo usuï¿½rio e senha do web.config
                 Dim authSistel As String = ConfigurationManager.AppSettings("auth_sistel")
                 Dim apiUrl As String = ConfigurationManager.AppSettings("url_api_sistel")
                 Dim assignedTo As String = ConfigurationManager.AppSettings("assigned_to_sistel")
-                ' Adicionar cabeçalho de autorização
+                ' Adicionar cabeï¿½alho de autorizaï¿½ï¿½o
                 client.DefaultRequestHeaders.Authorization = New AuthenticationHeaderValue("Basic", authSistel)
                 client.DefaultRequestHeaders.Accept.Add(New MediaTypeWithQualityHeaderValue("application/json"))
-                ' Montar os dados do corpo da requisição
+                ' Montar os dados do corpo da requisiï¿½ï¿½o
                 Dim userNumber As String = hfUserNumber.Value
                 Dim requestData As New With {
                 .Action = hfTipoSolicitacao.Value,
@@ -328,37 +328,37 @@ Public Class Consulta_Chamado
                 ' Serializar os dados para JSON
                 Dim jsonRequestBody As String = Newtonsoft.Json.JsonConvert.SerializeObject(requestData)
                 Dim content As New StringContent(jsonRequestBody, Encoding.UTF8, "application/json")
-                ' Gravar no log tudo que está sendo enviado
-                EscreveLog("======= ENVIO DE REQUISIÇÃO =======")
+                ' Gravar no log tudo que estï¿½ sendo enviado
+                EscreveLog("======= ENVIO DE REQUISIï¿½ï¿½O =======")
                 EscreveLog($"API URL: {apiUrl}")
                 EscreveLog($"Authorization: {authSistel}")
                 EscreveLog($"Request Content: {jsonRequestBody}")
                 EscreveLog("===================================")
-                ' Tentar fazer a requisição PUT
+                ' Tentar fazer a requisiï¿½ï¿½o PUT
                 Try
                     Dim apiResponse As HttpResponseMessage = Await client.PutAsync(apiUrl, content)
-                    ' Gravar no log o código de status da resposta
-                    EscreveLog($"Código de Status HTTP: {apiResponse.StatusCode}")
-                    ' Tentar ler o conteúdo da resposta
+                    ' Gravar no log o cï¿½digo de status da resposta
+                    EscreveLog($"Cï¿½digo de Status HTTP: {apiResponse.StatusCode}")
+                    ' Tentar ler o conteï¿½do da resposta
                     Dim responseData As String = Await apiResponse.Content.ReadAsStringAsync()
                     ' Registrar resposta completa, independentemente de sucesso ou falha
                     If apiResponse.IsSuccessStatusCode Then
                         EscreveLog("======= SUCESSO =======")
-                        EscreveLog("Requisição bem-sucedida:")
+                        EscreveLog("Requisiï¿½ï¿½o bem-sucedida:")
                         EscreveLog($"Resposta: {responseData}")
                         EscreveLog("========================")
                     Else
                         EscreveLog("======= ERRO =======")
-                        EscreveLog($"Erro na requisição: {apiResponse.StatusCode} - {responseData}")
+                        EscreveLog($"Erro na requisiï¿½ï¿½o: {apiResponse.StatusCode} - {responseData}")
                         EscreveLog("====================")
                         ' Exibir um alerta com o erro usando ScriptManager
-                        Dim errorMessage As String = $"Erro na atualização do Service Now. Código de status: {apiResponse.StatusCode}. Detalhes: {responseData}"
+                        Dim errorMessage As String = $"Erro na atualizaï¿½ï¿½o do Service Now. Cï¿½digo de status: {apiResponse.StatusCode}. Detalhes: {responseData}"
                         ScriptManager.RegisterStartupScript(Me, Me.GetType(), "alert", $"alert('{errorMessage}');", True)
                     End If
                 Catch ex As Exception
-                    ' Capturar exceções relacionadas à requisição
-                    EscreveLog("======= ERRO DURANTE A REQUISIÇÃO =======")
-                    EscreveLog($"Erro durante a requisição PUT: {ex.Message}")
+                    ' Capturar exceï¿½ï¿½es relacionadas ï¿½ requisiï¿½ï¿½o
+                    EscreveLog("======= ERRO DURANTE A REQUISIï¿½ï¿½O =======")
+                    EscreveLog($"Erro durante a requisiï¿½ï¿½o PUT: {ex.Message}")
                     If ex.InnerException IsNot Nothing Then
                         EscreveLog($"Inner Exception: {ex.InnerException.Message}")
                     End If
@@ -366,7 +366,7 @@ Public Class Consulta_Chamado
                     Throw
                 End Try
             Catch ex As Exception
-                ' Capturar outras exceções
+                ' Capturar outras exceï¿½ï¿½es
                 EscreveLog("======= ERRO GERAL =======")
                 EscreveLog($"Erro ao chamar a API: {ex.Message}")
                 If ex.InnerException IsNot Nothing Then
@@ -377,7 +377,7 @@ Public Class Consulta_Chamado
             End Try
         End Using
     End Function
-    ' Função que executa a ação baseada no tipo de solicitação
+    ' Funï¿½ï¿½o que executa a aï¿½ï¿½o baseada no tipo de solicitaï¿½ï¿½o
     Private Function ExecutarAcaoChamado() As String
         Dim pCampo1 As String = ""
         Dim pCampo2 As String = ""
@@ -392,14 +392,14 @@ Public Class Consulta_Chamado
         Const c_acao_portabilidade As String = "portabilidade-de-linha"
         Const c_acao_alterar_ddd As String = "alterar-ddd"
         Try
-            ' Coletando valores dos campos necessários
+            ' Coletando valores dos campos necessï¿½rios
             Dim tipoSolicitacao As String = hfTipoSolicitacao.Value.ToLower().Replace(" ", "-").Replace("/", "-")
             Dim idChamado As Integer = If(Not String.IsNullOrEmpty(hfIdChamado.Value), Convert.ToInt32(hfIdChamado.Value), 0)
             Dim servicePack As String = hfServicePack.Value
             Dim comentariosAtivo As String = ""
-            ' Ajusta o campo "comentarios" dependendo do tipo de solicitação
+            ' Ajusta o campo "comentarios" dependendo do tipo de solicitaï¿½ï¿½o
             Select Case tipoSolicitacao
-                ' [INÍCIO - ICTRL-NF-202506-002]
+                ' [INï¿½CIO - ICTRL-NF-202506-002]
                 Case "simcard-m2m---nova-linha"
                     comentariosAtivo = "Linha: " & hfNovaLinha.Value & " | Plano: " & hfnomePlanoMigracaoNL.Value
                     pCampo1 = hfNovaLinha.Value
@@ -424,13 +424,13 @@ Public Class Consulta_Chamado
                     comentariosAtivo = "Linha: " & hfAlterarLinha.Value
                     pCampo1 = hfNovaLinha.Value
                 Case c_acao_portabilidade
-                    comentariosAtivo = "Nome do plano: " & hfNomePlanoPortabilidade.Value & " | Data de recebimento do chip: " & hfDataRecebimentoChip.Value & " | Data de efetivação da portabilidade: " & hfDataEfetivacaoPortabilidade.Value
+                    comentariosAtivo = "Nome do plano: " & hfNomePlanoPortabilidade.Value & " | Data de recebimento do chip: " & hfDataRecebimentoChip.Value & " | Data de efetivaï¿½ï¿½o da portabilidade: " & hfDataEfetivacaoPortabilidade.Value
                     pCampo1 = hfNomePlanoPortabilidade.Value
                     pCampo2 = hfDataRecebimentoChip.Value
                     pCampo3 = hfDataEfetivacaoPortabilidade.Value
             End Select
 
-            ' [INÍCIO - ICTRL-NF-202506-001 | 2025-06-21 | Parceiro IControlIT]
+            ' [INï¿½CIO - ICTRL-NF-202506-001 | 2025-06-21 | Parceiro IControlIT]
             Select Case tipoSolicitacao
                 ' ... outros cases ...
                 Case "e-sim-troca-de-chip-virtual"
@@ -439,7 +439,7 @@ Public Class Consulta_Chamado
             End Select
             ' [FIM - ICTRL-NF-202506-001]
 
-            ' Chama a função que controla o tipo de solicitação, exceto para "alterar-proprietario"
+            ' Chama a funï¿½ï¿½o que controla o tipo de solicitaï¿½ï¿½o, exceto para "alterar-proprietario"
             Return WS_Chamado.ExecutarAcaoAtivo(Session("Conn_Banco"), "dbo.pa_Ativo_Chamado", tipoSolicitacao, idChamado, comentariosAtivo, pCampo1, pCampo2, pCampo3, pCampo4, pCampo5, pCampo6, True)
         Catch ex As SqlClient.SqlException
             Throw
@@ -448,14 +448,14 @@ Public Class Consulta_Chamado
         End Try
     End Function
     Private Function EnviarEmailChamado()
-        Dim emailsSelecionados As String = hfEmailsSelecionados.Value ' Emails separados por vírgula
+        Dim emailsSelecionados As String = hfEmailsSelecionados.Value ' Emails separados por vï¿½rgula
         Dim emailRespRegional As String = hfEmailResponsavelRegional.Value
-        ' Verificar e substituir a vírgula por ponto e vírgula
+        ' Verificar e substituir a vï¿½rgula por ponto e vï¿½rgula
         emailRespRegional = emailRespRegional.Replace(" ", "")
         If emailRespRegional.Contains(",") Then
             emailRespRegional = emailRespRegional.Replace(",", ";")
         End If
-        ' Recuperando os valores da página
+        ' Recuperando os valores da pï¿½gina
         Dim idChamado As String = hfIdChamado.Value
         Dim requestNumber As String = hfRequestNumber.Value
         Dim workOrderNumber As String = hfWorkOrderNumber.Value
@@ -499,13 +499,13 @@ Public Class Consulta_Chamado
             pTextoAdicional &= "<strong>Work Order Number:</strong> " & workOrderNumber & "<br />"
         End If
         If Not String.IsNullOrEmpty(nomeUsuario) Then
-            pTextoAdicional &= "<strong>Nome Do usuário:</strong> " & nomeUsuario & "<br />"
+            pTextoAdicional &= "<strong>Nome Do usuï¿½rio:</strong> " & nomeUsuario & "<br />"
         End If
         If Not String.IsNullOrEmpty(idTransacao) Then
-            pTextoAdicional &= "<strong>ID da transação:</strong> " & idTransacao & "<br />"
+            pTextoAdicional &= "<strong>ID da transaï¿½ï¿½o:</strong> " & idTransacao & "<br />"
         End If
         If Not String.IsNullOrEmpty(tipoSolicitacao) Then
-            pTextoAdicional &= "<strong>Tipo de Solicitação:</strong> " & tipoSolicitacao & "<br />"
+            pTextoAdicional &= "<strong>Tipo de Solicitaï¿½ï¿½o:</strong> " & tipoSolicitacao & "<br />"
         End If
         ' ICTRL-NF-202506-013: Adiciona a operadora de origem no e-mail de portabilidade.
         If tipoSolicitacao.ToUpper() = "PORTABILIDADE DE LINHA" Then
@@ -526,7 +526,7 @@ Public Class Consulta_Chamado
             pTextoAdicional &= "<strong>Fatura Agrupadora:</strong> " & faturaAgrupadoraSelecionada & "<br />"
         End If
         If Not String.IsNullOrEmpty(migrationDevice) Then
-            pTextoAdicional &= "<strong>Tipo de Migração:</strong> " & migrationDevice & "<br />"
+            pTextoAdicional &= "<strong>Tipo de MigraÃ§Ã£o:</strong> " & migrationDevice & "<br />"
         End If
 
         ' ICTRL-NF-202506-013: Adiciona os campos condicionais (como Operadora Origem, etc.) ao corpo do email.
@@ -559,7 +559,7 @@ Public Class Consulta_Chamado
                     If conteudoBase64.Contains(",") Then
                         conteudoBase64 = conteudoBase64.Substring(conteudoBase64.IndexOf(",") + 1)
                     End If
-                    ' Converter o conteúdo base64 de volta para um byte array
+                    ' Converter o conteï¿½do base64 de volta para um byte array
                     Dim bytes() As Byte = Convert.FromBase64String(conteudoBase64)
                     ' Salvar o arquivo na pasta criada
                     Dim caminhoArquivo As String = Path.Combine(pastaAnexos, nomeArquivo)
@@ -573,12 +573,12 @@ Public Class Consulta_Chamado
                     ' Caso haja erro de formato base64
                     EscreveLog($"Erro ao converter base64 para bytes: {ex.Message}")
                 Catch ex As Exception
-                    ' Qualquer outro erro genérico
+                    ' Qualquer outro erro genï¿½rico
                     EscreveLog($"Erro ao processar arquivo '{arquivoBase64("nome").ToString()}': {ex.Message}")
                 End Try
             Next
         End If
-        ' Chamar a função para enviar o e-mail com o HTML gerado e anexos
+        ' Chamar a funï¿½ï¿½o para enviar o e-mail com o HTML gerado e anexos
         Dim msg As String = AgendarEnvioEmail(emailsSelecionados, emailRespRegional, pTextoAdicional, pAssuntoEmail, arquivosAnexos)
         Return msg
     End Function
@@ -586,23 +586,23 @@ Public Class Consulta_Chamado
         If estado IsNot Nothing Then
             If estado.ToString() = "Pendente" Then
                 Return "azul"
-            ElseIf estado.ToString() = "Concluído" Then
+            ElseIf estado.ToString() = "Concluï¿½do" Then
                 Return "verde"
             ElseIf estado.ToString() = "Cancelado" Then
                 Return "vermelho"
             End If
         End If
-        Return "azul" ' Classe padrão para outros estados ou nulo
+        Return "azul" ' Classe padrï¿½o para outros estados ou nulo
     End Function
-    ' Função para buscar e-mails da operadora por id_Conglomerado
+    ' Funï¿½ï¿½o para buscar e-mails da operadora por id_Conglomerado
     <WebMethod()>
     Public Shared Function BuscarEmailsOperadora(ByVal idConglomerado As Integer) As String
         Try
-            ' Chamar o método Operadora do WebService
+            ' Chamar o mï¿½todo Operadora do WebService
             Dim WS_Chamado As New WS_GUA_Chamado.WSChamado
             Dim pPConn_Banco As String = HttpContext.Current.Session("Conn_Banco")
             Dim ds As DataSet = WS_Chamado.ChamadoAuxiliar(pPConn_Banco, "buscar_emails_operadora", idConglomerado, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, True)
-            ' Verifica se o DataSet contém resultados
+            ' Verifica se o DataSet contï¿½m resultados
             If ds IsNot Nothing AndAlso ds.Tables.Count > 0 AndAlso ds.Tables(0).Rows.Count > 0 Then
                 ' Serializa a lista de e-mails para o formato JSON
                 Dim emailList As New List(Of String)
@@ -621,7 +621,7 @@ Public Class Consulta_Chamado
     <WebMethod()>
     Public Shared Function BuscarPlanosContrato(ByVal idConglomerado As Integer) As String
         Try
-            ' Configuração da conexão com o banco de dados
+            ' Configuraï¿½ï¿½o da conexï¿½o com o banco de dados
             Dim WS_Chamado As New WS_GUA_Chamado.WSChamado
             Dim pPConn_Banco As String = HttpContext.Current.Session("Conn_Banco")
             ' Chama a procedure para buscar planos de contrato
@@ -642,15 +642,15 @@ Public Class Consulta_Chamado
             Return "[]"
         End Try
     End Function
-    ' Função para buscar e-mails da operadora por id_Conglomerado
+    ' Funï¿½ï¿½o para buscar e-mails da operadora por id_Conglomerado
     <WebMethod()>
     Public Shared Function BuscarFaturaAgrupadora(ByVal idConglomerado As Integer) As String
         Try
-            ' Chamar o método Operadora do WebService
+            ' Chamar o mï¿½todo Operadora do WebService
             Dim WS_Chamado As New WS_GUA_Chamado.WSChamado
             Dim pPConn_Banco As String = HttpContext.Current.Session("Conn_Banco")
             Dim ds As DataSet = WS_Chamado.ChamadoAuxiliar(pPConn_Banco, "buscar_fatura_agrupadora", idConglomerado, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, True)
-            ' Verifica se o DataSet contém resultados
+            ' Verifica se o DataSet contï¿½m resultados
             If ds IsNot Nothing AndAlso ds.Tables.Count > 0 AndAlso ds.Tables(0).Rows.Count > 0 Then
                 ' Serializa a lista de e-mails para o formato JSON
                 Dim emailList As New List(Of String)
@@ -668,15 +668,15 @@ Public Class Consulta_Chamado
     End Function
     Protected Sub BindEmpresaContratante()
         Try
-            ' Chamar o método Operadora do WebService
+            ' Chamar o mï¿½todo Operadora do WebService
             Dim WS_Chamado As New WS_GUA_Chamado.WSChamado
             Dim pPConn_Banco As String = HttpContext.Current.Session("Conn_Banco")
             Dim ds As DataSet = WS_Chamado.ChamadoAuxiliar(pPConn_Banco, "buscar_nomes_filiais", Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, True)
-            ' Verifica se o DataSet contém resultados
+            ' Verifica se o DataSet contï¿½m resultados
             If ds IsNot Nothing AndAlso ds.Tables.Count > 0 AndAlso ds.Tables(0).Rows.Count > 0 Then
-                ' Limpa as opções existentes no DropDownList (empresaContratante)
+                ' Limpa as opï¿½ï¿½es existentes no DropDownList (empresaContratante)
                 empresaContratante.Items.Clear()
-                ' Adiciona a opção padrão
+                ' Adiciona a opï¿½ï¿½o padrï¿½o
                 empresaContratante.Items.Add(New ListItem("Selecione a Empresa", ""))
                 ' Preenche o DropDownList com os dados do DataSet
                 For Each row As DataRow In ds.Tables(0).Rows
@@ -684,12 +684,12 @@ Public Class Consulta_Chamado
                     empresaContratante.Items.Add(New ListItem(nomeFilial, nomeFilial))
                 Next
             Else
-                ' Adiciona uma mensagem padrão se não houver resultados
+                ' Adiciona uma mensagem padrï¿½o se nï¿½o houver resultados
                 empresaContratante.Items.Clear()
-                empresaContratante.Items.Add(New ListItem("Nenhuma empresa disponível", ""))
+                empresaContratante.Items.Add(New ListItem("Nenhuma empresa disponï¿½vel", ""))
             End If
         Catch ex As Exception
-            ' Tratamento de exceções
+            ' Tratamento de exceï¿½ï¿½es
             empresaContratante.Items.Clear()
             empresaContratante.Items.Add(New ListItem("Erro ao carregar as empresas", ""))
         End Try
@@ -697,11 +697,11 @@ Public Class Consulta_Chamado
     Protected Sub ddlItemsPerPage_SelectedIndexChanged(sender As Object, e As EventArgs)
         ' Recupera o valor selecionado no dropdown
         Dim itemsPerPage As Integer = Convert.ToInt32(ddlItemsPerPage.SelectedValue)
-        ' Atualiza a páginação e a exibição dos chamados com o novo número de itens por página
-        ' Aqui, você deve chamar seu método de exibição com o novo valor de itemsPerPage
+        ' Atualiza a pï¿½ginaï¿½ï¿½o e a exibiï¿½ï¿½o dos chamados com o novo nï¿½mero de itens por pï¿½gina
+        ' Aqui, vocï¿½ deve chamar seu mï¿½todo de exibiï¿½ï¿½o com o novo valor de itemsPerPage
         BindChamados(CurrentPage, itemsPerPage)
     End Sub
-    ' Função para agendar envio de email
+    ' Funï¿½ï¿½o para agendar envio de email
     Private Function AgendarEnvioEmail(ByVal pEmailRespRegional As String, ByVal pEmailOperadora As String, ByVal pTextoAdicional As String, ByVal pAssuntoEmail As String, ByVal anexos As List(Of AnexoModel)) As String
         Try
             Dim id_Mail_Sender As Integer
@@ -719,13 +719,13 @@ Public Class Consulta_Chamado
                 Dim caminhosArquivosConcatenados As String = ""
                 Dim delimitador As String = "|"
                 For Each anexo In anexos
-                    ' Concatenar o nome do arquivo e o caminho físico
+                    ' Concatenar o nome do arquivo e o caminho fï¿½sico
                     If Not String.IsNullOrEmpty(caminhosArquivosConcatenados) Then
                         caminhosArquivosConcatenados &= delimitador
                     End If
                     caminhosArquivosConcatenados &= anexo.CaminhoArquivo
                 Next
-                ' Chama o serviço web para agendar o disparo com os anexos fora do loop
+                ' Chama o serviï¿½o web para agendar o disparo com os anexos fora do loop
                 WS_Chamado.ChamadoAuxiliarComAnexos(pPConn_Banco, "agendar_disparo_email", Nothing, Nothing, pEmailRespRegional, Nothing, id_Mail_Sender, pTextoAdicional, Nothing, caminhosArquivosConcatenados, nmUsuario, id_Chamado, True)
             Else
                 ' Sem anexos
@@ -746,18 +746,18 @@ Public Class Consulta_Chamado
             ' Busca o id_Mail_Sender baseado no assunto
             Dim ds As DataSet = WS_Chamado.ChamadoAuxiliar(pPConn_Banco, "buscar_mail_sender", Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, pAssuntoEmail, Nothing, id_Chamado, True)
             id_Mail_Sender = Convert.ToInt32(ds.Tables(0).Rows(0)("Id_Mail_Sender"))
-            ' Verifica se há anexos
+            ' Verifica se hï¿½ anexos
             If anexos IsNot Nothing AndAlso anexos.Count > 0 Then
                 Dim caminhosArquivosConcatenados As String = ""
                 Dim delimitador As String = "|"
                 For Each anexo In anexos
-                    ' Concatenar o nome do arquivo e o caminho físico
+                    ' Concatenar o nome do arquivo e o caminho fï¿½sico
                     If Not String.IsNullOrEmpty(caminhosArquivosConcatenados) Then
                         caminhosArquivosConcatenados &= delimitador
                     End If
                     caminhosArquivosConcatenados &= anexo.CaminhoArquivo
                 Next
-                ' Chama o serviço web para agendar o disparo com os anexos fora do loop
+                ' Chama o serviï¿½o web para agendar o disparo com os anexos fora do loop
                 WS_Chamado.ChamadoAuxiliarComAnexos(pPConn_Banco, "agendar_disparo_email", Nothing, Nothing, pEmailDestino, pEmailCopia, id_Mail_Sender, pTextoAdicional, Nothing, caminhosArquivosConcatenados, nmUsuario, id_Chamado, True)
             Else
                 ' Sem anexos
@@ -777,23 +777,23 @@ Public Class Consulta_Chamado
             Dim msgEscapada As String = msg.Replace("'", "\'").Replace(vbCrLf, "\n")
             ScriptManager.RegisterStartupScript(Me, Me.GetType(), "alert", $"alert('{msgEscapada}');", True)
 
-            ' Apenas atualiza a lista de chamados se o envio de e-mail não retornou um erro
+            ' Apenas atualiza a lista de chamados se o envio de e-mail nï¿½o retornou um erro
             If Not msg.ToLower().Contains("erro") Then
                 BindChamados(CurrentPage, itemsPerPage)
             End If
 
         Catch ex As Exception
-            ' Se ocorrer qualquer erro inesperado durante o processo, ele será capturado aqui.
+            ' Se ocorrer qualquer erro inesperado durante o processo, ele serï¿½ capturado aqui.
             ' Isso evita que o modal feche silenciosamente.
             Dim errorMsg As String = "Ocorreu um erro inesperado ao tentar enviar o e-mail: " & ex.Message.Replace("'", "\'").Replace(vbCrLf, " ")
-            EscreveLog("(Consulta_Chamado.btnEnviarEmail_Click) Erro Detalhado: " & ex.ToString()) ' Grava o erro completo no log para depuração
+            EscreveLog("(Consulta_Chamado.btnEnviarEmail_Click) Erro Detalhado: " & ex.ToString()) ' Grava o erro completo no log para depuraï¿½ï¿½o
 
-            ' Exibe o alerta de erro para o usuário.
+            ' Exibe o alerta de erro para o usuï¿½rio.
             ScriptManager.RegisterStartupScript(Me, Me.GetType(), "alert", $"alert('{errorMsg}');", True)
         End Try
     End Sub
 
-    ' [INÍCIO - ICTRL-NF-202506-012]
+    ' [INï¿½CIO - ICTRL-NF-202506-012]
 
     ' Propriedade para armazenar o termo de busca entre postbacks
     Private Property TermoBusca As String
@@ -805,14 +805,14 @@ Public Class Consulta_Chamado
         End Set
     End Property
 
-    ' Evento do botão de busca
+    ' Evento do botï¿½o de busca
     Protected Sub btnBusca_Click(sender As Object, e As EventArgs)
         Me.TermoBusca = txtBusca.Text.Trim()
-        Me.CurrentPage = 1 ' Reseta para a primeira página ao buscar
+        Me.CurrentPage = 1 ' Reseta para a primeira pï¿½gina ao buscar
         BindChamados(Me.CurrentPage, Convert.ToInt32(ddlItemsPerPage.SelectedValue))
     End Sub
 
-    ' Evento do botão para limpar a busca
+    ' Evento do botï¿½o para limpar a busca
     Protected Sub btnLimparBusca_Click(sender As Object, e As EventArgs)
         Me.TermoBusca = String.Empty
         txtBusca.Text = String.Empty
@@ -823,7 +823,7 @@ Public Class Consulta_Chamado
     ' [FIM - ICTRL-NF-202506-012]
 
 
-    ' [INÍCIO - ICTRL-NF-202506-006]
+    ' [INï¿½CIO - ICTRL-NF-202506-006]
     Protected Sub btnConfirmarCancelamento_Click(sender As Object, e As EventArgs)
         Dim idChamado As Integer = Convert.ToInt32(hfIdChamado.Value)
         Dim motivoCancelamento As String = hfCancellationComment.Value
@@ -834,7 +834,7 @@ Public Class Consulta_Chamado
             ' PASSO 1: Tenta notificar o ServiceNow PRIMEIRO.
             DispararRequisicaoSimples("CANCELADO", motivoCancelamento)
 
-            ' PASSO 2: Se a notificação acima não falhar, executa a ação no banco de dados.
+            ' PASSO 2: Se a notificaï¿½ï¿½o acima nï¿½o falhar, executa a aï¿½ï¿½o no banco de dados.
             mensagemRetorno = WS_Chamado.ExecutarAcaoAtivo(Session("Conn_Banco"),
                                                     "dbo.pa_Ativo_Chamado",
                                                     "cancelar-manualmente",
@@ -845,8 +845,8 @@ Public Class Consulta_Chamado
             ScriptManager.RegisterStartupScript(Me, Me.GetType(), "alert", $"alert('{mensagemRetorno.Replace("'", "\'")}');", True)
 
         Catch ex As Exception
-            ' Se QUALQUER um dos passos falhar (principalmente a notificação),
-            ' o erro é capturado aqui e NADA é gravado no banco.
+            ' Se QUALQUER um dos passos falhar (principalmente a notificaï¿½ï¿½o),
+            ' o erro ï¿½ capturado aqui e NADA ï¿½ gravado no banco.
             Dim msgErro As String = $"Erro ao cancelar o chamado: {ex.Message}".Replace("'", "\'")
             ScriptManager.RegisterStartupScript(Me, Me.GetType(), "alert", $"alert('{msgErro}');", True)
         End Try
