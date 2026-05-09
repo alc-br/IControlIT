@@ -198,8 +198,8 @@ Public Class Consulta_Chamado
 
     Public Sub DispararRequisicaoSimples(estadoChamado As String, mensagem As String)
         Try
-            ' For�ar o uso do protocolo TLS 1.2
-            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 Or SecurityProtocolType.Tls11 Or SecurityProtocolType.Tls
+            ' For�ar o uso do protocolo TLS 1.2 (VAPT/SOC: removidos TLS 1.0 e 1.1)
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
 
             ' Configurar os dados de autentica��o e URL
             Dim authSistel As String = ConfigurationManager.AppSettings("auth_sistel")

@@ -27,6 +27,12 @@ Namespace Sync
     Public Class SuccessFactors
         Inherits WebService
 
+        ' [VAPT/SOC] For�a TLS 1.2 em todas as chamadas HttpWebRequest desta classe,
+        ' independentemente da configura��o do Schannel do servidor.
+        Shared Sub New()
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
+        End Sub
+
         Private WSSincronizacao As New WSSincronizacao()
         Private logFilePath As String = "C:\Temp\LogSuccessFactors.txt"
 
