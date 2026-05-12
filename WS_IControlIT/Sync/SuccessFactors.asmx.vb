@@ -56,63 +56,36 @@ Namespace Sync
             End Try
         End Sub
 
+        ' [PTP] Fluxo OAuth client_credentials (tenant pprv).
+        ' Le SF_token_url, SF_api_key, SF_client_id, SF_client_secret, SF_resource, SF_grant_type.
+        ' Faz um unico POST ao SF_token_url e extrai access_token do JSON de resposta.
         Private Function ObterTokenAcesso() As String
             Try
-                Dim clientId As String = ConfigurationManager.AppSettings("SF_client_id")
-                Dim userId As String = ConfigurationManager.AppSettings("SF_user_id")
                 Dim tokenUrl As String = ConfigurationManager.AppSettings("SF_token_url")
-                Dim privateKey As String = ConfigurationManager.AppSettings("SF_private_key")
-                Dim idpUrl As String = ConfigurationManager.AppSettings("SF_idp_url")
                 Dim apiKey As String = ConfigurationManager.AppSettings("SF_api_key")
-                Dim companyId As String = ConfigurationManager.AppSettings("SF_company_id")
+                Dim clientId As String = ConfigurationManager.AppSettings("SF_client_id")
+                Dim clientSecret As String = ConfigurationManager.AppSettings("SF_client_secret")
+                Dim resource As String = ConfigurationManager.AppSettings("SF_resource")
+                Dim grantType As String = ConfigurationManager.AppSettings("SF_grant_type")
 
-
-                If String.IsNullOrEmpty(clientId) OrElse String.IsNullOrEmpty(userId) OrElse String.IsNullOrEmpty(tokenUrl) OrElse String.IsNullOrEmpty(privateKey) Then
+                If String.IsNullOrEmpty(tokenUrl) OrElse String.IsNullOrEmpty(apiKey) OrElse
+                   String.IsNullOrEmpty(clientId) OrElse String.IsNullOrEmpty(clientSecret) OrElse
+                   String.IsNullOrEmpty(resource) OrElse String.IsNullOrEmpty(grantType) Then
                     EscreveLog("Configurações para token no web.config estão incompletas.")
                     Throw New Exception("Configurações para token estão incompletas.")
                 End If
 
-                ' 1) Obter a assertion do IDP
-                Dim postDataIdp As String = "client_id=" & Uri.EscapeDataString(clientId) &
-                                            "&user_id=" & Uri.EscapeDataString(userId) &
-                                            "&token_url=" & Uri.EscapeDataString(tokenUrl) &
-                                            "&private_key=" & Uri.EscapeDataString(privateKey)
-
-                Dim idpRequest As HttpWebRequest = CType(WebRequest.Create(idpUrl), HttpWebRequest)
-                idpRequest.Method = "POST"
-                idpRequest.Headers.Add("APIKey", apiKey)
-                idpRequest.ContentType = "application/x-www-form-urlencoded"
-                Dim idpData As Byte() = Encoding.UTF8.GetBytes(postDataIdp)
-                idpRequest.ContentLength = idpData.Length
-                Using stream As Stream = idpRequest.GetRequestStream()
-                    stream.Write(idpData, 0, idpData.Length)
-                End Using
-
-                Dim assertion As String = ""
-                Using idpResponse As HttpWebResponse = CType(idpRequest.GetResponse(), HttpWebResponse)
-                    Using reader As New StreamReader(idpResponse.GetResponseStream(), Encoding.UTF8)
-                        assertion = reader.ReadToEnd().Trim()
-                    End Using
-                End Using
-
-                If String.IsNullOrEmpty(assertion) Then
-                    EscreveLog("Não foi possível obter a assertion do IDP.")
-                    Throw New Exception("Assertion vazia do IDP.")
-                End If
-
-                ' 2) Obter o access_token usando a assertion
-                Dim oauthUrl As String = tokenUrl
-                Dim grantType As String = "urn:ietf:params:oauth:grant-type:saml2-bearer"
-
                 Dim postDataToken As String = "client_id=" & Uri.EscapeDataString(clientId) &
-                                              "&grant_type=" & Uri.EscapeDataString(grantType) &
-                                              "&company_id=" & Uri.EscapeDataString(companyId) &
-                                              "&assertion=" & Uri.EscapeDataString(assertion)
+                                              "&client_secret=" & Uri.EscapeDataString(clientSecret) &
+                                              "&resource=" & Uri.EscapeDataString(resource) &
+                                              "&grant_type=" & Uri.EscapeDataString(grantType)
 
-                Dim tokenRequest As HttpWebRequest = CType(WebRequest.Create(oauthUrl), HttpWebRequest)
+                Dim tokenRequest As HttpWebRequest = CType(WebRequest.Create(tokenUrl), HttpWebRequest)
                 tokenRequest.Method = "POST"
-                tokenRequest.Headers.Add("APIKey", apiKey)
                 tokenRequest.ContentType = "application/x-www-form-urlencoded"
+                tokenRequest.Accept = "application/json"
+                tokenRequest.Headers.Add("APIkey", apiKey)
+
                 Dim tokenData As Byte() = Encoding.UTF8.GetBytes(postDataToken)
                 tokenRequest.ContentLength = tokenData.Length
                 Using stream As Stream = tokenRequest.GetRequestStream()
@@ -120,11 +93,11 @@ Namespace Sync
                 End Using
 
                 Dim accessToken As String = ""
-                EscreveLog("1")
 
                 Using tokenResponse As HttpWebResponse = CType(tokenRequest.GetResponse(), HttpWebResponse)
                     Using reader As New StreamReader(tokenResponse.GetResponseStream(), Encoding.UTF8)
                         Dim jsonResp As String = reader.ReadToEnd()
+                        EscreveLog("Resposta do token: " & jsonResp)
                         Dim serializer As New JavaScriptSerializer()
                         Dim jsonDict As Dictionary(Of String, Object) = serializer.Deserialize(Of Dictionary(Of String, Object))(jsonResp)
                         If jsonDict.ContainsKey("access_token") Then
