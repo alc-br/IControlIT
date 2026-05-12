@@ -440,8 +440,35 @@ Namespace Sync
         End Function
 
 
+        ' [PTP] Carrega o catalogo Consumidor_Status do banco e retorna um dicionario
+        ' Nm_Consumidor_Status (uppercase, sem espacos extras) -> Id_Consumidor_Status.
+        ' Usado para resolver o emplStatus vindo do CompoundEmployee.
+        Private Function CarregarConsumidorStatus(pPConn_Banco As String) As Dictionary(Of String, Integer)
+            Dim mapa As New Dictionary(Of String, Integer)(StringComparer.OrdinalIgnoreCase)
+            Try
+                Dim wsCadastro As New WSCadastro()
+                Dim ds As Data.DataSet = wsCadastro.Consumidor_Status(pPConn_Banco, 0, "", 0, "busca_todos_dados", True)
+                If ds IsNot Nothing AndAlso ds.Tables.Count > 0 Then
+                    For Each row As Data.DataRow In ds.Tables(0).Rows
+                        Dim nome As String = Convert.ToString(row("Nm_Consumidor_Status"))
+                        Dim id As Integer = Convert.ToInt32(row("Id_Consumidor_Status"))
+                        If Not String.IsNullOrWhiteSpace(nome) Then
+                            mapa(nome.Trim()) = id
+                        End If
+                    Next
+                End If
+                EscreveLog($"Consumidor_Status carregado: {mapa.Count} status encontrados.")
+            Catch ex As Exception
+                EscreveLog($"Erro ao carregar Consumidor_Status: {ex.Message}")
+            End Try
+            Return mapa
+        End Function
+
         ' Gera XML para consumidores a partir de dados extraídos do CompoundEmployee (ajuste conforme sua necessidade)
-        Private Function GerarXmlConsumidores(consumersData As List(Of Dictionary(Of String, Object))) As String
+        Private Function GerarXmlConsumidores(consumersData As List(Of Dictionary(Of String, Object)), pPConn_Banco As String) As String
+            ' [PTP] Pre-carrega catalogo de Consumidor_Status para resolver emplStatus -> Id_Consumidor_Status
+            Dim mapaConsumidorStatus As Dictionary(Of String, Integer) = CarregarConsumidorStatus(pPConn_Banco)
+
             Dim sb As New StringBuilder()
             sb.AppendLine("<Root>")
             For Each item In consumersData
@@ -482,7 +509,19 @@ Namespace Sync
                 Dim Cd_Departamento As String = EncodeXml(GetValue("department", "PENDENTE"))
                 Dim Cd_Setor As String = "PENDENTE"
                 Dim flDesativado As Integer = If(statusConsumidor = "false", 1, 0)
-                Dim idConsumidorStatus As Integer = If(statusConsumidor = "true", 1, 2)
+                Dim emplStatus As String = EncodeXml(GetValue("emplStatus", "PENDENTE"))
+
+                ' [PTP] Resolve emplStatus para o Id_Consumidor_Status correspondente,
+                ' consultando o catalogo Consumidor_Status carregado uma unica vez (mapaConsumidorStatus).
+                Dim idConsumidorStatus As Integer = 0
+                If Not String.IsNullOrWhiteSpace(emplStatus) Then
+                    Dim chaveStatus As String = emplStatus.Trim()
+                    If mapaConsumidorStatus.ContainsKey(chaveStatus) Then
+                        idConsumidorStatus = mapaConsumidorStatus(chaveStatus)
+                    Else
+                        EscreveLog($"emplStatus '{chaveStatus}' nao encontrado em Consumidor_Status. Usando Id_Consumidor_Status=0.")
+                    End If
+                End If
 
                 Dim dtDesativacao As String = ""
                 Dim end_date As String = GetValue("end_date", "")
@@ -966,7 +1005,7 @@ Namespace Sync
                 EscreveLog("FIM DADOS")
 
                 ' 4) Gerar XML para sincronização
-                Dim xmlConsumidores As String = GerarXmlConsumidores(consumersData)
+                Dim xmlConsumidores As String = GerarXmlConsumidores(consumersData, pPConn_Banco)
                 EscreveLog("XML gerado para consumidores." & xmlConsumidores)
 
                 ' 5) Sincronizar em lote (chamar WSSincronizacao)
