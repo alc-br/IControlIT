@@ -440,74 +440,11 @@ Namespace Sync
         End Function
 
 
-        ' [PTP] Matricula que estamos diagnosticando ativamente (Barbara Thaunna).
-        ' Mude para "" para desligar o log focado. Qualquer linha contendo essa matricula vai para C:\Temp\LogBarbara.txt.
-        Private Const MATRICULA_DEBUG As String = "81011655"
-        Private barbaraLogPath As String = "C:\Temp\LogBarbara.txt"
-
-        Private Sub LogBarbara(ByVal mensagem As String)
-            Try
-                Dim dir As String = Path.GetDirectoryName(barbaraLogPath)
-                If Not Directory.Exists(dir) Then Directory.CreateDirectory(dir)
-                Using sw As StreamWriter = New StreamWriter(barbaraLogPath, True)
-                    sw.WriteLine($"{DateTime.Now:yyyy-MM-dd HH:mm:ss.fff}: {mensagem}")
-                End Using
-            Catch
-                ' Engole - log diagnostico nunca pode lancar
-            End Try
-        End Sub
-
-        ' [PTP] Carrega o catalogo Consumidor_Status do banco diretamente via cls_Banco
-        ' (SELECT direto, sem depender de procedure/pakage).
-        ' cd_Status (codigo de 1 letra: A, T, S, D, F, O, P, R, U) -> Id_Consumidor_Status.
-        Private Function CarregarConsumidorStatus(pPConn_Banco As String) As Dictionary(Of String, Integer)
-            Dim mapa As New Dictionary(Of String, Integer)(StringComparer.OrdinalIgnoreCase)
-            Try
-                ' Usa cls_Banco diretamente. Como retorna_Query espera StoredProcedure, usamos a propria pa_Consumidor_Status
-                ' com pakage vazio - se a procedure aceitar, retorna tudo; senao caimos no fallback abaixo.
-                Dim wsCadastro As New WSCadastro()
-                Dim ds As Data.DataSet = wsCadastro.Consumidor_Status(pPConn_Banco, 0, "", 0, "", True)
-
-                Dim totalLinhas As Integer = 0
-                Dim ignoradasNull As Integer = 0
-                If ds IsNot Nothing AndAlso ds.Tables.Count > 0 Then
-                    totalLinhas = ds.Tables(0).Rows.Count
-                    For Each row As Data.DataRow In ds.Tables(0).Rows
-                        ' Tolerante: se a coluna cd_Status nao existe ou e null, pula
-                        If Not ds.Tables(0).Columns.Contains("cd_Status") Then Exit For
-                        If row.IsNull("cd_Status") Then
-                            ignoradasNull += 1
-                            Continue For
-                        End If
-
-                        Dim codigo As String = Convert.ToString(row("cd_Status"))
-                        Dim id As Integer = Convert.ToInt32(row("Id_Consumidor_Status"))
-                        Dim nome As String = If(row.Table.Columns.Contains("Nm_Consumidor_Status"), Convert.ToString(row("Nm_Consumidor_Status")), "")
-                        If Not String.IsNullOrWhiteSpace(codigo) Then
-                            mapa(codigo.Trim()) = id
-                            LogBarbara($"  catalogo[{codigo.Trim()}] = {id} ({nome})")
-                        End If
-                    Next
-                End If
-
-                Dim colsInfo As String = If(ds IsNot Nothing AndAlso ds.Tables.Count > 0,
-                    String.Join(",", ds.Tables(0).Columns.Cast(Of Data.DataColumn).Select(Function(c) c.ColumnName)),
-                    "(sem tabelas)")
-                Dim msg As String = $"Consumidor_Status carregado: total_linhas={totalLinhas} ignoradas_null={ignoradasNull} no_mapa={mapa.Count}. Colunas=[{colsInfo}]. Chaves=[{String.Join(",", mapa.Keys)}]"
-                EscreveLog(msg)
-                LogBarbara(msg)
-            Catch ex As Exception
-                EscreveLog($"Erro ao carregar Consumidor_Status: {ex.Message}")
-                LogBarbara($"ERRO CarregarConsumidorStatus: {ex.Message} | Stack={ex.StackTrace}")
-            End Try
-            Return mapa
-        End Function
-
-        ' Gera XML para consumidores a partir de dados extraídos do CompoundEmployee (ajuste conforme sua necessidade)
-        Private Function GerarXmlConsumidores(consumersData As List(Of Dictionary(Of String, Object)), pPConn_Banco As String) As String
-            ' [PTP] Pre-carrega catalogo de Consumidor_Status para resolver emplStatus -> Id_Consumidor_Status
-            Dim mapaConsumidorStatus As Dictionary(Of String, Integer) = CarregarConsumidorStatus(pPConn_Banco)
-
+        ' Gera XML para consumidores a partir de dados extraídos do CompoundEmployee.
+        ' [PTP] Envia <Cd_Consumidor_Status> com o codigo cru do emplStatus (ex: P, A, T).
+        ' A procedure pa_SincronizarEstruturaOrganizacional (bloco MERGE_CONSUMIDOR)
+        ' resolve internamente para Id_Consumidor_Status via JOIN em Consumidor_Status.cd_Status.
+        Private Function GerarXmlConsumidores(consumersData As List(Of Dictionary(Of String, Object))) As String
             Dim sb As New StringBuilder()
             sb.AppendLine("<Root>")
             For Each item In consumersData
@@ -548,43 +485,10 @@ Namespace Sync
                 Dim Cd_Departamento As String = EncodeXml(GetValue("department", "PENDENTE"))
                 Dim Cd_Setor As String = "PENDENTE"
                 Dim flDesativado As Integer = If(statusConsumidor = "false", 1, 0)
-                ' [PTP] emplStatus do CompoundEmployee vem como codigo de 1 letra (ex: P para Paid Leave).
-                ' NAO aplicamos EncodeXml aqui porque eh um codigo, nao texto livre.
-                Dim emplStatusRaw As String = GetValue("emplStatus", "")
-
-                ' [PTP] Log focado: dump completo de tudo que sabemos para a matricula em diagnostico
-                Dim ehDebug As Boolean = (matricula = MATRICULA_DEBUG)
-                If ehDebug Then
-                    LogBarbara($"--- INICIO DUMP matricula={matricula} ({nmConsumidor}) ---")
-                    LogBarbara($"emplStatusRaw bruto do dicionario = '{emplStatusRaw}' (Length={emplStatusRaw.Length})")
-                    LogBarbara($"item.ContainsKey('emplStatus') = {item.ContainsKey("emplStatus")}")
-                    If item.ContainsKey("emplStatus") Then
-                        LogBarbara($"item('emplStatus') = '{item("emplStatus")}' (IsNothing={item("emplStatus") Is Nothing})")
-                    End If
-                    LogBarbara($"mapaConsumidorStatus.Count = {mapaConsumidorStatus.Count}")
-                    LogBarbara($"mapaConsumidorStatus chaves = [{String.Join(",", mapaConsumidorStatus.Keys)}]")
-                End If
-
-                ' [PTP] Resolve emplStatus -> Id_Consumidor_Status via mapa cd_Status (carregado uma unica vez).
-                Dim idConsumidorStatus As Integer = 0
-                If Not String.IsNullOrWhiteSpace(emplStatusRaw) Then
-                    Dim chaveStatus As String = emplStatusRaw.Trim()
-                    If mapaConsumidorStatus.ContainsKey(chaveStatus) Then
-                        idConsumidorStatus = mapaConsumidorStatus(chaveStatus)
-                        If ehDebug Then LogBarbara($"LOOKUP OK: chave='{chaveStatus}' -> Id_Consumidor_Status={idConsumidorStatus}")
-                    Else
-                        EscreveLog($"emplStatus '{chaveStatus}' (matricula={matricula}) nao encontrado em Consumidor_Status.cd_Status. Usando Id_Consumidor_Status=0.")
-                        If ehDebug Then LogBarbara($"LOOKUP FALHOU: chave='{chaveStatus}' nao existe no mapa. Usando 0.")
-                    End If
-                Else
-                    EscreveLog($"emplStatus vazio para matricula={matricula}. Usando Id_Consumidor_Status=0.")
-                    If ehDebug Then LogBarbara($"emplStatusRaw vazio/whitespace. Usando 0.")
-                End If
-
-                If ehDebug Then
-                    LogBarbara($"VALOR FINAL: idConsumidorStatus={idConsumidorStatus}")
-                    LogBarbara($"--- FIM DUMP matricula={matricula} ---")
-                End If
+                ' [PTP] emplStatus do CompoundEmployee vem como codigo de 1 letra (ex: P, A, T).
+                ' Enviamos no XML como Cd_Consumidor_Status; a procedure resolve para Id_Consumidor_Status
+                ' via JOIN em Consumidor_Status.cd_Status (com fallback para 6=INVALID em novos consumidores).
+                Dim cdConsumidorStatus As String = GetValue("emplStatus", "")
 
                 Dim dtDesativacao As String = ""
                 Dim end_date As String = GetValue("end_date", "")
@@ -615,7 +519,7 @@ Namespace Sync
                 sb.AppendLine($"    <Nm_Consumidor>{nmConsumidor}</Nm_Consumidor>")
                 sb.AppendLine($"    <Matricula>{matricula}</Matricula>")
                 sb.AppendLine($"    <EMail>{email}</EMail>")
-                sb.AppendLine($"    <Id_Consumidor_Status>{idConsumidorStatus}</Id_Consumidor_Status>")
+                sb.AppendLine($"    <Cd_Consumidor_Status>{cdConsumidorStatus}</Cd_Consumidor_Status>")
                 sb.AppendLine($"    <Matricula_Chefia>{matriculaChefia}</Matricula_Chefia>")
                 sb.AppendLine($"    <Fl_Desativado>{flDesativado}</Fl_Desativado>")
                 sb.AppendLine($"    <Nm_Cidade>{nmCidade}</Nm_Cidade>")
@@ -1018,27 +922,6 @@ Namespace Sync
                         empData("emplStatus") = ""
                     End If
 
-                    ' [PTP] Log focado: se este sfobject e da matricula em diagnostico, despeja o XML inteiro
-                    ' e tenta varios XPaths alternativos para localizar o emplStatus.
-                    Dim personIdMatch As String = If(empData.ContainsKey("person_id_external"), Convert.ToString(empData("person_id_external")), "")
-                    If personIdMatch = MATRICULA_DEBUG Then
-                        LogBarbara("=========== sfobject da matricula em diagnostico ===========")
-                        LogBarbara($"XML cru do sfobject:")
-                        LogBarbara(sfobjNode.OuterXml)
-                        LogBarbara($"emplStatus extraido (XPath padrao) = '{empData("emplStatus")}' (NodeEncontrado={emplStatusNode IsNot Nothing})")
-
-                        ' Tenta XPaths alternativos
-                        Dim alt1 = sfobjNode.SelectSingleNode("sf:person/sf:emplStatus", nsMgr)
-                        LogBarbara($"  alt1 (sf:person/sf:emplStatus) = {If(alt1 Is Nothing, "<null>", alt1.InnerText)}")
-                        Dim alt2 = sfobjNode.SelectSingleNode(".//sf:emplStatus", nsMgr)
-                        LogBarbara($"  alt2 (.//sf:emplStatus, descendant) = {If(alt2 Is Nothing, "<null>", alt2.InnerText)}")
-                        Dim alt3 = sfobjNode.SelectSingleNode("sf:person/sf:employment_information/sf:emplStatus", nsMgr)
-                        LogBarbara($"  alt3 (employment_information/emplStatus) = {If(alt3 Is Nothing, "<null>", alt3.InnerText)}")
-                        Dim alt4 = sfobjNode.SelectSingleNode("sf:person/sf:employment_information/sf:job_information_v2/sf:emplStatus", nsMgr)
-                        LogBarbara($"  alt4 (job_information_v2/emplStatus) = {If(alt4 Is Nothing, "<null>", alt4.InnerText)}")
-                        LogBarbara("============================================================")
-                    End If
-
                     ' Opcional: Extrair <id> como employeeIdentifier (se ainda necessário)
                     Dim idNode = sfobjNode.SelectSingleNode("sf:id", nsMgr)
                     If idNode IsNot Nothing Then
@@ -1098,7 +981,7 @@ Namespace Sync
                 EscreveLog("FIM DADOS")
 
                 ' 4) Gerar XML para sincronização
-                Dim xmlConsumidores As String = GerarXmlConsumidores(consumersData, pPConn_Banco)
+                Dim xmlConsumidores As String = GerarXmlConsumidores(consumersData)
                 EscreveLog("XML gerado para consumidores." & xmlConsumidores)
 
                 ' 5) Sincronizar em lote (chamar WSSincronizacao)
