@@ -56,63 +56,36 @@ Namespace Sync
             End Try
         End Sub
 
+        ' [PTP] Fluxo OAuth client_credentials (tenant pprv).
+        ' Le SF_token_url, SF_api_key, SF_client_id, SF_client_secret, SF_resource, SF_grant_type.
+        ' Faz um unico POST ao SF_token_url e extrai access_token do JSON de resposta.
         Private Function ObterTokenAcesso() As String
             Try
-                Dim clientId As String = ConfigurationManager.AppSettings("SF_client_id")
-                Dim userId As String = ConfigurationManager.AppSettings("SF_user_id")
                 Dim tokenUrl As String = ConfigurationManager.AppSettings("SF_token_url")
-                Dim privateKey As String = ConfigurationManager.AppSettings("SF_private_key")
-                Dim idpUrl As String = ConfigurationManager.AppSettings("SF_idp_url")
                 Dim apiKey As String = ConfigurationManager.AppSettings("SF_api_key")
-                Dim companyId As String = ConfigurationManager.AppSettings("SF_company_id")
+                Dim clientId As String = ConfigurationManager.AppSettings("SF_client_id")
+                Dim clientSecret As String = ConfigurationManager.AppSettings("SF_client_secret")
+                Dim resource As String = ConfigurationManager.AppSettings("SF_resource")
+                Dim grantType As String = ConfigurationManager.AppSettings("SF_grant_type")
 
-
-                If String.IsNullOrEmpty(clientId) OrElse String.IsNullOrEmpty(userId) OrElse String.IsNullOrEmpty(tokenUrl) OrElse String.IsNullOrEmpty(privateKey) Then
+                If String.IsNullOrEmpty(tokenUrl) OrElse String.IsNullOrEmpty(apiKey) OrElse
+                   String.IsNullOrEmpty(clientId) OrElse String.IsNullOrEmpty(clientSecret) OrElse
+                   String.IsNullOrEmpty(resource) OrElse String.IsNullOrEmpty(grantType) Then
                     EscreveLog("Configurações para token no web.config estão incompletas.")
                     Throw New Exception("Configurações para token estão incompletas.")
                 End If
 
-                ' 1) Obter a assertion do IDP
-                Dim postDataIdp As String = "client_id=" & Uri.EscapeDataString(clientId) &
-                                            "&user_id=" & Uri.EscapeDataString(userId) &
-                                            "&token_url=" & Uri.EscapeDataString(tokenUrl) &
-                                            "&private_key=" & Uri.EscapeDataString(privateKey)
-
-                Dim idpRequest As HttpWebRequest = CType(WebRequest.Create(idpUrl), HttpWebRequest)
-                idpRequest.Method = "POST"
-                idpRequest.Headers.Add("APIKey", apiKey)
-                idpRequest.ContentType = "application/x-www-form-urlencoded"
-                Dim idpData As Byte() = Encoding.UTF8.GetBytes(postDataIdp)
-                idpRequest.ContentLength = idpData.Length
-                Using stream As Stream = idpRequest.GetRequestStream()
-                    stream.Write(idpData, 0, idpData.Length)
-                End Using
-
-                Dim assertion As String = ""
-                Using idpResponse As HttpWebResponse = CType(idpRequest.GetResponse(), HttpWebResponse)
-                    Using reader As New StreamReader(idpResponse.GetResponseStream(), Encoding.UTF8)
-                        assertion = reader.ReadToEnd().Trim()
-                    End Using
-                End Using
-
-                If String.IsNullOrEmpty(assertion) Then
-                    EscreveLog("Não foi possível obter a assertion do IDP.")
-                    Throw New Exception("Assertion vazia do IDP.")
-                End If
-
-                ' 2) Obter o access_token usando a assertion
-                Dim oauthUrl As String = tokenUrl
-                Dim grantType As String = "urn:ietf:params:oauth:grant-type:saml2-bearer"
-
                 Dim postDataToken As String = "client_id=" & Uri.EscapeDataString(clientId) &
-                                              "&grant_type=" & Uri.EscapeDataString(grantType) &
-                                              "&company_id=" & Uri.EscapeDataString(companyId) &
-                                              "&assertion=" & Uri.EscapeDataString(assertion)
+                                              "&client_secret=" & Uri.EscapeDataString(clientSecret) &
+                                              "&resource=" & Uri.EscapeDataString(resource) &
+                                              "&grant_type=" & Uri.EscapeDataString(grantType)
 
-                Dim tokenRequest As HttpWebRequest = CType(WebRequest.Create(oauthUrl), HttpWebRequest)
+                Dim tokenRequest As HttpWebRequest = CType(WebRequest.Create(tokenUrl), HttpWebRequest)
                 tokenRequest.Method = "POST"
-                tokenRequest.Headers.Add("APIKey", apiKey)
                 tokenRequest.ContentType = "application/x-www-form-urlencoded"
+                tokenRequest.Accept = "application/json"
+                tokenRequest.Headers.Add("APIkey", apiKey)
+
                 Dim tokenData As Byte() = Encoding.UTF8.GetBytes(postDataToken)
                 tokenRequest.ContentLength = tokenData.Length
                 Using stream As Stream = tokenRequest.GetRequestStream()
@@ -120,11 +93,11 @@ Namespace Sync
                 End Using
 
                 Dim accessToken As String = ""
-                EscreveLog("1")
 
                 Using tokenResponse As HttpWebResponse = CType(tokenRequest.GetResponse(), HttpWebResponse)
                     Using reader As New StreamReader(tokenResponse.GetResponseStream(), Encoding.UTF8)
                         Dim jsonResp As String = reader.ReadToEnd()
+                        EscreveLog("Resposta do token: " & jsonResp)
                         Dim serializer As New JavaScriptSerializer()
                         Dim jsonDict As Dictionary(Of String, Object) = serializer.Deserialize(Of Dictionary(Of String, Object))(jsonResp)
                         If jsonDict.ContainsKey("access_token") Then
@@ -467,7 +440,10 @@ Namespace Sync
         End Function
 
 
-        ' Gera XML para consumidores a partir de dados extraídos do CompoundEmployee (ajuste conforme sua necessidade)
+        ' Gera XML para consumidores a partir de dados extraídos do CompoundEmployee.
+        ' [PTP] Envia <Cd_Consumidor_Status> com o codigo cru do emplStatus (ex: P, A, T).
+        ' A procedure pa_SincronizarEstruturaOrganizacional (bloco MERGE_CONSUMIDOR)
+        ' resolve internamente para Id_Consumidor_Status via JOIN em Consumidor_Status.cd_Status.
         Private Function GerarXmlConsumidores(consumersData As List(Of Dictionary(Of String, Object))) As String
             Dim sb As New StringBuilder()
             sb.AppendLine("<Root>")
@@ -509,7 +485,10 @@ Namespace Sync
                 Dim Cd_Departamento As String = EncodeXml(GetValue("department", "PENDENTE"))
                 Dim Cd_Setor As String = "PENDENTE"
                 Dim flDesativado As Integer = If(statusConsumidor = "false", 1, 0)
-                Dim idConsumidorStatus As Integer = If(statusConsumidor = "true", 1, 2)
+                ' [PTP] emplStatus do CompoundEmployee vem como codigo de 1 letra (ex: P, A, T).
+                ' Enviamos no XML como Cd_Consumidor_Status; a procedure resolve para Id_Consumidor_Status
+                ' via JOIN em Consumidor_Status.cd_Status (com fallback para 6=INVALID em novos consumidores).
+                Dim cdConsumidorStatus As String = GetValue("emplStatus", "")
 
                 Dim dtDesativacao As String = ""
                 Dim end_date As String = GetValue("end_date", "")
@@ -540,7 +519,7 @@ Namespace Sync
                 sb.AppendLine($"    <Nm_Consumidor>{nmConsumidor}</Nm_Consumidor>")
                 sb.AppendLine($"    <Matricula>{matricula}</Matricula>")
                 sb.AppendLine($"    <EMail>{email}</EMail>")
-                sb.AppendLine($"    <Id_Consumidor_Status>{idConsumidorStatus}</Id_Consumidor_Status>")
+                sb.AppendLine($"    <Cd_Consumidor_Status>{cdConsumidorStatus}</Cd_Consumidor_Status>")
                 sb.AppendLine($"    <Matricula_Chefia>{matriculaChefia}</Matricula_Chefia>")
                 sb.AppendLine($"    <Fl_Desativado>{flDesativado}</Fl_Desativado>")
                 sb.AppendLine($"    <Nm_Cidade>{nmCidade}</Nm_Cidade>")
@@ -932,6 +911,15 @@ Namespace Sync
                         empData("department") = departmentNode.InnerText
                     Else
                         empData("department") = "PENDENTE"
+                    End If
+
+                    ' [PTP] 11. Extrair <emplStatus> de employment_information/job_information.
+                    ' Vem como codigo de 1 letra (ex: A, T, P, R) - sera mapeado para Id_Consumidor_Status via cd_Status.
+                    Dim emplStatusNode = sfobjNode.SelectSingleNode("sf:person/sf:employment_information/sf:job_information/sf:emplStatus", nsMgr)
+                    If emplStatusNode IsNot Nothing Then
+                        empData("emplStatus") = emplStatusNode.InnerText
+                    Else
+                        empData("emplStatus") = ""
                     End If
 
                     ' Opcional: Extrair <id> como employeeIdentifier (se ainda necessário)
